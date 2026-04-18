@@ -1,0 +1,11 @@
+{
+  "name": "hello-ai-coding-agent",
+  "version": "1.0.0",
+  "description": "A hello-world scaffold for AI coding agent experimentation",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
