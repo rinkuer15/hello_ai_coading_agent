@@ -6,7 +6,7 @@
 
 ## Project Overview
 
-Hello AI Coding Agent is a bare-bones Node.js scaffold designed as a starting point for AI-assisted coding agent experimentation. The entire runtime behaviour today is a single `console.log('Hello, AI Coding Agent!')` call inside a `main()` function — the project's purpose is to provide a clean, minimal canvas on which AI agents can iteratively add real functionality.
+Hello AI Coding Agent is a bare-bones Node.js scaffold designed as a controlled, minimal target repository for AI-assisted coding agent experimentation. The entire runtime behaviour today is a single `console.log('Hello, AI Coding Agent!')` call inside a `main()` function — the project's purpose is to provide a clean, minimal canvas on which AI agents can iteratively add real functionality.
 
 This is a CLI-style application with no HTTP layer, no database, and no framework. It runs directly with `node src/index.js` (plain JavaScript, CommonJS/ES5-style). There are zero runtime or development dependencies. Any agent working on this project is, by definition, extending its capabilities from scratch.
 
