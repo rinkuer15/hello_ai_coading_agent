@@ -4,3 +4,4 @@ dist/
 *.log
 __pycache__/
 .DS_Store
+.hello-ai-config.json
