@@ -12,7 +12,7 @@ this file wins on code style and conventions.
 
 ## Project Overview
 
-A minimal Node.js scaffold for AI-assisted coding agent experimentation — the entire runtime is a single `console.log` wrapped in a `main()` function in `src/index.js`, with no dependencies, no build step, and no module system established. It runs directly with `node` and is deployed nowhere; it exists as a clean starting point for agents to extend.
+A minimal Node.js CLI scaffold for AI-assisted coding agent experimentation — the entire runtime is a single `console.log` wrapped in a `main()` function in `src/index.js`, with no dependencies, no build step, and no module system established. It runs directly with `node` and is deployed nowhere; it exists as a clean starting point for agents to extend.
 
 ---
 
