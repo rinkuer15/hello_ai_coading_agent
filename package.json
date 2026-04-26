@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "A hello-world scaffold for AI coding agent experimentation",
   "main": "src/index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "start": "node src/index.js",
     "test": "node --test",
-    "type-check": "node --check src/index.js",
-    "lint": "node --check src/index.js"
+    "type-check": "node --check src/index.js src/theme.js src/config.js",
+    "lint": "node --check src/index.js src/theme.js src/config.js"
   },
   "license": "MIT"
 }
