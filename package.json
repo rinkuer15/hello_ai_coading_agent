@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A hello-world scaffold for AI coding agent experimentation",
   "main": "src/index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "start": "node src/index.js",
     "test": "node --test",
