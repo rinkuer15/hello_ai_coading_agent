@@ -1,0 +1,51 @@
+{
+  "project": "hello-ai-coding-agent",
+  "branchName": "ralph/landing-page",
+  "prdFile": "prd.md",
+  "description": "Replace bare console.log with a structured ASCII landing page rendered to stdout from main()",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Implementing landing page output",
+      "description": "As an AI agent or developer, I want `npm start` to display a structured landing page so that I immediately understand the project name, purpose, and available commands without reading external docs.",
+      "acceptanceCriteria": [
+        "`npm start` prints a multi-line landing page beginning with a separator line of `=` characters",
+        "Output includes the project name `Hello, AI Coding Agent!` and a brief purpose description",
+        "Output lists all four npm commands: `npm start`, `npm test`, `npm run lint`, `npm run type-check`",
+        "Output includes an 'Extend me' section referencing `src/index.js` and `src/*.test.js`",
+        "Output ends with a closing separator line",
+        "`npm start` exits with code 0",
+        "`npm run lint` passes — `node --check src/index.js` exits 0",
+        "`npm run type-check` passes — exits 0",
+        "No new dependencies added to package.json",
+        "No `require` or `import` introduced (no module system established by this story)",
+        "All logic called from `main()` — no top-level side-effects other than the existing `main()` invocation"
+      ],
+      "technicalNotes": "Modify `src/index.js` (the only source file). Replace the current `console.log('Hello, AI Coding Agent!')` inside `main()` with either: (a) multiple `console.log()` calls, or (b) a single `console.log()` with a template literal. Optionally extract a `renderLandingPage()` helper function declared above `main()` using standard `function` declaration style (matching the existing `main()` pattern at src/index.js:1). Do NOT use `require`/`import`. Do NOT add dependencies.",
+      "dependsOn": [],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Writing landing page tests",
+      "description": "As a developer, I want automated tests for the landing page output so that regressions are caught when `src/index.js` is modified.",
+      "acceptanceCriteria": [
+        "Test file `src/index.test.js` exists and is discovered by `node --test`",
+        "`npm test` exits 0 AND reports at least 1 test executed (not 0 tests)",
+        "Tests assert that the landing page output contains `Hello, AI Coding Agent!`",
+        "Tests assert that the output contains the string `npm test`",
+        "Tests assert that the output contains the string `npm run lint`",
+        "Tests assert that the output contains `src/index.js`",
+        "Tests use only `node:assert` and `node:test` (no external test libraries)",
+        "`npm run lint` passes with both `src/index.js` and `src/index.test.js` present"
+      ],
+      "technicalNotes": "Create `src/index.test.js`. Use Node.js built-in test runner: `import { test } from 'node:test'; import assert from 'node:assert';` — OR CJS equivalent `const { test } = require('node:test'); const assert = require('node:assert');`. IMPORTANT: if this is the first file to introduce `require` or `import`, it sets the module system precedent for the whole repo — choose deliberately. Capture stdout by temporarily replacing `console.log` with a stub, or by extracting `renderLandingPage()` from US-001 so it returns a string that can be tested directly without stdout capture. The simpler approach: if US-001 extracted `renderLandingPage()` that returns a string, import/require it and assert on the return value. File pattern `src/*.test.js` is discovered by `node --test` automatically.",
+      "dependsOn": ["US-001"],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}
