@@ -1,0 +1,8 @@
+node_modules/
+dist/
+build/
+.git/
+.devox/
+graphify-out/
+*.lock
+*.lockb
