@@ -16,25 +16,38 @@ this file wins on code style and conventions.
 
 ## Project Overview
 
-Hello AI Coding Agent is a deliberately minimal Node.js CLI application whose entire runtime behaviour is a single `console.log` statement. The project's real purpose is to serve as a controlled, observable experimental substrate for AI coding agents — a sandbox where agent behaviour, governance compliance, and code-quality tooling can be tested against a codebase small enough to fully understand in seconds.
+`hello_ai_coading_agent` is a minimal Node.js CLI scaffold designed as an experimentation
+platform for AI-assisted coding agents. Its runtime behaviour is intentionally trivial: running
+`node src/index.js` (or `npm start`) prints `Hello, AI Coding Agent!` to stdout and exits 0.
+The application itself is four lines of plain JavaScript.
 
-The application is a command-line program: run `node src/index.js` (or `npm start`) and it prints `Hello, AI Coding Agent!` to stdout then exits with code 0. There is no server, no database, no framework, and no user interaction. All complexity lives in the governance layer — the four protected files (MISSION.md, GUARDRAILS.md, AGENTS.md, CLAUDE.md) are architecturally as significant as the source code itself.
+The real substance of the project is its **governance layer** — a set of protected markdown
+files (`MISSION.md`, `GUARDRAILS.md`, `CLAUDE.md`, `AGENTS.md`) that define exactly how AI
+coding agents may and may not operate on the repository. This makes the project a controlled
+environment for testing, validating, and refining agent behaviour under strict constraints.
 
-The primary language is plain JavaScript (no TypeScript, no transpilation). The runtime is Node.js with no version constraint currently pinned. There are zero npm dependencies. The build pipeline is `node --check` for syntax validation and `node --test` for the built-in test runner. This project is intentionally kept at near-zero complexity so that any agent modification is immediately visible and attributable.
+The project has zero external dependencies, no build step, no framework, and no database.
+It targets any modern Node.js version (currently unpinned) and is deployed purely as a local
+CLI invocation. Developers and AI agents alike interact with it through four npm scripts:
+`start`, `test`, `lint`, and `type-check`.
 
 ---
 
 ## Tech Stack
 
-| Layer           | Technology                                              |
-|-----------------|---------------------------------------------------------|
-| Runtime         | Node.js (version unpinned — do not use version-specific APIs without adding `.nvmrc` + `"engines"` in `package.json`) |
-| Language        | Plain JavaScript, ES5-compatible, single-quoted strings |
-| Framework       | None                                                    |
-| Database        | None                                                    |
-| Test runner     | `node --test` (Node.js built-in; discovers `**/*.test.js`, `**/*.spec.js`, `test/`) |
-| Lint            | `node --check src/index.js` (syntax validation only — not a real linter) |
-| Package manager | npm (no `package-lock.json` until first dependency is added) |
+| Layer | Technology |
+|-------|------------|
+| Runtime | Node.js (version unpinned — no `.nvmrc`, no `"engines"` field) |
+| Language | Plain JavaScript, ES5-compatible, single-quoted strings, semicolons |
+| Framework | None |
+| Database | None |
+| Module system | None — no `require`, no `import` anywhere |
+| Test runner | `node --test` (Node.js built-in; auto-discovers `*.test.js` / `*.spec.js`) |
+| Lint | `node --check src/index.js` (syntax validation only — NOT a real linter) |
+| Type check | `node --check src/index.js` (intentionally identical to lint) |
+| Build | None — no transpilation, no bundler, no `dist/` output |
+| Package manager | npm (no `package-lock.json` — zero deps) |
+| Dependencies | Zero — no `dependencies` or `devDependencies` in `package.json` |
 
 ---
 
@@ -42,45 +55,47 @@ The primary language is plain JavaScript (no TypeScript, no transpilation). The 
 
     .
     ├── src/
-    │   └── index.js        # Sole application source; defines and invokes main()
-    ├── package.json         # npm metadata, scripts, zero dependencies
-    ├── README.md            # Human-facing setup and usage instructions
-    ├── MISSION.md           # PROTECTED — project scope, hard invariants, allowed evolutions
-    ├── GUARDRAILS.md        # PROTECTED — process rules, auto-reject triggers, quality gates
-    ├── AGENTS.md            # PROTECTED — AI agent instructions and tech stack reference
-    ├── CLAUDE.md            # PROTECTED — code style authority; this file
-    └── .gitignore           # Excludes node_modules/, dist/, .env, *.log, __pycache__, .DS_Store
+    │   └── index.js          ← Entire application: declares main(), invokes it. 4 lines.
+    ├── graphify-out/
+    │   ├── cache/            ← Knowledge graph cache (gitignored manifest/cost files)
+    │   └── ...               ← Knowledge graph output (rest tracked)
+    ├── package.json          ← npm metadata, 4 scripts, zero deps, "main": "src/index.js"
+    ├── README.md             ← Human-facing: setup, usage, test, contributing
+    ├── MISSION.md            ← PROTECTED. Scope authority.
+    ├── GUARDRAILS.md         ← PROTECTED. Process authority and auto-reject triggers.
+    ├── CLAUDE.md             ← PROTECTED. Style authority (this file).
+    ├── AGENTS.md             ← PROTECTED. Redirect shim to CLAUDE.md.
+    └── .gitignore            ← Excludes node_modules/, dist/, .env, *.log, __pycache__/, .DS_Store
 
-**Data flow:** `node src/index.js` evaluates the module, calls `main()`, writes `Hello, AI Coding Agent!` to stdout, then exits 0. No inputs, no branches, no external calls, no return values.
+**Data flow:** `npm start` → Node evaluates `src/index.js` → `main()` is declared, then
+invoked → `console.log('Hello, AI Coding Agent!')` writes to stdout → process exits 0.
+No inputs, no branches, no return values, no I/O beyond stdout.
 
 ---
 
 ## Build, Test & Lint
 
-    # Install dependencies (currently zero — creates no lock file)
+    # Install dependencies (currently a no-op — zero deps — but run after any dep is added)
     npm install
 
-    # Run all tests
+    # Run application
+    npm start
+
+    # Run all tests (discovers *.test.js / *.spec.js / test/ automatically)
     npm test
 
-    # Type check (syntax validation only)
-    npm run type-check
-
-    # Lint (syntax validation — identical to type-check)
+    # Syntax validation (NOT a real linter — catches parse errors only)
     npm run lint
 
-    # Start the application
-    npm start
+    # Type check (intentionally identical to lint — deliberate scaffolding)
+    npm run type-check
 
     # Full pre-PR validation (run before every PR)
     npm run lint && npm test
 
-> ⚠️ `npm test` exits 0 even when zero test files exist. Always confirm at least one
-> `*.test.js` file was discovered before treating a green run as a quality signal.
-
-> ⚠️ `npm run lint` runs `node --check` — it validates syntax only. It will not catch
-> logic errors, unused variables, or style violations. Do not cite a green lint run
-> as a quality gate for anything beyond parse-level correctness.
+> ⚠️ `npm test` exiting 0 with **zero discovered test files** is NOT a passing quality gate.
+> Always verify that at least one `*.test.js` file was discovered and executed before
+> reporting the test gate as green.
 
 ---
 
@@ -88,97 +103,134 @@ The primary language is plain JavaScript (no TypeScript, no transpilation). The 
 
 ### Core Architecture
 
-1. **Single execution point:** `main()` in `src/index.js` is the only permitted top-level call. All application logic must live inside `main()` or functions called from it. No side-effects at module scope — the only permitted top-level statements are `function` declarations and the single `main()` invocation.
+1. **Single-file application.** `src/index.js` is the entire codebase. All logic must live
+   inside `main()`. No side-effects are permitted at module scope other than the function
+   declaration and the single `main()` call.
 
-2. **Module system is an unset one-way door:** No `require` or `import` exists in the codebase. The first agent to introduce one permanently commits the repo to that module system. Per GUARDRAILS.md §1, this decision is classified "Defer to Human". Do not introduce `require` or `import` without an explicit human-approved issue.
+2. **Module system is an uncommitted one-way door.** There is no `require` and no `import`
+   anywhere. Introducing either permanently establishes the module system for the entire repo.
+   This decision is "Defer to Human" — never make it autonomously.
 
-3. **Zero dependencies is a deliberate invariant:** `package.json` has no `dependencies` or `devDependencies`. Adding any package requires human approval and a justified issue. `package-lock.json` must not be committed until the first dependency is added.
+3. **Zero-dependency policy is active.** `package.json` has no `dependencies` or
+   `devDependencies` keys. Adding either requires explicit human sign-off and a corresponding
+   issue. `package-lock.json` must not be committed until a real dependency is added.
 
-4. **Governance files ARE the architecture:** MISSION.md, GUARDRAILS.md, AGENTS.md, and CLAUDE.md are not supplementary documentation — they are the primary constraint system. Treat violations of these files as breaking changes.
+4. **Stdout contract is frozen.** The output `Hello, AI Coding Agent!\n` must remain
+   byte-for-byte stable unless a human-approved issue explicitly changes it.
 
-5. **`dist/` must not be created speculatively:** The directory is gitignored and reserved for future build output only. No source files, no empty directories, no placeholder commits targeting `dist/`.
+5. **Governance files are architecturally equal to source code.** `MISSION.md`,
+   `GUARDRAILS.md`, `AGENTS.md`, and `CLAUDE.md` are protected. Any automated PR that
+   touches them is immediately rejected with no fix attempt.
 
 ### Coding Rules
 
 See GUARDRAILS.md for the complete rule set. Key highlights for this stack:
 
-1. **All logic flows through `main()`** — never add top-level statements other than function declarations and the `main()` invocation.
-2. **No error handling exists yet** — the codebase is synchronous with no I/O. When error handling is introduced, it must use `try/catch` with explicit `process.exit(1)` on fatal errors; silent swallowing is prohibited.
-3. **Module system requires human approval** — do not add `require` or `import` without an explicit approved issue; this is a scope-change that affects the entire repo permanently.
-4. **Co-locate tests as `src/*.test.js`** — place test files alongside their source counterparts; never modify test files to make tests pass (fix source instead).
-5. **No version-specific Node.js APIs** — until `.nvmrc` and `"engines"` are added to `package.json`, use only APIs available across all actively maintained Node.js versions.
+1. **All logic inside `main()`.** The only top-level statements in any source file are
+   function/variable declarations and the single `main()` invocation — nothing else at
+   module scope.
+2. **Error handling uses `try/catch` + `process.exit(1)`.** When I/O or async logic is
+   introduced, fatal errors must be caught and exit with code 1. Silent swallowing is
+   prohibited.
+3. **No module imports without human approval.** Neither `require(...)` nor `import ...`
+   may be introduced autonomously — this establishes an irreversible module system choice.
+4. **Co-locate tests at `src/*.test.js`.** New test files live alongside the source they
+   test. Use Node.js built-in `assert` — no external assertion libraries.
+5. **No type annotations.** No JSDoc, no TypeScript, no inline type comments. The project
+   is plain ES5-compatible JavaScript; type tooling is reserved for future human decision.
 
 ### Key Conventions
 
-1. **Single-quoted strings only:** All string literals use single quotes (`'Hello, AI Coding Agent!'`). Never use double quotes or template literals unless interpolation is required.
-2. **Semicolons everywhere:** Every statement ends with a semicolon. This includes function bodies and the top-level `main()` invocation.
-3. **Blank line between declaration and invocation:** Separate function declarations from the `main()` call site with exactly one blank line.
-4. **`camelCase` for all identifiers:** Functions, variables, and parameters use `camelCase`. File names use `lowercase` with no separators (e.g., `index.js`).
-5. **All source under `src/`:** Never place source files at the repository root. The `"main"` field in `package.json` points to `src/index.js` — maintain this invariant.
-6. **`lint` and `type-check` are intentionally identical:** Both run `node --check src/index.js`. This is deliberate scaffolding. Do not change one without changing the other, and do not treat them as real static analysis.
-7. **No JSDoc or type annotations until TypeScript is adopted:** The codebase has no type annotations. Do not add JSDoc unless it is part of an approved TypeScript migration.
-8. **Scope creep is an auto-reject:** Touch only files causally related to the linked issue. "While I'm here" changes — however benign — cause immediate PR rejection per GUARDRAILS.md §5.
-9. **Python tooling is explicitly anticipated:** `.gitignore` includes `__pycache__/`. Do not remove it; Python experimentation is a first-class future addition.
-10. **Never pin a Node.js version partially:** If you need to add `.nvmrc`, you must simultaneously add an `"engines"` field in `package.json`. One without the other is an auto-reject.
+1. **Single-quoted strings always:** Use `'...'` for all string literals. Template literals
+   are only permitted when interpolation is actually required (`${}`).
+2. **Semicolons on every statement:** Every statement ends with `;` — no exceptions.
+3. **`camelCase` for all identifiers:** Functions, variables, and parameters use `camelCase`.
+   File names use `lowercase` (e.g., `index.js`). No abbreviations.
+4. **One blank line between declaration and call site:** In `src/index.js`, there is exactly
+   one blank line between the closing `}` of `main()` and the `main();` invocation. Maintain
+   this spacing in all future files that follow the same pattern.
+5. **`console.log` inside `main()` only:** Never at module scope or inside helper functions
+   that are called before `main()` is entered.
+6. **All source files under `src/`:** No `.js` files at the repository root or in any
+   directory other than `src/` (and its future subdirectories).
+7. **`npm start` stdout is a contract:** Do not change the output string without a
+   human-approved issue explicitly authorising the change.
+8. **`lint` and `type-check` scripts are intentionally identical:** Both run
+   `node --check src/index.js`. Do not "fix" them to differ — that is an auto-reject trigger.
+9. **`__pycache__/` in `.gitignore` is intentional:** Python experimentation is a
+   first-class anticipated future addition. Removing it as "unused" is a GUARDRAILS.md
+   violation.
+10. **`dist/` must not be created speculatively:** The directory is reserved for real future
+    build output only. Creating it with placeholder or empty files is an auto-reject.
+11. **Node.js version stays unpinned unless both gates open simultaneously:** Adding `.nvmrc`
+    without also adding `"engines"` in `package.json` (or vice versa) in the same commit is
+    an auto-reject.
+12. **Scope is strictly bounded by the open issue:** Every file touched in a PR must be
+    causally linked to the specific issue being addressed. "While I'm here" improvements are
+    unconditionally rejected.
 
 ---
 
 ## What NOT to Do
 
 - Never modify `MISSION.md`, `GUARDRAILS.md`, `AGENTS.md`, or `CLAUDE.md`
-- Never modify the `"scripts"` block in `package.json` without explicit human approval
 - Never commit secrets, API keys, tokens, or `.env` files to the repository
-- Never add dependencies without a human-approved justification (see GUARDRAILS.md §2)
-- Never declare a task done without running `npm run lint && npm test`
+- Never add dependencies without human sign-off (see GUARDRAILS.md §2)
+- Never declare a task done without running `npm run lint && npm test` and confirming
+  at least one test file was discovered
 - Never expand scope beyond what the task explicitly requests
 - Never modify test files to make tests pass — fix the source code instead
-- Never introduce `require` or `import` without an explicitly approved human issue
-- Never commit `package-lock.json` before any dependency entry exists in `package.json`
-- Never create files inside `dist/` speculatively — it is reserved for build output only
-- Never add `console.log` or other side-effects at module scope (outside `main()`)
-- Never use `npm test` green status as proof of correctness when zero test files exist
+- Never introduce `require(...)` or `import ...` without human approval
+- Never commit `package-lock.json` while there are zero dependencies
+- Never alter the `"scripts"` block in `package.json` in an automated PR
+- Never create `dist/` or any speculative output directory
+- Never add `.nvmrc` without simultaneously adding `"engines"` in `package.json`
+- Never cite a green `npm run lint` run as evidence of code quality or style compliance —
+  it is syntax-only (`node --check`)
+- Never cite a green `npm test` run as evidence of passing tests if zero `*.test.js` files
+  were discovered
 
 ---
 
 ## Important Files
 
-| File / Directory    | Purpose                                                                                  |
-|---------------------|------------------------------------------------------------------------------------------|
-| `src/index.js`      | Sole application source; defines `main()` and invokes it; entire application is 4 lines |
-| `package.json`      | npm metadata and all scripts; `"main": "src/index.js"`; zero dependencies enforced       |
-| `MISSION.md`        | **PROTECTED.** Defines project scope: what is in/out, hard invariants, allowed evolutions |
-| `GUARDRAILS.md`     | **PROTECTED.** Process rules, auto-reject triggers, quality gates, escalation paths       |
-| `AGENTS.md`         | **PROTECTED.** AI agent instructions: tech stack reference, coding rules, prohibitions    |
-| `CLAUDE.md`         | **PROTECTED.** Code style authority; wins on naming and conventions over other files      |
-| `README.md`         | Human-facing setup and usage instructions; minimal                                        |
-| `.gitignore`        | Excludes `node_modules/`, `dist/`, `.env`, `*.log`, `__pycache__`, `.DS_Store`           |
+| File / Directory | Purpose |
+|-----------------|---------|
+| `src/index.js` | **Entire application.** Defines `main()`, invokes it. 4 lines of plain JS. |
+| `package.json` | npm metadata, all 4 scripts (`start`, `test`, `lint`, `type-check`), zero deps. |
+| `MISSION.md` | **PROTECTED.** Scope authority: what is in/out of scope, hard invariants, allowed evolutions, quality standards. |
+| `GUARDRAILS.md` | **PROTECTED.** Process authority: triage rules, implementation prohibitions, auto-reject triggers, escalation paths, quality gates. |
+| `CLAUDE.md` | **PROTECTED.** Style authority: naming, conventions, patterns, architecture explanation (this file). |
+| `AGENTS.md` | **PROTECTED.** Redirect shim to `CLAUDE.md` for tools that look for `AGENTS.md`. |
+| `README.md` | Human-facing documentation: setup, usage, testing, and contributing guide. |
+| `.gitignore` | Excludes `node_modules/`, `dist/`, `.env`, `*.log`, `__pycache__/`, `.DS_Store`, and graphify manifest/cost files. |
+| `graphify-out/` | Knowledge graph output directory. Manifest and cost files are gitignored; remaining output is tracked. |
 
 ---
 
 ## Development Notes
 
-**`npm test` is silent on zero tests:** `node --test` exits 0 when it discovers no `*.test.js`, `*.spec.js`, or `test/` files. Always verify that at least one test file was discovered before treating a green run as meaningful. The command `npm test` alone cannot distinguish "all tests passed" from "no tests exist".
+**`npm test` green ≠ tests passing.** With zero `*.test.js` files, `node --test` exits 0
+silently. Always verify test file discovery is non-zero before reporting the gate as passed.
+A correctly written test for `main()` should capture stdout (e.g., via `process.stdout.write`
+mock or child process spawn) and assert the output is exactly `Hello, AI Coding Agent!\n`.
 
-**`npm run lint` is not static analysis:** `node --check` only parses the file for syntax errors. It will not catch unused variables, wrong logic, or style violations. Do not use a green lint run as evidence of code quality.
+**`npm run lint` is syntax-only.** `node --check` catches parse errors, nothing else. Do not
+cite a green lint run as evidence of code quality, logic correctness, or style compliance.
 
-**No lock file until first dependency:** `package-lock.json` does not exist and must not be committed until `package.json` gains at least one entry in `dependencies` or `devDependencies`. Committing a lock file prematurely is an explicit auto-reject trigger in GUARDRAILS.md.
+**No `package-lock.json`.** The file is intentionally absent. Committing it while there are
+zero dependencies is an explicit auto-reject trigger in GUARDRAILS.md §5. Only generate and
+commit it when a real dependency is first added (with human approval).
 
-**Module system is uncommitted:** The codebase uses neither `require` nor `import`. Introducing either is a permanent, repo-wide architectural decision. It is classified "Defer to Human" — do not make this choice autonomously.
+**No environment variables.** The application reads no env vars and has no `.env` file.
+There is nothing to configure before running.
 
-**Node.js version is unpinned:** No `.nvmrc` or `"engines"` field exists. Do not use any Node.js API that is not available across all current LTS versions. If you must pin a version, add both `.nvmrc` and `"engines"` in the same commit — never one without the other.
+**Run from the repository root.** All npm scripts assume they are executed from the project
+root directory (where `package.json` lives). There are no subdirectory-specific invocation
+requirements.
 
-**All source lives under `src/`:** The `"main"` field in `package.json` references `src/index.js`. Never place application source files at the repository root or in any directory other than `src/`.
-
-**Governance files are immutable to automated workflows:** Any automated PR that touches `MISSION.md`, `GUARDRAILS.md`, `AGENTS.md`, `CLAUDE.md`, or the `"scripts"` block of `package.json` is auto-rejected with no fix attempt. These files require human PR review.
+**`graphify-out/` is a tool artefact.** Its contents are generated by the `graphify` skill
+and should not be hand-edited. The `cache/` subdirectory and cost/manifest files are
+gitignored; other outputs are tracked as reference material.
 
 > ⚠️ This file is immutable by automated workflows. Modify only via human PR review.
-
-## graphify
-
-This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
-
-Rules:
-- ALWAYS read graphify-out/GRAPH_REPORT.md before reading any source files, running grep/glob searches, or answering codebase questions. The graph is your primary map of the codebase.
-- IF graphify-out/wiki/index.md EXISTS, navigate it instead of reading raw files
-- For cross-module "how does X relate to Y" questions, prefer `graphify query "<question>"`, `graphify path "<A>" "<B>"`, or `graphify explain "<concept>"` over grep — these traverse the graph's EXTRACTED + INFERRED edges instead of scanning files
-- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
