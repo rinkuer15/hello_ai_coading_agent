@@ -2,190 +2,159 @@
 
 ## What Hello AI Coding Agent Is
 
-Hello AI Coding Agent is a minimal Node.js CLI scaffold whose sole purpose is to provide a
-controlled, zero-complexity baseline for experimenting with AI-assisted coding agents. The
-entire runtime behaviour today is a single `console.log('Hello, AI Coding Agent!')` call
-wrapped in a `main()` function inside `src/index.js`. There are no dependencies, no build
-step, no database, and no HTTP layer — the project runs directly with `node src/index.js`.
+Hello AI Coding Agent is a minimal Node.js scaffold designed as a controlled, observable
+substrate for experimenting with AI-assisted coding agents. The project's source code is
+intentionally trivial — a single `main()` function that prints one line to stdout — so that
+all complexity lives in the governance layer rather than the application layer.
 
-The project's value is not in what it does at runtime; it is in what it represents as an
-experimental substrate. It gives AI coding agents a known-good, minimal repository — with a
-fully documented tech stack, coding conventions, and governance layer — so that agents can
-extend it iteratively under strict, observable rules. Every addition to this repo is, by
-definition, a net-new capability introduced from scratch.
+The project is a CLI tool: `node src/index.js` (or `npm start`) runs the program and exits.
+There is no server, no build step, and no external dependencies. The absence of complexity
+is a deliberate design constraint, not a limitation to be worked around.
 
-The deployment model is a local CLI tool. It is not hosted, not packaged for distribution,
-and not deployed to any cloud environment. Running it means executing `node src/index.js`
-in a terminal. The governance files (MISSION.md, GUARDRAILS.md, AGENTS.md, CLAUDE.md) are
-as important as the source code — they are the rules of the experiment.
+The governance files — `MISSION.md`, `GUARDRAILS.md`, `AGENTS.md`, and `CLAUDE.md` — are
+architecturally co-equal with the source code. They define the rules under which AI agents
+are permitted to operate, making this project a living testbed for AI coding agent
+governance patterns.
 
 ## Who It's For
 
-- **AI coding agent developers and researchers:** People running automated coding agents
-  (e.g., GitHub Copilot, Claude Code, or custom LLM pipelines) who need a safe, observable
-  target repository where agent behaviour can be studied, validated, and compared without
-  risk to production systems.
-- **Platform engineers evaluating AI code tooling:** Engineers who want to benchmark how
-  well a given AI agent follows documented conventions, respects governance constraints, and
-  produces incrementally correct changes to a real (if tiny) Node.js codebase.
-- **Not for end users seeking a finished product:** This is NOT a tool anyone would install
-  to solve a real-world problem. It is explicitly not for users who want a CLI utility,
-  application framework, or any deliverable beyond "a place to run agent experiments".
+- **AI coding agent researchers and developers:** Engineers who want a safe, low-stakes
+  repository to test how AI agents handle pull request workflows, code changes, governance
+  constraints, and auto-reject triggers without risk of breaking production systems.
+- **Developers learning AI-assisted workflows:** Individuals experimenting with tools like
+  Copilot, Devox, or Claude-based agents who need a controlled environment where mistakes
+  have no real consequences.
+- **Not for end users expecting a functional application.** This project does not build a
+  product, implement a business feature, or solve a real-world problem beyond its role as
+  an experimental substrate.
 
 ## Core Capabilities (In Scope)
 
-**Minimal CLI Runtime**
-- A single `main()` function in `src/index.js` that serves as the top-level orchestrator
-- A working `npm start` invocation that runs `node src/index.js` with exit code 0
-- Stdout output confirming the process ran (`Hello, AI Coding Agent!`)
+**Executable Entry Point**
+- Defines and invokes `main()` as the sole execution path
+- Prints `Hello, AI Coding Agent!` to stdout and exits with code 0
+- Runnable via `npm start` or `node src/index.js`
+
+**Governance Layer**
+- `MISSION.md` defines scope, invariants, and allowed evolutions
+- `GUARDRAILS.md` enforces process rules, auto-reject triggers, and quality gates
+- `AGENTS.md` provides AI agent instructions covering tech stack and coding rules
+- `CLAUDE.md` acts as the code-style authority for naming and conventions
+
+**npm Script Interface**
+- `npm start` — runs the application
+- `npm test` — runs Node.js built-in test runner (discovers `*.test.js` / `*.spec.js`)
+- `npm run lint` — syntax-checks source via `node --check`
+- `npm run type-check` — identical to lint; scaffolded for future type tooling
 
 **Test Infrastructure**
-- `npm test` discovery via Node.js built-in `node --test` runner
-- Support for co-located test files following the `src/*.test.js` convention
-- Ability to add unit tests for any new logic introduced into `src/`
+- Built-in `node --test` runner; no external test dependencies required
+- Test co-location convention: `src/*.test.js` alongside source files
+- Zero external assertion libraries; uses Node.js built-in `assert` module
 
-**Syntax Validation and Lint**
-- `npm run lint` and `npm run type-check` both execute `node --check src/index.js`
-- A consistently green syntax-check baseline that all future changes must preserve
-- A defined pre-PR validation sequence: `npm run lint && npm test`
-
-**Governance and Agent Guardrails**
-- Four immutable governance files (MISSION.md, GUARDRAILS.md, AGENTS.md, CLAUDE.md)
-  that define scope, process rules, coding conventions, and auto-reject triggers
-- Explicit rules for module system adoption, dependency introduction, and error handling
-- Documented conventions (camelCase, lowercase filenames, single-quoted strings,
-  no top-level side-effects) that agents must follow when extending the codebase
-
-**Incremental Extensibility**
-- A deliberately open module system (neither CJS nor ESM is established) so the first
-  agent to introduce a cross-file dependency sets the precedent intentionally
-- `dist/` gitignored and reserved for any future build step output
-- `.gitignore` includes `__pycache__/` to allow Python experimentation as a first-class
-  addition should future agents introduce Python files
-
-**Dependency Management Baseline**
-- Zero runtime and development dependencies — `npm install` is a no-op today
-- `package-lock.json` intentionally absent until the first real dependency is added
-- A clear protocol: add dependency → `npm install --save` → commit `package-lock.json`
+**Future Language Extension Points**
+- `.gitignore` explicitly anticipates Python experimentation (`__pycache__/`)
+- `dist/` gitignored and reserved for future build output
 
 ## Out of Scope (Must Never Build)
 
 Automated workflows are forbidden from accepting issues in these areas:
 
-**Platform expansion and hosting**
-- Adding an HTTP server, REST API, GraphQL endpoint, or WebSocket layer
-- Deploying the project to any cloud provider, container platform, or managed service
-- Introducing environment-specific configuration for staging, production, or CI targets
+**Application feature development**
+- Adding business logic, data persistence, or real user-facing functionality
+- Introducing a web server, REST API, GraphQL endpoint, or database connection
+- Building anything that would make this a "real" application rather than a scaffold
 
-**Framework and runtime lock-in**
-- Adding a web framework (Express, Fastify, Hapi, Koa, etc.) without an explicit
-  architectural decision recorded in AGENTS.md or CLAUDE.md
-- Pinning a specific Node.js version without simultaneously adding both `.nvmrc` and
-  an `engines` field in `package.json`
-- Introducing TypeScript, Babel, or any transpilation toolchain
+**Dependency introduction**
+- Adding `dependencies` or `devDependencies` to `package.json` without a human-approved
+  issue explicitly requesting a named package for a named purpose
+- Committing `package-lock.json` before the first dependency is formally added
 
-**Monetization and distribution**
-- Publishing the package to npm or any package registry
-- Adding a `bin` field to `package.json` for global CLI installation
-- Introducing licensing, pricing tiers, or usage telemetry
+**Module system commitment**
+- Adding any `require()` or `import` statement without explicit human approval — this is
+  a one-way door that permanently establishes the module system for the repo
+
+**Platform and runtime expansion**
+- Pinning a Node.js version without simultaneously adding both `.nvmrc` and an `"engines"`
+  field in `package.json`
+- Adding Docker, CI/CD pipelines, cloud deployment configuration, or container tooling
+  without a human-approved scope change
 
 **Governance file modification by automation**
-- Any automated PR that modifies MISSION.md, GUARDRAILS.md, AGENTS.md, or CLAUDE.md
-- Any change to the `package.json` scripts block that renames, removes, or rewrites the
-  existing `start`, `test`, `lint`, or `type-check` script commands
-
-**Scope-creep additions**
-- "While I'm here" changes to files not causally related to the linked issue
-- Adding a `package-lock.json` before the first real dependency is introduced
-- Creating source or build output files outside of `src/` and `dist/` respectively
+- Any automated workflow modifying `MISSION.md`, `GUARDRAILS.md`, `AGENTS.md`, or
+  `CLAUDE.md` — these files are permanently write-protected from automated PRs
 
 ## Hard Invariants (Not Tunable by Issues)
 
 These are not features. They are constraints. Automated workflows cannot modify them.
 
-1. **`main()` is the sole valid orchestration point.** All business logic must be invoked
-   from `main()`. No logic may execute at the module top level. The only permitted
-   top-level statements are `function` declarations and the single `main()` call at the
-   bottom of `src/index.js`. This ensures traceability and prevents hidden side-effects.
-2. **The module system must be chosen once and applied consistently.** No `require` or
-   `import` exists today. The first agent to introduce one commits the entire repo to that
-   convention. Mixing ESM and CJS in any form is an immediate auto-reject trigger.
-3. **No secrets or credentials may ever be committed to source.** `.env` is gitignored and
-   must never be tracked. No API keys, tokens, passwords, or environment-specific values
-   may appear in any committed file — not even in comments or test fixtures.
-4. **Governance files are immutable by automated workflows.** MISSION.md, GUARDRAILS.md,
-   AGENTS.md, and CLAUDE.md can only be changed via human PR review. Any automated PR
-   touching these files is rejected immediately with no fix loop attempted.
-5. **`package-lock.json` must not exist until the first real dependency is added.**
-   Committing a lock file before any dependency exists is an explicit auto-reject trigger.
-   Once the first dependency is added, the lock file must be committed in the same PR.
+1. **`main()` is the only valid execution entry point.** The only permitted top-level
+   statements in any source file are function declarations and the single `main()`
+   invocation. No side-effects at module load time — ever.
+2. **Governance files are immutable by automated workflows.** `MISSION.md`,
+   `GUARDRAILS.md`, `AGENTS.md`, and `CLAUDE.md` can only be changed via human PR review.
+   Any automated PR touching these files is auto-rejected without a fix attempt.
+3. **The `package.json` `"scripts"` block is protected.** Automated workflows may not
+   modify, rename, or remove any existing npm script. New scripts require human approval.
+4. **No speculative file creation.** `dist/` must not be created until a real build step
+   exists. No empty placeholder commits, no pre-emptive directories.
+5. **Scope creep is a hard auto-reject.** Changes must be causally linked to a specific
+   open issue. "While I'm here" modifications — however benign — cause immediate PR
+   rejection per GUARDRAILS.md §5.
 
 ## Allowed Evolutions
 
 These are explicitly in scope for future automated work:
 
-- Adding new functions to `src/index.js` that are called from `main()`, provided they
-  include JSDoc annotations if non-trivial and are covered by `src/*.test.js` test files
-- Introducing the first cross-file module (under `src/`) once the CJS vs ESM choice is
-  made deliberately and documented in AGENTS.md and CLAUDE.md
-- Adding the first `devDependency` (e.g., a test assertion library) when `node --test`
-  alone proves insufficient, provided `package-lock.json` is committed in the same PR
-- Adding a `.nvmrc` and `engines` field to `package.json` simultaneously when a
-  version-sensitive Node.js API or dependency makes a minimum version necessary
-- Adding Python source files under `src/` (or a `src/py/` sub-directory) with their own
-  lint and test commands documented and added to `package.json` scripts
-- Expanding `npm run lint` to invoke a real linter (e.g., ESLint) in addition to
-  `node --check`, provided the existing script name is preserved and the change is
-  recorded as an explicit architectural decision
-- Adding a build step that outputs to `dist/` (already gitignored) if transpilation or
-  bundling becomes necessary
+- Adding `src/*.test.js` test files to cover the existing `main()` function
+- Introducing JSDoc type annotations on existing functions (no new tooling required)
+- Adding a `.nvmrc` file and `"engines"` field in `package.json` together in one PR
+- Expanding `src/index.js` with additional functions called from `main()`, provided the
+  module-level structure (declaration + single `main()` call) is preserved
+- Adding Python source files under `src/` if a Python experiment is explicitly scoped
+  (`.gitignore` already anticipates this)
+- Adding a real linter (e.g., ESLint) once a human approves the specific package and
+  config in an issue
 
 ## Quality Standards (Definition of Done)
 
 Every change must clear all three gates:
 
 **Gate 1 — Static checks pass**
-- Type-check: `npm run type-check` exits 0 (zero syntax errors)
-- Lint: `npm run lint` exits 0 (zero syntax errors)
-- Format: no formatter is configured today; code must manually follow the conventions
-  in CLAUDE.md (camelCase, lowercase filenames, single-quoted strings)
-- Build succeeds: `npm start` runs without error and exits 0
-- All unit tests pass: `npm test` exits 0 AND at least one `*.test.js` file was
-  discovered and executed (a green run with zero test files does NOT count)
+- Type-check: `npm run type-check` exits 0 with no errors
+- Lint: `npm run lint` exits 0 with no errors
+- Format: single-quoted strings, consistent semicolons, blank line between function
+  declaration and invocation
+- Build succeeds: `npm start` runs and exits 0
+- All discovered tests pass: `npm test` exits 0 AND at least one `.test.js` file exists
+  if the PR adds or modifies logic
 
 **Gate 2 — Feature is discoverable without docs**
-- Any new user-facing behaviour must be observable by running `npm start` or `npm test`
-  without reading external documentation
-- No undocumented flags, hidden environment variables, or "you need to know about this"
-  entry points; if a new parameter or mode is added, it must surface in `--help` output
-  or equivalent stdout guidance
-- New source files must be placed under `src/` and follow established naming conventions
-  so future agents can locate them without a directory listing
+- Any new capability must be invokable via an existing or new npm script listed in
+  `package.json`
+- No hidden parameters, undocumented flags, or "you need to know about this" entry points
+- The `README.md` must accurately reflect all runnable commands after the change
 
 **Gate 3 — End-to-end regression**
-Run the full validation sequence and confirm the expected output:
-
+Run the full validation sequence and verify each step:
 ```bash
-npm run lint && npm test && npm start
+npm run lint          # exits 0
+npm test              # exits 0, at least one test discovered if logic changed
+npm start             # prints exactly: Hello, AI Coding Agent!
 ```
-
-Expected: lint exits 0, all discovered `*.test.js` files pass, and `npm start` prints
-`Hello, AI Coding Agent!` to stdout with exit code 0. Any deviation from this baseline
-is a regression and must be fixed before the PR is considered done.
+The stdout of `npm start` must remain `Hello, AI Coding Agent!\n` unless a human-approved
+issue explicitly changes the output string.
 
 ## Non-Goals
 
-- Not a web application, API server, or any networked service
-- Not a reusable npm library intended for installation by third parties
-- Not a production-grade CLI tool solving a real-world user problem
-- Not a demonstration of advanced Node.js patterns (async/await, streams, workers)
-- Not a multi-language polyglot project by default — Python is allowed but only as an
-  explicit, deliberate addition, not assumed
-- Not a framework or boilerplate for general Node.js projects — the scaffold is purpose-
-  built for AI agent experimentation and should not be repurposed as a generic starter
-- Not a benchmarking or observability platform — agent behaviour is observed through Git
-  history and PR reviews, not through instrumented metrics or dashboards
-- Not a long-lived product with a roadmap — it exists as an experiment surface; features
-  are added only when an agent task explicitly requires them
+- Not a production application or deployable service of any kind
+- Not a framework, library, or reusable package for other projects
+- Not a demonstration of advanced Node.js patterns (async, streams, worker threads)
+- Not a multi-file, multi-module architecture — complexity is deliberately avoided
+- Not a general-purpose CLI tool; it prints one string and exits
+- Not a TypeScript project unless a human explicitly approves migration in a scoped issue
+- Not a multi-tenant or SaaS platform — there are no users, sessions, or accounts
+- Not a showcase of test coverage, design patterns, or software engineering best practices
+  beyond the governance model itself
 
 > ⚠️ This file is immutable by automated workflows. Modify only via human PR review.
