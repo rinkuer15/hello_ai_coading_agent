@@ -2,158 +2,123 @@
 
 ## What Hello AI Coding Agent Is
 
-Hello AI Coding Agent is a minimal Node.js CLI scaffold designed as a controlled
-experimentation environment for AI-assisted coding agents. The project's runtime
-behaviour is intentionally trivial — a single `src/index.js` file that prints
-`Hello, AI Coding Agent!` to stdout and exits 0 — so that the real complexity can
-live in the governance layer rather than the application code.
+Hello AI Coding Agent is a **governance scaffold for AI-assisted coding agent experimentation**. It is not a production application. The runtime component — a single Node.js file (`src/index.js`) that prints one line to stdout and exits — exists solely to give AI agents a structurally valid, zero-risk surface to read and modify. Its output (`Hello, AI Coding Agent!\n`) is frozen as a byte-stable behavioural contract against which every automated change can be regressed without any domain knowledge.
 
-The project runs with plain JavaScript (no transpilation, no bundler, no external
-dependencies) using only Node.js built-ins. It is invoked directly via `node src/index.js`
-or `npm start`. There is no server, no I/O beyond stdout, and no branching logic.
+The real substance of the project is its governance layer: four protected markdown files (`MISSION.md`, `GUARDRAILS.md`, `CLAUDE.md`, `AGENTS.md`) that encode a complete, conflict-resolving rule system governing how automated agents may read, write, and open pull requests against this repository. The project runs as a local CLI via `npm start` with zero external dependencies and requires no installation beyond `git clone`. It is not published to npm and not intended for end-user consumption.
 
-The core value of this project is its governance layer: four protected markdown files
-(`MISSION.md`, `GUARDRAILS.md`, `CLAUDE.md`, `AGENTS.md`) that define how AI agents
-may operate on the repository. This makes it a reference scaffold for teams who want
-to experiment with agentic workflows under strict, auditable constraints.
+The project is used by AI tooling researchers, developer-experience engineers, platform architects, and AI safety red-teamers who need a reproducible, auditable, zero-blast-radius environment in which to test, benchmark, calibrate, and probe agentic coding workflows.
 
 ## Who It's For
 
-- **AI tooling researchers and engineers** who need a safe, zero-risk codebase to test
-  agentic coding workflows, automated PR pipelines, and governance enforcement without
-  risking real application code.
-- **Developer experience teams** evaluating AI coding agents (e.g. Copilot, Claude,
-  Codex) and wanting a reproducible baseline with clear quality gates.
-- **Not for end users or production deployments.** This is not a product. It is not
-  intended for anyone who needs a CLI utility that does something meaningful at runtime.
+- **AI Tooling Researcher / Engineer** — Tests agentic coding pipelines (automated issue triage, branch creation, PR generation, merge loops) in a fully controlled environment where a misbehaving agent cannot damage real business logic.
+- **Developer Experience (DevEx) / Platform Engineer** — Benchmarks and evaluates AI coding assistants against a consistent, documented baseline; uses the governance layer as a reference pattern when designing agent rules for production repositories.
+- **AI Safety / Red-Team Engineer** — Probes the governance layer for gaps (prompt injection, scope-creep evasion, protected-file modification) in a sandbox where a failed probe is observable and costless.
+- **Not for end users who need a CLI that does something at runtime.** This project intentionally produces no useful output beyond a single diagnostic string. Anyone seeking a real application, a forkable production starter, or an npm-installable package should look elsewhere.
 
 ## Core Capabilities (In Scope)
 
-**CLI Entry Point**
-- Executes `node src/index.js` to print `Hello, AI Coding Agent!` to stdout
-- Exits with code 0 on success; fatal errors must exit with code 1 via `process.exit(1)`
+**Zero-Risk Agent Execution Surface**
+- Provides a structurally valid Node.js project (runnable entry point, npm scripts, built-in test runner) that AI agents can read and modify without risking production logic.
+- Every agent action that touches `src/index.js` or `package.json` is fully recoverable in seconds.
 
-**npm Script Surface**
-- `npm start` — runs the application
-- `npm test` — discovers and runs `*.test.js` / `*.spec.js` via `node --test` (built-in)
-- `npm run lint` — validates syntax via `node --check src/index.js`
-- `npm run type-check` — identical to lint; reserved for future type tooling
+**Deterministic Behavioural Contract**
+- `npm start` always prints exactly `Hello, AI Coding Agent!\n` and exits with code 0.
+- This byte-stable stdout contract is the canonical regression check: a deviation is unambiguous and measurable without domain knowledge.
 
-**Governance Layer**
-- `MISSION.md` — scope authority: what to build, what to forbid, quality standards
-- `GUARDRAILS.md` — process authority: triage rules, auto-reject triggers, escalation paths
-- `CLAUDE.md` — style authority: naming, conventions, patterns
-- `AGENTS.md` — redirect shim to `CLAUDE.md` for tool compatibility
+**Layered, Conflict-Resolving Governance**
+- A four-file authority hierarchy (MISSION.md → GUARDRAILS.md → CLAUDE.md → AGENTS.md) that resolves every foreseeable agent conflict without human intervention.
+- Scope disputes are resolved by MISSION.md; process disputes by GUARDRAILS.md; style disputes by CLAUDE.md.
 
-**Test Infrastructure**
-- Co-located test files at `src/*.test.js` alongside source
-- Node.js built-in `assert` module for assertions (zero external test dependencies)
-- Happy-path stdout contract test: verify `main()` emits exactly `Hello, AI Coding Agent!\n`
+**Automated Triage and Rejection Pipeline**
+- GUARDRAILS.md encodes a complete decision tree: accept, reject, defer-to-human, or escalate.
+- Agents can self-triage incoming issues and PRs without ambiguity, serving as a reference implementation of governed agentic triage.
 
-**Experimentation Scaffolding**
-- `.gitignore` pre-configured for `node_modules/`, `dist/`, `.env`, Python artefacts,
-  and graphify knowledge-graph output
-- `graphify-out/` directory for knowledge graph exploration of the codebase
+**Auditable Quality Gate Suite**
+- Four deterministic gates: syntax check, type check, test execution with file-discovery verification, and behavioural regression.
+- Gates are intentionally conservative, documented including their known limitations (e.g. `npm test` exiting 0 silently with zero test files is explicitly NOT a passing gate).
+
+**One-Way-Door Decision Catalogue**
+- Documents and freezes uncommitted architectural decisions (module system: CommonJS vs ESM; Node.js version pinning; first dependency; `package-lock.json` generation) that are irreversible once made, so agents never accidentally cross them.
+
+**Cross-Tool Agent Compatibility**
+- Supports agents that look for `CLAUDE.md` (Claude-native tooling) and agents that look for `AGENTS.md` (Copilot, Codex, and other tools following that convention) from a single canonical instruction set via a redirect shim.
 
 ## Out of Scope (Must Never Build)
 
 Automated workflows are forbidden from accepting issues in these areas:
 
-**Runtime Feature Expansion**
-- Adding any network I/O, file I/O, database access, or external service calls
-- Parsing `process.argv` or reading environment variables without a human-approved issue
-- Adding a web server, REST API, or any long-running process
+**Runtime I/O and External Communication**
+- Adding network requests, HTTP servers, database access, file system reads/writes, or stdin consumption.
+- Reading environment variables (`process.env`) or parsing command-line arguments (`process.argv`).
+- Any process that does not start, print, and exit 0 immediately.
 
-**Dependency Introduction**
-- Adding any `dependencies` or `devDependencies` to `package.json` without human sign-off
-- Committing `package-lock.json` before the first real dependency is added
-- Introducing a module system (`require` or `import`) autonomously — this is a
-  "Defer to Human" decision
+**Dependency and Module System Introduction**
+- Adding any entry to `dependencies` or `devDependencies` in `package.json` without explicit human approval.
+- Introducing `require(...)` or `import ...` anywhere in the project — this permanently establishes CommonJS vs ESM, a one-way door that must be a deliberate human decision.
+- Committing `package-lock.json` while zero dependencies exist.
 
-**Tooling Infrastructure**
-- Adding a real linter (ESLint, etc.), type-checker (TypeScript), or bundler
-  without a human-approved issue
-- Creating a `dist/` directory speculatively or with placeholder files
-- Pinning the Node.js version via `.nvmrc` without simultaneously adding `"engines"`
-  in `package.json` (and vice versa)
+**Tooling Infrastructure Upgrades**
+- Installing or configuring ESLint, Prettier, TypeScript, Babel, Webpack, Vite, Rollup, or any equivalent.
+- Making `npm run lint` and `npm run type-check` differ from each other — they are intentionally identical scaffolding.
+- Adding `build`, `format`, `watch`, `dev`, `deploy`, or `precommit` npm scripts.
 
-**Governance File Modification**
-- Any automated PR touching `MISSION.md`, `GUARDRAILS.md`, `AGENTS.md`, or `CLAUDE.md`
-- Altering the `"scripts"` block of `package.json` via automated workflow
+**Speculative Scaffolding and Structural Expansion**
+- Creating `dist/`, `lib/`, `bin/`, `config/`, or any new directory without a causally required reason in an approved issue.
+- Adding additional source files under `src/` without human approval — `src/index.js` is the entire application and must remain so unless explicitly authorised.
+- Pinning the Node.js version via `.nvmrc` or `"engines"` unless both land in the same atomic commit with human sign-off.
 
-**Scope Creep**
-- "While I'm here" improvements not causally linked to the open issue being addressed
-- Removing `.gitignore` entries (e.g., `__pycache__/`) deemed "unused" — all entries
-  are intentional
+**Governance File Modification by Automation**
+- Any automated PR that touches `MISSION.md`, `GUARDRAILS.md`, `CLAUDE.md`, or `AGENTS.md` is immediately and unconditionally rejected — no fix attempt, no negotiation.
 
 ## Hard Invariants (Not Tunable by Issues)
 
 These are not features. They are constraints. Automated workflows cannot modify them.
 
-1. **Zero external dependencies.** `package.json` must have no `dependencies` or
-   `devDependencies` keys until a human explicitly approves adding one. This keeps
-   the project fully reproducible and install-free.
-2. **`npm start` stdout is a byte-stable contract.** The output `Hello, AI Coding Agent!\n`
-   must remain identical unless a human-approved issue explicitly authorises a change.
-   Automated agents may not alter this output as a side effect of any other change.
-3. **`lint` and `type-check` scripts are intentionally identical.** Both run
-   `node --check src/index.js`. This is deliberate scaffolding. Automated workflows
-   must not "fix" them to differ — doing so is an auto-reject trigger.
-4. **Governance files are immutable by automated workflows.** `MISSION.md`,
-   `GUARDRAILS.md`, `AGENTS.md`, and `CLAUDE.md` can only be changed via human PR review.
-5. **All source code lives under `src/`.** No source files may be placed at the repo
-   root or in any directory other than `src/` (and its subdirectories). The `"main"`
-   field in `package.json` enforces this contract.
+1. **The stdout contract is byte-stable.** `npm start` must print exactly `Hello, AI Coding Agent!\n` and exit 0. This output cannot be altered as a side effect of any other change — only a human-approved issue that explicitly authorises a stdout change may modify it.
+2. **Zero external dependencies at all times.** `package.json` must have no `dependencies` or `devDependencies` keys until a human explicitly approves the first addition. The project must remain fully usable from `git clone` + `node src/index.js` with no install step.
+3. **The module system is undecided and must stay that way until a human decides.** No `require` and no `import` may be introduced autonomously. Introducing either permanently and irreversibly establishes the module system for the entire repository.
+4. **Governance files are immutable by automated workflows.** `MISSION.md`, `GUARDRAILS.md`, `AGENTS.md`, and `CLAUDE.md` can only be changed via human-authored PR with human review. Any automated PR touching these files is rejected with no fix attempt.
+5. **`npm run lint` and `npm run type-check` must remain identical.** Both run `node --check src/index.js`. Making them differ is an explicit auto-reject trigger, not a quality improvement.
 
 ## Allowed Evolutions
 
 These are explicitly in scope for future automated work:
 
-- Adding `src/index.test.js` to verify stdout output of `main()` using `node --test`
-  and the built-in `assert` module
-- Expanding `main()` to accept and handle additional behaviour when a human-approved
-  issue defines the exact new output contract
-- Adding additional helper functions inside `src/index.js` as long as they are called
-  from `main()` and introduce no module-level side effects
-- Adding `.nvmrc` and `"engines"` in `package.json` together in a single commit once
-  the Node.js version is agreed by humans
-- Extending `.gitignore` to cover new tool artefacts as the toolchain grows
+- Adding the first `src/*.test.js` file that captures stdout via child-process spawn and asserts the exact output contract (`Hello, AI Coding Agent!\n`).
+- Writing additional co-located test files at `src/*.test.js` using only Node.js built-in `assert` — no external assertion libraries.
+- Updating `README.md` to reflect any human-approved change to the observable CLI surface.
+- Pinning the Node.js version via `.nvmrc` + `"engines"` in a single atomic commit, once the version is agreed by humans.
+- Adding a first real dependency to `package.json` — with human approval — and committing `package-lock.json` in the same commit.
+- Expanding `src/index.js` with additional logic inside `main()` — using `try/catch` + `process.exit(1)` for any I/O — once a human-approved issue explicitly authorises the change.
+- Introducing a real linter (ESLint) or formatter (Prettier) if both `lint` and `type-check` scripts are updated together in a single human-approved PR.
 
 ## Quality Standards (Definition of Done)
 
 Every change must clear all three gates:
 
 **Gate 1 — Static checks pass**
-- Type-check: `npm run type-check` exits 0 (zero syntax errors)
-- Lint: `npm run lint` exits 0 (zero syntax errors)
-- Format: code follows single-quote, semicolon, `camelCase` conventions from `CLAUDE.md`
-- Build succeeds: `node src/index.js` executes without throwing
-- All discovered tests pass: `npm test` exits 0 AND at least one `*.test.js` file
-  was discovered and executed (a green run with zero test files is NOT a passing gate)
+- Syntax check: `npm run lint` exits 0 (`node --check src/index.js` — parse errors only)
+- Type check: `npm run type-check` exits 0 (intentionally identical to lint)
+- No build step exists; absence of a build step is not a failure
+- All test files discovered by `node --test` pass — **critically: `npm test` exiting 0 with zero discovered test files is NOT a passing gate; verify stdout shows ≥1 test file was discovered and executed**
 
 **Gate 2 — Feature is discoverable without docs**
-- Any new user-facing behaviour must be observable by running `npm start` or
-  `npm test` without reading external documentation
-- No undocumented parameters, hidden flags, or "you need to know about this" gaps
-- `README.md` must reflect any change to the observable CLI surface
+- Any new user-facing behaviour must be self-evident from `npm start`, `npm test`, and `README.md` without consulting external documentation.
+- No undocumented scripts, hidden flags, or "you need to know about this" behaviours.
+- `README.md` must accurately reflect the current observable CLI surface after every change.
 
 **Gate 3 — End-to-end regression**
-Run `node src/index.js` and assert that stdout is exactly `Hello, AI Coding Agent!\n`
-and the process exits with code 0. This is the canonical happy-path regression check.
-If a test file exists at `src/index.test.js`, `npm test` must discover it, execute it,
-and report all assertions passing before the gate is considered cleared.
+Run `npm start` and capture stdout. Assert that the output is exactly `Hello, AI Coding Agent!\n` (including the trailing newline) and that the process exits with code 0. This check must pass after every change to any file in the repository, regardless of whether that file appears related to the output. If this check fails for any reason, the change is rejected.
 
 ## Non-Goals
 
-- Not a production CLI tool intended for daily developer use
-- Not a library or package to be published to npm
-- Not a web application, REST API, or any networked service
-- Not a multi-file, multi-module project — single-file simplicity is a feature, not
-  a limitation to be remedied
-- Not a demonstration of advanced JavaScript patterns, async workflows, or OOP design
-- Not a general-purpose AI agent framework or SDK
-- Not a place to evaluate third-party AI libraries or npm packages
-- Not a template to be forked into a real product without first removing the
-  governance layer and replacing it with project-appropriate constraints
+- Not a production application, CLI tool, or library that end users install or run for a useful purpose.
+- Not an npm-published package — this project is not on the npm registry and is not intended to be.
+- Not a forkable production starter template — the governance layer must be entirely replaced before this scaffold can serve as the foundation of a real project.
+- Not a benchmark of raw Node.js performance, throughput, or scalability.
+- Not a demonstration of advanced JavaScript patterns, modern ESM syntax, TypeScript types, or framework idioms.
+- Not a multi-file, multi-module application — the entire runtime is one four-line file and must remain so without human approval.
+- Not a platform for Python, Go, Rust, or any non-JavaScript runtime — though Python experimentation is an anticipated future addition (hence `__pycache__/` in `.gitignore`), it is not currently in scope.
+- Not a CI/CD pipeline host — no GitHub Actions, no automated deploy targets, no environment-specific configuration.
 
 > ⚠️ This file is immutable by automated workflows. Modify only via human PR review.
