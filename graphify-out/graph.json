@@ -27,7 +27,7 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-8d45cde9/src/index.js",
       "source_location": "L1",
       "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_8d45cde9_src_index_js",
-      "community": 9,
+      "community": 11,
       "norm_label": "index.js"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-8d45cde9/src/index.js",
       "source_location": "L1",
       "id": "src_index_main",
-      "community": 9,
+      "community": 11,
       "norm_label": "main()"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/AGENTS.md",
       "source_location": "L1",
       "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_2e97ebc4_agents_md",
-      "community": 10,
+      "community": 12,
       "norm_label": "agents.md"
     },
     {
@@ -54,358 +54,367 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/AGENTS.md",
       "source_location": "L1",
       "id": "thread_2e97ebc4_agents_ai_agent_instructions",
-      "community": 10,
+      "community": 12,
       "norm_label": "ai agent instructions"
     },
     {
       "label": "CLAUDE.md",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_file": "CLAUDE.md",
       "source_location": "L1",
-      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_52f7d71b_claude_md",
-      "community": 2,
+      "id": "claude_md",
+      "community": 4,
       "norm_label": "claude.md"
     },
     {
       "label": "Hello AI Coding Agent \u2014 Agent Instructions",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_file": "CLAUDE.md",
       "source_location": "L1",
-      "id": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
-      "community": 2,
+      "id": "thread_063be1b6_claude_hello_ai_coding_agent_agent_instructions",
+      "community": 4,
       "norm_label": "hello ai coding agent \u2014 agent instructions"
     },
     {
       "label": "Project Overview",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_file": "CLAUDE.md",
       "source_location": "L17",
-      "id": "thread_52f7d71b_claude_project_overview",
-      "community": 2,
+      "id": "thread_063be1b6_claude_project_overview",
+      "community": 4,
       "norm_label": "project overview"
     },
     {
       "label": "Tech Stack",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
-      "source_location": "L36",
-      "id": "thread_52f7d71b_claude_tech_stack",
-      "community": 2,
+      "source_file": "CLAUDE.md",
+      "source_location": "L27",
+      "id": "thread_063be1b6_claude_tech_stack",
+      "community": 4,
       "norm_label": "tech stack"
     },
     {
       "label": "Repository Layout",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
-      "source_location": "L54",
-      "id": "thread_52f7d71b_claude_repository_layout",
-      "community": 2,
+      "source_file": "CLAUDE.md",
+      "source_location": "L45",
+      "id": "thread_063be1b6_claude_repository_layout",
+      "community": 4,
       "norm_label": "repository layout"
     },
     {
       "label": "Build, Test & Lint",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
-      "source_location": "L76",
-      "id": "thread_52f7d71b_claude_build_test_lint",
-      "community": 2,
+      "source_file": "CLAUDE.md",
+      "source_location": "L64",
+      "id": "thread_063be1b6_claude_build_test_lint",
+      "community": 4,
       "norm_label": "build, test & lint"
     },
     {
       "label": "Architecture & Key Patterns",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
-      "source_location": "L102",
-      "id": "thread_52f7d71b_claude_architecture_key_patterns",
-      "community": 2,
+      "source_file": "CLAUDE.md",
+      "source_location": "L98",
+      "id": "thread_063be1b6_claude_architecture_key_patterns",
+      "community": 4,
       "norm_label": "architecture & key patterns"
     },
     {
       "label": "Core Architecture",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
-      "source_location": "L104",
-      "id": "thread_52f7d71b_claude_core_architecture",
-      "community": 2,
+      "source_file": "CLAUDE.md",
+      "source_location": "L100",
+      "id": "thread_063be1b6_claude_core_architecture",
+      "community": 4,
       "norm_label": "core architecture"
     },
     {
       "label": "Coding Rules",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
-      "source_location": "L125",
-      "id": "thread_52f7d71b_claude_coding_rules",
-      "community": 2,
+      "source_file": "CLAUDE.md",
+      "source_location": "L112",
+      "id": "thread_063be1b6_claude_coding_rules",
+      "community": 4,
       "norm_label": "coding rules"
     },
     {
       "label": "Key Conventions",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
-      "source_location": "L142",
-      "id": "thread_52f7d71b_claude_key_conventions",
-      "community": 2,
+      "source_file": "CLAUDE.md",
+      "source_location": "L122",
+      "id": "thread_063be1b6_claude_key_conventions",
+      "community": 4,
       "norm_label": "key conventions"
     },
     {
       "label": "What NOT to Do",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
-      "source_location": "L174",
-      "id": "thread_52f7d71b_claude_what_not_to_do",
-      "community": 2,
+      "source_file": "CLAUDE.md",
+      "source_location": "L139",
+      "id": "thread_063be1b6_claude_what_not_to_do",
+      "community": 4,
       "norm_label": "what not to do"
     },
     {
       "label": "Important Files",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
-      "source_location": "L195",
-      "id": "thread_52f7d71b_claude_important_files",
-      "community": 2,
+      "source_file": "CLAUDE.md",
+      "source_location": "L156",
+      "id": "thread_063be1b6_claude_important_files",
+      "community": 4,
       "norm_label": "important files"
     },
     {
       "label": "Development Notes",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
-      "source_location": "L211",
-      "id": "thread_52f7d71b_claude_development_notes",
-      "community": 2,
+      "source_file": "CLAUDE.md",
+      "source_location": "L172",
+      "id": "thread_063be1b6_claude_development_notes",
+      "community": 4,
       "norm_label": "development notes"
     },
     {
       "label": "GUARDRAILS.md",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_file": "GUARDRAILS.md",
       "source_location": "L1",
-      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_52f7d71b_guardrails_md",
-      "community": 1,
+      "id": "guardrails_md",
+      "community": 2,
       "norm_label": "guardrails.md"
     },
     {
       "label": "Guardrails",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_file": "GUARDRAILS.md",
       "source_location": "L1",
-      "id": "thread_52f7d71b_guardrails_guardrails",
-      "community": 1,
+      "id": "thread_063be1b6_guardrails_guardrails",
+      "community": 2,
       "norm_label": "guardrails"
     },
     {
       "label": "1. Triage Rules",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_file": "GUARDRAILS.md",
       "source_location": "L18",
-      "id": "thread_52f7d71b_guardrails_1_triage_rules",
-      "community": 1,
+      "id": "thread_063be1b6_guardrails_1_triage_rules",
+      "community": 2,
       "norm_label": "1. triage rules"
     },
     {
       "label": "Accept",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_file": "GUARDRAILS.md",
       "source_location": "L20",
-      "id": "thread_52f7d71b_guardrails_accept",
-      "community": 1,
+      "id": "thread_063be1b6_guardrails_accept",
+      "community": 2,
       "norm_label": "accept"
     },
     {
       "label": "Reject (close with comment)",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_file": "GUARDRAILS.md",
       "source_location": "L29",
-      "id": "thread_52f7d71b_guardrails_reject_close_with_comment",
-      "community": 1,
+      "id": "thread_063be1b6_guardrails_reject_close_with_comment",
+      "community": 2,
       "norm_label": "reject (close with comment)"
     },
     {
       "label": "Defer to Human",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
-      "source_location": "L41",
-      "id": "thread_52f7d71b_guardrails_defer_to_human",
-      "community": 1,
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L47",
+      "id": "thread_063be1b6_guardrails_defer_to_human",
+      "community": 2,
       "norm_label": "defer to human"
     },
     {
       "label": "Priority Assignment",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
-      "source_location": "L51",
-      "id": "thread_52f7d71b_guardrails_priority_assignment",
-      "community": 1,
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L58",
+      "id": "thread_063be1b6_guardrails_priority_assignment",
+      "community": 2,
       "norm_label": "priority assignment"
     },
     {
       "label": "2. Implementation Rules",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
-      "source_location": "L60",
-      "id": "thread_52f7d71b_guardrails_2_implementation_rules",
-      "community": 1,
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L67",
+      "id": "thread_063be1b6_guardrails_2_implementation_rules",
+      "community": 2,
       "norm_label": "2. implementation rules"
     },
     {
       "label": "Absolute Prohibitions",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
-      "source_location": "L62",
-      "id": "thread_52f7d71b_guardrails_absolute_prohibitions",
-      "community": 1,
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L69",
+      "id": "thread_063be1b6_guardrails_absolute_prohibitions",
+      "community": 2,
       "norm_label": "absolute prohibitions"
     },
     {
       "label": "Requirements for Every PR",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
-      "source_location": "L85",
-      "id": "thread_52f7d71b_guardrails_requirements_for_every_pr",
-      "community": 1,
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L93",
+      "id": "thread_063be1b6_guardrails_requirements_for_every_pr",
+      "community": 2,
       "norm_label": "requirements for every pr"
     },
     {
       "label": "3. Quality Gates for Auto-Merge",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
-      "source_location": "L97",
-      "id": "thread_52f7d71b_guardrails_3_quality_gates_for_auto_merge",
-      "community": 1,
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L104",
+      "id": "thread_063be1b6_guardrails_3_quality_gates_for_auto_merge",
+      "community": 2,
       "norm_label": "3. quality gates for auto-merge"
+    },
+    {
+      "label": "code:bash (npm run lint && npm run type-check && npm test)",
+      "file_type": "document",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L126",
+      "id": "thread_063be1b6_guardrails_codeblock_1",
+      "community": 2,
+      "norm_label": "code:bash (npm run lint && npm run type-check && npm test)"
     },
     {
       "label": "4. Protected Files (Auto-Reject on Any Modification)",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
-      "source_location": "L115",
-      "id": "thread_52f7d71b_guardrails_4_protected_files_auto_reject_on_any_modification",
-      "community": 1,
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L135",
+      "id": "thread_063be1b6_guardrails_4_protected_files_auto_reject_on_any_modification",
+      "community": 2,
       "norm_label": "4. protected files (auto-reject on any modification)"
     },
     {
       "label": "5. Auto-Reject Triggers (No Fix Attempts)",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
-      "source_location": "L129",
-      "id": "thread_52f7d71b_guardrails_5_auto_reject_triggers_no_fix_attempts",
-      "community": 1,
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L151",
+      "id": "thread_063be1b6_guardrails_5_auto_reject_triggers_no_fix_attempts",
+      "community": 2,
       "norm_label": "5. auto-reject triggers (no fix attempts)"
     },
     {
       "label": "6. Escalation to Human",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
-      "source_location": "L148",
-      "id": "thread_52f7d71b_guardrails_6_escalation_to_human",
-      "community": 1,
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L171",
+      "id": "thread_063be1b6_guardrails_6_escalation_to_human",
+      "community": 2,
       "norm_label": "6. escalation to human"
     },
     {
       "label": "7. Communication Style",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
-      "source_location": "L160",
-      "id": "thread_52f7d71b_guardrails_7_communication_style",
-      "community": 1,
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L188",
+      "id": "thread_063be1b6_guardrails_7_communication_style",
+      "community": 2,
       "norm_label": "7. communication style"
     },
     {
       "label": "8. Changes to This File",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
-      "source_location": "L170",
-      "id": "thread_52f7d71b_guardrails_8_changes_to_this_file",
-      "community": 1,
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L202",
+      "id": "thread_063be1b6_guardrails_8_changes_to_this_file",
+      "community": 2,
       "norm_label": "8. changes to this file"
     },
     {
       "label": "MISSION.md",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
+      "source_file": "MISSION.md",
       "source_location": "L1",
-      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_52f7d71b_mission_md",
-      "community": 6,
+      "id": "mission_md",
+      "community": 7,
       "norm_label": "mission.md"
     },
     {
       "label": "Mission",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
+      "source_file": "MISSION.md",
       "source_location": "L1",
-      "id": "thread_52f7d71b_mission_mission",
-      "community": 6,
+      "id": "thread_063be1b6_mission_mission",
+      "community": 10,
       "norm_label": "mission"
     },
     {
       "label": "What Hello AI Coding Agent Is",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
+      "source_file": "MISSION.md",
       "source_location": "L3",
-      "id": "thread_52f7d71b_mission_what_hello_ai_coding_agent_is",
-      "community": 6,
+      "id": "thread_063be1b6_mission_what_hello_ai_coding_agent_is",
+      "community": 10,
       "norm_label": "what hello ai coding agent is"
     },
     {
       "label": "Who It's For",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
-      "source_location": "L20",
-      "id": "thread_52f7d71b_mission_who_it_s_for",
-      "community": 6,
+      "source_file": "MISSION.md",
+      "source_location": "L11",
+      "id": "thread_063be1b6_mission_who_it_s_for",
+      "community": 10,
       "norm_label": "who it's for"
     },
     {
       "label": "Core Capabilities (In Scope)",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
-      "source_location": "L30",
-      "id": "thread_52f7d71b_mission_core_capabilities_in_scope",
-      "community": 6,
+      "source_file": "MISSION.md",
+      "source_location": "L18",
+      "id": "thread_063be1b6_mission_core_capabilities_in_scope",
+      "community": 10,
       "norm_label": "core capabilities (in scope)"
     },
     {
       "label": "Out of Scope (Must Never Build)",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
-      "source_location": "L58",
-      "id": "thread_52f7d71b_mission_out_of_scope_must_never_build",
-      "community": 6,
+      "source_file": "MISSION.md",
+      "source_location": "L46",
+      "id": "thread_063be1b6_mission_out_of_scope_must_never_build",
+      "community": 10,
       "norm_label": "out of scope (must never build)"
     },
     {
       "label": "Hard Invariants (Not Tunable by Issues)",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
-      "source_location": "L89",
-      "id": "thread_52f7d71b_mission_hard_invariants_not_tunable_by_issues",
-      "community": 6,
+      "source_file": "MISSION.md",
+      "source_location": "L73",
+      "id": "thread_063be1b6_mission_hard_invariants_not_tunable_by_issues",
+      "community": 10,
       "norm_label": "hard invariants (not tunable by issues)"
     },
     {
       "label": "Allowed Evolutions",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
-      "source_location": "L108",
-      "id": "thread_52f7d71b_mission_allowed_evolutions",
-      "community": 6,
+      "source_file": "MISSION.md",
+      "source_location": "L83",
+      "id": "thread_063be1b6_mission_allowed_evolutions",
+      "community": 10,
       "norm_label": "allowed evolutions"
     },
     {
       "label": "Quality Standards (Definition of Done)",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
-      "source_location": "L122",
-      "id": "thread_52f7d71b_mission_quality_standards_definition_of_done",
-      "community": 6,
+      "source_file": "MISSION.md",
+      "source_location": "L95",
+      "id": "thread_063be1b6_mission_quality_standards_definition_of_done",
+      "community": 10,
       "norm_label": "quality standards (definition of done)"
     },
     {
       "label": "Non-Goals",
       "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
-      "source_location": "L146",
-      "id": "thread_52f7d71b_mission_non_goals",
-      "community": 6,
+      "source_file": "MISSION.md",
+      "source_location": "L113",
+      "id": "thread_063be1b6_mission_non_goals",
+      "community": 10,
       "norm_label": "non-goals"
     },
     {
@@ -414,7 +423,7 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
       "source_location": "L1",
       "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_2e97ebc4_readme_md",
-      "community": 7,
+      "community": 8,
       "norm_label": "readme.md"
     },
     {
@@ -423,7 +432,7 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
       "source_location": "L1",
       "id": "thread_2e97ebc4_readme_hello_ai_coding_agent",
-      "community": 7,
+      "community": 8,
       "norm_label": "hello ai coding agent"
     },
     {
@@ -432,7 +441,7 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
       "source_location": "L5",
       "id": "thread_2e97ebc4_readme_setup",
-      "community": 7,
+      "community": 8,
       "norm_label": "setup"
     },
     {
@@ -441,7 +450,7 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
       "source_location": "L7",
       "id": "thread_2e97ebc4_readme_codeblock_1",
-      "community": 7,
+      "community": 8,
       "norm_label": "code:bash (npm install)"
     },
     {
@@ -450,7 +459,7 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
       "source_location": "L11",
       "id": "thread_2e97ebc4_readme_usage",
-      "community": 7,
+      "community": 8,
       "norm_label": "usage"
     },
     {
@@ -459,7 +468,7 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
       "source_location": "L13",
       "id": "thread_2e97ebc4_readme_codeblock_2",
-      "community": 7,
+      "community": 8,
       "norm_label": "code:bash (npm start)"
     },
     {
@@ -468,7 +477,7 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
       "source_location": "L17",
       "id": "thread_2e97ebc4_readme_running_tests",
-      "community": 7,
+      "community": 8,
       "norm_label": "running tests"
     },
     {
@@ -477,7 +486,7 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
       "source_location": "L19",
       "id": "thread_2e97ebc4_readme_codeblock_3",
-      "community": 7,
+      "community": 8,
       "norm_label": "code:bash (npm test)"
     },
     {
@@ -486,42 +495,366 @@
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
       "source_location": "L23",
       "id": "thread_2e97ebc4_readme_contributing",
-      "community": 7,
+      "community": 8,
       "norm_label": "contributing"
     },
     {
       "label": "CLAUDE.md",
       "file_type": "document",
-      "source_file": "CLAUDE.md",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
       "source_location": "L1",
-      "community": 2,
+      "community": 5,
       "norm_label": "claude.md",
-      "id": "claude_md"
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_52f7d71b_claude_md"
+    },
+    {
+      "label": "Hello AI Coding Agent \u2014 Agent Instructions",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_location": "L1",
+      "community": 5,
+      "norm_label": "hello ai coding agent \u2014 agent instructions",
+      "id": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions"
+    },
+    {
+      "label": "Project Overview",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_location": "L17",
+      "community": 5,
+      "norm_label": "project overview",
+      "id": "thread_52f7d71b_claude_project_overview"
+    },
+    {
+      "label": "Tech Stack",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_location": "L36",
+      "community": 5,
+      "norm_label": "tech stack",
+      "id": "thread_52f7d71b_claude_tech_stack"
+    },
+    {
+      "label": "Repository Layout",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_location": "L54",
+      "community": 5,
+      "norm_label": "repository layout",
+      "id": "thread_52f7d71b_claude_repository_layout"
+    },
+    {
+      "label": "Build, Test & Lint",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_location": "L76",
+      "community": 5,
+      "norm_label": "build, test & lint",
+      "id": "thread_52f7d71b_claude_build_test_lint"
+    },
+    {
+      "label": "Architecture & Key Patterns",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_location": "L102",
+      "community": 5,
+      "norm_label": "architecture & key patterns",
+      "id": "thread_52f7d71b_claude_architecture_key_patterns"
+    },
+    {
+      "label": "Core Architecture",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_location": "L104",
+      "community": 5,
+      "norm_label": "core architecture",
+      "id": "thread_52f7d71b_claude_core_architecture"
+    },
+    {
+      "label": "Coding Rules",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_location": "L125",
+      "community": 5,
+      "norm_label": "coding rules",
+      "id": "thread_52f7d71b_claude_coding_rules"
+    },
+    {
+      "label": "Key Conventions",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_location": "L142",
+      "community": 5,
+      "norm_label": "key conventions",
+      "id": "thread_52f7d71b_claude_key_conventions"
+    },
+    {
+      "label": "What NOT to Do",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_location": "L174",
+      "community": 5,
+      "norm_label": "what not to do",
+      "id": "thread_52f7d71b_claude_what_not_to_do"
+    },
+    {
+      "label": "Important Files",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_location": "L195",
+      "community": 5,
+      "norm_label": "important files",
+      "id": "thread_52f7d71b_claude_important_files"
+    },
+    {
+      "label": "Development Notes",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_location": "L211",
+      "community": 5,
+      "norm_label": "development notes",
+      "id": "thread_52f7d71b_claude_development_notes"
     },
     {
       "label": "GUARDRAILS.md",
       "file_type": "document",
-      "source_file": "GUARDRAILS.md",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
       "source_location": "L1",
       "community": 3,
       "norm_label": "guardrails.md",
-      "id": "guardrails_md"
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_52f7d71b_guardrails_md"
+    },
+    {
+      "label": "Guardrails",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L1",
+      "community": 3,
+      "norm_label": "guardrails",
+      "id": "thread_52f7d71b_guardrails_guardrails"
+    },
+    {
+      "label": "1. Triage Rules",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L18",
+      "community": 3,
+      "norm_label": "1. triage rules",
+      "id": "thread_52f7d71b_guardrails_1_triage_rules"
+    },
+    {
+      "label": "Accept",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L20",
+      "community": 3,
+      "norm_label": "accept",
+      "id": "thread_52f7d71b_guardrails_accept"
+    },
+    {
+      "label": "Reject (close with comment)",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L29",
+      "community": 3,
+      "norm_label": "reject (close with comment)",
+      "id": "thread_52f7d71b_guardrails_reject_close_with_comment"
+    },
+    {
+      "label": "Defer to Human",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L41",
+      "community": 3,
+      "norm_label": "defer to human",
+      "id": "thread_52f7d71b_guardrails_defer_to_human"
+    },
+    {
+      "label": "Priority Assignment",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L51",
+      "community": 3,
+      "norm_label": "priority assignment",
+      "id": "thread_52f7d71b_guardrails_priority_assignment"
+    },
+    {
+      "label": "2. Implementation Rules",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L60",
+      "community": 3,
+      "norm_label": "2. implementation rules",
+      "id": "thread_52f7d71b_guardrails_2_implementation_rules"
+    },
+    {
+      "label": "Absolute Prohibitions",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L62",
+      "community": 3,
+      "norm_label": "absolute prohibitions",
+      "id": "thread_52f7d71b_guardrails_absolute_prohibitions"
+    },
+    {
+      "label": "Requirements for Every PR",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L85",
+      "community": 3,
+      "norm_label": "requirements for every pr",
+      "id": "thread_52f7d71b_guardrails_requirements_for_every_pr"
+    },
+    {
+      "label": "3. Quality Gates for Auto-Merge",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L97",
+      "community": 3,
+      "norm_label": "3. quality gates for auto-merge",
+      "id": "thread_52f7d71b_guardrails_3_quality_gates_for_auto_merge"
+    },
+    {
+      "label": "4. Protected Files (Auto-Reject on Any Modification)",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L115",
+      "community": 3,
+      "norm_label": "4. protected files (auto-reject on any modification)",
+      "id": "thread_52f7d71b_guardrails_4_protected_files_auto_reject_on_any_modification"
+    },
+    {
+      "label": "5. Auto-Reject Triggers (No Fix Attempts)",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L129",
+      "community": 3,
+      "norm_label": "5. auto-reject triggers (no fix attempts)",
+      "id": "thread_52f7d71b_guardrails_5_auto_reject_triggers_no_fix_attempts"
+    },
+    {
+      "label": "6. Escalation to Human",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L148",
+      "community": 3,
+      "norm_label": "6. escalation to human",
+      "id": "thread_52f7d71b_guardrails_6_escalation_to_human"
+    },
+    {
+      "label": "7. Communication Style",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L160",
+      "community": 3,
+      "norm_label": "7. communication style",
+      "id": "thread_52f7d71b_guardrails_7_communication_style"
+    },
+    {
+      "label": "8. Changes to This File",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L170",
+      "community": 3,
+      "norm_label": "8. changes to this file",
+      "id": "thread_52f7d71b_guardrails_8_changes_to_this_file"
     },
     {
       "label": "MISSION.md",
       "file_type": "document",
-      "source_file": "MISSION.md",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
       "source_location": "L1",
-      "community": 5,
+      "community": 9,
       "norm_label": "mission.md",
-      "id": "mission_md"
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_52f7d71b_mission_md"
+    },
+    {
+      "label": "Mission",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
+      "source_location": "L1",
+      "community": 9,
+      "norm_label": "mission",
+      "id": "thread_52f7d71b_mission_mission"
+    },
+    {
+      "label": "What Hello AI Coding Agent Is",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
+      "source_location": "L3",
+      "community": 9,
+      "norm_label": "what hello ai coding agent is",
+      "id": "thread_52f7d71b_mission_what_hello_ai_coding_agent_is"
+    },
+    {
+      "label": "Who It's For",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
+      "source_location": "L20",
+      "community": 9,
+      "norm_label": "who it's for",
+      "id": "thread_52f7d71b_mission_who_it_s_for"
+    },
+    {
+      "label": "Core Capabilities (In Scope)",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
+      "source_location": "L30",
+      "community": 9,
+      "norm_label": "core capabilities (in scope)",
+      "id": "thread_52f7d71b_mission_core_capabilities_in_scope"
+    },
+    {
+      "label": "Out of Scope (Must Never Build)",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
+      "source_location": "L58",
+      "community": 9,
+      "norm_label": "out of scope (must never build)",
+      "id": "thread_52f7d71b_mission_out_of_scope_must_never_build"
+    },
+    {
+      "label": "Hard Invariants (Not Tunable by Issues)",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
+      "source_location": "L89",
+      "community": 9,
+      "norm_label": "hard invariants (not tunable by issues)",
+      "id": "thread_52f7d71b_mission_hard_invariants_not_tunable_by_issues"
+    },
+    {
+      "label": "Allowed Evolutions",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
+      "source_location": "L108",
+      "community": 9,
+      "norm_label": "allowed evolutions",
+      "id": "thread_52f7d71b_mission_allowed_evolutions"
+    },
+    {
+      "label": "Quality Standards (Definition of Done)",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
+      "source_location": "L122",
+      "community": 9,
+      "norm_label": "quality standards (definition of done)",
+      "id": "thread_52f7d71b_mission_quality_standards_definition_of_done"
+    },
+    {
+      "label": "Non-Goals",
+      "file_type": "document",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
+      "source_location": "L146",
+      "community": 9,
+      "norm_label": "non-goals",
+      "id": "thread_52f7d71b_mission_non_goals"
     },
     {
       "label": "AGENTS.md",
       "file_type": "document",
       "source_file": "AGENTS.md",
       "source_location": "L1",
-      "community": 10,
+      "community": 12,
       "norm_label": "agents.md",
       "id": "agents_md"
     },
@@ -530,7 +863,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L1",
-      "community": 4,
+      "community": 6,
       "norm_label": "hello ai coding agent \u2014 agent instructions",
       "id": "thread_2e97ebc4_claude_hello_ai_coding_agent_agent_instructions"
     },
@@ -539,7 +872,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L17",
-      "community": 4,
+      "community": 6,
       "norm_label": "project overview",
       "id": "thread_2e97ebc4_claude_project_overview"
     },
@@ -548,7 +881,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L27",
-      "community": 4,
+      "community": 6,
       "norm_label": "tech stack",
       "id": "thread_2e97ebc4_claude_tech_stack"
     },
@@ -557,7 +890,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L41",
-      "community": 4,
+      "community": 6,
       "norm_label": "repository layout",
       "id": "thread_2e97ebc4_claude_repository_layout"
     },
@@ -566,7 +899,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L58",
-      "community": 4,
+      "community": 6,
       "norm_label": "build, test & lint",
       "id": "thread_2e97ebc4_claude_build_test_lint"
     },
@@ -575,7 +908,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L87",
-      "community": 4,
+      "community": 6,
       "norm_label": "architecture & key patterns",
       "id": "thread_2e97ebc4_claude_architecture_key_patterns"
     },
@@ -584,7 +917,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L89",
-      "community": 4,
+      "community": 6,
       "norm_label": "core architecture",
       "id": "thread_2e97ebc4_claude_core_architecture"
     },
@@ -593,7 +926,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L101",
-      "community": 4,
+      "community": 6,
       "norm_label": "coding rules",
       "id": "thread_2e97ebc4_claude_coding_rules"
     },
@@ -602,7 +935,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L111",
-      "community": 4,
+      "community": 6,
       "norm_label": "key conventions",
       "id": "thread_2e97ebc4_claude_key_conventions"
     },
@@ -611,7 +944,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L126",
-      "community": 4,
+      "community": 6,
       "norm_label": "what not to do",
       "id": "thread_2e97ebc4_claude_what_not_to_do"
     },
@@ -620,7 +953,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L143",
-      "community": 4,
+      "community": 6,
       "norm_label": "important files",
       "id": "thread_2e97ebc4_claude_important_files"
     },
@@ -629,7 +962,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L158",
-      "community": 4,
+      "community": 6,
       "norm_label": "development notes",
       "id": "thread_2e97ebc4_claude_development_notes"
     },
@@ -638,7 +971,7 @@
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": "L176",
-      "community": 4,
+      "community": 6,
       "norm_label": "graphify",
       "id": "thread_2e97ebc4_claude_graphify"
     },
@@ -647,7 +980,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L1",
-      "community": 3,
+      "community": 1,
       "norm_label": "guardrails",
       "id": "thread_2e97ebc4_guardrails_guardrails"
     },
@@ -656,7 +989,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L18",
-      "community": 8,
+      "community": 1,
       "norm_label": "1. triage rules",
       "id": "thread_2e97ebc4_guardrails_1_triage_rules"
     },
@@ -665,7 +998,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L20",
-      "community": 8,
+      "community": 1,
       "norm_label": "accept",
       "id": "thread_2e97ebc4_guardrails_accept"
     },
@@ -674,7 +1007,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L29",
-      "community": 8,
+      "community": 1,
       "norm_label": "reject (close with comment)",
       "id": "thread_2e97ebc4_guardrails_reject_close_with_comment"
     },
@@ -683,7 +1016,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L42",
-      "community": 8,
+      "community": 1,
       "norm_label": "defer to human",
       "id": "thread_2e97ebc4_guardrails_defer_to_human"
     },
@@ -692,7 +1025,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L53",
-      "community": 8,
+      "community": 1,
       "norm_label": "priority assignment",
       "id": "thread_2e97ebc4_guardrails_priority_assignment"
     },
@@ -701,7 +1034,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L62",
-      "community": 3,
+      "community": 1,
       "norm_label": "2. implementation rules",
       "id": "thread_2e97ebc4_guardrails_2_implementation_rules"
     },
@@ -710,7 +1043,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L64",
-      "community": 3,
+      "community": 1,
       "norm_label": "absolute prohibitions",
       "id": "thread_2e97ebc4_guardrails_absolute_prohibitions"
     },
@@ -719,7 +1052,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L84",
-      "community": 3,
+      "community": 1,
       "norm_label": "requirements for every pr",
       "id": "thread_2e97ebc4_guardrails_requirements_for_every_pr"
     },
@@ -728,7 +1061,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L94",
-      "community": 3,
+      "community": 1,
       "norm_label": "3. quality gates for auto-merge",
       "id": "thread_2e97ebc4_guardrails_3_quality_gates_for_auto_merge"
     },
@@ -737,7 +1070,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L110",
-      "community": 3,
+      "community": 1,
       "norm_label": "full pre-pr validation sequence",
       "id": "thread_2e97ebc4_guardrails_full_pre_pr_validation_sequence"
     },
@@ -746,7 +1079,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L112",
-      "community": 3,
+      "community": 1,
       "norm_label": "code:bash (npm run lint && npm test)",
       "id": "thread_2e97ebc4_guardrails_codeblock_1"
     },
@@ -755,7 +1088,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L120",
-      "community": 3,
+      "community": 1,
       "norm_label": "4. protected files (auto-reject on any modification)",
       "id": "thread_2e97ebc4_guardrails_4_protected_files_auto_reject_on_any_modification"
     },
@@ -764,7 +1097,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L134",
-      "community": 3,
+      "community": 1,
       "norm_label": "5. auto-reject triggers (no fix attempts)",
       "id": "thread_2e97ebc4_guardrails_5_auto_reject_triggers_no_fix_attempts"
     },
@@ -773,7 +1106,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L150",
-      "community": 3,
+      "community": 1,
       "norm_label": "6. escalation to human",
       "id": "thread_2e97ebc4_guardrails_6_escalation_to_human"
     },
@@ -782,7 +1115,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L163",
-      "community": 3,
+      "community": 1,
       "norm_label": "7. communication style",
       "id": "thread_2e97ebc4_guardrails_7_communication_style"
     },
@@ -791,7 +1124,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L174",
-      "community": 3,
+      "community": 1,
       "norm_label": "8. codebase-specific notes",
       "id": "thread_2e97ebc4_guardrails_8_codebase_specific_notes"
     },
@@ -800,7 +1133,7 @@
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": "L189",
-      "community": 3,
+      "community": 1,
       "norm_label": "9. changes to this file",
       "id": "thread_2e97ebc4_guardrails_9_changes_to_this_file"
     },
@@ -809,7 +1142,7 @@
       "file_type": "document",
       "source_file": "MISSION.md",
       "source_location": "L1",
-      "community": 5,
+      "community": 7,
       "norm_label": "mission",
       "id": "thread_2e97ebc4_mission_mission"
     },
@@ -818,7 +1151,7 @@
       "file_type": "document",
       "source_file": "MISSION.md",
       "source_location": "L3",
-      "community": 5,
+      "community": 7,
       "norm_label": "what hello ai coding agent is",
       "id": "thread_2e97ebc4_mission_what_hello_ai_coding_agent_is"
     },
@@ -827,7 +1160,7 @@
       "file_type": "document",
       "source_file": "MISSION.md",
       "source_location": "L19",
-      "community": 5,
+      "community": 7,
       "norm_label": "who it's for",
       "id": "thread_2e97ebc4_mission_who_it_s_for"
     },
@@ -836,7 +1169,7 @@
       "file_type": "document",
       "source_file": "MISSION.md",
       "source_location": "L31",
-      "community": 5,
+      "community": 7,
       "norm_label": "core capabilities (in scope)",
       "id": "thread_2e97ebc4_mission_core_capabilities_in_scope"
     },
@@ -845,7 +1178,7 @@
       "file_type": "document",
       "source_file": "MISSION.md",
       "source_location": "L59",
-      "community": 5,
+      "community": 7,
       "norm_label": "out of scope (must never build)",
       "id": "thread_2e97ebc4_mission_out_of_scope_must_never_build"
     },
@@ -854,7 +1187,7 @@
       "file_type": "document",
       "source_file": "MISSION.md",
       "source_location": "L87",
-      "community": 5,
+      "community": 7,
       "norm_label": "hard invariants (not tunable by issues)",
       "id": "thread_2e97ebc4_mission_hard_invariants_not_tunable_by_issues"
     },
@@ -863,7 +1196,7 @@
       "file_type": "document",
       "source_file": "MISSION.md",
       "source_location": "L105",
-      "community": 5,
+      "community": 7,
       "norm_label": "allowed evolutions",
       "id": "thread_2e97ebc4_mission_allowed_evolutions"
     },
@@ -872,7 +1205,7 @@
       "file_type": "document",
       "source_file": "MISSION.md",
       "source_location": "L119",
-      "community": 5,
+      "community": 7,
       "norm_label": "quality standards (definition of done)",
       "id": "thread_2e97ebc4_mission_quality_standards_definition_of_done"
     },
@@ -881,7 +1214,7 @@
       "file_type": "document",
       "source_file": "MISSION.md",
       "source_location": "L140",
-      "community": 5,
+      "community": 7,
       "norm_label": "code:bash (npm run lint          # exits 0)",
       "id": "thread_2e97ebc4_mission_codeblock_1"
     },
@@ -890,7 +1223,7 @@
       "file_type": "document",
       "source_file": "MISSION.md",
       "source_location": "L148",
-      "community": 5,
+      "community": 7,
       "norm_label": "non-goals",
       "id": "thread_2e97ebc4_mission_non_goals"
     },
@@ -899,7 +1232,7 @@
       "file_type": "document",
       "source_file": "ReadMe.md",
       "source_location": "L1",
-      "community": 7,
+      "community": 8,
       "norm_label": "readme.md",
       "id": "readme_md"
     },
@@ -908,7 +1241,7 @@
       "file_type": "code",
       "source_file": "index.js",
       "source_location": "L1",
-      "community": 9,
+      "community": 11,
       "norm_label": "index.js",
       "id": "index_js"
     },
@@ -1230,92 +1563,12 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
+      "source_file": "CLAUDE.md",
       "source_location": "L1",
       "weight": 1.0,
-      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_52f7d71b_claude_md",
-      "target": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
+      "source": "claude_md",
+      "target": "thread_063be1b6_claude_hello_ai_coding_agent_agent_instructions",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_52f7d71b_claude_project_overview"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L36",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_52f7d71b_claude_tech_stack"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_52f7d71b_claude_repository_layout"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L76",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_52f7d71b_claude_build_test_lint"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L102",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_52f7d71b_claude_architecture_key_patterns"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L174",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_52f7d71b_claude_what_not_to_do"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L195",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_52f7d71b_claude_important_files"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L211",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_52f7d71b_claude_development_notes"
     },
     {
       "relation": "contains",
@@ -1331,121 +1584,131 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "CLAUDE.md",
-      "source_location": "L104",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_claude_architecture_key_patterns",
-      "target": "thread_52f7d71b_claude_core_architecture"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L125",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_claude_architecture_key_patterns",
-      "target": "thread_52f7d71b_claude_coding_rules"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L142",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_claude_architecture_key_patterns",
-      "target": "thread_52f7d71b_claude_key_conventions"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
       "source_location": "L1",
       "weight": 1.0,
-      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_52f7d71b_guardrails_md",
-      "target": "thread_52f7d71b_guardrails_guardrails",
+      "confidence_score": 1.0,
+      "source": "claude_md",
+      "target": "thread_2e97ebc4_claude_hello_ai_coding_agent_agent_instructions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "thread_063be1b6_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_063be1b6_claude_project_overview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "thread_063be1b6_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_063be1b6_claude_tech_stack",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "thread_063be1b6_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_063be1b6_claude_repository_layout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "thread_063be1b6_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_063be1b6_claude_build_test_lint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L98",
+      "weight": 1.0,
+      "source": "thread_063be1b6_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_063be1b6_claude_architecture_key_patterns",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L139",
+      "weight": 1.0,
+      "source": "thread_063be1b6_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_063be1b6_claude_what_not_to_do",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L156",
+      "weight": 1.0,
+      "source": "thread_063be1b6_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_063be1b6_claude_important_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L172",
+      "weight": 1.0,
+      "source": "thread_063be1b6_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_063be1b6_claude_development_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "thread_063be1b6_claude_architecture_key_patterns",
+      "target": "thread_063be1b6_claude_core_architecture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "thread_063be1b6_claude_architecture_key_patterns",
+      "target": "thread_063be1b6_claude_coding_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L122",
+      "weight": 1.0,
+      "source": "thread_063be1b6_claude_architecture_key_patterns",
+      "target": "thread_063be1b6_claude_key_conventions",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GUARDRAILS.md",
-      "source_location": "L18",
+      "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_guardrails",
-      "target": "thread_52f7d71b_guardrails_1_triage_rules"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L60",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_guardrails",
-      "target": "thread_52f7d71b_guardrails_2_implementation_rules"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L97",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_guardrails",
-      "target": "thread_52f7d71b_guardrails_3_quality_gates_for_auto_merge"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L115",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_guardrails",
-      "target": "thread_52f7d71b_guardrails_4_protected_files_auto_reject_on_any_modification"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L129",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_guardrails",
-      "target": "thread_52f7d71b_guardrails_5_auto_reject_triggers_no_fix_attempts"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L148",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_guardrails",
-      "target": "thread_52f7d71b_guardrails_6_escalation_to_human"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L160",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_guardrails",
-      "target": "thread_52f7d71b_guardrails_7_communication_style"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L170",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_guardrails",
-      "target": "thread_52f7d71b_guardrails_8_changes_to_this_file"
+      "source": "guardrails_md",
+      "target": "thread_063be1b6_guardrails_guardrails",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1461,11 +1724,101 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GUARDRAILS.md",
-      "source_location": "L20",
+      "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_1_triage_rules",
-      "target": "thread_52f7d71b_guardrails_accept"
+      "source": "guardrails_md",
+      "target": "thread_2e97ebc4_guardrails_guardrails"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "thread_063be1b6_guardrails_guardrails",
+      "target": "thread_063be1b6_guardrails_1_triage_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "thread_063be1b6_guardrails_guardrails",
+      "target": "thread_063be1b6_guardrails_2_implementation_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "thread_063be1b6_guardrails_guardrails",
+      "target": "thread_063be1b6_guardrails_3_quality_gates_for_auto_merge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "thread_063be1b6_guardrails_guardrails",
+      "target": "thread_063be1b6_guardrails_4_protected_files_auto_reject_on_any_modification",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "thread_063be1b6_guardrails_guardrails",
+      "target": "thread_063be1b6_guardrails_5_auto_reject_triggers_no_fix_attempts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L171",
+      "weight": 1.0,
+      "source": "thread_063be1b6_guardrails_guardrails",
+      "target": "thread_063be1b6_guardrails_6_escalation_to_human",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L188",
+      "weight": 1.0,
+      "source": "thread_063be1b6_guardrails_guardrails",
+      "target": "thread_063be1b6_guardrails_7_communication_style",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L202",
+      "weight": 1.0,
+      "source": "thread_063be1b6_guardrails_guardrails",
+      "target": "thread_063be1b6_guardrails_8_changes_to_this_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "thread_063be1b6_guardrails_1_triage_rules",
+      "target": "thread_063be1b6_guardrails_accept",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1473,139 +1826,69 @@
       "source_file": "GUARDRAILS.md",
       "source_location": "L29",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_1_triage_rules",
-      "target": "thread_52f7d71b_guardrails_reject_close_with_comment"
+      "source": "thread_063be1b6_guardrails_1_triage_rules",
+      "target": "thread_063be1b6_guardrails_reject_close_with_comment",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GUARDRAILS.md",
-      "source_location": "L41",
+      "source_location": "L47",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_1_triage_rules",
-      "target": "thread_52f7d71b_guardrails_defer_to_human"
+      "source": "thread_063be1b6_guardrails_1_triage_rules",
+      "target": "thread_063be1b6_guardrails_defer_to_human",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GUARDRAILS.md",
-      "source_location": "L51",
+      "source_location": "L58",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_1_triage_rules",
-      "target": "thread_52f7d71b_guardrails_priority_assignment"
+      "source": "thread_063be1b6_guardrails_1_triage_rules",
+      "target": "thread_063be1b6_guardrails_priority_assignment",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GUARDRAILS.md",
-      "source_location": "L62",
+      "source_location": "L69",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_2_implementation_rules",
-      "target": "thread_52f7d71b_guardrails_absolute_prohibitions"
+      "source": "thread_063be1b6_guardrails_2_implementation_rules",
+      "target": "thread_063be1b6_guardrails_absolute_prohibitions",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GUARDRAILS.md",
-      "source_location": "L85",
+      "source_location": "L93",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_guardrails_2_implementation_rules",
-      "target": "thread_52f7d71b_guardrails_requirements_for_every_pr"
+      "source": "thread_063be1b6_guardrails_2_implementation_rules",
+      "target": "thread_063be1b6_guardrails_requirements_for_every_pr",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
-      "source_location": "L1",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L126",
       "weight": 1.0,
-      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_52f7d71b_mission_md",
-      "target": "thread_52f7d71b_mission_mission",
+      "source": "thread_063be1b6_guardrails_3_quality_gates_for_auto_merge",
+      "target": "thread_063be1b6_guardrails_codeblock_1",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "MISSION.md",
-      "source_location": "L3",
+      "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_mission_mission",
-      "target": "thread_52f7d71b_mission_what_hello_ai_coding_agent_is"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_mission_mission",
-      "target": "thread_52f7d71b_mission_who_it_s_for"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L30",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_mission_mission",
-      "target": "thread_52f7d71b_mission_core_capabilities_in_scope"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L58",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_mission_mission",
-      "target": "thread_52f7d71b_mission_out_of_scope_must_never_build"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L89",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_mission_mission",
-      "target": "thread_52f7d71b_mission_hard_invariants_not_tunable_by_issues"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L108",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_mission_mission",
-      "target": "thread_52f7d71b_mission_allowed_evolutions"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L122",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_mission_mission",
-      "target": "thread_52f7d71b_mission_quality_standards_definition_of_done"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L146",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_52f7d71b_mission_mission",
-      "target": "thread_52f7d71b_mission_non_goals"
+      "source": "mission_md",
+      "target": "thread_063be1b6_mission_mission",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1616,6 +1899,96 @@
       "confidence_score": 1.0,
       "source": "mission_md",
       "target": "thread_52f7d71b_mission_mission"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "mission_md",
+      "target": "thread_2e97ebc4_mission_mission"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "thread_063be1b6_mission_mission",
+      "target": "thread_063be1b6_mission_what_hello_ai_coding_agent_is",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "thread_063be1b6_mission_mission",
+      "target": "thread_063be1b6_mission_who_it_s_for",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "thread_063be1b6_mission_mission",
+      "target": "thread_063be1b6_mission_core_capabilities_in_scope",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "thread_063be1b6_mission_mission",
+      "target": "thread_063be1b6_mission_out_of_scope_must_never_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "thread_063be1b6_mission_mission",
+      "target": "thread_063be1b6_mission_hard_invariants_not_tunable_by_issues",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L83",
+      "weight": 1.0,
+      "source": "thread_063be1b6_mission_mission",
+      "target": "thread_063be1b6_mission_allowed_evolutions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "thread_063be1b6_mission_mission",
+      "target": "thread_063be1b6_mission_quality_standards_definition_of_done",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "thread_063be1b6_mission_mission",
+      "target": "thread_063be1b6_mission_non_goals",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -1710,32 +2083,362 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "claude_md",
-      "target": "thread_2e97ebc4_claude_hello_ai_coding_agent_agent_instructions"
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_52f7d71b_claude_md",
+      "target": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_52f7d71b_claude_project_overview"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L36",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_52f7d71b_claude_tech_stack"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_52f7d71b_claude_repository_layout"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L76",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_52f7d71b_claude_build_test_lint"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L102",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_52f7d71b_claude_architecture_key_patterns"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L174",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_52f7d71b_claude_what_not_to_do"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L195",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_52f7d71b_claude_important_files"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L211",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_claude_hello_ai_coding_agent_agent_instructions",
+      "target": "thread_52f7d71b_claude_development_notes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L104",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_claude_architecture_key_patterns",
+      "target": "thread_52f7d71b_claude_core_architecture"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L125",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_claude_architecture_key_patterns",
+      "target": "thread_52f7d71b_claude_coding_rules"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CLAUDE.md",
+      "source_location": "L142",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_claude_architecture_key_patterns",
+      "target": "thread_52f7d71b_claude_key_conventions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/GUARDRAILS.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_52f7d71b_guardrails_md",
+      "target": "thread_52f7d71b_guardrails_guardrails"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "GUARDRAILS.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_guardrails",
+      "target": "thread_52f7d71b_guardrails_1_triage_rules"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L60",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_guardrails",
+      "target": "thread_52f7d71b_guardrails_2_implementation_rules"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L97",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_guardrails",
+      "target": "thread_52f7d71b_guardrails_3_quality_gates_for_auto_merge"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L115",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_guardrails",
+      "target": "thread_52f7d71b_guardrails_4_protected_files_auto_reject_on_any_modification"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L129",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_guardrails",
+      "target": "thread_52f7d71b_guardrails_5_auto_reject_triggers_no_fix_attempts"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L148",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_guardrails",
+      "target": "thread_52f7d71b_guardrails_6_escalation_to_human"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L160",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_guardrails",
+      "target": "thread_52f7d71b_guardrails_7_communication_style"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L170",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_guardrails",
+      "target": "thread_52f7d71b_guardrails_8_changes_to_this_file"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_1_triage_rules",
+      "target": "thread_52f7d71b_guardrails_accept"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_1_triage_rules",
+      "target": "thread_52f7d71b_guardrails_reject_close_with_comment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_1_triage_rules",
+      "target": "thread_52f7d71b_guardrails_defer_to_human"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_1_triage_rules",
+      "target": "thread_52f7d71b_guardrails_priority_assignment"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_2_implementation_rules",
+      "target": "thread_52f7d71b_guardrails_absolute_prohibitions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "GUARDRAILS.md",
+      "source_location": "L85",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_guardrails_2_implementation_rules",
+      "target": "thread_52f7d71b_guardrails_requirements_for_every_pr"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "guardrails_md",
-      "target": "thread_2e97ebc4_guardrails_guardrails"
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_52f7d71b_mission_md",
+      "target": "thread_52f7d71b_mission_mission"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "MISSION.md",
-      "source_location": "L1",
+      "source_location": "L3",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "mission_md",
-      "target": "thread_2e97ebc4_mission_mission"
+      "source": "thread_52f7d71b_mission_mission",
+      "target": "thread_52f7d71b_mission_what_hello_ai_coding_agent_is"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_mission_mission",
+      "target": "thread_52f7d71b_mission_who_it_s_for"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_mission_mission",
+      "target": "thread_52f7d71b_mission_core_capabilities_in_scope"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_mission_mission",
+      "target": "thread_52f7d71b_mission_out_of_scope_must_never_build"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L89",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_mission_mission",
+      "target": "thread_52f7d71b_mission_hard_invariants_not_tunable_by_issues"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_mission_mission",
+      "target": "thread_52f7d71b_mission_allowed_evolutions"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L122",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_mission_mission",
+      "target": "thread_52f7d71b_mission_quality_standards_definition_of_done"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "MISSION.md",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "thread_52f7d71b_mission_mission",
+      "target": "thread_52f7d71b_mission_non_goals"
     },
     {
       "relation": "contains",
@@ -2465,5 +3168,5 @@
       "source_file": "MISSION.md"
     }
   ],
-  "built_at_commit": "a1e0aa96e0b99c8e229d33c73ffb04985268dc0d"
+  "built_at_commit": "0d44651d392b0f9e12d53eeaa2dc4322ca139ed9"
 }
