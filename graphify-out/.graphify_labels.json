@@ -1,1 +1,1 @@
-{"0": "Core Governance Concepts", "1": "Process Rules & Quality Gates", "2": "Agent Instructions Detail", "3": "Project Setup & Usage", "4": "Mission & Scope Detail", "5": "Issue Triage Rules", "6": "Application Code"}
+{"0": "Governance Files & Architecture", "1": "Build, Test & Coding Rules", "2": "Quality Gates & Authority Hierarchy", "3": "Process Rules & Guardrails", "4": "Hard Invariants & Allowed Evolutions", "5": "Out-of-Scope Prohibitions", "6": "Runtime Contract & ES5 Constraints", "7": "Triage & Issue Handling"}

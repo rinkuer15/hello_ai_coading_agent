@@ -1,150 +1,97 @@
-# Graph Report - thread-d9c207b9  (2026-06-29)
+# Graph Report - .  (2026-06-29)
 
 ## Corpus Check
-- 6 files · ~5,703 words
+- 6 files · ~5,227 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 212 nodes · 225 edges · 15 communities (13 shown, 2 thin omitted)
-- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 10 edges (avg confidence: 0.86)
+- 90 nodes · 117 edges · 8 communities
+- Extraction: 89% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 13 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
-## Graph Freshness
-- Built from commit: `7eec2096`
-- Run `git rev-parse HEAD` and compare to check if the graph is stale.
-- Run `graphify update .` after code changes (no API cost).
-
-## Update Delta (vs previous run)
-- **Removed:** 3 stale nodes (`Coding Conventions (Summary)`, `8. Known Traps — Read Before Any Validation`, stale code block)
-- **Added:** 18 new nodes (2 GUARDRAILS, 1 CLAUDE `graphify`, 15 MISSION subsections)
-- **Added:** 24 new links (19 containment + 5 semantic cross-file)
-- **Net change:** +15 nodes, +21 links
-
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Core Governance Concepts|Core Governance Concepts]]
-- [[_COMMUNITY_Process Rules & Quality Gates|Process Rules & Quality Gates]]
-- [[_COMMUNITY_Agent Instructions Detail|Agent Instructions Detail]]
-- [[_COMMUNITY_Project Setup & Usage|Project Setup & Usage]]
-- [[_COMMUNITY_Mission & Scope Detail|Mission & Scope Detail]]
-- [[_COMMUNITY_Issue Triage Rules|Issue Triage Rules]]
-- [[_COMMUNITY_Application Code|Application Code]]
-- [[_COMMUNITY_Community 7|Community 7]]
-- [[_COMMUNITY_Community 8|Community 8]]
-- [[_COMMUNITY_Community 9|Community 9]]
-- [[_COMMUNITY_Community 10|Community 10]]
-- [[_COMMUNITY_Community 11|Community 11]]
-- [[_COMMUNITY_Community 12|Community 12]]
-- [[_COMMUNITY_Community 13|Community 13]]
-- [[_COMMUNITY_Community 14|Community 14]]
+- [[_COMMUNITY_Governance Files & Architecture|Governance Files & Architecture]]
+- [[_COMMUNITY_Build, Test & Coding Rules|Build, Test & Coding Rules]]
+- [[_COMMUNITY_Quality Gates & Authority Hierarchy|Quality Gates & Authority Hierarchy]]
+- [[_COMMUNITY_Process Rules & Guardrails|Process Rules & Guardrails]]
+- [[_COMMUNITY_Hard Invariants & Allowed Evolutions|Hard Invariants & Allowed Evolutions]]
+- [[_COMMUNITY_Out-of-Scope Prohibitions|Out-of-Scope Prohibitions]]
+- [[_COMMUNITY_Runtime Contract & ES5 Constraints|Runtime Contract & ES5 Constraints]]
+- [[_COMMUNITY_Triage & Issue Handling|Triage & Issue Handling]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `Guardrails` - 10 edges
+1. `Hello AI Coding Agent` - 11 edges
 2. `Hello AI Coding Agent — Agent Instructions` - 10 edges
-3. `Guardrails` - 10 edges
-4. `Mission` - 10 edges
-5. `Hello AI Coding Agent — Agent Instructions` - 10 edges
-6. `Guardrails` - 10 edges
-7. `MISSION.md` - 10 edges
-8. `Hello AI Coding Agent — Agent Instructions` - 9 edges
-9. `Mission` - 9 edges
-10. `Hello AI Coding Agent — Agent Instructions` - 9 edges
+3. `Mission` - 9 edges
+4. `Core Capabilities (In Scope)` - 7 edges
+5. `Out of Scope (Must Never Build)` - 7 edges
+6. `Quality Standards (Definition of Done)` - 6 edges
+7. `Governance Layer` - 6 edges
+8. `1. Triage Rules` - 5 edges
+9. `Architecture & Key Patterns` - 4 edges
+10. `3. Quality Gates for Auto-Merge` - 4 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Governance Layer` --semantically_similar_to--> `Governance Files Are the Architecture`  [INFERRED] [semantically similar]
-  MISSION.md → CLAUDE.md
-- `Quality Standards` --semantically_similar_to--> `Quality Gates`  [INFERRED] [semantically similar]
-  MISSION.md → GUARDRAILS.md
 - `Knowledge Graph Integration` --semantically_similar_to--> `graphify`  [INFERRED] [semantically similar]
   MISSION.md → CLAUDE.md
 - `Automated Quality Gates` --semantically_similar_to--> `3. Quality Gates for Auto-Merge`  [INFERRED] [semantically similar]
   MISSION.md → GUARDRAILS.md
-- `Hard Invariants` --conceptually_related_to--> `Protected Files`  [INFERRED]
+- `Quality Standards` --semantically_similar_to--> `Quality Gates`  [INFERRED] [semantically similar]
   MISSION.md → GUARDRAILS.md
-- `Governance File Modification` --conceptually_related_to--> `4. Protected Files (Auto-Reject on Any Modification)`  [INFERRED]
-  MISSION.md → GUARDRAILS.md
-- `Zero Dependencies` --rationale_for--> `Hello AI Coding Agent`  [EXTRACTED]
-  CLAUDE.md → MISSION.md
-- `Module System Changes` --conceptually_related_to--> `5. Auto-Reject Triggers (No Fix Attempts)`  [INFERRED]
-  MISSION.md → GUARDRAILS.md
-- `Dependency Introduction` --conceptually_related_to--> `5. Auto-Reject Triggers (No Fix Attempts)`  [INFERRED]
-  MISSION.md → GUARDRAILS.md
-- `Single Execution Point` --conceptually_related_to--> `Hard Invariants`  [INFERRED]
+- `main` --implements--> `Byte-Stable Regression Contract`  [INFERRED]
+  src/index.js → MISSION.md
+- `Governance Layer` --rationale_for--> `Zero-Blast-Radius Sandbox`  [INFERRED]
   CLAUDE.md → MISSION.md
 
 ## Hyperedges (group relationships)
-- **Governance Constraint System** — mission_mission_md, guardrails_guardrails_md, agents_agents_md, claude_claude_md, mission_governance_layer [EXTRACTED 1.00]
+- **Governance Authority Hierarchy** — mission_scope_authority, guardrails_process_authority, claude_style_authority [EXTRACTED 1.00]
+- **Stdout Verification System** — index_main, mission_byte_stable_regression_contract, guardrails_quality_gates [INFERRED 0.85]
+- **Governance Preservation Mechanism** — claude_governance_layer, guardrails_protected_files, mission_zero_blast_radius_sandbox [INFERRED 0.75]
 
-## Communities (15 total, 2 thin omitted)
+## Communities (8 total, 0 thin omitted)
 
-### Community 0 - "Core Governance Concepts"
-Cohesion: 0.10
-Nodes (32): Allowed Evolutions, Automated Quality Gates, Coding Convention Enforcement, Core Capabilities (In Scope), Dependency Introduction, Gate 1 — Static Checks Pass, Gate 2 — Feature Is Discoverable Without Docs, Gate 3 — End-to-End Regression, Governance Authority Hierarchy, Governance File Modification, Hard Invariants (Not Tunable by Issues), Knowledge Graph Integration, Language Modernisation, Mission, Module System Changes, Non-Goals (+16 more)
+### Community 0 - "Governance Files & Architecture"
+Cohesion: 0.16
+Nodes (17): Governance Files Are the Architecture, Governance Layer, Module System One-Way Door, Single Execution Point, Zero Dependencies, Protected Files, Hard Invariants, Hello AI Coding Agent (+9 more)
 
-### Community 1 - "Process Rules & Quality Gates"
+### Community 1 - "Build, Test & Coding Rules"
 Cohesion: 0.17
-Nodes (23): Gate 1 — Static Checks Pass, Gate 2 — Feature Is Discoverable Without Docs, Gate 3 — End-to-End Regression, Governance Files Are the Architecture, Module System One-Way Door, Single Execution Point, Zero Dependencies, Meta-rule, Protected Files, Quality Gates, Allowed Evolutions (+12 more)
+Nodes (13): graphify, Architecture & Key Patterns, Build, Test & Lint, Coding Rules, Core Architecture, Development Notes, Hello AI Coding Agent — Agent Instructions, Important Files (+5 more)
 
-### Community 2 - "Agent Instructions Detail"
-Cohesion: 0.11
-Nodes (18): 1. Triage Rules, 2. Implementation Rules, 3. Quality Gates for Auto-Merge, 4. Protected Files (Auto-Reject on Any Modification), 5. Auto-Reject Triggers (No Fix Attempts), 6. Escalation to Human, 7. Communication Style, 8. Stack-Specific Traps (Read Before Any Validation) (+10 more)
+### Community 2 - "Quality Gates & Authority Hierarchy"
+Cohesion: 0.2
+Nodes (11): code:bash (npm run lint && npm test), Automated Quality Gates, Coding Convention Enforcement, Governance Authority Hierarchy, Knowledge Graph Integration, Runtime Contract, Test Scaffolding (Prescribed, Not Yet Instantiated), 3. Quality Gates for Auto-Merge (+3 more)
 
-### Community 3 - "Project Setup & Usage"
-Cohesion: 0.11
-Nodes (18): 1. Triage Rules, 2. Implementation Rules, 3. Quality Gates for Auto-Merge, 4. Protected Files (Auto-Reject on Any Modification), 5. Auto-Reject Triggers (No Fix Attempts), 6. Escalation to Human, 7. Communication Style, 8. Codebase-Specific Notes (+10 more)
+### Community 3 - "Process Rules & Guardrails"
+Cohesion: 0.18
+Nodes (10): Meta-rule, 8. Codebase-Specific Notes, 8. Stack-Specific Traps (Read Before Any Validation), 2. Implementation Rules, 6. Escalation to Human, 7. Communication Style, 8. Stack-Specific Traps (Read Before Every Task), 9. Changes to This File (+2 more)
 
-### Community 4 - "Mission & Scope Detail"
-Cohesion: 0.12
-Nodes (17): 1. Triage Rules, 2. Implementation Rules, 3. Quality Gates for Auto-Merge, 4. Protected Files (Auto-Reject on Any Modification), 5. Auto-Reject Triggers (No Fix Attempts), 6. Escalation to Human, 7. Communication Style, 8. Changes to This File (+9 more)
+### Community 4 - "Hard Invariants & Allowed Evolutions"
+Cohesion: 0.18
+Nodes (11): Allowed Evolutions, code:bash (npm run lint          # exits 0), Gate 1 — Static Checks Pass, Gate 2 — Feature Is Discoverable Without Docs, Gate 3 — End-to-End Regression, Hard Invariants (Not Tunable by Issues), Mission, Non-Goals (+3 more)
 
-### Community 5 - "Issue Triage Rules"
-Cohesion: 0.12
-Nodes (16): 1. Triage Rules, 2. Implementation Rules, 3. Quality Gates for Auto-Merge, 4. Protected Files (Auto-Reject on Any Modification), 5. Auto-Reject Triggers (No Fix Attempts), 6. Escalation to Human, 7. Communication Style, 8. Changes to This File (+8 more)
+### Community 5 - "Out-of-Scope Prohibitions"
+Cohesion: 0.25
+Nodes (9): Dependency Introduction, Governance File Modification, Language Modernisation, Module System Changes, Production Application Infrastructure, Runtime Complexity, 4. Protected Files (Auto-Reject on Any Modification), 5. Auto-Reject Triggers (No Fix Attempts) (+1 more)
 
-### Community 6 - "Application Code"
-Cohesion: 0.15
-Nodes (13): Architecture & Key Patterns, Build, Test & Lint, Coding Rules, Core Architecture, Development Notes, Hello AI Coding Agent — Agent Instructions, Important Files, Key Conventions (+5 more)
+### Community 6 - "Runtime Contract & ES5 Constraints"
+Cohesion: 0.22
+Nodes (8): ES5-Only JavaScript, Quality Gates, console.log, main, Byte-Stable Regression Contract, Quality Standards, Zero-Blast-Radius Sandbox, Zero External Dependencies
 
-### Community 7 - "Community 7"
-Cohesion: 0.15
-Nodes (13): Architecture & Key Patterns, Build, Test & Lint, Coding Rules, Core Architecture, Development Notes, Hello AI Coding Agent — Agent Instructions, Important Files, Key Conventions (+5 more)
-
-### Community 8 - "Community 8"
-Cohesion: 0.15
-Nodes (14): Architecture & Key Patterns, Build, Test & Lint, Coding Rules, Core Architecture, Development Notes, graphify, Hello AI Coding Agent — Agent Instructions, Important Files (+6 more)
-
-### Community 9 - "Community 9"
-Cohesion: 0.17
-Nodes (12): Architecture & Key Patterns, Build, Test & Lint, Coding Rules, Core Architecture, Development Notes, Hello AI Coding Agent — Agent Instructions, Important Files, Key Conventions (+4 more)
-
-### Community 10 - "Community 10"
-Cohesion: 0.20
-Nodes (10): code:bash (npm install), code:bash (npm start), code:bash (npm test), Contributing, Hello AI Coding Agent, Running Tests, Setup, Usage (+2 more)
-
-### Community 11 - "Community 11"
-Cohesion: 0.20
-Nodes (10): Allowed Evolutions, Core Capabilities (In Scope), Hard Invariants (Not Tunable by Issues), Mission, Non-Goals, Out of Scope (Must Never Build), Quality Standards (Definition of Done), What Hello AI Coding Agent Is (+2 more)
-
-### Community 12 - "Community 12"
-Cohesion: 0.20
-Nodes (10): Allowed Evolutions, code:bash (npm run lint && npm run type-check && npm test), Core Capabilities (In Scope), Hard Invariants (Not Tunable by Issues), Mission, Non-Goals, Out of Scope (Must Never Build), Quality Standards (Definition of Done) (+2 more)
+### Community 7 - "Triage & Issue Handling"
+Cohesion: 0.4
+Nodes (5): 1. Triage Rules, Accept, Defer to Human, Priority Assignment, Reject (close with comment)
 
 ## Knowledge Gaps
-- **144 isolated node(s):** `index.js`, `AGENTS.md`, `Project Overview`, `Repository Layout`, `Build, Test & Lint` (+139 more)
+- **46 isolated node(s):** `AI Agent Instructions`, `Project Overview`, `Repository Layout`, `Build, Test & Lint`, `Core Architecture` (+41 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Guardrails` bridge `Agent Instructions Detail`, `Project Setup & Usage`, and `Mission & Scope Detail` simultaneously?**
-  _High betweenness centrality (0.055) — this node is the primary cross-community bridge._
-- **What is the difference between `Knowledge Graph Integration` (MISSION.md) and `graphify` (CLAUDE.md)?**
-  _INFERRED semantically_similar_to edge (0.95) — two representations of the same concept across governance documents._
-- **Why do `Automated Quality Gates` (MISSION.md) and `3. Quality Gates for Auto-Merge` (GUARDRAILS.md) both exist?**
-  _INFERRED semantically_similar_to edge (0.90) — MISSION defines what they are, GUARDRAILS defines how they operate._
-- **What connects `Project Overview`, `Tech Stack`, `Repository Layout` to the rest of the system?**
-  _144 weakly-connected nodes found — possible documentation gaps or missing edges._
-- **Should `Core Governance Concepts` (32 nodes, cohesion 0.10) be split into smaller focused modules?**
-  _Low cohesion indicates the MISSION.md subsections are loosely interconnected — consider linking them more explicitly._
-- **Which Out-of-Scope categories (`Runtime Complexity`, `Dependency Introduction`, `Module System Changes`, etc.) map directly to auto-reject triggers?**
-  _Three new INFERRED edges bridge MISSION.md Out of Scope → GUARDRAILS.md Section 5._
+- **Why does `Mission` connect `Hard Invariants & Allowed Evolutions` to `Governance Files & Architecture`, `Quality Gates & Authority Hierarchy`, `Out-of-Scope Prohibitions`?**
+  _High betweenness centrality (0.297) - this node is a cross-community bridge._
+- **Why does `Hello AI Coding Agent — Agent Instructions` connect `Build, Test & Coding Rules` to `Governance Files & Architecture`?**
+  _High betweenness centrality (0.245) - this node is a cross-community bridge._
+- **What connects `AI Agent Instructions`, `Project Overview`, `Repository Layout` to the rest of the system?**
+  _46 weakly-connected nodes found - possible documentation gaps or missing edges._
