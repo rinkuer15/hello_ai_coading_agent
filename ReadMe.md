@@ -1,28 +1,28 @@
-# Hello AI Coding Agent
+﻿# Hello AI Coding Agent
 
-A minimal scaffold for experimenting with AI-assisted coding agents.
+This repository is a governance benchmark environment designed to evaluate AI coding agent compliance with quality gates and architectural standards. It is not a general-purpose application, but rather a test harness for agent behavior validation.
 
 ## Setup
 
-```bash
+`ash
 npm install
-```
+`",
+",
 
-## Usage
 
-```bash
+`ash
 npm start
-```
+`",
+",
 
-## Running Tests
 
-```bash
+`ash
 npm test
-```
+`",
+",
 
-## Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/my-change`)
+2. Create a feature branch (git checkout -b feature/my-change)
 3. Commit your changes with a clear message
-4. Open a pull request against `main`
+4. Open a pull request against main
