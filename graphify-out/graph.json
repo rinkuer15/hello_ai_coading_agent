@@ -4,13 +4,13 @@
   "graph": {
     "hyperedges": [
       {
-        "id": "governance_hierarchy_form",
-        "label": "Governance Hierarchy",
+        "id": "constitutional_document_set",
+        "label": "Constitutional Governance Document Set",
         "nodes": [
-          "mission_document",
-          "guardrails_document",
-          "claude_document",
-          "mission_governance_rule_hierarchy"
+          "missionmd_mission",
+          "guardrailsmd_guardrails",
+          "claudemd_agent_instructions",
+          "agentsmd_agents_redirect"
         ],
         "relation": "form",
         "confidence": "EXTRACTED",
@@ -18,427 +18,44 @@
         "source_file": "MISSION.md"
       },
       {
-        "id": "stdout_oracle_form",
-        "label": "Stdout Oracle",
+        "id": "hard_invariants",
+        "label": "Hard Invariants \u00e2\u20ac\u201d Not Tunable by Issues",
         "nodes": [
-          "mission_stdout_contract",
-          "guardrails_stdout_contract",
-          "claude_stdout_contract"
+          "concept_stdout_oracle",
+          "concept_zero_dependency",
+          "concept_single_file_architecture",
+          "concept_blank_line_rule",
+          "concept_es5_calibration_trap"
         ],
-        "relation": "form",
-        "confidence": "INFERRED",
-        "confidence_score": 0.95,
+        "relation": "implement",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
         "source_file": "MISSION.md"
       },
       {
-        "id": "immutability_enforcement_form",
-        "label": "Immutability Enforcement Pattern",
+        "id": "auto_merge_gate_checks",
+        "label": "Auto-Merge Quality Gate Checks",
         "nodes": [
-          "mission_document",
-          "guardrails_protected_files",
-          "claude_governance_file_immutability"
+          "concept_quality_gates",
+          "concept_stdout_oracle",
+          "concept_blank_line_rule",
+          "src_index_test_js",
+          "concept_es5_calibration_trap"
         ],
         "relation": "participate_in",
-        "confidence": "INFERRED",
-        "confidence_score": 0.85,
-        "source_file": "CLAUDE.md"
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "GUARDRAILS.md"
       }
     ]
   },
   "nodes": [
     {
-      "label": "AI Agent Instructions",
-      "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/AGENTS.md",
-      "source_location": "L1",
-      "community": 0,
-      "norm_label": "ai agent instructions",
-      "id": "thread_2e97ebc4_agents_ai_agent_instructions"
-    },
-    {
-      "label": "CLAUDE.md",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L1",
-      "community": 0,
-      "norm_label": "claude.md",
-      "id": "claude_md"
-    },
-    {
-      "label": "Hello AI Coding Agent \u2014 Agent Instructions",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L1",
-      "community": 1,
-      "norm_label": "hello ai coding agent \u2014 agent instructions",
-      "id": "thread_ae7e09e2_claude_hello_ai_coding_agent_agent_instructions"
-    },
-    {
-      "label": "Project Overview",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L17",
-      "community": 1,
-      "norm_label": "project overview",
-      "id": "thread_ae7e09e2_claude_project_overview"
-    },
-    {
-      "label": "Tech Stack",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L27",
-      "community": 1,
-      "norm_label": "tech stack",
-      "id": "thread_ae7e09e2_claude_tech_stack"
-    },
-    {
-      "label": "Repository Layout",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L43",
-      "community": 1,
-      "norm_label": "repository layout",
-      "id": "thread_ae7e09e2_claude_repository_layout"
-    },
-    {
-      "label": "Build, Test & Lint",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L63",
-      "community": 1,
-      "norm_label": "build, test & lint",
-      "id": "thread_ae7e09e2_claude_build_test_lint"
-    },
-    {
-      "label": "Architecture & Key Patterns",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L88",
-      "community": 1,
-      "norm_label": "architecture & key patterns",
-      "id": "thread_ae7e09e2_claude_architecture_key_patterns"
-    },
-    {
-      "label": "Core Architecture",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L90",
-      "community": 1,
-      "norm_label": "core architecture",
-      "id": "thread_ae7e09e2_claude_core_architecture"
-    },
-    {
-      "label": "Coding Rules",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L102",
-      "community": 1,
-      "norm_label": "coding rules",
-      "id": "thread_ae7e09e2_claude_coding_rules"
-    },
-    {
-      "label": "Key Conventions",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L112",
-      "community": 1,
-      "norm_label": "key conventions",
-      "id": "thread_ae7e09e2_claude_key_conventions"
-    },
-    {
-      "label": "What NOT to Do",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L129",
-      "community": 1,
-      "norm_label": "what not to do",
-      "id": "thread_ae7e09e2_claude_what_not_to_do"
-    },
-    {
-      "label": "Important Files",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L147",
-      "community": 1,
-      "norm_label": "important files",
-      "id": "thread_ae7e09e2_claude_important_files"
-    },
-    {
-      "label": "Development Notes",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L164",
-      "community": 1,
-      "norm_label": "development notes",
-      "id": "thread_ae7e09e2_claude_development_notes"
-    },
-    {
-      "label": "code:js (// src/index.test.js)",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L171",
-      "community": 1,
-      "norm_label": "code:js (// src/index.test.js)",
-      "id": "thread_ae7e09e2_claude_codeblock_1"
-    },
-    {
-      "label": "GUARDRAILS.md",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L1",
-      "community": 2,
-      "norm_label": "guardrails.md",
-      "id": "guardrails_md"
-    },
-    {
-      "label": "1. Triage Rules",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L18",
-      "community": 8,
-      "norm_label": "1. triage rules",
-      "id": "thread_ae7e09e2_guardrails_1_triage_rules"
-    },
-    {
-      "label": "Accept",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L20",
-      "community": 8,
-      "norm_label": "accept",
-      "id": "thread_ae7e09e2_guardrails_accept"
-    },
-    {
-      "label": "Reject (close with comment)",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L29",
-      "community": 8,
-      "norm_label": "reject (close with comment)",
-      "id": "thread_ae7e09e2_guardrails_reject_close_with_comment"
-    },
-    {
-      "label": "Defer to Human",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L45",
-      "community": 8,
-      "norm_label": "defer to human",
-      "id": "thread_ae7e09e2_guardrails_defer_to_human"
-    },
-    {
-      "label": "Priority Assignment",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L55",
-      "community": 8,
-      "norm_label": "priority assignment",
-      "id": "thread_ae7e09e2_guardrails_priority_assignment"
-    },
-    {
-      "label": "2. Implementation Rules",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L64",
-      "community": 2,
-      "norm_label": "2. implementation rules",
-      "id": "thread_ae7e09e2_guardrails_2_implementation_rules"
-    },
-    {
-      "label": "Absolute Prohibitions",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L66",
-      "community": 2,
-      "norm_label": "absolute prohibitions",
-      "id": "thread_ae7e09e2_guardrails_absolute_prohibitions"
-    },
-    {
-      "label": "Requirements for Every PR",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L97",
-      "community": 2,
-      "norm_label": "requirements for every pr",
-      "id": "thread_ae7e09e2_guardrails_requirements_for_every_pr"
-    },
-    {
-      "label": "3. Quality Gates for Auto-Merge",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L110",
-      "community": 5,
-      "norm_label": "3. quality gates for auto-merge",
-      "id": "thread_ae7e09e2_guardrails_3_quality_gates_for_auto_merge"
-    },
-    {
-      "label": "4. Protected Files (Auto-Reject on Any Modification)",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L131",
-      "community": 6,
-      "norm_label": "4. protected files (auto-reject on any modification)",
-      "id": "thread_ae7e09e2_guardrails_4_protected_files_auto_reject_on_any_modification"
-    },
-    {
-      "label": "5. Auto-Reject Triggers (No Fix Attempts)",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L146",
-      "community": 6,
-      "norm_label": "5. auto-reject triggers (no fix attempts)",
-      "id": "thread_ae7e09e2_guardrails_5_auto_reject_triggers_no_fix_attempts"
-    },
-    {
-      "label": "6. Known Traps for AI Agents",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L167",
-      "community": 2,
-      "norm_label": "6. known traps for ai agents",
-      "id": "thread_ae7e09e2_guardrails_6_known_traps_for_ai_agents"
-    },
-    {
-      "label": "7. Escalation to Human",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L188",
-      "community": 2,
-      "norm_label": "7. escalation to human",
-      "id": "thread_ae7e09e2_guardrails_7_escalation_to_human"
-    },
-    {
-      "label": "8. Communication Style",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L202",
-      "community": 2,
-      "norm_label": "8. communication style",
-      "id": "thread_ae7e09e2_guardrails_8_communication_style"
-    },
-    {
-      "label": "9. Changes to This File",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L215",
-      "community": 2,
-      "norm_label": "9. changes to this file",
-      "id": "thread_ae7e09e2_guardrails_9_changes_to_this_file"
-    },
-    {
-      "label": "MISSION.md",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L1",
-      "community": 0,
-      "norm_label": "mission.md",
-      "id": "mission_md"
-    },
-    {
-      "label": "Mission",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L1",
-      "community": 3,
-      "norm_label": "mission",
-      "id": "thread_ae7e09e2_mission_mission"
-    },
-    {
-      "label": "What Hello AI Coding Agent Is",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L3",
-      "community": 3,
-      "norm_label": "what hello ai coding agent is",
-      "id": "thread_ae7e09e2_mission_what_hello_ai_coding_agent_is"
-    },
-    {
-      "label": "Who It's For",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L11",
-      "community": 3,
-      "norm_label": "who it's for",
-      "id": "thread_ae7e09e2_mission_who_it_s_for"
-    },
-    {
-      "label": "Core Capabilities (In Scope)",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L20",
-      "community": 5,
-      "norm_label": "core capabilities (in scope)",
-      "id": "thread_ae7e09e2_mission_core_capabilities_in_scope"
-    },
-    {
-      "label": "Out of Scope (Must Never Build)",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L48",
-      "community": 6,
-      "norm_label": "out of scope (must never build)",
-      "id": "thread_ae7e09e2_mission_out_of_scope_must_never_build"
-    },
-    {
-      "label": "Hard Invariants (Not Tunable by Issues)",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L75",
-      "community": 3,
-      "norm_label": "hard invariants (not tunable by issues)",
-      "id": "thread_ae7e09e2_mission_hard_invariants_not_tunable_by_issues"
-    },
-    {
-      "label": "Quality Standards (Definition of Done)",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L98",
-      "community": 3,
-      "norm_label": "quality standards (definition of done)",
-      "id": "thread_ae7e09e2_mission_quality_standards_definition_of_done"
-    },
-    {
-      "label": "code:bash (npm run lint && npm run type-check && npm test)",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L115",
-      "community": 5,
-      "norm_label": "code:bash (npm run lint && npm run type-check && npm test)",
-      "id": "thread_ae7e09e2_mission_codeblock_1"
-    },
-    {
-      "label": "code:bash (node src/index.js)",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L119",
-      "community": 3,
-      "norm_label": "code:bash (node src/index.js)",
-      "id": "thread_ae7e09e2_mission_codeblock_2"
-    },
-    {
-      "label": "Non-Goals",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L127",
-      "community": 3,
-      "norm_label": "non-goals",
-      "id": "thread_ae7e09e2_mission_non_goals"
-    },
-    {
-      "label": "Setup",
-      "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
-      "source_location": "L5",
-      "community": 4,
-      "norm_label": "setup",
-      "id": "thread_2e97ebc4_readme_setup"
-    },
-    {
       "label": "code:bash (npm install)",
       "file_type": "document",
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
       "source_location": "L7",
-      "community": 4,
+      "community": 6,
       "norm_label": "code:bash (npm install)",
       "id": "thread_2e97ebc4_readme_codeblock_1"
     },
@@ -447,7 +64,7 @@
       "file_type": "document",
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
       "source_location": "L13",
-      "community": 4,
+      "community": 7,
       "norm_label": "code:bash (npm start)",
       "id": "thread_2e97ebc4_readme_codeblock_2"
     },
@@ -456,455 +73,27 @@
       "file_type": "document",
       "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
       "source_location": "L19",
-      "community": 4,
+      "community": 8,
       "norm_label": "code:bash (npm test)",
       "id": "thread_2e97ebc4_readme_codeblock_3"
-    },
-    {
-      "label": "Contributing",
-      "file_type": "document",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-2e97ebc4/ReadMe.md",
-      "source_location": "L23",
-      "community": 4,
-      "norm_label": "contributing",
-      "id": "thread_2e97ebc4_readme_contributing"
-    },
-    {
-      "label": "code:js (var assert = require('node:assert');)",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L234",
-      "community": 1,
-      "norm_label": "code:js (var assert = require('node:assert');)",
-      "id": "thread_0eab9344_claude_codeblock_1"
-    },
-    {
-      "label": "code:block2 (Hello, AI Coding Agent!)",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L157",
-      "community": 3,
-      "norm_label": "code:block2 (hello, ai coding agent!)",
-      "id": "thread_0eab9344_mission_codeblock_2"
-    },
-    {
-      "label": "Full Pre-PR Validation Sequence",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L117",
-      "community": 5,
-      "norm_label": "full pre-pr validation sequence",
-      "id": "thread_fcd15517_guardrails_full_pre_pr_validation_sequence"
-    },
-    {
-      "label": "8. Stack-Specific Traps (Read Before Every Task)",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L199",
-      "community": 2,
-      "norm_label": "8. stack-specific traps (read before every task)",
-      "id": "thread_fcd15517_guardrails_8_stack_specific_traps_read_before_every_task"
-    },
-    {
-      "label": "AGENTS.md",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "community": 0,
-      "norm_label": "agents.md",
-      "id": "agents_md"
-    },
-    {
-      "label": "graphify",
-      "file_type": "document",
-      "source_file": "CLAUDE.md",
-      "source_location": "L176",
-      "community": 1,
-      "norm_label": "graphify",
-      "id": "thread_2e97ebc4_claude_graphify"
-    },
-    {
-      "label": "code:bash (npm run lint && npm test)",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L112",
-      "community": 5,
-      "norm_label": "code:bash (npm run lint && npm test)",
-      "id": "thread_2e97ebc4_guardrails_codeblock_1"
-    },
-    {
-      "label": "8. Codebase-Specific Notes",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L174",
-      "community": 2,
-      "norm_label": "8. codebase-specific notes",
-      "id": "thread_2e97ebc4_guardrails_8_codebase_specific_notes"
-    },
-    {
-      "label": "code:bash (npm run lint          # exits 0)",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L140",
-      "community": 3,
-      "norm_label": "code:bash (npm run lint          # exits 0)",
-      "id": "thread_2e97ebc4_mission_codeblock_1"
-    },
-    {
-      "label": "ReadMe.md",
-      "file_type": "document",
-      "source_file": "ReadMe.md",
-      "source_location": "L1",
-      "community": 4,
-      "norm_label": "readme.md",
-      "id": "readme_md"
     },
     {
       "label": "index.js",
       "file_type": "code",
       "source_file": "index.js",
       "source_location": "L1",
-      "community": 7,
-      "norm_label": "index.js",
-      "id": "index_js"
-    },
-    {
-      "label": "Hello AI Coding Agent",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "The project is intentionally a minimal CLI scaffold so agent behavior and governance compliance remain easy to observe.",
+      "id": "index_js",
       "community": 4,
-      "norm_label": "hello ai coding agent",
-      "id": "mission_hello_ai_coding_agent"
+      "norm_label": "index.js"
     },
     {
-      "label": "Minimal Node.js Scaffold",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "The source stays intentionally trivial so the repo remains a controlled experimental substrate rather than a real application.",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "index.js",
+      "source_location": "L1",
+      "id": "src_index_main",
       "community": 4,
-      "norm_label": "minimal node.js scaffold",
-      "id": "mission_minimal_nodejs_scaffold"
-    },
-    {
-      "label": "Hard Invariants",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Some constraints are deliberately non-tunable so automated agents cannot erode the repository's safety and scope boundaries.",
-      "community": 0,
-      "norm_label": "hard invariants",
-      "id": "mission_hard_invariants"
-    },
-    {
-      "label": "Allowed Evolutions",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "The project permits tightly scoped growth only where it preserves the minimal architecture and governance model.",
-      "community": 3,
-      "norm_label": "allowed evolutions",
-      "id": "mission_allowed_evolutions"
-    },
-    {
-      "label": "Quality Standards",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Changes are only complete when static checks, discoverability, and end-to-end regression expectations are all met.",
-      "community": 0,
-      "norm_label": "quality standards",
-      "id": "mission_quality_standards"
-    },
-    {
-      "label": "Single Execution Point",
-      "file_type": "rationale",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Keeping main() as the only top-level execution path prevents hidden side effects and preserves the repo's minimal runtime model.",
-      "community": 0,
-      "norm_label": "single execution point",
-      "id": "claude_single_execution_point"
-    },
-    {
-      "label": "Module System One-Way Door",
-      "file_type": "rationale",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Introducing require or import would permanently commit the repository to a module system, so that choice is deferred to humans.",
-      "community": 4,
-      "norm_label": "module system one-way door",
-      "id": "claude_module_system_one_way_door"
-    },
-    {
-      "label": "Zero Dependencies",
-      "file_type": "rationale",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "The absence of dependencies is a deliberate invariant that keeps the scaffold simple and fully attributable.",
-      "community": 4,
-      "norm_label": "zero dependencies",
-      "id": "claude_zero_dependencies"
-    },
-    {
-      "label": "Governance Files Are the Architecture",
-      "file_type": "rationale",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "MISSION.md, GUARDRAILS.md, AGENTS.md, and CLAUDE.md are treated as primary architectural constraints rather than supplementary docs.",
-      "community": 0,
-      "norm_label": "governance files are the architecture",
-      "id": "claude_governance_files_are_architecture"
-    },
-    {
-      "label": "Meta-rule",
-      "file_type": "rationale",
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "When a case is not explicitly covered, agents must choose the safer path and reject anything that weakens security, scope, or access control.",
-      "community": 2,
-      "norm_label": "meta-rule",
-      "id": "guardrails_meta_rule"
-    },
-    {
-      "label": "Quality Gates",
-      "file_type": "rationale",
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "A PR is only complete when syntax, test discovery, behavior, security, scope, and protected-file checks all pass.",
-      "community": 0,
-      "norm_label": "quality gates",
-      "id": "guardrails_quality_gates"
-    },
-    {
-      "label": "Protected Files",
-      "file_type": "rationale",
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Governance files, package scripts, CI configuration, and secret-bearing files are shielded from automated modification to preserve trust boundaries.",
-      "community": 0,
-      "norm_label": "protected files",
-      "id": "guardrails_protected_files"
-    },
-    {
-      "label": "Usage",
-      "file_type": "rationale",
-      "source_file": "ReadMe.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "usage",
-      "id": "readme_usage"
-    },
-    {
-      "label": "Running Tests",
-      "file_type": "rationale",
-      "source_file": "ReadMe.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 4,
-      "norm_label": "running tests",
-      "id": "readme_running_tests"
-    },
-    {
-      "label": "8. Stack-Specific Traps (Read Before Any Validation)",
-      "file_type": "document",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L225",
-      "community": 2,
-      "norm_label": "8. stack-specific traps (read before any validation)",
-      "id": "thread_d9c207b9_guardrails_8_stack_specific_traps"
-    },
-    {
-      "label": "Runtime Contract",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L21",
-      "community": 5,
-      "norm_label": "runtime contract",
-      "id": "thread_d9c207b9_mission_runtime_contract"
-    },
-    {
-      "label": "Governance Authority Hierarchy",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L27",
-      "community": 5,
-      "norm_label": "governance authority hierarchy",
-      "id": "thread_d9c207b9_mission_governance_authority_hierarchy"
-    },
-    {
-      "label": "Automated Quality Gates",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L34",
-      "community": 5,
-      "norm_label": "automated quality gates",
-      "id": "thread_d9c207b9_mission_automated_quality_gates"
-    },
-    {
-      "label": "Coding Convention Enforcement",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L39",
-      "community": 5,
-      "norm_label": "coding convention enforcement",
-      "id": "thread_d9c207b9_mission_coding_convention_enforcement"
-    },
-    {
-      "label": "Test Scaffolding (Prescribed, Not Yet Instantiated)",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L44",
-      "community": 5,
-      "norm_label": "test scaffolding (prescribed, not yet instantiated)",
-      "id": "thread_d9c207b9_mission_test_scaffolding_prescribed"
-    },
-    {
-      "label": "Knowledge Graph Integration",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L50",
-      "community": 1,
-      "norm_label": "knowledge graph integration",
-      "id": "thread_d9c207b9_mission_knowledge_graph_integration"
-    },
-    {
-      "label": "Runtime Complexity",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L57",
-      "community": 6,
-      "norm_label": "runtime complexity",
-      "id": "thread_d9c207b9_mission_runtime_complexity"
-    },
-    {
-      "label": "Dependency Introduction",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L62",
-      "community": 6,
-      "norm_label": "dependency introduction",
-      "id": "thread_d9c207b9_mission_dependency_introduction"
-    },
-    {
-      "label": "Module System Changes",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L68",
-      "community": 6,
-      "norm_label": "module system changes",
-      "id": "thread_d9c207b9_mission_module_system_changes"
-    },
-    {
-      "label": "Language Modernisation",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L73",
-      "community": 6,
-      "norm_label": "language modernisation",
-      "id": "thread_d9c207b9_mission_language_modernisation"
-    },
-    {
-      "label": "Governance File Modification",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L77",
-      "community": 6,
-      "norm_label": "governance file modification",
-      "id": "thread_d9c207b9_mission_governance_file_modification"
-    },
-    {
-      "label": "Production Application Infrastructure",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L81",
-      "community": 6,
-      "norm_label": "production application infrastructure",
-      "id": "thread_d9c207b9_mission_production_app_infrastructure"
-    },
-    {
-      "label": "Gate 1 \u2014 Static Checks Pass",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L101",
-      "community": 3,
-      "norm_label": "gate 1 \u2014 static checks pass",
-      "id": "thread_d9c207b9_mission_gate_1_static_checks"
-    },
-    {
-      "label": "Gate 2 \u2014 Feature Is Discoverable Without Docs",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L107",
-      "community": 3,
-      "norm_label": "gate 2 \u2014 feature is discoverable without docs",
-      "id": "thread_d9c207b9_mission_gate_2_discoverable"
-    },
-    {
-      "label": "Gate 3 \u2014 End-to-End Regression",
-      "file_type": "document",
-      "source_file": "MISSION.md",
-      "source_location": "L112",
-      "community": 3,
-      "norm_label": "gate 3 \u2014 end-to-end regression",
-      "id": "thread_d9c207b9_mission_gate_3_end_to_end"
+      "norm_label": "main()"
     },
     {
       "label": "main",
@@ -915,9 +104,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
-      "norm_label": "main",
-      "id": "index_main"
+      "id": "index_main",
+      "community": 5,
+      "norm_label": "main"
     },
     {
       "label": "console.log",
@@ -928,204 +117,194 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
-      "norm_label": "console.log",
-      "id": "index_console_log"
+      "id": "index_console_log",
+      "community": 5,
+      "norm_label": "console.log"
     },
     {
-      "label": "Zero-Blast-Radius Sandbox",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
+      "label": "AGENTS.md",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "rationale": "Provides a safe target repository for evaluating AI coding agents without risking real production code or infrastructure.",
-      "community": 7,
-      "norm_label": "zero-blast-radius sandbox",
-      "id": "mission_zero_blast_radius_sandbox"
+      "id": "agents_agents_md",
+      "community": 9,
+      "norm_label": "agents.md"
     },
     {
-      "label": "Byte-Stable Regression Contract",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
+      "label": "ReadMe.md",
+      "file_type": "document",
+      "source_file": "ReadMe.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "rationale": "The frozen stdout string acts as a language-agnostic correctness signal that makes regression checking deterministic and reproducible.",
-      "community": 7,
-      "norm_label": "byte-stable regression contract",
-      "id": "mission_byte_stable_regression_contract"
+      "id": "readme_readme_md",
+      "community": 3,
+      "norm_label": "readme.md"
     },
     {
-      "label": "Zero External Dependencies",
+      "label": "Usage",
       "file_type": "rationale",
-      "source_file": "MISSION.md",
+      "source_file": "ReadMe.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "rationale": "Keeping dependencies absent preserves the zero-blast-radius guarantee and keeps npm install as a no-op.",
-      "community": 7,
-      "norm_label": "zero external dependencies",
-      "id": "mission_zero_external_dependencies"
+      "id": "readme_usage",
+      "community": 3,
+      "norm_label": "usage"
     },
     {
-      "label": "Governance Layer",
+      "label": "Running Tests",
       "file_type": "rationale",
+      "source_file": "ReadMe.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_running_tests",
+      "community": 3,
+      "norm_label": "running tests"
+    },
+    {
+      "label": "CLAUDE.md \u00e2\u20ac\u201d Agent Instructions",
+      "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "rationale": "The actual product is the governance layer rather than the runtime placeholder, so repository safety and rule compliance are first-class design goals.",
+      "id": "claudemd_agent_instructions",
       "community": 0,
-      "norm_label": "governance layer",
-      "id": "claude_governance_layer"
+      "norm_label": "claude.md a\u20ac\u201d agent instructions"
     },
     {
-      "label": "ES5-Only JavaScript",
-      "file_type": "rationale",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "The stack is deliberately locked to ES5 syntax to keep the benchmark minimal, reviewable, and free of transpilation or modern language ambiguity.",
-      "community": 7,
-      "norm_label": "es5-only javascript",
-      "id": "claude_es5_only_javascript"
-    },
-    {
-      "label": "Constitutional Governance Hierarchy",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 0,
-      "norm_label": "constitutional governance hierarchy",
-      "id": "mission_constitutional_governance_hierarchy"
-    },
-    {
-      "label": "Deterministic Stdout Contract",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 0,
-      "norm_label": "deterministic stdout contract",
-      "id": "mission_deterministic_stdout_contract"
-    },
-    {
-      "label": "Auto-Reject Triggers",
-      "file_type": "rationale",
+      "label": "GUARDRAILS.md \u00e2\u20ac\u201d Guardrails",
+      "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 7,
-      "norm_label": "auto-reject triggers",
-      "id": "guardrails_auto_reject_triggers"
+      "id": "guardrailsmd_guardrails",
+      "community": 1,
+      "norm_label": "guardrails.md a\u20ac\u201d guardrails"
     },
     {
-      "label": "ES5 Only Rule",
-      "file_type": "rationale",
+      "label": "MISSION.md \u00e2\u20ac\u201d Mission",
+      "file_type": "document",
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "missionmd_mission",
+      "community": 0,
+      "norm_label": "mission.md a\u20ac\u201d mission"
+    },
+    {
+      "label": "AGENTS.md \u00e2\u20ac\u201d Agent Redirect Shim",
+      "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
+      "id": "agentsmd_agents_redirect",
       "community": 0,
-      "norm_label": "es5 only rule",
-      "id": "claude_es5_only_rule"
+      "norm_label": "agents.md a\u20ac\u201d agent redirect shim"
     },
     {
-      "label": "Governance Rule Hierarchy",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
+      "label": "src/index.js \u00e2\u20ac\u201d Runtime Entry Point",
+      "file_type": "code",
+      "source_file": "CLAUDE.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "rationale": "The project evaluates whether AI coding agents follow a structured, conflict-resolving hierarchy across constitutional governance documents.",
-      "id": "mission_governance_rule_hierarchy",
-      "community": 0,
-      "norm_label": "governance rule hierarchy"
+      "id": "src_index_js",
+      "community": 1,
+      "norm_label": "src/index.js a\u20ac\u201d runtime entry point"
     },
     {
-      "label": "Byte-Stable Stdout Contract",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
+      "label": "src/index.test.js \u00e2\u20ac\u201d Canonical Test File",
+      "file_type": "code",
+      "source_file": "CLAUDE.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "rationale": "Exact stdout and exit-code behavior is the regression oracle so any deviation signals compliance failure rather than domain complexity.",
-      "id": "mission_stdout_contract",
-      "community": 0,
-      "norm_label": "byte-stable stdout contract"
-    },
-    {
-      "label": "ES5 Calibration Constraint",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "The ES5-only surface is deliberate because modern agents tend to introduce ES6+ constructs, making violations useful evaluation signal.",
-      "id": "mission_es5_calibration_constraint",
-      "community": 0,
-      "norm_label": "es5 calibration constraint"
-    },
-    {
-      "label": "Single-File Flat Architecture",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "A sole source file keeps runtime behavior transparent and prevents architectural expansion from changing the benchmark measurement surface.",
-      "id": "mission_single_file_architecture",
-      "community": 0,
-      "norm_label": "single-file flat architecture"
-    },
-    {
-      "label": "Empty-Suite Trap",
-      "file_type": "rationale",
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "A silent exit 0 from node --test can falsely look like success when no test files are discovered, so stdout must name at least one test file.",
-      "id": "guardrails_empty_suite_trap",
+      "id": "src_index_test_js",
       "community": 2,
-      "norm_label": "empty-suite trap"
+      "norm_label": "src/index.test.js a\u20ac\u201d canonical test file"
     },
     {
-      "label": "Stdout Contract Verification",
+      "label": "Stdout Oracle \u00e2\u20ac\u201d Byte-Stable Compliance Signal",
+      "file_type": "rationale",
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_stdout_oracle",
+      "community": 1,
+      "norm_label": "stdout oracle a\u20ac\u201d byte-stable compliance signal"
+    },
+    {
+      "label": "Constitutional Governance Document Hierarchy",
+      "file_type": "rationale",
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_governance_hierarchy",
+      "community": 0,
+      "norm_label": "constitutional governance document hierarchy"
+    },
+    {
+      "label": "ES5 Calibration Trap",
+      "file_type": "rationale",
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_es5_calibration_trap",
+      "community": 1,
+      "norm_label": "es5 calibration trap"
+    },
+    {
+      "label": "Blank-Line Rule \u00e2\u20ac\u201d Hard Invariant",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_blank_line_rule",
+      "community": 0,
+      "norm_label": "blank-line rule a\u20ac\u201d hard invariant"
+    },
+    {
+      "label": "Auto-Reject Triggers (14 items)",
       "file_type": "rationale",
       "source_file": "GUARDRAILS.md",
       "source_location": null,
@@ -1133,13 +312,64 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "rationale": "Manual verification of exact stdout and exit code is a required gate because automation alone does not fully enforce the oracle.",
-      "id": "guardrails_stdout_contract",
+      "id": "concept_auto_reject_triggers",
       "community": 0,
-      "norm_label": "stdout contract verification"
+      "norm_label": "auto-reject triggers (14 items)"
     },
     {
-      "label": "Code Style Conventions",
+      "label": "Absolute Prohibitions (13 items)",
+      "file_type": "rationale",
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_absolute_prohibitions",
+      "community": 1,
+      "norm_label": "absolute prohibitions (13 items)"
+    },
+    {
+      "label": "Quality Gates for Auto-Merge (9 gates)",
+      "file_type": "rationale",
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_quality_gates",
+      "community": 1,
+      "norm_label": "quality gates for auto-merge (9 gates)"
+    },
+    {
+      "label": "Zero-Dependency Design Invariant",
+      "file_type": "rationale",
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_zero_dependency",
+      "community": 0,
+      "norm_label": "zero-dependency design invariant"
+    },
+    {
+      "label": "Single-File Source Architecture Invariant",
+      "file_type": "rationale",
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_single_file_architecture",
+      "community": 0,
+      "norm_label": "single-file source architecture invariant"
+    },
+    {
+      "label": "Node.js Built-in Test Runner",
       "file_type": "rationale",
       "source_file": "CLAUDE.md",
       "source_location": null,
@@ -1147,13 +377,25 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "rationale": "ES5 syntax, function declarations, single quotes, semicolons, and related conventions preserve a narrow, inspectable language surface for evaluation.",
-      "id": "claude_code_style_conventions",
-      "community": 0,
-      "norm_label": "code style conventions"
+      "id": "concept_node_test_runner",
+      "community": 2,
+      "norm_label": "node.js built-in test runner"
     },
     {
-      "label": "Blank-Line Rule",
+      "label": "Protected Files \u00e2\u20ac\u201d Auto-Reject on Modification",
+      "file_type": "rationale",
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_protected_files",
+      "community": 0,
+      "norm_label": "protected files a\u20ac\u201d auto-reject on modification"
+    },
+    {
+      "label": "Empty-Suite Trap \u00e2\u20ac\u201d Silent Exit 0 Failure",
       "file_type": "rationale",
       "source_file": "CLAUDE.md",
       "source_location": null,
@@ -1161,1474 +403,60 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "rationale": "The exact blank line between the end of main() and the call site is governance-enforced because formatters commonly collapse it.",
-      "id": "claude_blank_line_rule",
-      "community": 0,
-      "norm_label": "blank-line rule"
+      "id": "concept_empty_suite_trap",
+      "community": 2,
+      "norm_label": "empty-suite trap a\u20ac\u201d silent exit 0 failure"
     },
     {
-      "label": "Stdout Contract",
+      "label": "Escalation to Human Rules",
       "file_type": "rationale",
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_escalation",
+      "community": 1,
+      "norm_label": "escalation to human rules"
+    },
+    {
+      "label": "Allowed Evolutions",
+      "file_type": "rationale",
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "concept_allowed_evolutions",
+      "community": 2,
+      "norm_label": "allowed evolutions"
+    },
+    {
+      "label": "graphify-out/ \u00e2\u20ac\u201d Generated Knowledge Graph Artefacts",
+      "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "rationale": "The runtime must print exactly Hello, AI Coding Agent! and exit 0, making runtime behavior a byte-stable regression oracle.",
-      "id": "claude_stdout_contract",
-      "community": 0,
-      "norm_label": "stdout contract"
-    },
-    {
-      "label": "Governance File Immutability",
-      "file_type": "rationale",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "Governance documents stay authoritative only if automated workflows cannot edit them or keep them in sync with code changes.",
-      "id": "claude_governance_file_immutability",
-      "community": 0,
-      "norm_label": "governance file immutability"
-    },
-    {
-      "label": "Single-File Constraint",
-      "file_type": "rationale",
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "rationale": "All runtime code must remain in src/index.js so behavior is immediately attributable and architectural drift is prevented.",
-      "id": "claude_single_file_architecture",
-      "community": 0,
-      "norm_label": "single-file constraint"
+      "id": "graphify_out",
+      "community": 2,
+      "norm_label": "graphify-out/ a\u20ac\u201d generated knowledge graph artefacts"
     }
   ],
   "links": [
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "AGENTS.md",
-      "source_location": "L1",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "agents_md",
-      "target": "thread_2e97ebc4_agents_ai_agent_instructions"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/CLAUDE.md",
-      "source_location": "L1",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "claude_md",
-      "target": "thread_ae7e09e2_claude_hello_ai_coding_agent_agent_instructions"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "AGENTS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "agents_md",
-      "target": "claude_md"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "claude_md"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "claude_md"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "claude_md",
-      "target": "readme_md"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "claude_md",
-      "target": "claude_single_execution_point"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "claude_md",
-      "target": "claude_module_system_one_way_door"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "claude_md",
-      "target": "claude_zero_dependencies"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "claude_md",
-      "target": "claude_governance_files_are_architecture"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_md",
-      "target": "mission_single_file_architecture"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_md",
-      "target": "claude_es5_only_rule"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_md",
-      "target": "mission_stdout_contract"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_md",
-      "target": "claude_code_style_conventions"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_md",
-      "target": "claude_blank_line_rule"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_md",
-      "target": "claude_stdout_contract"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_md",
-      "target": "claude_governance_file_immutability"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_md",
-      "target": "claude_single_file_architecture"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L17",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_ae7e09e2_claude_project_overview"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L27",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_ae7e09e2_claude_tech_stack"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L41",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_ae7e09e2_claude_repository_layout"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L58",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_ae7e09e2_claude_build_test_lint"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L87",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_ae7e09e2_claude_architecture_key_patterns"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L126",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_ae7e09e2_claude_what_not_to_do"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L143",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_ae7e09e2_claude_important_files"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L158",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_ae7e09e2_claude_development_notes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L176",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_hello_ai_coding_agent_agent_instructions",
-      "target": "thread_2e97ebc4_claude_graphify"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L40",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_tech_stack",
-      "target": "thread_2e97ebc4_claude_graphify"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L89",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_architecture_key_patterns",
-      "target": "thread_ae7e09e2_claude_core_architecture"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L101",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_architecture_key_patterns",
-      "target": "thread_ae7e09e2_claude_coding_rules"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L111",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_claude_architecture_key_patterns",
-      "target": "thread_ae7e09e2_claude_key_conventions"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L171",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_ae7e09e2_claude_development_notes",
-      "target": "thread_ae7e09e2_claude_codeblock_1"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "CLAUDE.md",
-      "source_location": "L234",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_ae7e09e2_claude_development_notes",
-      "target": "thread_0eab9344_claude_codeblock_1"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L225",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "guardrails_md",
-      "target": "thread_d9c207b9_guardrails_8_stack_specific_traps"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "guardrails_md",
-      "target": "thread_ae7e09e2_guardrails_1_triage_rules"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L64",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "guardrails_md",
-      "target": "thread_ae7e09e2_guardrails_2_implementation_rules"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L110",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "guardrails_md",
-      "target": "thread_ae7e09e2_guardrails_3_quality_gates_for_auto_merge"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L131",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "guardrails_md",
-      "target": "thread_ae7e09e2_guardrails_4_protected_files_auto_reject_on_any_modification"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L146",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "guardrails_md",
-      "target": "thread_ae7e09e2_guardrails_5_auto_reject_triggers_no_fix_attempts"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L188",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "guardrails_md",
-      "target": "thread_ae7e09e2_guardrails_7_escalation_to_human"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L202",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "guardrails_md",
-      "target": "thread_ae7e09e2_guardrails_8_communication_style"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L199",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "guardrails_md",
-      "target": "thread_fcd15517_guardrails_8_stack_specific_traps_read_before_every_task"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L215",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "guardrails_md",
-      "target": "thread_ae7e09e2_guardrails_9_changes_to_this_file"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L174",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "guardrails_md",
-      "target": "thread_2e97ebc4_guardrails_8_codebase_specific_notes"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "guardrails_md"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "guardrails_md",
-      "target": "guardrails_meta_rule"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "guardrails_quality_gates"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "guardrails_protected_files"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "claude_module_system_one_way_door",
-      "target": "guardrails_md"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_governance_layer",
-      "target": "guardrails_md"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "guardrails_auto_reject_triggers"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L167",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "guardrails_md",
-      "target": "thread_ae7e09e2_guardrails_6_known_traps_for_ai_agents"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "guardrails_empty_suite_trap"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "guardrails_stdout_contract"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L20",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_guardrails_1_triage_rules",
-      "target": "thread_ae7e09e2_guardrails_accept"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L29",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_guardrails_1_triage_rules",
-      "target": "thread_ae7e09e2_guardrails_reject_close_with_comment"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L42",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_guardrails_1_triage_rules",
-      "target": "thread_ae7e09e2_guardrails_defer_to_human"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L53",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_guardrails_1_triage_rules",
-      "target": "thread_ae7e09e2_guardrails_priority_assignment"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L64",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_guardrails_2_implementation_rules",
-      "target": "thread_ae7e09e2_guardrails_absolute_prohibitions"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L84",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_guardrails_2_implementation_rules",
-      "target": "thread_ae7e09e2_guardrails_requirements_for_every_pr"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L126",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_guardrails_3_quality_gates_for_auto_merge",
-      "target": "thread_ae7e09e2_mission_codeblock_1"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L110",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_guardrails_3_quality_gates_for_auto_merge",
-      "target": "thread_fcd15517_guardrails_full_pre_pr_validation_sequence"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.9,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "thread_d9c207b9_mission_automated_quality_gates",
-      "target": "thread_ae7e09e2_guardrails_3_quality_gates_for_auto_merge"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "thread_d9c207b9_mission_governance_file_modification",
-      "target": "thread_ae7e09e2_guardrails_4_protected_files_auto_reject_on_any_modification"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "thread_d9c207b9_mission_module_system_changes",
-      "target": "thread_ae7e09e2_guardrails_5_auto_reject_triggers_no_fix_attempts"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "thread_d9c207b9_mission_dependency_introduction",
-      "target": "thread_ae7e09e2_guardrails_5_auto_reject_triggers_no_fix_attempts"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-52f7d71b/MISSION.md",
-      "source_location": "L1",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "mission_md",
-      "target": "thread_ae7e09e2_mission_mission"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "mission_md",
-      "target": "agents_md"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "mission_md",
-      "target": "readme_md"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "mission_md",
-      "target": "mission_hello_ai_coding_agent"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_governance_layer",
-      "target": "mission_md"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "mission_md",
-      "target": "mission_minimal_nodejs_scaffold"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "mission_hard_invariants"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "mission_md",
-      "target": "mission_allowed_evolutions"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "mission_md",
-      "target": "mission_quality_standards"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "mission_constitutional_governance_hierarchy"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "mission_deterministic_stdout_contract"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "mission_governance_rule_hierarchy"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "mission_stdout_contract"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "mission_es5_calibration_constraint"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "mission_zero_external_dependencies"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "mission_single_file_architecture"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L3",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_mission",
-      "target": "thread_ae7e09e2_mission_what_hello_ai_coding_agent_is"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L19",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_mission",
-      "target": "thread_ae7e09e2_mission_who_it_s_for"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L31",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_mission",
-      "target": "thread_ae7e09e2_mission_core_capabilities_in_scope"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L59",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_mission",
-      "target": "thread_ae7e09e2_mission_out_of_scope_must_never_build"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L87",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_mission",
-      "target": "thread_ae7e09e2_mission_hard_invariants_not_tunable_by_issues"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L105",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_mission",
-      "target": "mission_allowed_evolutions"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L119",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_mission",
-      "target": "thread_ae7e09e2_mission_quality_standards_definition_of_done"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L148",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_mission",
-      "target": "thread_ae7e09e2_mission_non_goals"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L21",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_core_capabilities_in_scope",
-      "target": "thread_d9c207b9_mission_runtime_contract"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L27",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_core_capabilities_in_scope",
-      "target": "thread_d9c207b9_mission_governance_authority_hierarchy"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L34",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_core_capabilities_in_scope",
-      "target": "thread_d9c207b9_mission_automated_quality_gates"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L39",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_core_capabilities_in_scope",
-      "target": "thread_d9c207b9_mission_coding_convention_enforcement"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L44",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_core_capabilities_in_scope",
-      "target": "thread_d9c207b9_mission_test_scaffolding_prescribed"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L50",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_core_capabilities_in_scope",
-      "target": "thread_d9c207b9_mission_knowledge_graph_integration"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L57",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_out_of_scope_must_never_build",
-      "target": "thread_d9c207b9_mission_runtime_complexity"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L62",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_out_of_scope_must_never_build",
-      "target": "thread_d9c207b9_mission_dependency_introduction"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L68",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_out_of_scope_must_never_build",
-      "target": "thread_d9c207b9_mission_module_system_changes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L73",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_out_of_scope_must_never_build",
-      "target": "thread_d9c207b9_mission_language_modernisation"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L77",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_out_of_scope_must_never_build",
-      "target": "thread_d9c207b9_mission_governance_file_modification"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L81",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_out_of_scope_must_never_build",
-      "target": "thread_d9c207b9_mission_production_app_infrastructure"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L114",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_quality_standards_definition_of_done",
-      "target": "thread_ae7e09e2_mission_codeblock_1"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L119",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_ae7e09e2_mission_quality_standards_definition_of_done",
-      "target": "thread_ae7e09e2_mission_codeblock_2"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L157",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "thread_ae7e09e2_mission_quality_standards_definition_of_done",
-      "target": "thread_0eab9344_mission_codeblock_2"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L101",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_quality_standards_definition_of_done",
-      "target": "thread_d9c207b9_mission_gate_1_static_checks"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L107",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_quality_standards_definition_of_done",
-      "target": "thread_d9c207b9_mission_gate_2_discoverable"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L112",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_quality_standards_definition_of_done",
-      "target": "thread_d9c207b9_mission_gate_3_end_to_end"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "MISSION.md",
-      "source_location": "L140",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_ae7e09e2_mission_quality_standards_definition_of_done",
-      "target": "thread_2e97ebc4_mission_codeblock_1"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L139",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_fcd15517_guardrails_full_pre_pr_validation_sequence",
-      "target": "thread_ae7e09e2_mission_codeblock_1"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "ReadMe.md",
-      "source_location": "L5",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "mission_hello_ai_coding_agent",
-      "target": "thread_2e97ebc4_readme_setup"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "ReadMe.md",
-      "source_location": "L7",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_2e97ebc4_readme_setup",
-      "target": "thread_2e97ebc4_readme_codeblock_1"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "ReadMe.md",
-      "source_location": "L13",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "readme_usage",
-      "target": "thread_2e97ebc4_readme_codeblock_2"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "ReadMe.md",
-      "source_location": "L19",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "readme_running_tests",
-      "target": "thread_2e97ebc4_readme_codeblock_3"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "ReadMe.md",
-      "source_location": "L23",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "mission_hello_ai_coding_agent",
-      "target": "thread_2e97ebc4_readme_contributing"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "GUARDRAILS.md",
-      "source_location": "L112",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "thread_fcd15517_guardrails_full_pre_pr_validation_sequence",
-      "target": "thread_2e97ebc4_guardrails_codeblock_1"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "thread_d9c207b9_mission_knowledge_graph_integration",
-      "target": "thread_2e97ebc4_claude_graphify"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "ReadMe.md",
-      "source_location": null,
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "readme_md",
-      "target": "mission_hello_ai_coding_agent"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "ReadMe.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_md",
-      "target": "readme_usage"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "ReadMe.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "readme_md",
-      "target": "readme_running_tests"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:/Users/matri37/.devox/workspaces/rinkuer15/hello_ai_coading_agent/worktrees/devox/thread-8d45cde9/src/index.js",
+      "source_file": "index.js",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1,
       "source": "index_js",
-      "target": "index_main"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "ReadMe.md",
-      "source_location": "L11",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "mission_hello_ai_coding_agent",
-      "target": "readme_usage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "ReadMe.md",
-      "source_location": "L17",
-      "weight": 1,
-      "confidence_score": 1,
-      "source": "mission_hello_ai_coding_agent",
-      "target": "readme_running_tests"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "claude_governance_layer",
-      "target": "mission_hello_ai_coding_agent"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "mission_minimal_nodejs_scaffold",
-      "target": "mission_hello_ai_coding_agent"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "claude_single_execution_point",
-      "target": "mission_hello_ai_coding_agent"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "claude_module_system_one_way_door",
-      "target": "mission_hello_ai_coding_agent"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "claude_zero_dependencies",
-      "target": "mission_hello_ai_coding_agent"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "mission_hard_invariants",
-      "target": "guardrails_protected_files"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "claude_single_execution_point",
-      "target": "mission_hard_invariants"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_hard_invariants",
-      "target": "guardrails_auto_reject_triggers"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_es5_only_rule",
-      "target": "mission_hard_invariants"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_single_file_architecture",
-      "target": "mission_hard_invariants"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "mission_quality_standards",
-      "target": "guardrails_quality_gates"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1,
-      "source": "claude_governance_layer",
-      "target": "claude_governance_files_are_architecture"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_quality_gates",
-      "target": "mission_byte_stable_regression_contract"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_deterministic_stdout_contract",
-      "target": "guardrails_quality_gates"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_empty_suite_trap",
-      "target": "guardrails_quality_gates"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_governance_rule_hierarchy",
-      "target": "guardrails_quality_gates"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_protected_files",
-      "target": "claude_governance_layer"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_constitutional_governance_hierarchy",
-      "target": "guardrails_protected_files"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_governance_file_immutability",
-      "target": "guardrails_protected_files"
+      "target": "src_index_main",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -2641,14 +469,384 @@
       "target": "index_console_log"
     },
     {
-      "relation": "implements",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "src/index.js",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "ReadMe.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "index_main",
-      "target": "mission_byte_stable_regression_contract"
+      "source": "readme_readme_md",
+      "target": "readme_usage"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "ReadMe.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_readme_md",
+      "target": "readme_running_tests"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "missionmd_mission",
+      "target": "claudemd_agent_instructions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrailsmd_guardrails",
+      "target": "claudemd_agent_instructions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claudemd_agent_instructions",
+      "target": "agentsmd_agents_redirect"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claudemd_agent_instructions",
+      "target": "src_index_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claudemd_agent_instructions",
+      "target": "src_index_test_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claudemd_agent_instructions",
+      "target": "concept_stdout_oracle"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claudemd_agent_instructions",
+      "target": "concept_es5_calibration_trap"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claudemd_agent_instructions",
+      "target": "concept_blank_line_rule"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claudemd_agent_instructions",
+      "target": "concept_zero_dependency"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claudemd_agent_instructions",
+      "target": "concept_single_file_architecture"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_governance_hierarchy",
+      "target": "claudemd_agent_instructions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claudemd_agent_instructions",
+      "target": "concept_empty_suite_trap"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_protected_files",
+      "target": "claudemd_agent_instructions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claudemd_agent_instructions",
+      "target": "graphify_out"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "missionmd_mission",
+      "target": "guardrailsmd_guardrails"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrailsmd_guardrails",
+      "target": "concept_auto_reject_triggers"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrailsmd_guardrails",
+      "target": "concept_absolute_prohibitions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrailsmd_guardrails",
+      "target": "concept_quality_gates"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_protected_files",
+      "target": "guardrailsmd_guardrails"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_escalation",
+      "target": "guardrailsmd_guardrails"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrailsmd_guardrails",
+      "target": "src_index_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrailsmd_guardrails",
+      "target": "src_index_test_js"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_governance_hierarchy",
+      "target": "guardrailsmd_guardrails"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "missionmd_mission",
+      "target": "concept_stdout_oracle"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_governance_hierarchy",
+      "target": "missionmd_mission"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "missionmd_mission",
+      "target": "concept_es5_calibration_trap"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "missionmd_mission",
+      "target": "concept_zero_dependency"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "missionmd_mission",
+      "target": "concept_single_file_architecture"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "missionmd_mission",
+      "target": "concept_auto_reject_triggers"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "missionmd_mission",
+      "target": "concept_allowed_evolutions"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "missionmd_mission",
+      "target": "concept_blank_line_rule"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "missionmd_mission",
+      "target": "src_index_js"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "missionmd_mission",
+      "target": "agentsmd_agents_redirect"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_protected_files",
+      "target": "missionmd_mission"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_governance_hierarchy",
+      "target": "agentsmd_agents_redirect"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_protected_files",
+      "target": "agentsmd_agents_redirect"
     },
     {
       "relation": "rationale_for",
@@ -2657,18 +855,68 @@
       "source_file": "MISSION.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "mission_zero_external_dependencies",
-      "target": "mission_zero_blast_radius_sandbox"
+      "source": "concept_stdout_oracle",
+      "target": "src_index_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_es5_calibration_trap",
+      "target": "src_index_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_blank_line_rule",
+      "target": "src_index_js"
     },
     {
       "relation": "rationale_for",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 0.85,
+      "source": "concept_absolute_prohibitions",
+      "target": "src_index_js"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_quality_gates",
+      "target": "src_index_test_js"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "claude_governance_layer",
-      "target": "mission_zero_blast_radius_sandbox"
+      "source": "concept_node_test_runner",
+      "target": "src_index_test_js"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_empty_suite_trap",
+      "target": "src_index_test_js"
     },
     {
       "relation": "conceptually_related_to",
@@ -2677,89 +925,119 @@
       "source_file": "MISSION.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "mission_zero_blast_radius_sandbox",
-      "target": "mission_byte_stable_regression_contract"
+      "source": "concept_allowed_evolutions",
+      "target": "src_index_test_js"
     },
     {
-      "relation": "rationale_for",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "CLAUDE.md",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "claude_es5_only_javascript",
-      "target": "mission_byte_stable_regression_contract"
+      "source": "concept_auto_reject_triggers",
+      "target": "concept_stdout_oracle"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_quality_gates",
+      "target": "concept_stdout_oracle"
     },
     {
       "relation": "conceptually_related_to",
       "confidence": "INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "MISSION.md",
+      "confidence_score": 0.85,
+      "source_file": "GUARDRAILS.md",
       "source_location": null,
-      "weight": 1.0,
-      "source": "mission_zero_external_dependencies",
-      "target": "guardrails_auto_reject_triggers"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_deterministic_stdout_contract",
-      "target": "mission_stdout_contract"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_stdout_contract",
-      "target": "guardrails_stdout_contract"
-    },
-    {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_stdout_contract",
-      "target": "claude_stdout_contract"
+      "weight": 0.85,
+      "source": "concept_absolute_prohibitions",
+      "target": "concept_es5_calibration_trap"
     },
     {
       "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.75,
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_auto_reject_triggers",
+      "target": "concept_blank_line_rule"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_quality_gates",
+      "target": "concept_blank_line_rule"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_auto_reject_triggers",
+      "target": "concept_zero_dependency"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_auto_reject_triggers",
+      "target": "concept_single_file_architecture"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "concept_auto_reject_triggers",
+      "target": "concept_protected_files"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "claude_code_style_conventions",
-      "target": "mission_es5_calibration_constraint"
+      "source": "concept_empty_suite_trap",
+      "target": "concept_node_test_runner"
     },
     {
-      "relation": "semantically_similar_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "MISSION.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "mission_single_file_architecture",
-      "target": "claude_single_file_architecture"
+      "source": "concept_allowed_evolutions",
+      "target": "graphify_out"
     }
   ],
   "hyperedges": [
     {
-      "id": "governance_hierarchy_form",
-      "label": "Governance Hierarchy",
+      "id": "constitutional_document_set",
+      "label": "Constitutional Governance Document Set",
       "nodes": [
-        "mission_document",
-        "guardrails_document",
-        "claude_document",
-        "mission_governance_rule_hierarchy"
+        "missionmd_mission",
+        "guardrailsmd_guardrails",
+        "claudemd_agent_instructions",
+        "agentsmd_agents_redirect"
       ],
       "relation": "form",
       "confidence": "EXTRACTED",
@@ -2767,31 +1045,35 @@
       "source_file": "MISSION.md"
     },
     {
-      "id": "stdout_oracle_form",
-      "label": "Stdout Oracle",
+      "id": "hard_invariants",
+      "label": "Hard Invariants \u00e2\u20ac\u201d Not Tunable by Issues",
       "nodes": [
-        "mission_stdout_contract",
-        "guardrails_stdout_contract",
-        "claude_stdout_contract"
+        "concept_stdout_oracle",
+        "concept_zero_dependency",
+        "concept_single_file_architecture",
+        "concept_blank_line_rule",
+        "concept_es5_calibration_trap"
       ],
-      "relation": "form",
-      "confidence": "INFERRED",
-      "confidence_score": 0.95,
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "MISSION.md"
     },
     {
-      "id": "immutability_enforcement_form",
-      "label": "Immutability Enforcement Pattern",
+      "id": "auto_merge_gate_checks",
+      "label": "Auto-Merge Quality Gate Checks",
       "nodes": [
-        "mission_document",
-        "guardrails_protected_files",
-        "claude_governance_file_immutability"
+        "concept_quality_gates",
+        "concept_stdout_oracle",
+        "concept_blank_line_rule",
+        "src_index_test_js",
+        "concept_es5_calibration_trap"
       ],
       "relation": "participate_in",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "CLAUDE.md"
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md"
     }
   ],
-  "built_at_commit": "c3fb050f2269c417b8b915b3830f1dd8916ee20a"
+  "built_at_commit": "9cfffd28acd6ef0cf33f7e4095e0cff9a66e8dcd"
 }
