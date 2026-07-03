@@ -1,1 +1,1 @@
-{"0": "Code Style & Governance Layer", "1": "Developer Docs & Architecture", "2": "Guardrails & Auto-Reject Rules", "3": "Mission & Project Scope", "4": "Quality Gates & Automation", "5": "Runtime Contract", "6": "Out-of-Scope Prohibitions", "7": "Triage & Human Escalation"}
+{"0": "Code Style & Conventions", "1": "Build & Architecture Docs", "2": "Guardrails & Quality Gates", "3": "Mission Scope Definitions", "4": "Project Core Identity", "5": "Scope & Quality Gates", "6": "Protected Files & Rejections", "7": "Runtime & ES5 Rules", "8": "Triage & Decision Rules"}

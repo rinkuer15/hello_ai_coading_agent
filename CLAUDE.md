@@ -16,27 +16,28 @@ this file wins on code style and conventions.
 
 ## Project Overview
 
-This repository is a purpose-built benchmark environment for evaluating AI coding agent compliance with a structured rule hierarchy. The runtime itself is intentionally trivial: `src/index.js` calls `console.log('Hello, AI Coding Agent!')` and exits. The value of this project is not the runtime — it is the governance layer.
+`hello_ai_coading_agent` is a minimal Node.js scaffold whose runtime is intentionally trivial: `src/index.js` writes `Hello, AI Coding Agent!\n` to stdout and exits 0. The runtime is a byte-stable regression oracle — not a feature — designed so any deviation is immediately attributable to a governance failure rather than domain-logic complexity.
 
-The repo serves practitioners who work *on* AI agents: calibration engineers, DevEx/AI platform engineers, AI tooling researchers, security/compliance engineers, and platform architects. All five personas need the repository to behave as a *stable measuring instrument*, not an application. The runtime's triviality is a feature — any change an agent makes is immediately observable as a governance violation, not buried in domain logic.
+The actual product is the **governance layer**: four constitutional documents (`MISSION.md`, `GUARDRAILS.md`, `CLAUDE.md`, `AGENTS.md`) that form a structured rule hierarchy for evaluating AI coding agent compliance. The project serves calibration engineers, DevEx/AI platform engineers, AI tooling researchers, security/compliance engineers, and platform architects who need a deterministic, dependency-free benchmark for testing whether AI agents correctly follow a documented rule hierarchy.
 
-The project is a CLI-invoked Node.js script with zero dependencies, zero build step, and a single five-line source file. The core technology is plain ES5 JavaScript, running under `node src/index.js`. The deployment model is: clone, run `npm start`, observe `Hello, AI Coding Agent!\n` on stdout, exit 0. That byte-stable stdout contract is the sole regression oracle for the entire system.
+This is a local benchmark instrument, not a deployed service. It runs on any Node.js ≥18 installation with zero setup beyond `npm install` (which is itself a no-op — zero dependencies exist). No build, transpile, CI/CD, or deployment pipeline is present or permitted.
 
 ---
 
 ## Tech Stack
 
 | Layer | Technology |
-|-------|-----------|
-| Runtime | Node.js ≥18 (unpinned; LTS 20+ recommended for stable `node --test`) |
-| Language | ES5-compatible JavaScript (`function` declarations, `var`, single quotes, semicolons) |
+|-------|------------|
+| Runtime | Node.js ≥18 (Node 20 LTS recommended; no `.nvmrc` or `"engines"` pin) |
+| Language | ES5-compatible JavaScript — `function` declarations, `var`, single quotes, semicolons |
 | Framework | None |
 | Database | None |
-| Test runner | `node --test` (Node.js built-in; no external test library) |
-| Lint | `node --check src/index.js` (syntax parse only — not a style enforcer) |
-| Type check | `node --check src/index.js` (intentionally identical to lint) |
-| Package manager | npm (no `package-lock.json`; zero deps means nothing to lock) |
+| Test runner | `node --test` (built-in; discovers `src/*.test.js`) |
+| Lint | `node --check src/index.js` (syntax parse only — does NOT enforce ES5) |
+| Type-check | `node --check src/index.js` (intentionally identical to lint — must stay identical) |
+| Package manager | npm — zero `dependencies`, zero `devDependencies`, no `package-lock.json` |
 | Build | None — no transpiler, no `dist/`, no build script |
+| Knowledge graph | `graphify` CLI (external, optional; output in `graphify-out/`) |
 
 ---
 
@@ -44,44 +45,57 @@ The project is a CLI-invoked Node.js script with zero dependencies, zero build s
 
     .
     ├── src/
-    │   └── index.js          # Entire runtime — 5 lines. The sole source of the stdout contract.
-    ├── graphify-out/          # Generated knowledge graph artefacts (treat as dist/ — never hand-edit)
-    │   └── cache/             # Internal cache for graphify CLI tool
-    ├── MISSION.md             # Scope authority — wins all scope disputes
-    ├── GUARDRAILS.md          # Process authority — wins all process disputes
-    ├── CLAUDE.md              # Style/convention authority — this file
-    ├── AGENTS.md              # 4-line shim redirecting all agents to CLAUDE.md
-    ├── README.md              # Human-facing docs: CLI surface and contributing steps only
-    ├── package.json           # npm metadata + 4 frozen scripts + zero deps
-    ├── .gitignore             # 8 deliberate entries; __pycache__/ is intentional
-    └── .graphifyignore        # Tool-owned config for graphify CLI — never hand-edit
+    │   └── index.js          ← entire runtime (5 lines); sole source of stdout contract
+    ├── graphify-out/          ← generated knowledge graph artefacts (treat as dist/)
+    │   ├── cache/             ← graphify CLI cache (tool-owned, never hand-edit)
+    │   ├── graph.json         ← generated graph data
+    │   ├── graph.html         ← generated graph visualisation
+    │   └── GRAPH_REPORT.md    ← generated graph report
+    ├── .devox/
+    │   └── state/             ← devox workflow state (tool-owned)
+    ├── MISSION.md             ← scope authority (wins scope disputes); immutable by automation
+    ├── GUARDRAILS.md          ← process authority (wins process disputes); immutable by automation
+    ├── CLAUDE.md              ← style/convention authority (wins code style disputes); immutable
+    ├── AGENTS.md              ← 4-line shim redirecting agents to CLAUDE.md; immutable
+    ├── README.md              ← human-facing docs: setup, usage, contributing
+    ├── package.json           ← npm metadata + 4 frozen scripts + zero deps
+    ├── .gitignore             ← 8 deliberate entries; never remove any
+    └── .graphifyignore        ← graphify CLI config (tool-owned, never hand-edit)
 
-**Data flow:** `npm start` invokes `node src/index.js`, which calls `main()`, which writes `Hello, AI Coding Agent!\n` to stdout, then exits 0 implicitly. No input is consumed; no state is read or written.
+**Data flow:** `npm start` → `node src/index.js` → `main()` → `console.log('Hello, AI Coding Agent!')` → stdout → implicit exit 0. No input consumed, no state read or written, no environment variables, no file I/O, no network. Fully synchronous, zero side effects outside the process's own stdout.
 
 ---
 
 ## Build, Test & Lint
 
-    # Install dependencies (no-op — zero deps; proves nothing about environment state)
-    npm install
+    # Install dependencies (no-op — zero deps; use --no-package-lock to avoid creating package-lock.json)
+    npm install --no-package-lock
 
-    # Run runtime — stdout must be exactly: Hello, AI Coding Agent!
+    # Run the program (stdout must be EXACTLY: Hello, AI Coding Agent!)
     npm start
+    # equivalent: node src/index.js
 
-    # Syntax check only (does NOT enforce ES5 style — see Development Notes)
-    npm run lint
-
-    # Type check (intentionally identical to lint — never make these differ)
-    npm run type-check
-
-    # Run tests (node --test discovers src/*.test.js)
+    # Run all tests (discovers src/*.test.js — silent exit 0 means NO tests ran, not passing)
     npm test
+    # equivalent: node --test
 
-    # Full pre-PR validation sequence (run before every PR)
+    # Syntax check only (does NOT enforce ES5 style)
+    npm run lint
+    # equivalent: node --check src/index.js
+
+    # Type check (intentionally identical to lint — must ALWAYS remain identical)
+    npm run type-check
+    # equivalent: node --check src/index.js
+
+    # Full pre-PR validation (run before every PR)
     npm run lint && npm run type-check && npm test
-    # Then manually verify: npm start → must print exactly "Hello, AI Coding Agent!"
+    # Then manually verify: node src/index.js → must print exactly "Hello, AI Coding Agent!"
 
-**There is no build step, no format command, no lint:fix command, and no CI configuration.**
+**No build step. No format command. No lint:fix. No CI configuration.**
+
+> ⚠️ `npm test` silently exiting 0 is NOT a passing state. A valid test run must exit 0
+> **and** name ≥1 discovered file in stdout. Currently zero `*.test.js` files exist — the
+> suite is empty (empty-suite trap).
 
 ---
 
@@ -89,40 +103,34 @@ The project is a CLI-invoked Node.js script with zero dependencies, zero build s
 
 ### Core Architecture
 
-1. **There is exactly one architectural layer.** `src/index.js` is the entry point, the domain, and the runtime all in one. No controllers, services, repositories, adapters, utilities, or helpers exist or may be introduced. The single-file flat architecture is a governance invariant, not a simplification pending refactor.
-
-2. **The module system is an unopened one-way door.** `src/index.js` contains no `require`, `import`, `export`, or `module.exports`. Adding any of these is an immediate auto-reject. CommonJS vs ESM is a human-reserved decision that agents must not make.
-
-3. **The governance layer is authoritative and immutable.** `MISSION.md`, `GUARDRAILS.md`, `CLAUDE.md`, and `AGENTS.md` are constitutional documents. Their authority derives from their immutability. Any automated PR touching them — including well-intentioned "sync" updates — is unconditionally rejected.
-
-4. **`npm test` exiting 0 with no output is the empty-suite trap, not a passing state.** With zero `*.test.js` files, `node --test` exits 0 silently. A valid test run must exit 0 **and** name ≥1 discovered file in stdout.
-
-5. **`node --check` does not enforce ES5.** `const`, `let`, arrow functions, and template literals all pass syntax checking silently. ES5 compliance requires manual line-by-line inspection. Do not trust the lint script as a style gate.
+1. **Single-file flat architecture is a governance invariant.** `src/index.js` is the only source file and must remain so. No utilities, helpers, constants, or modules may be added under `src/` or anywhere in the repository.
+2. **The governance layer is separate and immutable.** `MISSION.md`, `GUARDRAILS.md`, `CLAUDE.md`, and `AGENTS.md` are unconditionally read-only by all automated workflows. Their authority derives from their immutability. Never "keep them in sync" with code changes.
+3. **The stdout contract is byte-stable.** `src/index.js` must produce exactly `Hello, AI Coding Agent!\n` on stdout and exit 0. This is the regression oracle for evaluation harnesses.
+4. **ES5 compliance is manually enforced.** `node --check` (the lint gate) only validates syntax — it will NOT catch `const`, `let`, arrow functions, or template literals. Every `.js` change requires manual line-by-line ES5 inspection.
+5. **The module system is an unopened one-way door.** The CommonJS vs ESM decision is human-reserved. `require`, `import`, `export`, and `module.exports` must not appear in `src/index.js`.
 
 ### Coding Rules
 
 See GUARDRAILS.md for the complete rule set. Key highlights for this stack:
 
-1. **Never introduce abstraction.** `src/index.js` must remain a single file with one function declaration and one call site. No helpers, no utilities, no modules.
-2. **Error handling:** use `try/catch` + `process.exit(1)`. Silent catches are prohibited. Currently `main()` has no error path — do not add one unless the behaviour surface genuinely requires it.
-3. **No module boundaries.** No `require`, `import`, `export`, or `module.exports` in `src/index.js`. Test files may use `require` (CommonJS) but only `node:assert` and `node:child_process` from the Node.js built-in namespace.
-4. **Test co-location:** test files live in `src/` as `src/*.test.js`. External test libraries are permanently excluded. `node:assert` and `node:child_process` only.
-5. **ES5 only.** No `const`, `let`, arrow functions, template literals, classes, `async`/`await`, destructuring, spread, or any ES6+ syntax. The lint script will not catch violations — human review is the gate.
+1. **Single-file constraint:** All runtime code lives in `src/index.js`. Never create a second source file.
+2. **Error handling:** Use `try/catch` + `process.exit(1)` if error paths are ever needed. `main()` currently has no error path — none should be added unless the behaviour surface requires it.
+3. **No module imports in source:** Zero `require`, `import`, `export`, or `module.exports` in `src/index.js`. In test files, only `node:assert` and `node:child_process` are permitted.
+4. **Testing:** Test files are co-located in `src/` as `*.test.js`. Never modify test files to force passing — fix the source instead. A passing `npm test` requires ≥1 discovered file named in stdout.
+5. **ES5-only:** No `const`, `let`, arrow functions, template literals, `class`, `async`/`await`, destructuring, or spread. Manual inspection is the only gate — `node --check` will not catch violations.
 
 ### Key Conventions
 
-1. **Function declaration style:** Always `function foo() {}`. Never arrow functions (`() => {}`), never function expressions (`var f = function() {}`).
-2. **String quoting:** Single quotes exclusively. No double quotes, no template literals (`\`...\``).
-3. **Semicolons:** Every statement terminated with `;`. No exceptions.
-4. **Blank line rule:** Exactly one blank line between the closing `}` of `main()` and the `main();` call site. This is governance-enforced — automated formatters that collapse it produce invalid output.
-5. **Trailing newline:** Every source file must end with `\n`. The file must not end mid-line.
-6. **Identifier casing:** `camelCase` for all functions and variables. Filenames lowercase (e.g., `index.js`, `index.test.js`).
-7. **No module scope side effects:** Module scope contains exactly one function declaration and one call site. Nothing else at module scope.
-8. **Synchronous only:** No Promises, callbacks, `async`/`await`, or event emitters anywhere in `src/index.js`.
-9. **`lint` and `type-check` must remain identical:** Both scripts run `node --check src/index.js`. Diverging them is an explicit auto-reject trigger.
-10. **No `package-lock.json`:** Must remain absent until the first real dependency is added. Generating it via `npm install --package-lock` is an auto-reject.
-11. **Node version pinning is atomic:** `.nvmrc` and `"engines"` must land in the same commit — both or neither. Partial pinning is auto-reject trigger #8.
-12. **`graphify-out/` is generated output:** Treat it as `dist/`. Never hand-edit any file inside it. Never hand-edit `.graphifyignore`.
+1. **Function declarations only:** Always `function foo() {}`. Never arrow functions (`const foo = () => {}`), never function expressions (`var foo = function() {}`).
+2. **Single quotes exclusively:** All strings use `'single quotes'`. Never `"double quotes"` or `` `template literals` ``.
+3. **Semicolons on every statement:** Every statement, including the last in a block, must end with `;`.
+4. **Exactly one blank line between `}` and call site:** In `src/index.js`, there must be exactly one blank line between the closing `}` of `main()` and the `main();` invocation. Automated formatters (Prettier, etc.) will collapse it — verify manually after any edit.
+5. **ES5-only language surface:** No `const`, `let`, arrow functions, template literals, `class`, destructuring, spread, `async`/`await`, or any ES6+ syntax. Use `var` for variable declarations.
+6. **camelCase identifiers, lowercase filenames:** Functions and variables use `camelCase`. All filenames are lowercase (e.g., `index.js`, `index.test.js`).
+7. **Trailing newline on every source file:** Every `.js` file must end with `\n`.
+8. **`lint` and `type-check` scripts must remain identical:** Both must run `node --check src/index.js`. Diverging them is an auto-reject trigger. The duplication is intentional.
+9. **`npm install` with `--no-package-lock`:** Always suppress `package-lock.json` creation. Its presence is an auto-reject trigger.
+10. **No new npm scripts:** The four scripts (`start`, `test`, `lint`, `type-check`) are frozen in perpetuity. Adding a fifth requires explicit human authorisation.
 
 ---
 
@@ -130,17 +138,20 @@ See GUARDRAILS.md for the complete rule set. Key highlights for this stack:
 
 - Never modify `MISSION.md`, `GUARDRAILS.md`, `AGENTS.md`, or `CLAUDE.md`
 - Never commit secrets, API keys, tokens, or `.env` files to the repository
-- Never add dependencies (`dependencies` or `devDependencies`) without explicit human authorisation
-- Never declare a task done without running `npm run lint && npm run type-check && npm test` and verifying `npm start` output
+- Never add dependencies without explicit human authorisation (zero `dependencies` and `devDependencies` is permanent)
+- Never declare a task done without running the full pre-PR gate (`lint && type-check && test`) and manually verifying stdout
 - Never expand scope beyond what the task explicitly requests
 - Never modify test files to make tests pass — fix the source code instead
+- Never create a second source file under `src/` or anywhere in the repository
 - Never add `require`, `import`, `export`, or `module.exports` to `src/index.js`
-- Never add a `"prepare"` script to `package.json` — npm executes it automatically on `npm install`
-- Never add CI/CD pipelines, GitHub Actions workflows, or equivalent automation
-- Never introduce TypeScript, Babel, Bun, Deno, or any transpiler
-- Never add ESLint, Prettier, or any external linting/formatting tool without human authorisation
-- Never add a second source file under `src/` or introduce any abstraction layer
-- Never remove any entry from `.gitignore` — all 8 entries are deliberate, including `__pycache__/`
+- Never use ES6+ syntax (`const`, `let`, arrow functions, template literals, destructuring, spread, `class`, `async`/`await`)
+- Never use double quotes or template literals for strings — single quotes only
+- Never add a 5th npm script without explicit human authorisation
+- Never hand-edit any file inside `graphify-out/` — re-run the `graphify` CLI to regenerate
+- Never hand-edit `.graphifyignore` — it is tool-owned
+- Never remove any entry from `.gitignore` — all 8 entries are deliberate
+- Never create `package-lock.json` — use `--no-package-lock` with npm
+- Never accept `npm test` silent exit 0 as a passing state — verify ≥1 test file is discovered
 
 ---
 
@@ -148,48 +159,33 @@ See GUARDRAILS.md for the complete rule set. Key highlights for this stack:
 
 | File / Directory | Purpose |
 |-----------------|---------|
-| `src/index.js` | The entire runtime — 5 lines. Canonical ES5 form is governance-enforced. Sole source of the byte-stable stdout contract (`Hello, AI Coding Agent!\n`). |
-| `package.json` | npm metadata + 4 frozen governance-protected scripts + zero deps. No `dependencies` or `devDependencies` keys present. |
-| `MISSION.md` | Scope authority. Wins all scope disputes. Lists 8 out-of-scope prohibitions, 7 hard invariants, allowed evolutions, and quality gates. Immutable by automation. |
-| `GUARDRAILS.md` | Process authority. Wins all process disputes. 14 auto-reject triggers, 9 quality gates, 13 absolute prohibitions, triage/escalation rules. Immutable by automation. |
-| `CLAUDE.md` | Style/convention authority — this file. Wins all code style disputes. Immutable by automation. |
-| `AGENTS.md` | 4-line compatibility shim. Redirects any agent looking for `AGENTS.md` to `CLAUDE.md`. No independent authority. Immutable by automation. |
-| `README.md` | Human-facing docs only. CLI surface (`npm install`, `npm start`, `npm test`) and contributing steps. No architecture content here. |
-| `.gitignore` | 8 deliberate entries. `__pycache__/` is intentional (Python experimentation anticipated). `graphify-out/manifest.json` and `graphify-out/cost.json` are explicitly excluded. Never remove any entry. |
-| `.graphifyignore` | Configuration for the external `graphify` CLI tool. Excludes `node_modules/`, `dist/`, `build/`, `.git/`, `.devox/`, `graphify-out/`, and lockfiles from graph extraction. Tool-owned — never hand-edit. |
-| `graphify-out/` | Generated knowledge graph artefacts (`graph.json`, `graph.html`, `GRAPH_REPORT.md`). Treat as `dist/`. Never hand-edit. `manifest.json` and `cost.json` inside are gitignored. |
+| `src/index.js` | Entire runtime — 5 lines. Sole source of the byte-stable stdout contract (`Hello, AI Coding Agent!\n`). |
+| `package.json` | npm metadata + 4 frozen scripts (`start`, `test`, `lint`, `type-check`) + zero deps. No `dependencies` or `devDependencies` keys. |
+| `MISSION.md` | Scope authority. Wins scope disputes. 8 out-of-scope prohibitions, 7 hard invariants, allowed evolutions, quality gates. Immutable by automation. |
+| `GUARDRAILS.md` | Process authority. Wins process disputes. 14 auto-reject triggers, 9 quality gates, 13 absolute prohibitions. Immutable by automation. |
+| `CLAUDE.md` | Style/convention authority. Wins code style disputes. All conventions documented here. Immutable by automation. |
+| `AGENTS.md` | 4-line shim. Redirects agents looking for `AGENTS.md` to `CLAUDE.md`. No independent authority. Immutable by automation. |
+| `README.md` | Human-facing docs only — setup, usage, test commands, contributing steps. |
+| `.gitignore` | 8 deliberate entries. `__pycache__/` is intentional (Python experimentation anticipated). `graphify-out/manifest.json` and `graphify-out/cost.json` explicitly excluded. Never remove any entry. |
+| `.graphifyignore` | External `graphify` CLI config. Excludes `node_modules/`, `dist/`, `build/`, `.git/`, `.devox/`, `graphify-out/`, lockfiles. Tool-owned — never hand-edit. |
+| `graphify-out/` | Generated knowledge graph artefacts (`graph.json`, `graph.html`, `GRAPH_REPORT.md`). Treat as `dist/`. Never hand-edit any file inside it. |
 
 ---
 
 ## Development Notes
 
-- **`npm test` silent exit 0 is not a pass.** If `node --test` discovers zero `*.test.js` files, it exits 0 with no output. Always confirm stdout names ≥1 file before treating a test run as valid.
+- **`npm test` silent exit 0 is the empty-suite trap.** `node --test` exits 0 with no output when zero `*.test.js` files exist. This is indistinguishable from a real pass unless you check stdout for discovered file names. Currently zero test files exist. The canonical first test (`src/index.test.js`) is authorised but not yet written — it must use only `node:assert` and `node:child_process`, and must assert `stdout === 'Hello, AI Coding Agent!\n'` and `status === 0`.
 
-- **`node --check` is not a style linter.** It validates syntax (AST parse) only. `const`, `let`, arrow functions, template literals, and all ES6+ features pass it silently. ES5 compliance must be verified by eye, line by line.
+- **`node --check` is not a style linter.** It only validates V8 parse-level syntax. ES5 violations (`const`, `let`, arrow functions, template literals) all pass it silently. After any change to a `.js` file, manually inspect every line for ES6+ syntax before committing.
 
-- **The prescribed first test** — when a human authorises adding it — is:
-  ```js
-  // src/index.test.js
-  var assert = require('node:assert');
-  var cp = require('node:child_process');
+- **The blank-line rule survives editors and formatters.** Many editors and all auto-formatters (Prettier, ESLint `--fix`) will collapse the required blank line between `}` and `main();`. Verify the blank line is present after every save or format operation.
 
-  var result = cp.spawnSync('node', ['src/index.js']);
-  assert.strictEqual(result.stdout.toString(), 'Hello, AI Coding Agent!\n');
-  assert.strictEqual(result.status, 0);
-  ```
+- **`npm install` proves nothing.** With zero dependencies, it is a no-op that always exits 0 regardless of environment health. Do not use it as a readiness check. Always pass `--no-package-lock` to suppress `package-lock.json` generation.
 
-- **`npm install` is a no-op.** Zero dependencies. It exits 0 immediately regardless of environment state. Do not use its success as evidence of a healthy environment.
+- **Node.js version floor.** `node --test` ships in Node 18 but was experimental until Node 20. Use Node 20 LTS or later for stable test semantics. No `.nvmrc` or `"engines"` field exists — this is a known gap, not an oversight to fix autonomously.
 
-- **No environment variables are required.** `src/index.js` reads nothing from `process.env`. No `.env` file is needed or permitted.
+- **`graphify-out/` regeneration.** If knowledge graph artefacts are stale or missing, re-run the `graphify` CLI from the repository root. Never edit `graph.json`, `graph.html`, `GRAPH_REPORT.md`, or anything else inside `graphify-out/` by hand.
 
-- **No post-change regeneration steps exist.** There is no build step, no codegen step, and no cache to invalidate. After editing `src/index.js`, run `node src/index.js` directly to verify output.
-
-- **Python experimentation is explicitly anticipated.** `__pycache__/` in `.gitignore` is not a mistake or a leftover. Removing it triggers an auto-reject. Python source files belong outside `src/`, not inside it.
-
-- **`package-lock.json` must remain absent** until the first real dependency is introduced by a human. Any tooling that generates it (including bare `npm install` in some npm versions) must have lockfile generation suppressed (`--no-package-lock`).
-
-- **Node.js version pinning requires an atomic commit.** If you are authorised to pin the Node version, `.nvmrc` and the `"engines"` field in `package.json` must appear in the same commit. Adding either one alone is auto-reject trigger #8.
-
-- **`graphify-out/` is generated.** Do not edit, delete, or commit changes to files inside it manually. Re-run the `graphify` CLI to regenerate. `manifest.json` and `cost.json` inside are gitignored by design.
+- **Governance file immutability is unconditional.** Any automated PR that touches `MISSION.md`, `GUARDRAILS.md`, `CLAUDE.md`, or `AGENTS.md` is rejected — no exceptions, no fix loops, regardless of how reasonable the change appears. These files are modified only by human-authored PRs that have passed human review.
 
 > ⚠️ This file is immutable by automated workflows. Modify only via human PR review.
