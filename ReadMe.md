@@ -1,4 +1,4 @@
-﻿# Hello AI Coding Agent
+# Hello AI Coding Agent
 
 A minimal scaffold for experimenting with AI-assisted coding agents.
 
@@ -26,6 +26,10 @@ npm test
 2. Create a feature branch (`git checkout -b feature/my-change`)
 3. Commit your changes with a clear message
 4. Open a pull request against `main`
+
+> **Prerequisites**: This section documents features on the `feature/progressive-web-app` branch.
+> Until that branch is merged, `npm run serve`, `.env.example`, and the `public/` directory
+> do not exist on `main`. Do not follow these instructions on `main`.
 
 ## Web / PWA Mode
 
@@ -59,4 +63,4 @@ cp .env.example .env
 
 ### Known Limitations
 
-`npm run lint` covers `src/` only. JavaScript files under `public/` are **not** checked by the linter. Review those files manually.
+`npm run lint` (`node --check src/index.js`) checks only `src/index.js` — it is not a directory scan. It is also **not an ES5 compliance gate** (it accepts all ES2022+ syntax silently). JavaScript files under `public/` are not linted; review them manually.
