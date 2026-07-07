@@ -20,6 +20,8 @@ npm start
 npm test
 ```
 
+`npm test` runs `src/index.test.js`, which verifies the stdout oracle, exit code, and governance invariants.
+
 ## Contributing
 
 1. Fork the repository
