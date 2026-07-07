@@ -1,16 +1,17 @@
 var test = require('node:test');
 var spawnSync = require('node:child_process').spawnSync;
 var assert = require('node:assert');
-var path = require('node:path');
 
-var EXPECTED = 'Hello, AI Coding Agent!\n';
+var EXPECTED_BYTES = Buffer.from('Hello, AI Coding Agent!\n');
 
-test('main() prints exact greeting and exits 0', function() {
-  var scriptPath = path.resolve(__dirname, '..', 'src', 'index.js');
+test('stdout is byte-exact oracle', function() {
+  var scriptPath = __dirname + '/index.js';
   var result = spawnSync(process.execPath, [scriptPath], {
-    encoding: 'utf8'
+    encoding: 'buffer'
   });
-  
+
   assert.strictEqual(result.status, 0, 'Expected exit code 0, got ' + result.status);
-  assert.strictEqual(result.stdout, EXPECTED, 'Expected ' + JSON.stringify(EXPECTED) + ', got ' + JSON.stringify(result.stdout));
+  assert.deepStrictEqual(result.stdout, EXPECTED_BYTES, 'Expected ' + JSON.stringify(EXPECTED_BYTES) + ', got ' + JSON.stringify(result.stdout));
+  assert.strictEqual(result.stderr.length, 0, 'Expected empty stderr, got ' + JSON.stringify(result.stderr));
 });
+
