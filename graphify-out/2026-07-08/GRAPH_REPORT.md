@@ -1,16 +1,16 @@
 # Graph Report - thread-ca2f9fed  (2026-07-08)
 
 ## Corpus Check
-- 7 files · ~5,647 words
+- 7 files · ~5,506 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 81 nodes · 56 edges · 27 communities (7 shown, 20 thin omitted)
+- 80 nodes · 55 edges · 27 communities (7 shown, 20 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b5335f3a`
+- Built from commit: `cf2fb2b9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -47,13 +47,13 @@
 1. `Guardrails` - 11 edges
 2. `Hello AI Coding Agent — Agent Instructions` - 9 edges
 3. `Mission` - 9 edges
-4. `Hello AI Coding Agent` - 6 edges
-5. `scripts` - 5 edges
-6. `1. Triage Rules` - 5 edges
+4. `scripts` - 5 edges
+5. `1. Triage Rules` - 5 edges
+6. `Hello AI Coding Agent` - 5 edges
 7. `Architecture & Key Patterns` - 4 edges
 8. `2. Implementation Rules` - 3 edges
-9. `Setup` - 1 edges
-10. `Usage` - 1 edges
+9. `main` - 1 edges
+10. `test` - 1 edges
 
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
@@ -85,8 +85,8 @@ Cohesion: 0.22
 Nodes (8): Build, Test & Lint, Development Notes, Hello AI Coding Agent — Agent Instructions, Important Files, Project Overview, Repository Layout, Tech Stack, What NOT to Do
 
 ### Community 8 - "Triage & Decision Rules"
-Cohesion: 0.29
-Nodes (6): Contributing, Hello AI Coding Agent, Running Tests, Setup, Usage, Web / PWA Mode
+Cohesion: 0.33
+Nodes (5): Contributing, Hello AI Coding Agent, Running Tests, Setup, Usage
 
 ### Community 9 - "Hello AI Coding Agent — Agent Instructions"
 Cohesion: 0.40
@@ -97,7 +97,7 @@ Cohesion: 0.50
 Nodes (4): Architecture & Key Patterns, Coding Rules, Core Architecture, Key Conventions
 
 ## Knowledge Gaps
-- **54 isolated node(s):** `Setup`, `Usage`, `Running Tests`, `Contributing`, `Web / PWA Mode` (+49 more)
+- **53 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+48 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -105,10 +105,10 @@ Nodes (4): Architecture & Key Patterns, Coding Rules, Core Architecture, Key Con
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Guardrails` connect `Mission Scope Definitions` to `Hello AI Coding Agent — Agent Instructions`?**
-  _High betweenness centrality (0.039) - this node is a cross-community bridge._
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._
 - **Why does `Hello AI Coding Agent — Agent Instructions` connect `Runtime & ES5 Rules` to `package.json`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
 - **Why does `1. Triage Rules` connect `Hello AI Coding Agent — Agent Instructions` to `Mission Scope Definitions`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
-- **What connects `Setup`, `Usage`, `Running Tests` to the rest of the system?**
-  _66 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.019) - this node is a cross-community bridge._
+- **What connects `name`, `version`, `description` to the rest of the system?**
+  _65 weakly-connected nodes found - possible documentation gaps or missing edges._
