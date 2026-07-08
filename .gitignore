@@ -4,5 +4,4 @@ dist/
 *.log
 __pycache__/
 .DS_Store
-graphify-out/manifest.json
-graphify-out/cost.json
+graphify-out/
