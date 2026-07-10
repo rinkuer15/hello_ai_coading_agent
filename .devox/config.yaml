@@ -1,0 +1,15 @@
+# .devox/config.yaml — repo-level Devox configuration
+# Committed to version control so all contributors share the same settings.
+#
+# assistants:
+#   claude:
+#     model: sonnet          # sonnet | opus | haiku | claude-* | inherit
+#   codex:
+#     model: gpt-5.3-codex
+#
+# defaults:
+#   loadDefaultCommands: true
+#   loadDefaultWorkflows: true
+#
+# docs:
+#   path: docs               # relative path to docs directory
