@@ -5,7 +5,7 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 80 nodes · 55 edges · 27 communities (8 shown, 19 thin omitted)
+- 80 nodes · 55 edges · 27 communities (7 shown, 20 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
@@ -20,6 +20,7 @@
 - [[_COMMUNITY_Guardrails & Quality Gates|Guardrails & Quality Gates]]
 - [[_COMMUNITY_Mission Scope Definitions|Mission Scope Definitions]]
 - [[_COMMUNITY_Project Core Identity|Project Core Identity]]
+- [[_COMMUNITY_Scope & Quality Gates|Scope & Quality Gates]]
 - [[_COMMUNITY_Protected Files & Rejections|Protected Files & Rejections]]
 - [[_COMMUNITY_Runtime & ES5 Rules|Runtime & ES5 Rules]]
 - [[_COMMUNITY_Triage & Decision Rules|Triage & Decision Rules]]
@@ -65,7 +66,7 @@
 - **Hard Invariants Enforcement Cluster** — mission_hardinvariants, guardrails_autorejecttriggers, guardrails_absoluteprohibitions, claude_immutabilityprinciple [EXTRACTED 1.00]
 - **Stdout Oracle Validation Flow** — claude_indexjs, claude_stdoutoracle, guardrails_qualitygates [EXTRACTED 1.00]
 
-## Communities (27 total, 19 thin omitted)
+## Communities (27 total, 20 thin omitted)
 
 ### Community 3 - "Mission Scope Definitions"
 Cohesion: 0.15
@@ -96,9 +97,9 @@ Cohesion: 0.50
 Nodes (4): Architecture & Key Patterns, Coding Rules, Core Architecture, Key Conventions
 
 ## Knowledge Gaps
-- **52 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+47 more)
+- **53 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+48 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -110,4 +111,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `1. Triage Rules` connect `Hello AI Coding Agent — Agent Instructions` to `Mission Scope Definitions`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `description` to the rest of the system?**
-  _64 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _65 weakly-connected nodes found - possible documentation gaps or missing edges._
