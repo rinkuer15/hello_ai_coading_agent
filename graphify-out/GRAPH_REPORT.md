@@ -1,16 +1,16 @@
 # Graph Report - thread-a64ad6da  (2026-07-10)
 
 ## Corpus Check
-- 7 files · ~5,506 words
+- 8 files · ~5,550 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 80 nodes · 55 edges · 27 communities (8 shown, 19 thin omitted)
+- 81 nodes · 55 edges · 28 communities (9 shown, 19 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cf2fb2b9`
+- Built from commit: `dbba5b52`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -65,7 +65,7 @@
 - **Hard Invariants Enforcement Cluster** — mission_hardinvariants, guardrails_autorejecttriggers, guardrails_absoluteprohibitions, claude_immutabilityprinciple [EXTRACTED 1.00]
 - **Stdout Oracle Validation Flow** — claude_indexjs, claude_stdoutoracle, guardrails_qualitygates [EXTRACTED 1.00]
 
-## Communities (27 total, 19 thin omitted)
+## Communities (28 total, 19 thin omitted)
 
 ### Community 3 - "Mission Scope Definitions"
 Cohesion: 0.15
@@ -104,10 +104,10 @@ Nodes (4): Architecture & Key Patterns, Coding Rules, Core Architecture, Key Con
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Guardrails` connect `Mission Scope Definitions` to `Hello AI Coding Agent — Agent Instructions`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+  _High betweenness centrality (0.039) - this node is a cross-community bridge._
 - **Why does `Hello AI Coding Agent — Agent Instructions` connect `Runtime & ES5 Rules` to `package.json`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
 - **Why does `1. Triage Rules` connect `Hello AI Coding Agent — Agent Instructions` to `Mission Scope Definitions`?**
-  _High betweenness centrality (0.019) - this node is a cross-community bridge._
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `description` to the rest of the system?**
   _64 weakly-connected nodes found - possible documentation gaps or missing edges._
