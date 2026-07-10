@@ -168,18 +168,14 @@
       "norm_label": "index.js"
     },
     {
-      "label": "main",
+      "label": "main()",
       "file_type": "code",
       "source_file": "src/index.js",
-      "source_location": null,
+      "source_location": "L1",
       "_origin": "ast",
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
+      "id": "src_index_main",
       "community": 5,
-      "norm_label": "main",
-      "id": "src_index_main"
+      "norm_label": "main()"
     },
     {
       "label": "AGENTS.md",
