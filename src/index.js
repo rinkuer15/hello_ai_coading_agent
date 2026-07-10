@@ -1,5 +1,9 @@
 function main() {
-  console.log('Hello, AI Coding Agent!');
+  try {
+    console.log('Hello, AI Coding Agent!');
+  } catch (e) {
+    process.exit(1);
+  }
 }
 
 main();
