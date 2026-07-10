@@ -1,0 +1,66 @@
+{
+  "project": "hello-ai-coding-agent",
+  "branchName": "ralph/planets-static-page",
+  "prdFile": "prd.md",
+  "description": "Add a zero-dependency static HTML page explaining the 8 planets of our solar system",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Define planet data as HTML content",
+      "description": "As a developer exploring this project, I want all 8 solar system planets documented with key facts so that the page content is accurate and educational",
+      "acceptanceCriteria": [
+        "All 8 planets are present: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune",
+        "Each planet entry includes at minimum: name, planet type (terrestrial/gas giant/ice giant), distance from Sun, and one notable characteristic",
+        "Content is authored as semantic HTML markup (headings + lists or definition lists) — no JavaScript data structures",
+        "No external data sources, APIs, or CDN dependencies are referenced",
+        "`src/index.js` is not touched — `node src/index.js` still outputs exactly `Hello, AI Coding Agent!\\n`"
+      ],
+      "technicalNotes": "Content lives directly in `planets.html` at project root. No JavaScript. Use `<section>` or `<article>` per planet, `<h2>` for planet names, `<ul>` or `<dl>` for facts. Project root placement avoids violating the single-file `src/` architecture rule defined in CLAUDE.md and MISSION.md.",
+      "dependsOn": [],
+      "priority": 1,
+      "passes": false,
+      "notes": "⚠️ Requires human authorisation — scope expansion beyond current MISSION.md boundaries. Do not implement without explicit human PR approval."
+    },
+    {
+      "id": "US-002",
+      "title": "Create styled planets.html static page",
+      "description": "As a user opening the project directory, I want to open planets.html in a browser and see a readable, styled page about the solar system so that I can learn about planets without needing a server",
+      "acceptanceCriteria": [
+        "`planets.html` exists at project root (not under `src/`)",
+        "File opens in a browser via `open planets.html` (or double-click) with zero JavaScript console errors",
+        "Page has a `<title>` of 'Planets of Our Solar System'",
+        "Inline `<style>` block present — no `<link rel=stylesheet>`, no CDN, no external resources",
+        "All 8 planet sections render correctly with content from US-001",
+        "Page is readable with JavaScript disabled (zero `<script>` tags)",
+        "`npm run lint` still exits 0 after file is added",
+        "`npm run type-check` still exits 0 after file is added",
+        "No `package-lock.json` generated"
+      ],
+      "technicalNotes": "File: `./planets.html` (project root). Inline CSS only — background, font-family (system stack), headings, planet cards or sections. Follow lowercase filename convention from CLAUDE.md. `node --check` does not scan `.html` files so no lint impact. `.gitignore` does not exclude `.html` at root so no gitignore changes needed.",
+      "dependsOn": ["US-001"],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Validate governance gates post-addition",
+      "description": "As a project maintainer, I want all existing quality gates to still pass after planets.html is added so that the benchmark instrument remains fully intact",
+      "acceptanceCriteria": [
+        "`node src/index.js` outputs exactly `Hello, AI Coding Agent!\\n` — byte-exact, verified with `node src/index.js | xxd`",
+        "`npm run lint` exits 0 with no output",
+        "`npm run type-check` exits 0 with no output",
+        "`npm test` exits 0 (note: silent exit 0 is acceptable here only because no new `.test.js` file is being added — the false-pass state is pre-existing)",
+        "No `package-lock.json` exists in the repository",
+        "`src/index.js` is unchanged — blank line between `}` and `main();` is present, ES5 syntax only, trailing newline present",
+        "`planets.html` has no references to `src/index.js` or any JS runtime",
+        "Protected files untouched: MISSION.md, GUARDRAILS.md, CLAUDE.md, AGENTS.md, .gitignore, package.json"
+      ],
+      "technicalNotes": "Run full pre-PR gate from CLAUDE.md: `npm run lint && npm run type-check && npm test`. Then manually run `node src/index.js | xxd` and verify byte output. Inspect `src/index.js` manually for blank line and ES5 compliance. Confirm no lockfile with `ls package-lock.json 2>&1`.",
+      "dependsOn": ["US-002"],
+      "priority": 3,
+      "passes": false,
+      "notes": "This story is a validation/QA story — it produces no new files, only runs checks."
+    }
+  ]
+}
