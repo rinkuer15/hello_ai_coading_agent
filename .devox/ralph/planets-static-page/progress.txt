@@ -1,0 +1,63 @@
+## Codebase Patterns
+
+### Static HTML at project root
+- **Where**: `planets.html` (root)
+- **Pattern**: Zero-dependency static HTML with inline `<style>` block only. No `<script>` tags. Place at project root, never under `src/`.
+- **Example**: `<article class="planet-card">...</article>` with `<dl>` for facts.
+
+---
+
+## 2026-07-10 — US-001: Define planet data as HTML content
+
+**Status**: PASSED
+**Files changed**:
+- `planets.html` — created with all 8 planet `<article>` elements using semantic `<dl>` fact lists
+
+**Acceptance criteria verified**:
+- [x] All 8 planets present: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune
+- [x] Each entry has: name, type (terrestrial/gas giant/ice giant), distance from Sun, notable characteristic
+- [x] Semantic HTML markup — no JS data structures
+- [x] No external data sources, APIs, or CDNs
+- [x] `src/index.js` untouched — stdout oracle unchanged
+
+**Learnings**:
+- `node --check` only scans `.js` files — HTML file has no lint impact
+- `npm test` exits 0 silently (no test files) — acceptable per PRD
+
+---
+
+## 2026-07-10 — US-002: Create styled planets.html static page
+
+**Status**: PASSED
+**Files changed**:
+- `planets.html` — inline `<style>` block, responsive grid, planet type badges, dark space theme
+
+**Acceptance criteria verified**:
+- [x] `planets.html` exists at project root (not under `src/`)
+- [x] Opens in browser with zero JS console errors (no script tags)
+- [x] Title is 'Planets of Our Solar System'
+- [x] Inline `<style>` block present — no external stylesheets or CDN
+- [x] All 8 planet sections render with content
+- [x] Zero `<script>` tags — readable with JS disabled
+- [x] `npm run lint` exits 0
+- [x] `npm run type-check` exits 0
+- [x] No `package-lock.json` generated
+
+---
+
+## 2026-07-10 — US-003: Validate governance gates post-addition
+
+**Status**: PASSED
+**Files changed**: (none — validation only)
+
+**Acceptance criteria verified**:
+- [x] `node src/index.js` outputs exactly `Hello, AI Coding Agent!\n` (byte-verified)
+- [x] `npm run lint` exits 0
+- [x] `npm run type-check` exits 0
+- [x] `npm test` exits 0 (0 tests discovered — pre-existing state)
+- [x] No `package-lock.json` exists
+- [x] `src/index.js` unchanged — blank line between `}` and `main();` present
+- [x] `planets.html` has no references to `src/index.js` or any JS runtime
+- [x] Protected files untouched: MISSION.md, GUARDRAILS.md, CLAUDE.md, AGENTS.md, .gitignore, package.json
+
+---

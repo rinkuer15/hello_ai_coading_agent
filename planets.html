@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planets of Our Solar System</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #0a0e1a;
+      color: #e0e6f0;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #c8d8f8;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: #8898b8;
+      font-size: 1rem;
+    }
+
+    .planets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .planet-card {
+      background: #131929;
+      border: 1px solid #1e2d4a;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .planet-card h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #7eb8f7;
+      margin-bottom: 0.25rem;
+    }
+
+    .planet-type {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 0.15rem 0.6rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+
+    .type-terrestrial { background: #2a3a1a; color: #86c86a; }
+    .type-gas-giant   { background: #3a2a1a; color: #e8a84a; }
+    .type-ice-giant   { background: #1a2a3a; color: #6ab4e8; }
+
+    .planet-card dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.3rem 0.75rem;
+    }
+
+    .planet-card dt {
+      font-weight: 600;
+      color: #8898b8;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .planet-card dd {
+      color: #c8d4e8;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: #4a5a78;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Planets of Our Solar System</h1>
+  <p>Eight worlds orbiting our Sun — from the scorched inner planets to the distant ice giants</p>
+</header>
+
+<main class="planets-grid">
+
+  <article class="planet-card">
+    <h2>Mercury</h2>
+    <span class="planet-type type-terrestrial">Terrestrial</span>
+    <dl>
+      <dt>Distance from Sun</dt>
+      <dd>57.9 million km (0.39 AU)</dd>
+      <dt>Diameter</dt>
+      <dd>4,879 km</dd>
+      <dt>Orbital period</dt>
+      <dd>88 Earth days</dd>
+      <dt>Notable</dt>
+      <dd>Closest planet to the Sun; surface temperatures swing from −180 °C to 430 °C</dd>
+    </dl>
+  </article>
+
+  <article class="planet-card">
+    <h2>Venus</h2>
+    <span class="planet-type type-terrestrial">Terrestrial</span>
+    <dl>
+      <dt>Distance from Sun</dt>
+      <dd>108.2 million km (0.72 AU)</dd>
+      <dt>Diameter</dt>
+      <dd>12,104 km</dd>
+      <dt>Orbital period</dt>
+      <dd>225 Earth days</dd>
+      <dt>Notable</dt>
+      <dd>Hottest planet (462 °C average) due to a thick CO₂ atmosphere and runaway greenhouse effect</dd>
+    </dl>
+  </article>
+
+  <article class="planet-card">
+    <h2>Earth</h2>
+    <span class="planet-type type-terrestrial">Terrestrial</span>
+    <dl>
+      <dt>Distance from Sun</dt>
+      <dd>149.6 million km (1.00 AU)</dd>
+      <dt>Diameter</dt>
+      <dd>12,742 km</dd>
+      <dt>Orbital period</dt>
+      <dd>365.25 Earth days</dd>
+      <dt>Notable</dt>
+      <dd>Only known planet to harbour life; 71 % of the surface is covered by liquid water</dd>
+    </dl>
+  </article>
+
+  <article class="planet-card">
+    <h2>Mars</h2>
+    <span class="planet-type type-terrestrial">Terrestrial</span>
+    <dl>
+      <dt>Distance from Sun</dt>
+      <dd>227.9 million km (1.52 AU)</dd>
+      <dt>Diameter</dt>
+      <dd>6,779 km</dd>
+      <dt>Orbital period</dt>
+      <dd>687 Earth days</dd>
+      <dt>Notable</dt>
+      <dd>Home to Olympus Mons, the tallest volcano in the solar system at 21.9 km high</dd>
+    </dl>
+  </article>
+
+  <article class="planet-card">
+    <h2>Jupiter</h2>
+    <span class="planet-type type-gas-giant">Gas Giant</span>
+    <dl>
+      <dt>Distance from Sun</dt>
+      <dd>778.5 million km (5.20 AU)</dd>
+      <dt>Diameter</dt>
+      <dd>139,820 km</dd>
+      <dt>Orbital period</dt>
+      <dd>11.9 Earth years</dd>
+      <dt>Notable</dt>
+      <dd>Largest planet in the solar system; its Great Red Spot is a storm that has persisted for centuries</dd>
+    </dl>
+  </article>
+
+  <article class="planet-card">
+    <h2>Saturn</h2>
+    <span class="planet-type type-gas-giant">Gas Giant</span>
+    <dl>
+      <dt>Distance from Sun</dt>
+      <dd>1.43 billion km (9.58 AU)</dd>
+      <dt>Diameter</dt>
+      <dd>116,460 km</dd>
+      <dt>Orbital period</dt>
+      <dd>29.5 Earth years</dd>
+      <dt>Notable</dt>
+      <dd>Famous for its spectacular ring system made of ice and rock particles; least dense planet</dd>
+    </dl>
+  </article>
+
+  <article class="planet-card">
+    <h2>Uranus</h2>
+    <span class="planet-type type-ice-giant">Ice Giant</span>
+    <dl>
+      <dt>Distance from Sun</dt>
+      <dd>2.87 billion km (19.19 AU)</dd>
+      <dt>Diameter</dt>
+      <dd>50,724 km</dd>
+      <dt>Orbital period</dt>
+      <dd>84 Earth years</dd>
+      <dt>Notable</dt>
+      <dd>Rotates on its side with an axial tilt of 97.8°, causing extreme 42-year-long seasons</dd>
+    </dl>
+  </article>
+
+  <article class="planet-card">
+    <h2>Neptune</h2>
+    <span class="planet-type type-ice-giant">Ice Giant</span>
+    <dl>
+      <dt>Distance from Sun</dt>
+      <dd>4.50 billion km (30.07 AU)</dd>
+      <dt>Diameter</dt>
+      <dd>49,244 km</dd>
+      <dt>Orbital period</dt>
+      <dd>165 Earth years</dd>
+      <dt>Notable</dt>
+      <dd>Windiest planet with gusts up to 2,100 km/h; has the longest year of all eight planets</dd>
+    </dl>
+  </article>
+
+</main>
+
+<footer>
+  <p>Our Solar System &mdash; eight planets, one star</p>
+</footer>
+
+</body>
+</html>
