@@ -1,0 +1,37 @@
+{
+  "package.json": {
+    "mtime": 1783671375.7992706,
+    "ast_hash": "7e94f2c473480bc00e7365dec71c0376",
+    "semantic_hash": ""
+  },
+  "src/index.js": {
+    "mtime": 1783671375.7992706,
+    "ast_hash": "e1c56b6d8c0a81653dfb05ce4969fe41",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1783671375.7006674,
+    "ast_hash": "871c8f86d180d62b44244ce12e1f51f3",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1783671375.7021842,
+    "ast_hash": "b5acbaa6966e9bd19652304d24c6e743",
+    "semantic_hash": ""
+  },
+  "GUARDRAILS.md": {
+    "mtime": 1783671375.705468,
+    "ast_hash": "44b9fa0cd783f057d6471ad8ae0cd9c1",
+    "semantic_hash": ""
+  },
+  "MISSION.md": {
+    "mtime": 1783671375.7084723,
+    "ast_hash": "497707160750da7c6895e9909ec13847",
+    "semantic_hash": ""
+  },
+  "ReadMe.md": {
+    "mtime": 1783671375.7084723,
+    "ast_hash": "72f1eb123eebca750cd98ab3cdc0da8b",
+    "semantic_hash": ""
+  }
+}
