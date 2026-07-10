@@ -48,14 +48,24 @@
   },
   "nodes": [
     {
+      "label": "index.test.js",
+      "file_type": "code",
+      "source_file": "src/index.test.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_index_test",
+      "community": 26,
+      "norm_label": "index.test.js"
+    },
+    {
       "label": "index.js",
       "file_type": "code",
       "source_file": "src/index.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_index",
       "community": 5,
-      "norm_label": "index.js"
+      "norm_label": "index.js",
+      "id": "src_index"
     },
     {
       "label": "main()",
@@ -63,9 +73,9 @@
       "source_file": "src/index.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "src_index_main",
       "community": 5,
-      "norm_label": "main()"
+      "norm_label": "main()",
+      "id": "src_index_main"
     },
     {
       "label": "package.json",
@@ -896,9 +906,9 @@
       "source_file": "src/index.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_index",
-      "target": "src_index_main",
-      "confidence_score": 1.0
+      "target": "src_index_main"
     },
     {
       "relation": "contains",
@@ -1484,5 +1494,5 @@
       "source_file": "GUARDRAILS.md"
     }
   ],
-  "built_at_commit": "53c55df5b20a75293b5c3c964dad833eadd8161a"
+  "built_at_commit": "32a5412d8c09c4eafbb47e37b7ff8d9131967ac0"
 }

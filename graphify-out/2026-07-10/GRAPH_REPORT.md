@@ -1,16 +1,16 @@
 # Graph Report - thread-e95bd1f4  (2026-07-10)
 
 ## Corpus Check
-- 7 files · ~5,506 words
+- 7 files · ~5,514 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 80 nodes · 55 edges · 27 communities (8 shown, 19 thin omitted)
+- 79 nodes · 55 edges · 26 communities (8 shown, 18 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `cf2fb2b9`
+- Built from commit: `53c55df5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -40,7 +40,6 @@
 - [[_COMMUNITY_Zero Dependencies|Zero Dependencies]]
 - [[_COMMUNITY_Auto-Reject Triggers|Auto-Reject Triggers]]
 - [[_COMMUNITY_Scope Authority (MISSION.md)|Scope Authority (MISSION.md)]]
-- [[_COMMUNITY_console.log|console.log]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Guardrails` - 11 edges
@@ -65,7 +64,7 @@
 - **Hard Invariants Enforcement Cluster** — mission_hardinvariants, guardrails_autorejecttriggers, guardrails_absoluteprohibitions, claude_immutabilityprinciple [EXTRACTED 1.00]
 - **Stdout Oracle Validation Flow** — claude_indexjs, claude_stdoutoracle, guardrails_qualitygates [EXTRACTED 1.00]
 
-## Communities (27 total, 19 thin omitted)
+## Communities (26 total, 18 thin omitted)
 
 ### Community 3 - "Mission Scope Definitions"
 Cohesion: 0.15
@@ -96,18 +95,18 @@ Cohesion: 0.50
 Nodes (4): Architecture & Key Patterns, Coding Rules, Core Architecture, Key Conventions
 
 ## Knowledge Gaps
-- **52 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+47 more)
+- **51 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+46 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Guardrails` connect `Mission Scope Definitions` to `Hello AI Coding Agent — Agent Instructions`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
 - **Why does `Hello AI Coding Agent — Agent Instructions` connect `Runtime & ES5 Rules` to `package.json`?**
-  _High betweenness centrality (0.019) - this node is a cross-community bridge._
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._
 - **Why does `1. Triage Rules` connect `Hello AI Coding Agent — Agent Instructions` to `Mission Scope Definitions`?**
   _High betweenness centrality (0.019) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `description` to the rest of the system?**
-  _64 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _63 weakly-connected nodes found - possible documentation gaps or missing edges._
