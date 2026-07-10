@@ -1,0 +1,90 @@
+{
+  "project": "hello-ai-coding-agent",
+  "branchName": "ralph/statics-page-planets",
+  "prdFile": "prd.md",
+  "description": "Add a self-contained static HTML page listing all 8 planets of our solar system, openable via file:// with no server or new dependencies.",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Create public/ directory and base HTML skeleton",
+      "description": "As a developer cloning the repo, I want a public/ directory with a valid HTML5 skeleton at public/planets.html so that I have a foundation for the planets reference page.",
+      "acceptanceCriteria": [
+        "Directory public/ exists at the repository root",
+        "File public/planets.html exists and is a valid HTML5 document (DOCTYPE, html, head, body tags present)",
+        "The file has a <title> tag containing 'Planets Around Us'",
+        "The file ends with a trailing newline",
+        "src/index.js is not modified in any way",
+        "npm run lint exits 0 (node --check src/index.js)",
+        "node src/index.js outputs exactly: Hello, AI Coding Agent! followed by a newline",
+        "No package-lock.json is generated"
+      ],
+      "technicalNotes": "Create public/planets.html with a standard HTML5 boilerplate. No <script> tags. No external resources. All future CSS goes in a <style> block in <head>. Follow the trailing-newline convention from CLAUDE.md (all files must end with a newline). Do not touch src/index.js.",
+      "dependsOn": [],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Add planet data markup for all 8 planets",
+      "description": "As a user opening the planets page, I want to see a card or section for each of the 8 planets ordered by distance from the Sun, so that I can read factual information about each one.",
+      "acceptanceCriteria": [
+        "All 8 planets present: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune",
+        "Planets appear in order of distance from the Sun (Mercury first, Neptune last)",
+        "Each planet section includes: name, classification (Terrestrial / Gas Giant / Ice Giant), diameter in km, mean distance from Sun in AU, and a 2-3 sentence description",
+        "Data is encoded as semantic HTML (e.g. <article>, <h2>, <dl>/<dt>/<dd> or equivalent)",
+        "No <script> tags added",
+        "No external CDN or font resources linked",
+        "src/index.js is not modified",
+        "npm run lint exits 0",
+        "node src/index.js outputs byte-exact oracle string"
+      ],
+      "technicalNotes": "Add planet cards inside the <body> of public/planets.html created in US-001. Encode data as static HTML — no JavaScript arrays or template generation. Use <article class='planet-card' id='{planet-name}'> with an <h2> for the name and a <dl> for structured data. Planet facts to use: Mercury (Terrestrial, 4,879 km, 0.39 AU), Venus (Terrestrial, 12,104 km, 0.72 AU), Earth (Terrestrial, 12,742 km, 1.00 AU), Mars (Terrestrial, 6,779 km, 1.52 AU), Jupiter (Gas Giant, 139,820 km, 5.20 AU), Saturn (Gas Giant, 116,460 km, 9.58 AU), Uranus (Ice Giant, 50,724 km, 19.22 AU), Neptune (Ice Giant, 49,244 km, 30.05 AU).",
+      "dependsOn": ["US-001"],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Add embedded CSS for layout and readability",
+      "description": "As a user viewing the planets page in a browser, I want the page to be readable and visually organised so that planet information is easy to scan.",
+      "acceptanceCriteria": [
+        "All CSS is inside a single <style> block in the <head> of public/planets.html",
+        "No external stylesheet links, no CDN font imports",
+        "Planet cards are displayed in a responsive grid (2+ columns on wide screens, 1 column on narrow screens via CSS media query)",
+        "Body uses a legible system font stack (e.g. system-ui, sans-serif) — no @import or external font",
+        "Page is readable on a viewport as narrow as 320px",
+        "Page heading 'Planets Around Us — Our Solar System' is present and styled as <h1>",
+        "No <script> tags added",
+        "src/index.js is not modified",
+        "npm run lint exits 0",
+        "node src/index.js outputs byte-exact oracle string"
+      ],
+      "technicalNotes": "Add a <style> block in <head> of public/planets.html. Use CSS Grid for the card layout: `display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;`. Use a system font stack. Add a @media print rule with `background: white; color: black` to avoid ink waste. No JavaScript. No external dependencies.",
+      "dependsOn": ["US-001"],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Update README.md to document the planets page",
+      "description": "As a developer reading the repository README, I want to know that public/planets.html exists and how to open it, so that I can discover the planets page without guessing.",
+      "acceptanceCriteria": [
+        "README.md contains a new section titled '## Planets Reference Page' (or equivalent)",
+        "Section explains that public/planets.html can be opened directly in a browser via the file:// protocol",
+        "Section includes the exact command to open it on each major OS (e.g. `start public/planets.html` on Windows, `open public/planets.html` on macOS)",
+        "No other sections of README.md are modified beyond adding the new section",
+        "src/index.js is not modified",
+        "npm run lint exits 0",
+        "node src/index.js outputs byte-exact oracle string"
+      ],
+      "technicalNotes": "Edit README.md (the only mutable human-facing doc per GUARDRAILS.md). Add the new section after the existing 'Running Tests' section. Keep prose minimal. Reference public/planets.html by its path relative to the repo root.",
+      "dependsOn": ["US-001", "US-002", "US-003"],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}
