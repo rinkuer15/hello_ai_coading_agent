@@ -28,36 +28,37 @@
  *   strategy to be decided separately (OQ-6).
  */
 
-var nodeTest = require('node:test');
+// node:test exports the test function as its default; ES5 forbids destructuring.
+var test = require('node:test');
 var assert = require('node:assert/strict');
 var spawnSync = require('node:child_process').spawnSync;
 var path = require('node:path');
 
-var test = nodeTest;
-
 var CLI = path.join(__dirname, 'index.js');
 
-test('baseline oracle: stdout is Hello, AI Coding Agent! and exit code is 0', function(t) {
+test('baseline oracle: stdout exact, exit code 0, stderr empty', function() {
   var result = spawnSync(process.execPath, [CLI], { encoding: 'utf8' });
   assert.strictEqual(result.status, 0);
   assert.strictEqual(result.stdout, 'Hello, AI Coding Agent!\n');
   assert.strictEqual(result.stderr, '');
 });
 
-test('exit code: process exits with code 0', function(t) {
-  var result = spawnSync(process.execPath, [CLI], { encoding: 'utf8' });
-  assert.strictEqual(result.status, 0);
-});
-
 /*
  * BLOCKED: --serve routing test.
  * Re-enable after issue #33 (HTTP server + index.js --serve routing) is merged.
  *
- * test('--serve flag: routes main() to startServer(), process killed by timeout (SIGTERM)', function(t) {
+ * test('--serve flag: routes main() to startServer(), process killed by timeout (SIGTERM)', function() {
+ *   // ES5-compatible env merge (no Object.assign — ES6)
+ *   var env = {};
+ *   var keys = Object.keys(process.env);
+ *   for (var i = 0; i < keys.length; i++) {
+ *     env[keys[i]] = process.env[keys[i]];
+ *   }
+ *   env.PORT = '0';
  *   var result = spawnSync(process.execPath, [CLI, '--serve'], {
  *     encoding: 'utf8',
  *     timeout: 2000,
- *     env: Object.assign({}, process.env, { PORT: '0' })
+ *     env: env
  *   });
  *   // Server never exits cleanly in spawnSync — timeout kills it with SIGTERM.
  *   // SIGTERM means the server was still running = it started correctly.
