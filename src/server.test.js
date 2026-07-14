@@ -20,109 +20,64 @@ function makeGet(port, urlPath, callback) {
   req.on('error', callback);
 }
 
-test('server starts and binds to configured port', function(t, done) {
+function withServer(done, callback) {
   process.env.PORT = '0';
   var server = serverModule.startServer();
+  server.on('error', done);
   server.on('listening', function() {
-    var port = server.address().port;
+    callback(server, server.address().port);
+  });
+}
+
+function withServerGet(urlPath, done, assertFn) {
+  withServer(done, function(server, port) {
+    makeGet(port, urlPath, function(err, res, body) {
+      var assertErr = err;
+      if (!err) {
+        try { assertFn(res, body); } catch (e) { assertErr = e; }
+      }
+      server.close(function() { done(assertErr); });
+    });
+  });
+}
+
+test('server starts and binds to configured port', function(t, done) {
+  withServer(done, function(server, port) {
     var err = null;
-    try {
-      assert.ok(port > 0, 'port must be non-zero');
-    } catch (e) {
-      err = e;
-    }
+    try { assert.ok(port > 0, 'port must be non-zero'); } catch (e) { err = e; }
     server.close(function() { done(err); });
   });
-  server.on('error', done);
 });
 
 test('200 and Content-Type text/html for .html', function(t, done) {
-  process.env.PORT = '0';
-  var server = serverModule.startServer();
-  server.on('listening', function() {
-    var port = server.address().port;
-    makeGet(port, '/', function(err, res) {
-      if (err) { server.close(function() { done(err); }); return; }
-      var assertErr = null;
-      try {
-        assert.strictEqual(res.statusCode, 200);
-        assert.ok(
-          res.headers['content-type'].indexOf('text/html') !== -1,
-          'content-type must include text/html'
-        );
-      } catch (e) {
-        assertErr = e;
-      }
-      server.close(function() { done(assertErr); });
-    });
+  withServerGet('/', done, function(res) {
+    assert.strictEqual(res.statusCode, 200);
+    assert.ok(res.headers['content-type'].indexOf('text/html') !== -1, 'content-type must include text/html');
   });
-  server.on('error', done);
 });
 
 test('200 and Content-Type application/json for manifest.json', function(t, done) {
-  process.env.PORT = '0';
-  var server = serverModule.startServer();
-  server.on('listening', function() {
-    var port = server.address().port;
-    makeGet(port, '/manifest.json', function(err, res) {
-      if (err) { server.close(function() { done(err); }); return; }
-      var assertErr = null;
-      try {
-        assert.strictEqual(res.statusCode, 200);
-        var ct = res.headers['content-type'] || '';
-        assert.ok(
-          ct.indexOf('application/json') !== -1 || ct.indexOf('application/manifest+json') !== -1,
-          'content-type must include application/json or application/manifest+json'
-        );
-      } catch (e) {
-        assertErr = e;
-      }
-      server.close(function() { done(assertErr); });
-    });
+  withServerGet('/manifest.json', done, function(res) {
+    assert.strictEqual(res.statusCode, 200);
+    var ct = res.headers['content-type'] || '';
+    assert.ok(
+      ct.indexOf('application/json') !== -1 || ct.indexOf('application/manifest+json') !== -1,
+      'content-type must include application/json or application/manifest+json'
+    );
   });
-  server.on('error', done);
 });
 
 test('200 and Content-Type application/javascript for .js', function(t, done) {
-  process.env.PORT = '0';
-  var server = serverModule.startServer();
-  server.on('listening', function() {
-    var port = server.address().port;
-    makeGet(port, '/service-worker.js', function(err, res) {
-      if (err) { server.close(function() { done(err); }); return; }
-      var assertErr = null;
-      try {
-        assert.strictEqual(res.statusCode, 200);
-        assert.ok(
-          res.headers['content-type'].indexOf('application/javascript') !== -1,
-          'content-type must include application/javascript'
-        );
-      } catch (e) {
-        assertErr = e;
-      }
-      server.close(function() { done(assertErr); });
-    });
+  withServerGet('/service-worker.js', done, function(res) {
+    assert.strictEqual(res.statusCode, 200);
+    assert.ok(res.headers['content-type'].indexOf('application/javascript') !== -1, 'content-type must include application/javascript');
   });
-  server.on('error', done);
 });
 
 test('404 for unknown paths', function(t, done) {
-  process.env.PORT = '0';
-  var server = serverModule.startServer();
-  server.on('listening', function() {
-    var port = server.address().port;
-    makeGet(port, '/no-such-file-xyz', function(err, res) {
-      if (err) { server.close(function() { done(err); }); return; }
-      var assertErr = null;
-      try {
-        assert.strictEqual(res.statusCode, 404);
-      } catch (e) {
-        assertErr = e;
-      }
-      server.close(function() { done(assertErr); });
-    });
+  withServerGet('/no-such-file-xyz', done, function(res) {
+    assert.strictEqual(res.statusCode, 404);
   });
-  server.on('error', done);
 });
 
 test('PORT env variable overrides default 3000', function(t, done) {
@@ -156,98 +111,34 @@ test('PORT env variable overrides default 3000', function(t, done) {
 });
 
 test('path traversal attempt returns 400 or 404', function(t, done) {
-  process.env.PORT = '0';
-  var server = serverModule.startServer();
-  server.on('listening', function() {
-    var port = server.address().port;
-    makeGet(port, '/%2e%2e/%2e%2e/package.json', function(err, res) {
-      if (err) { server.close(function() { done(err); }); return; }
-      var assertErr = null;
-      try {
-        assert.ok(
-          res.statusCode === 400 || res.statusCode === 404,
-          'expected 400 or 404, got ' + res.statusCode
-        );
-      } catch (e) {
-        assertErr = e;
-      }
-      server.close(function() { done(assertErr); });
-    });
+  withServerGet('/%2e%2e/%2e%2e/package.json', done, function(res) {
+    assert.ok(
+      res.statusCode === 400 || res.statusCode === 404,
+      'expected 400 or 404, got ' + res.statusCode
+    );
   });
-  server.on('error', done);
 });
 
 test('security headers present on responses', function(t, done) {
-  process.env.PORT = '0';
-  var server = serverModule.startServer();
-  server.on('listening', function() {
-    var port = server.address().port;
-    makeGet(port, '/', function(err, res) {
-      if (err) { server.close(function() { done(err); }); return; }
-      var assertErr = null;
-      try {
-        assert.ok(
-          res.headers['x-content-type-options'],
-          'X-Content-Type-Options header must be present'
-        );
-        assert.ok(
-          res.headers['x-frame-options'],
-          'X-Frame-Options header must be present'
-        );
-      } catch (e) {
-        assertErr = e;
-      }
-      server.close(function() { done(assertErr); });
-    });
+  withServerGet('/', done, function(res) {
+    assert.ok(res.headers['x-content-type-options'], 'X-Content-Type-Options header must be present');
+    assert.ok(res.headers['x-frame-options'], 'X-Frame-Options header must be present');
   });
-  server.on('error', done);
 });
 
 test('security headers present on 404 error response', function(t, done) {
-  process.env.PORT = '0';
-  var server = serverModule.startServer();
-  server.on('listening', function() {
-    var port = server.address().port;
-    makeGet(port, '/no-such-file-xyz', function(err, res) {
-      if (err) { server.close(function() { done(err); }); return; }
-      var assertErr = null;
-      try {
-        assert.strictEqual(res.statusCode, 404);
-        assert.ok(
-          res.headers['x-content-type-options'],
-          'X-Content-Type-Options must be present on error responses'
-        );
-        assert.ok(
-          res.headers['x-frame-options'],
-          'X-Frame-Options must be present on error responses'
-        );
-      } catch (e) {
-        assertErr = e;
-      }
-      server.close(function() { done(assertErr); });
-    });
+  withServerGet('/no-such-file-xyz', done, function(res) {
+    assert.strictEqual(res.statusCode, 404);
+    assert.ok(res.headers['x-content-type-options'], 'X-Content-Type-Options must be present on error responses');
+    assert.ok(res.headers['x-frame-options'], 'X-Frame-Options must be present on error responses');
   });
-  server.on('error', done);
 });
 
 test('path traversal with literal dots returns 400', function(t, done) {
-  process.env.PORT = '0';
-  var server = serverModule.startServer();
-  server.on('listening', function() {
-    var port = server.address().port;
-    makeGet(port, '/../package.json', function(err, res) {
-      if (err) { server.close(function() { done(err); }); return; }
-      var assertErr = null;
-      try {
-        assert.ok(
-          res.statusCode === 400 || res.statusCode === 404,
-          'expected 400 or 404 for literal-dot traversal, got ' + res.statusCode
-        );
-      } catch (e) {
-        assertErr = e;
-      }
-      server.close(function() { done(assertErr); });
-    });
+  withServerGet('/../package.json', done, function(res) {
+    assert.ok(
+      res.statusCode === 400 || res.statusCode === 404,
+      'expected 400 or 404 for literal-dot traversal, got ' + res.statusCode
+    );
   });
-  server.on('error', done);
 });

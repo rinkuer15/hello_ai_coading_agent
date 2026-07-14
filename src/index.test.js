@@ -24,13 +24,7 @@ test('CLI routing - no --serve flag invokes console.log path', function() {
 });
 
 test('CLI routing - --serve flag routes to startServer path', function() {
-  var env = {};
-  var k;
-  for (k in process.env) {
-    if (Object.prototype.hasOwnProperty.call(process.env, k)) {
-      env[k] = process.env[k];
-    }
-  }
+  var env = JSON.parse(JSON.stringify(process.env));
   env.PORT = '0';
   var result = cp.spawnSync('node', [INDEX_PATH, '--serve'], {
     encoding: 'utf8',
