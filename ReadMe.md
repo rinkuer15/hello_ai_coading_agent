@@ -11,7 +11,14 @@ npm install
 ## Usage
 
 ```bash
+# Print stdout oracle (default)
 npm start
+# or: node src/index.js
+
+# Start static file server (serves public/ directory)
+node src/index.js --serve
+# Defaults to port 3000. Override with PORT env variable:
+PORT=8080 node src/index.js --serve
 ```
 
 ## Running Tests

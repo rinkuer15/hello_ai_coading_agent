@@ -202,3 +202,52 @@ test('security headers present on responses', function(t, done) {
   });
   server.on('error', done);
 });
+
+test('security headers present on 404 error response', function(t, done) {
+  process.env.PORT = '0';
+  var server = serverModule.startServer();
+  server.on('listening', function() {
+    var port = server.address().port;
+    makeGet(port, '/no-such-file-xyz', function(err, res) {
+      if (err) { server.close(function() { done(err); }); return; }
+      var assertErr = null;
+      try {
+        assert.strictEqual(res.statusCode, 404);
+        assert.ok(
+          res.headers['x-content-type-options'],
+          'X-Content-Type-Options must be present on error responses'
+        );
+        assert.ok(
+          res.headers['x-frame-options'],
+          'X-Frame-Options must be present on error responses'
+        );
+      } catch (e) {
+        assertErr = e;
+      }
+      server.close(function() { done(assertErr); });
+    });
+  });
+  server.on('error', done);
+});
+
+test('path traversal with literal dots returns 400', function(t, done) {
+  process.env.PORT = '0';
+  var server = serverModule.startServer();
+  server.on('listening', function() {
+    var port = server.address().port;
+    makeGet(port, '/../package.json', function(err, res) {
+      if (err) { server.close(function() { done(err); }); return; }
+      var assertErr = null;
+      try {
+        assert.ok(
+          res.statusCode === 400 || res.statusCode === 404,
+          'expected 400 or 404 for literal-dot traversal, got ' + res.statusCode
+        );
+      } catch (e) {
+        assertErr = e;
+      }
+      server.close(function() { done(assertErr); });
+    });
+  });
+  server.on('error', done);
+});

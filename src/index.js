@@ -1,4 +1,4 @@
-﻿function main() {
+function main() {
   if (process.argv.indexOf('--serve') !== -1) {
     var srv = require('./server.js').startServer();
     srv.on('error', function(err) {

@@ -3,7 +3,7 @@
 var test = require('node:test');
 var assert = require('node:assert');
 var cp = require('node:child_process');
-var path = require('path');
+var path = require('node:path');
 
 var INDEX_PATH = path.join(__dirname, 'index.js');
 
@@ -20,6 +20,7 @@ test('CLI routing - no --serve flag invokes console.log path', function() {
     'stdout must contain oracle string when --serve is absent'
   );
   assert.strictEqual(result.status, 0);
+  assert.strictEqual(result.stderr, '', 'no error output expected on default path');
 });
 
 test('CLI routing - --serve flag routes to startServer path', function() {
@@ -41,4 +42,6 @@ test('CLI routing - --serve flag routes to startServer path', function() {
     result.stdout.indexOf('Hello, AI Coding Agent!') === -1,
     '--serve path must not print the CLI oracle to stdout'
   );
+  assert.strictEqual(result.status, null, 'process should be killed by SIGTERM, not crash-exit');
+  assert.strictEqual(result.stderr, '', 'no error output expected on --serve startup');
 });
