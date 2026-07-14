@@ -1,0 +1,9 @@
+{
+  "name": "Hello AI Coding Agent",
+  "short_name": "HelloAI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": []
+}
