@@ -1,52 +1,7 @@
 {
   "directed": false,
   "multigraph": false,
-  "graph": {
-    "hyperedges": [
-      {
-        "id": "governance_constitution_authority",
-        "label": "Four Constitutional Documents Form Authority Hierarchy",
-        "nodes": [
-          "mission_md",
-          "guardrails_md",
-          "claude_md",
-          "agents_md"
-        ],
-        "relation": "form",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "MISSION.md"
-      },
-      {
-        "id": "compliance_traps_testing_surface",
-        "label": "Compliance Traps as Benchmark Testing Surface",
-        "nodes": [
-          "concept_es5_lint_gap",
-          "concept_blank_line_invariant",
-          "concept_lockfile_trap",
-          "concept_false_pass_trap"
-        ],
-        "relation": "participate_in",
-        "confidence": "EXTRACTED",
-        "confidence_score": 0.97,
-        "source_file": "MISSION.md"
-      },
-      {
-        "id": "runtime_oracle_invariants",
-        "label": "Runtime Oracle and Structural Invariants",
-        "nodes": [
-          "src_indexjs",
-          "concept_stdout_oracle",
-          "concept_single_file_architecture",
-          "concept_blank_line_invariant"
-        ],
-        "relation": "implement",
-        "confidence": "EXTRACTED",
-        "confidence_score": 0.92,
-        "source_file": "MISSION.md"
-      }
-    ]
-  },
+  "graph": {},
   "nodes": [
     {
       "label": "index.js",
@@ -54,7 +9,7 @@
       "source_file": "index.js",
       "source_location": "L1",
       "id": "index_js",
-      "community": 4,
+      "community": 6,
       "norm_label": "index.js"
     },
     {
@@ -63,11 +18,11 @@
       "source_file": "index.js",
       "source_location": "L1",
       "id": "src_index_main",
-      "community": 4,
+      "community": 6,
       "norm_label": "main()"
     },
     {
-      "label": "main",
+      "label": "src/index.js \u00e2\u20ac\u201d Runtime Oracle",
       "file_type": "code",
       "source_file": "src/index.js",
       "source_location": null,
@@ -75,25 +30,12 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "index_main",
-      "community": 5,
-      "norm_label": "main"
+      "id": "src_indexjs",
+      "community": 7,
+      "norm_label": "src/index.js a\u20ac\u201d runtime oracle"
     },
     {
-      "label": "console.log",
-      "file_type": "code",
-      "source_file": "src/index.js",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "index_console_log",
-      "community": 5,
-      "norm_label": "console.log"
-    },
-    {
-      "label": "AGENTS.md",
+      "label": "AGENTS.md \u00e2\u20ac\u201d Discovery Shim",
       "file_type": "document",
       "source_file": "AGENTS.md",
       "source_location": null,
@@ -101,9 +43,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "agents_agents_md",
-      "community": 6,
-      "norm_label": "agents.md"
+      "id": "agents_md",
+      "community": 8,
+      "norm_label": "agents.md a\u20ac\u201d discovery shim"
     },
     {
       "label": "ReadMe.md",
@@ -145,7 +87,7 @@
       "norm_label": "running tests"
     },
     {
-      "label": "CLAUDE.md \u00e2\u20ac\u201d Agent Instructions",
+      "label": "Agent Instructions (CLAUDE.md)",
       "file_type": "document",
       "source_file": "CLAUDE.md",
       "source_location": null,
@@ -153,12 +95,12 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "claude_md",
+      "id": "claude_agentinstructions",
       "community": 0,
-      "norm_label": "claude.md a\u20ac\u201d agent instructions"
+      "norm_label": "agent instructions (claude.md)"
     },
     {
-      "label": "GUARDRAILS.md \u00e2\u20ac\u201d Process Rules",
+      "label": "Guardrails",
       "file_type": "document",
       "source_file": "GUARDRAILS.md",
       "source_location": null,
@@ -166,12 +108,12 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "guardrails_md",
+      "id": "guardrails_guardrails",
       "community": 0,
-      "norm_label": "guardrails.md a\u20ac\u201d process rules"
+      "norm_label": "guardrails"
     },
     {
-      "label": "MISSION.md \u00e2\u20ac\u201d Scope Authority",
+      "label": "Mission",
       "file_type": "document",
       "source_file": "MISSION.md",
       "source_location": null,
@@ -179,64 +121,25 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "mission_md",
-      "community": 0,
-      "norm_label": "mission.md a\u20ac\u201d scope authority"
+      "id": "mission_mission",
+      "community": 1,
+      "norm_label": "mission"
     },
     {
-      "label": "AGENTS.md \u00e2\u20ac\u201d Discovery Shim",
-      "file_type": "document",
-      "source_file": "AGENTS.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "agents_md",
-      "community": 0,
-      "norm_label": "agents.md a\u20ac\u201d discovery shim"
-    },
-    {
-      "label": "src/index.js \u00e2\u20ac\u201d Runtime Oracle",
+      "label": "src/index.js Runtime Oracle",
       "file_type": "code",
-      "source_file": "src/index.js",
+      "source_file": "CLAUDE.md",
       "source_location": null,
       "source_url": null,
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "src_indexjs",
-      "community": 1,
-      "norm_label": "src/index.js a\u20ac\u201d runtime oracle"
+      "id": "claude_srcindexjs",
+      "community": 4,
+      "norm_label": "src/index.js runtime oracle"
     },
     {
-      "label": "src/index.test.js \u00e2\u20ac\u201d Authorised Test File",
-      "file_type": "code",
-      "source_file": "src/index.test.js",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "src_indextestjs",
-      "community": 0,
-      "norm_label": "src/index.test.js a\u20ac\u201d authorised test file"
-    },
-    {
-      "label": "package.json",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "packagejson",
-      "community": 0,
-      "norm_label": "package.json"
-    },
-    {
-      "label": "Total-Ordering Authority Hierarchy",
+      "label": "Compliance Oracle",
       "file_type": "rationale",
       "source_file": "CLAUDE.md",
       "source_location": null,
@@ -244,38 +147,12 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_authority_hierarchy",
-      "community": 0,
-      "norm_label": "total-ordering authority hierarchy"
+      "id": "claude_complianceoracle",
+      "community": 4,
+      "norm_label": "compliance oracle"
     },
     {
-      "label": "Byte-Stable Stdout Oracle",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "concept_stdout_oracle",
-      "community": 1,
-      "norm_label": "byte-stable stdout oracle"
-    },
-    {
-      "label": "Governance Layer (Constitutional Documents)",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "concept_governance_layer",
-      "community": 0,
-      "norm_label": "governance layer (constitutional documents)"
-    },
-    {
-      "label": "ES5 Language Surface Compliance",
+      "label": "Governance Constitution",
       "file_type": "rationale",
       "source_file": "CLAUDE.md",
       "source_location": null,
@@ -283,38 +160,12 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_es5_compliance",
-      "community": 1,
-      "norm_label": "es5 language surface compliance"
+      "id": "claude_governanceconstitution",
+      "community": 0,
+      "norm_label": "governance constitution"
     },
     {
-      "label": "Single-File Architecture Boundary",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "concept_single_file_architecture",
-      "community": 1,
-      "norm_label": "single-file architecture boundary"
-    },
-    {
-      "label": "Compliance Trap Suite",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "concept_compliance_trap_suite",
-      "community": 2,
-      "norm_label": "compliance trap suite"
-    },
-    {
-      "label": "Mandatory Blank Line Invariant",
+      "label": "Authority Hierarchy",
       "file_type": "rationale",
       "source_file": "CLAUDE.md",
       "source_location": null,
@@ -322,12 +173,142 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_blank_line_invariant",
+      "id": "claude_authorityhierarchy",
+      "community": 0,
+      "norm_label": "authority hierarchy"
+    },
+    {
+      "label": "ES5 Compliance Requirement",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_es5compliance",
+      "community": 2,
+      "norm_label": "es5 compliance requirement"
+    },
+    {
+      "label": "Mandatory Blank Line Governance Trap",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_blanklinetrap",
+      "community": 2,
+      "norm_label": "mandatory blank line governance trap"
+    },
+    {
+      "label": "False-Pass Test Suite State",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_falsepassstate",
+      "community": 2,
+      "norm_label": "false-pass test suite state"
+    },
+    {
+      "label": "Single-File Architecture",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_singlefilearchitecture",
+      "community": 5,
+      "norm_label": "single-file architecture"
+    },
+    {
+      "label": "Zero npm Dependencies Invariant",
+      "file_type": "rationale",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_zerodependencies",
+      "community": 5,
+      "norm_label": "zero npm dependencies invariant"
+    },
+    {
+      "label": "AGENTS.md Discovery Shim",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_agentsmd",
+      "community": 0,
+      "norm_label": "agents.md discovery shim"
+    },
+    {
+      "label": "MISSION.md Scope Authority",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_missionmd",
+      "community": 0,
+      "norm_label": "mission.md scope authority"
+    },
+    {
+      "label": "GUARDRAILS.md Process Authority",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_guardrailsmd",
+      "community": 0,
+      "norm_label": "guardrails.md process authority"
+    },
+    {
+      "label": "Triage Rules",
+      "file_type": "rationale",
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "guardrails_triagerules",
+      "community": 0,
+      "norm_label": "triage rules"
+    },
+    {
+      "label": "Absolute Prohibitions",
+      "file_type": "rationale",
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "guardrails_absoluteprohibitions",
       "community": 1,
-      "norm_label": "mandatory blank line invariant"
+      "norm_label": "absolute prohibitions"
     },
     {
-      "label": "Lockfile Generation Trap",
+      "label": "Quality Gates",
       "file_type": "rationale",
       "source_file": "GUARDRAILS.md",
       "source_location": null,
@@ -335,12 +316,12 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_lockfile_trap",
-      "community": 2,
-      "norm_label": "lockfile generation trap"
+      "id": "guardrails_qualitygates",
+      "community": 4,
+      "norm_label": "quality gates"
     },
     {
-      "label": "Silent False-Pass Test Trap",
+      "label": "Auto-Reject Triggers",
       "file_type": "rationale",
       "source_file": "GUARDRAILS.md",
       "source_location": null,
@@ -348,12 +329,12 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_false_pass_trap",
-      "community": 2,
-      "norm_label": "silent false-pass test trap"
+      "id": "guardrails_autorejecttriggers",
+      "community": 1,
+      "norm_label": "auto-reject triggers"
     },
     {
-      "label": "ES5/Lint Gap Trap",
+      "label": "Protected Files",
       "file_type": "rationale",
       "source_file": "GUARDRAILS.md",
       "source_location": null,
@@ -361,9 +342,74 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_es5_lint_gap",
+      "id": "guardrails_protectedfiles",
+      "community": 0,
+      "norm_label": "protected files"
+    },
+    {
+      "label": "Known Compliance Traps",
+      "file_type": "rationale",
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "guardrails_knowntraps",
       "community": 2,
-      "norm_label": "es5/lint gap trap"
+      "norm_label": "known compliance traps"
+    },
+    {
+      "label": "Core Capabilities In Scope",
+      "file_type": "rationale",
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "mission_coreinscope",
+      "community": 2,
+      "norm_label": "core capabilities in scope"
+    },
+    {
+      "label": "Out of Scope Items",
+      "file_type": "rationale",
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "mission_outofscope",
+      "community": 1,
+      "norm_label": "out of scope items"
+    },
+    {
+      "label": "Hard Invariants",
+      "file_type": "rationale",
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "mission_hardinvariants",
+      "community": 5,
+      "norm_label": "hard invariants"
+    },
+    {
+      "label": "Target Audience",
+      "file_type": "rationale",
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "mission_targetaudience",
+      "community": 1,
+      "norm_label": "target audience"
     },
     {
       "label": "Governance Benchmark Instrument",
@@ -374,35 +420,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "concept_governance_benchmark",
-      "community": 0,
-      "norm_label": "governance benchmark instrument"
-    },
-    {
-      "label": "Quality Gates for Auto-Merge",
-      "file_type": "rationale",
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "concept_quality_gates",
+      "id": "mission_governancebenchmark",
       "community": 1,
-      "norm_label": "quality gates for auto-merge"
-    },
-    {
-      "label": "Governance File Immutability",
-      "file_type": "rationale",
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "concept_immutability",
-      "community": 0,
-      "norm_label": "governance file immutability"
+      "norm_label": "governance benchmark instrument"
     }
   ],
   "links": [
@@ -415,16 +435,6 @@
       "source": "index_js",
       "target": "src_index_main",
       "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/index.js",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "index_main",
-      "target": "index_console_log"
     },
     {
       "relation": "references",
@@ -453,18 +463,8 @@
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "claude_md",
-      "target": "mission_md"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "claude_md"
+      "source": "claude_agentinstructions",
+      "target": "claude_missionmd"
     },
     {
       "relation": "references",
@@ -473,8 +473,238 @@
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "agents_md",
-      "target": "claude_md"
+      "source": "claude_agentinstructions",
+      "target": "claude_guardrailsmd"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agentinstructions",
+      "target": "claude_agentsmd"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agentinstructions",
+      "target": "claude_srcindexjs"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agentinstructions",
+      "target": "claude_authorityhierarchy"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agentinstructions",
+      "target": "claude_governanceconstitution"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agentinstructions",
+      "target": "guardrails_guardrails"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agentinstructions",
+      "target": "guardrails_protectedfiles"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_agentinstructions",
+      "target": "mission_mission"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrails_guardrails",
+      "target": "claude_missionmd"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrails_guardrails",
+      "target": "guardrails_triagerules"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrails_guardrails",
+      "target": "guardrails_absoluteprohibitions"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrails_guardrails",
+      "target": "guardrails_qualitygates"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrails_guardrails",
+      "target": "guardrails_autorejecttriggers"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrails_guardrails",
+      "target": "guardrails_protectedfiles"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "guardrails_guardrails",
+      "target": "guardrails_knowntraps"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "mission_mission",
+      "target": "claude_guardrailsmd"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "mission_mission",
+      "target": "mission_coreinscope"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "mission_mission",
+      "target": "mission_outofscope"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "mission_mission",
+      "target": "mission_hardinvariants"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "mission_mission",
+      "target": "mission_targetaudience"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "mission_mission",
+      "target": "mission_governancebenchmark"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_srcindexjs",
+      "target": "claude_complianceoracle"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_srcindexjs",
+      "target": "claude_singlefilearchitecture"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_srcindexjs",
+      "target": "claude_es5compliance"
     },
     {
       "relation": "conceptually_related_to",
@@ -483,433 +713,260 @@
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "claude_md",
-      "target": "concept_authority_hierarchy"
+      "source": "claude_srcindexjs",
+      "target": "claude_blanklinetrap"
     },
     {
-      "relation": "conceptually_related_to",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_srcindexjs",
+      "target": "guardrails_qualitygates"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_complianceoracle",
+      "target": "guardrails_qualitygates"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_complianceoracle",
+      "target": "mission_hardinvariants"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_complianceoracle",
+      "target": "mission_coreinscope"
+    },
+    {
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "claude_md",
-      "target": "concept_es5_compliance"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "concept_governance_layer",
-      "target": "claude_md"
+      "source": "claude_governanceconstitution",
+      "target": "claude_missionmd"
     },
     {
       "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "mission_md"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "concept_quality_gates"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "concept_es5_lint_gap"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "concept_blank_line_invariant"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "concept_lockfile_trap"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "concept_false_pass_trap"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "concept_immutability"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "src_indextestjs"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "guardrails_md",
-      "target": "packagejson"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "concept_governance_layer",
-      "target": "guardrails_md"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "concept_authority_hierarchy"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "concept_governance_benchmark"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "concept_stdout_oracle"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "concept_governance_layer",
-      "target": "mission_md"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "concept_compliance_trap_suite"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "concept_single_file_architecture"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "concept_immutability"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "src_indextestjs"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_md",
-      "target": "packagejson"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "concept_governance_layer",
-      "target": "agents_md"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "concept_stdout_oracle",
-      "target": "src_indexjs"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "concept_single_file_architecture",
-      "target": "src_indexjs"
-    },
-    {
-      "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "concept_es5_compliance",
-      "target": "src_indexjs"
+      "source": "claude_governanceconstitution",
+      "target": "claude_guardrailsmd"
     },
     {
-      "relation": "rationale_for",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "concept_blank_line_invariant",
-      "target": "src_indexjs"
+      "source": "claude_governanceconstitution",
+      "target": "claude_agentsmd"
     },
     {
-      "relation": "rationale_for",
+      "relation": "semantically_similar_to",
       "confidence": "INFERRED",
       "confidence_score": 0.85,
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 0.85,
-      "source": "concept_es5_compliance",
-      "target": "src_indextestjs"
+      "source": "claude_governanceconstitution",
+      "target": "mission_governancebenchmark"
     },
     {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.88,
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_authorityhierarchy",
+      "target": "claude_missionmd"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_authorityhierarchy",
+      "target": "claude_guardrailsmd"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_authorityhierarchy",
+      "target": "claude_agentsmd"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "MISSION.md",
       "source_location": null,
-      "weight": 0.88,
-      "source": "concept_governance_benchmark",
-      "target": "concept_authority_hierarchy"
+      "weight": 1.0,
+      "source": "claude_authorityhierarchy",
+      "target": "mission_coreinscope"
     },
     {
-      "relation": "conceptually_related_to",
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "GUARDRAILS.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "concept_quality_gates",
-      "target": "concept_stdout_oracle"
+      "source": "claude_es5compliance",
+      "target": "guardrails_knowntraps"
     },
     {
-      "relation": "rationale_for",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_es5compliance",
+      "target": "mission_hardinvariants"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_blanklinetrap",
+      "target": "guardrails_knowntraps"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 0.85,
+      "source": "claude_blanklinetrap",
+      "target": "mission_coreinscope"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_falsepassstate",
+      "target": "guardrails_knowntraps"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 0.85,
+      "source": "claude_falsepassstate",
+      "target": "mission_coreinscope"
+    },
+    {
+      "relation": "references",
       "confidence": "INFERRED",
       "confidence_score": 0.9,
       "source_file": "MISSION.md",
       "source_location": null,
       "weight": 0.9,
-      "source": "concept_immutability",
-      "target": "concept_governance_layer"
+      "source": "claude_singlefilearchitecture",
+      "target": "mission_hardinvariants"
     },
     {
       "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 0.9,
+      "source": "claude_zerodependencies",
+      "target": "mission_hardinvariants"
+    },
+    {
+      "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "GUARDRAILS.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "concept_quality_gates",
-      "target": "concept_es5_compliance"
+      "source": "claude_agentsmd",
+      "target": "guardrails_protectedfiles"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_missionmd",
+      "target": "guardrails_protectedfiles"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "GUARDRAILS.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_guardrailsmd",
+      "target": "guardrails_protectedfiles"
     },
     {
       "relation": "semantically_similar_to",
       "confidence": "INFERRED",
-      "confidence_score": 0.82,
+      "confidence_score": 0.8,
       "source_file": "GUARDRAILS.md",
       "source_location": null,
-      "weight": 0.82,
-      "source": "concept_es5_lint_gap",
-      "target": "concept_es5_compliance"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "concept_compliance_trap_suite",
-      "target": "concept_es5_lint_gap"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "concept_compliance_trap_suite",
-      "target": "concept_blank_line_invariant"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "concept_compliance_trap_suite",
-      "target": "concept_lockfile_trap"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "concept_compliance_trap_suite",
-      "target": "concept_false_pass_trap"
-    },
-    {
-      "relation": "conceptually_related_to",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "concept_quality_gates",
-      "target": "concept_blank_line_invariant"
+      "weight": 0.8,
+      "source": "guardrails_absoluteprohibitions",
+      "target": "mission_outofscope"
     },
     {
       "relation": "semantically_similar_to",
       "confidence": "INFERRED",
-      "confidence_score": 0.72,
+      "confidence_score": 0.8,
       "source_file": "GUARDRAILS.md",
       "source_location": null,
-      "weight": 0.72,
-      "source": "concept_false_pass_trap",
-      "target": "concept_quality_gates"
+      "weight": 0.8,
+      "source": "guardrails_autorejecttriggers",
+      "target": "mission_outofscope"
     }
   ],
-  "hyperedges": [
-    {
-      "id": "governance_constitution_authority",
-      "label": "Four Constitutional Documents Form Authority Hierarchy",
-      "nodes": [
-        "mission_md",
-        "guardrails_md",
-        "claude_md",
-        "agents_md"
-      ],
-      "relation": "form",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md"
-    },
-    {
-      "id": "compliance_traps_testing_surface",
-      "label": "Compliance Traps as Benchmark Testing Surface",
-      "nodes": [
-        "concept_es5_lint_gap",
-        "concept_blank_line_invariant",
-        "concept_lockfile_trap",
-        "concept_false_pass_trap"
-      ],
-      "relation": "participate_in",
-      "confidence": "EXTRACTED",
-      "confidence_score": 0.97,
-      "source_file": "MISSION.md"
-    },
-    {
-      "id": "runtime_oracle_invariants",
-      "label": "Runtime Oracle and Structural Invariants",
-      "nodes": [
-        "src_indexjs",
-        "concept_stdout_oracle",
-        "concept_single_file_architecture",
-        "concept_blank_line_invariant"
-      ],
-      "relation": "implement",
-      "confidence": "EXTRACTED",
-      "confidence_score": 0.92,
-      "source_file": "MISSION.md"
-    }
-  ],
-  "built_at_commit": "cf2fb2b9461ad00d9f413e6f361208665fcc15ad"
+  "hyperedges": [],
+  "built_at_commit": "ee88134d0df678bfd1109baeab24aa6202c1e847"
 }
