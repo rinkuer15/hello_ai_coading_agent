@@ -236,4 +236,8 @@ functional. Node.js 20 LTS (recommended): `node --test` is stable with cleaner o
 Node.js 22+ is compatible but untested — verify oracle with `node src/index.js | xxd`
 after any runtime upgrade.
 
+**CommonJS vs ESM is permanently deferred.** `package.json` has no `"type"` field,
+defaulting Node.js to CommonJS resolution. `src/index.js` uses neither system. Adding
+`"type": "module"` is an auto-reject trigger. This decision is human-reserved.
+
 > ⚠️ This file is immutable by automated workflows. Modify only via human PR review.

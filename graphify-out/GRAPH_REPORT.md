@@ -1,82 +1,86 @@
-# Graph Report - .  (2026-08-04)
+# Graph Report - .  (2026-08-05)
 
 ## Corpus Check
-- Corpus is ~5,578 words - fits in a single context window. You may not need a graph.
+- 6 files · ~5,768 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 33 nodes · 54 edges · 9 communities (6 shown, 3 thin omitted)
-- Extraction: 87% EXTRACTED · 13% INFERRED · 0% AMBIGUOUS · INFERRED: 7 edges (avg confidence: 0.85)
+- 41 nodes · 41 edges · 12 communities (6 shown, 6 thin omitted)
+- Extraction: 83% EXTRACTED · 17% INFERRED · 0% AMBIGUOUS · INFERRED: 7 edges (avg confidence: 0.86)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Governance Authority Hierarchy|Governance Authority Hierarchy]]
-- [[_COMMUNITY_Scope and Rejection Rules|Scope and Rejection Rules]]
-- [[_COMMUNITY_Compliance Traps|Compliance Traps]]
-- [[_COMMUNITY_Documentation and Usage|Documentation and Usage]]
-- [[_COMMUNITY_Compliance Oracle|Compliance Oracle]]
-- [[_COMMUNITY_Architecture Invariants|Architecture Invariants]]
-- [[_COMMUNITY_Runtime Oracle File|Runtime Oracle File]]
-- [[_COMMUNITY_Agent Discovery Shim|Agent Discovery Shim]]
+- [[_COMMUNITY_Compliance Trap Patterns|Compliance Trap Patterns]]
+- [[_COMMUNITY_Governance Authority System|Governance Authority System]]
+- [[_COMMUNITY_Process and Quality Rules|Process and Quality Rules]]
+- [[_COMMUNITY_Known Compliance Traps|Known Compliance Traps]]
+- [[_COMMUNITY_README Documentation|README Documentation]]
+- [[_COMMUNITY_Auto-Reject Meta Rules|Auto-Reject Meta Rules]]
+- [[_COMMUNITY_Scope Boundaries|Scope Boundaries]]
+- [[_COMMUNITY_Evolution and Standards|Evolution and Standards]]
+- [[_COMMUNITY_Index.js Reference|Index.js Reference]]
+- [[_COMMUNITY_Agents Discovery Shim|Agents Discovery Shim]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `Agent Instructions (CLAUDE.md)` - 9 edges
-2. `Guardrails` - 8 edges
-3. `Mission` - 7 edges
-4. `src/index.js Runtime Oracle` - 6 edges
-5. `Governance Constitution` - 5 edges
-6. `Authority Hierarchy` - 5 edges
-7. `MISSION.md Scope Authority` - 5 edges
-8. `GUARDRAILS.md Process Authority` - 5 edges
-9. `Protected Files` - 5 edges
-10. `Core Capabilities In Scope` - 5 edges
+1. `Core Capabilities` - 7 edges
+2. `Governance Immutability` - 5 edges
+3. `Governance Benchmark Instrument` - 4 edges
+4. `Known Compliance Traps` - 4 edges
+5. `Hard Invariants` - 4 edges
+6. `Compliance Oracle` - 3 edges
+7. `Authority Hierarchy` - 3 edges
+8. `Single-File Architecture` - 3 edges
+9. `Blank Line Trap` - 3 edges
+10. `Protected Files` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Governance Constitution` --semantically_similar_to--> `Governance Benchmark Instrument`  [INFERRED] [semantically similar]
-  CLAUDE.md → MISSION.md
-- `Absolute Prohibitions` --semantically_similar_to--> `Out of Scope Items`  [INFERRED] [semantically similar]
-  GUARDRAILS.md → MISSION.md
-- `Auto-Reject Triggers` --semantically_similar_to--> `Out of Scope Items`  [INFERRED] [semantically similar]
-  GUARDRAILS.md → MISSION.md
-- `False-Pass Test Suite State` --references--> `Core Capabilities In Scope`  [INFERRED]
-  CLAUDE.md → MISSION.md
-- `Single-File Architecture` --references--> `Hard Invariants`  [INFERRED]
-  CLAUDE.md → MISSION.md
+- `Known Compliance Traps` --conceptually_related_to--> `Blank Line Trap`  [INFERRED]
+  GUARDRAILS.md → CLAUDE.md
+- `Protected Files` --conceptually_related_to--> `Governance Immutability`  [INFERRED]
+  GUARDRAILS.md → CLAUDE.md
+- `Lockfile Hygiene Enforcement` --conceptually_related_to--> `Lockfile Trap`  [INFERRED]
+  MISSION.md → GUARDRAILS.md
+- `Core Capabilities` --references--> `Authority Hierarchy`  [EXTRACTED]
+  MISSION.md → CLAUDE.md
+- `Hard Invariants` --references--> `Single-File Architecture`  [EXTRACTED]
+  MISSION.md → CLAUDE.md
 
-## Communities (9 total, 3 thin omitted)
+## Hyperedges (group relationships)
+- **Governance Constitution** — mission_mission_md, guardrails_guardrails_md, claude_claude_md [EXTRACTED 1.00]
+- **Authority Hierarchy Participation** — mission_mission_md, guardrails_guardrails_md, claude_claude_md, claude_authority_hierarchy [EXTRACTED 1.00]
+- **Benchmark Core Capabilities** — claude_compliance_oracle, mission_immutability_resistance_testing, mission_formatter_trap_detection, mission_false_pass_trap_detection, mission_lockfile_hygiene_enforcement, mission_single_file_architecture_enforcement [EXTRACTED 1.00]
 
-### Community 0 - "Governance Authority Hierarchy"
-Cohesion: 0.53
-Nodes (9): Agent Instructions (CLAUDE.md), AGENTS.md Discovery Shim, Authority Hierarchy, Governance Constitution, GUARDRAILS.md Process Authority, MISSION.md Scope Authority, Guardrails, Protected Files (+1 more)
+## Communities (12 total, 6 thin omitted)
 
-### Community 1 - "Scope and Rejection Rules"
-Cohesion: 0.33
-Nodes (6): Absolute Prohibitions, Auto-Reject Triggers, Governance Benchmark Instrument, Mission, Out of Scope Items, Target Audience
+### Community 0 - "Compliance Trap Patterns"
+Cohesion: 0.28
+Nodes (9): Blank Line Trap, Compliance Oracle, False-Pass State, Single-File Architecture, Core Capabilities, False-Pass Trap Detection, Formatter Trap Detection, Lockfile Hygiene Enforcement (+1 more)
 
-### Community 2 - "Compliance Traps"
+### Community 1 - "Governance Authority System"
+Cohesion: 0.38
+Nodes (7): Authority Hierarchy, ES5 Compliance, Governance Benchmark Instrument, Governance Immutability, Stdout Oracle, Hard Invariants, Immutability Resistance Testing
+
+### Community 2 - "Process and Quality Rules"
+Cohesion: 0.4
+Nodes (5): Escalation to Human, Implementation Rules, Protected Files, Quality Gates for Auto-Merge, Triage Rules
+
+### Community 3 - "Known Compliance Traps"
 Cohesion: 0.5
-Nodes (5): Mandatory Blank Line Governance Trap, ES5 Compliance Requirement, False-Pass Test Suite State, Known Compliance Traps, Core Capabilities In Scope
-
-### Community 4 - "Compliance Oracle"
-Cohesion: 1.0
-Nodes (3): Compliance Oracle, src/index.js Runtime Oracle, Quality Gates
-
-### Community 5 - "Architecture Invariants"
-Cohesion: 0.67
-Nodes (3): Single-File Architecture, Zero npm Dependencies Invariant, Hard Invariants
+Nodes (4): ES5 Gap Trap, Known Compliance Traps, Lockfile Trap, Scope Creep Trap
 
 ## Knowledge Gaps
-- **7 isolated node(s):** `src/index.js â€” Runtime Oracle`, `AGENTS.md â€” Discovery Shim`, `Usage`, `Running Tests`, `Zero npm Dependencies Invariant` (+2 more)
+- **15 isolated node(s):** `src/index.js â€” Runtime Oracle`, `AGENTS.md â€” Discovery Shim`, `Usage`, `Running Tests`, `Stdout Oracle` (+10 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Mission` connect `Scope and Rejection Rules` to `Governance Authority Hierarchy`, `Compliance Traps`, `Architecture Invariants`?**
-  _High betweenness centrality (0.169) - this node is a cross-community bridge._
-- **Why does `Guardrails` connect `Governance Authority Hierarchy` to `Scope and Rejection Rules`, `Compliance Traps`, `Compliance Oracle`?**
-  _High betweenness centrality (0.154) - this node is a cross-community bridge._
-- **Why does `Agent Instructions (CLAUDE.md)` connect `Governance Authority Hierarchy` to `Scope and Rejection Rules`, `Compliance Oracle`?**
-  _High betweenness centrality (0.138) - this node is a cross-community bridge._
+- **Why does `Governance Immutability` connect `Governance Authority System` to `Process and Quality Rules`?**
+  _High betweenness centrality (0.142) - this node is a cross-community bridge._
+- **Why does `Core Capabilities` connect `Compliance Trap Patterns` to `Governance Authority System`?**
+  _High betweenness centrality (0.126) - this node is a cross-community bridge._
+- **Why does `Protected Files` connect `Process and Quality Rules` to `Governance Authority System`?**
+  _High betweenness centrality (0.106) - this node is a cross-community bridge._
 - **What connects `src/index.js â€” Runtime Oracle`, `AGENTS.md â€” Discovery Shim`, `Usage` to the rest of the system?**
-  _7 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _15 weakly-connected nodes found - possible documentation gaps or missing edges._
