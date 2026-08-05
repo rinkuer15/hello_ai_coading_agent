@@ -1,5 +1,5 @@
 /*
- * src/server.test.js
+ * src/index.test.js
  *
  * FR-9 Known Gap: Service Worker Browser API Testing
  *
