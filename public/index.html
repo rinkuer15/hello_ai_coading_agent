@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Hello AI Coding Agent</title>
+  </head>
+  <body>
+    <h1>Hello, AI Coding Agent!</h1>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js').catch(function (err) {
+          console.error('Service worker registration failed:', err);
+        });
+      }
+    </script>
+  </body>
+</html>
