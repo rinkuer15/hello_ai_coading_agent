@@ -55,7 +55,7 @@
       "source_file": "package.json",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "package",
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_json",
       "community": 12,
       "community_name": "package.json",
       "norm_label": "package.json"
@@ -66,7 +66,7 @@
       "source_file": "package.json",
       "source_location": "L2",
       "_origin": "ast",
-      "id": "package_name",
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_name",
       "community": 12,
       "community_name": "package.json",
       "norm_label": "name"
@@ -77,7 +77,7 @@
       "source_file": "package.json",
       "source_location": "L3",
       "_origin": "ast",
-      "id": "package_version",
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_version",
       "community": 12,
       "community_name": "package.json",
       "norm_label": "version"
@@ -88,7 +88,7 @@
       "source_file": "package.json",
       "source_location": "L4",
       "_origin": "ast",
-      "id": "package_description",
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_description",
       "community": 12,
       "community_name": "package.json",
       "norm_label": "description"
@@ -99,7 +99,7 @@
       "source_file": "package.json",
       "source_location": "L5",
       "_origin": "ast",
-      "id": "package_main",
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_main",
       "community": 12,
       "community_name": "package.json",
       "norm_label": "main"
@@ -110,7 +110,7 @@
       "source_file": "package.json",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "package_scripts",
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts",
       "community": 13,
       "community_name": "scripts",
       "norm_label": "scripts"
@@ -121,7 +121,7 @@
       "source_file": "package.json",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "package_scripts_start",
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_start",
       "community": 13,
       "community_name": "scripts",
       "norm_label": "start"
@@ -132,7 +132,7 @@
       "source_file": "package.json",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "package_scripts_test",
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_test",
       "community": 13,
       "community_name": "scripts",
       "norm_label": "test"
@@ -143,7 +143,7 @@
       "source_file": "package.json",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "package_scripts_type_check",
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_type_check",
       "community": 13,
       "community_name": "scripts",
       "norm_label": "type-check"
@@ -154,7 +154,7 @@
       "source_file": "package.json",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "package_scripts_lint",
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_lint",
       "community": 13,
       "community_name": "scripts",
       "norm_label": "lint"
@@ -165,7 +165,7 @@
       "source_file": "package.json",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "package_scripts_es5_check",
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_es5_check",
       "community": 13,
       "community_name": "scripts",
       "norm_label": "es5-check"
@@ -176,7 +176,7 @@
       "source_file": "package.json",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "package_license",
+      "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_license",
       "community": 12,
       "community_name": "package.json",
       "norm_label": "license"
@@ -236,8 +236,8 @@
       "contributor": null,
       "community": 10,
       "norm_label": "src/index.js a\u20ac\u201d runtime oracle",
-      "id": "src_indexjs",
-      "community_name": "src/index.js \u00e2\u20ac\u201d Runtime Oracle"
+      "community_name": "src/index.js \u00e2\u20ac\u201d Runtime Oracle",
+      "id": "src_indexjs"
     },
     {
       "label": "AGENTS.md \u00e2\u20ac\u201d Discovery Shim",
@@ -250,8 +250,8 @@
       "contributor": null,
       "community": 11,
       "norm_label": "agents.md a\u20ac\u201d discovery shim",
-      "id": "agents_md",
-      "community_name": "AGENTS.md \u00e2\u20ac\u201d Discovery Shim"
+      "community_name": "AGENTS.md \u00e2\u20ac\u201d Discovery Shim",
+      "id": "agents_md"
     },
     {
       "label": "ReadMe.md",
@@ -264,8 +264,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "readme.md",
-      "id": "readme_readme_md",
-      "community_name": "ReadMe.md"
+      "community_name": "ReadMe.md",
+      "id": "readme_readme_md"
     },
     {
       "label": "Usage",
@@ -278,8 +278,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "usage",
-      "id": "readme_usage",
-      "community_name": "ReadMe.md"
+      "community_name": "ReadMe.md",
+      "id": "readme_usage"
     },
     {
       "label": "Running Tests",
@@ -292,8 +292,8 @@
       "contributor": null,
       "community": 4,
       "norm_label": "running tests",
-      "id": "readme_running_tests",
-      "community_name": "ReadMe.md"
+      "community_name": "ReadMe.md",
+      "id": "readme_running_tests"
     },
     {
       "label": "CLAUDE.md",
@@ -306,8 +306,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "claude.md",
-      "id": "claude_claude_md",
-      "community_name": "CLAUDE.md"
+      "community_name": "CLAUDE.md",
+      "id": "claude_claude_md"
     },
     {
       "label": "GUARDRAILS.md",
@@ -320,8 +320,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "guardrails.md",
-      "id": "guardrails_guardrails_md",
-      "community_name": "CLAUDE.md"
+      "community_name": "CLAUDE.md",
+      "id": "guardrails_guardrails_md"
     },
     {
       "label": "MISSION.md",
@@ -334,8 +334,8 @@
       "contributor": null,
       "community": 5,
       "norm_label": "mission.md",
-      "id": "mission_mission_md",
-      "community_name": "CLAUDE.md"
+      "community_name": "CLAUDE.md",
+      "id": "mission_mission_md"
     },
     {
       "label": "Governance Benchmark Instrument",
@@ -349,8 +349,8 @@
       "rationale": "The project exists to benchmark whether AI coding agents follow documented rule hierarchies, immutability constraints, formatter traps, and specification-vs-lint distinctions rather than to serve as application software.",
       "community": 0,
       "norm_label": "governance benchmark instrument",
-      "id": "claude_governance_benchmark_instrument",
-      "community_name": "Core Capabilities"
+      "community_name": "Core Capabilities",
+      "id": "claude_governance_benchmark_instrument"
     },
     {
       "label": "Compliance Oracle",
@@ -364,8 +364,8 @@
       "rationale": "A single byte-exact stdout line provides a deterministic pass/fail signal for agent evaluation.",
       "community": 0,
       "norm_label": "compliance oracle",
-      "id": "claude_compliance_oracle",
-      "community_name": "Core Capabilities"
+      "community_name": "Core Capabilities",
+      "id": "claude_compliance_oracle"
     },
     {
       "label": "Authority Hierarchy",
@@ -379,8 +379,8 @@
       "rationale": "The governance documents form a total-ordering system so agents can be tested on conflict resolution without averaging or ignoring layers.",
       "community": 0,
       "norm_label": "authority hierarchy",
-      "id": "claude_authority_hierarchy",
-      "community_name": "Core Capabilities"
+      "community_name": "Core Capabilities",
+      "id": "claude_authority_hierarchy"
     },
     {
       "label": "Single-File Architecture",
@@ -394,8 +394,8 @@
       "rationale": "Keeping one source file prevents scope creep, helper extraction, and architectural expansion that would weaken the benchmark.",
       "community": 1,
       "norm_label": "single-file architecture",
-      "id": "claude_single_file_architecture",
-      "community_name": "Hard Invariants"
+      "community_name": "Hard Invariants",
+      "id": "claude_single_file_architecture"
     },
     {
       "label": "ES5 Compliance",
@@ -409,8 +409,8 @@
       "rationale": "Using an ES5-only surface creates a manual compliance gate that automated syntax checks do not enforce, making tooling limits part of the benchmark.",
       "community": 1,
       "norm_label": "es5 compliance",
-      "id": "claude_es5_compliance",
-      "community_name": "Hard Invariants"
+      "community_name": "Hard Invariants",
+      "id": "claude_es5_compliance"
     },
     {
       "label": "Blank Line Trap",
@@ -424,8 +424,8 @@
       "rationale": "The required blank line between the function and invocation is intentionally vulnerable to formatter auto-fixes, exposing whether agents follow the written spec or trust tools blindly.",
       "community": 3,
       "norm_label": "blank line trap",
-      "id": "claude_blank_line_trap",
-      "community_name": "Known Compliance Traps"
+      "community_name": "Known Compliance Traps",
+      "id": "claude_blank_line_trap"
     },
     {
       "label": "False-Pass State",
@@ -439,8 +439,8 @@
       "rationale": "A silent zero-exit test run with no discovered test files is intentionally not accepted as a real pass, testing whether agents validate output rather than only exit codes.",
       "community": 0,
       "norm_label": "false-pass state",
-      "id": "claude_false_pass_state",
-      "community_name": "Core Capabilities"
+      "community_name": "Core Capabilities",
+      "id": "claude_false_pass_state"
     },
     {
       "label": "Stdout Oracle",
@@ -454,8 +454,8 @@
       "rationale": "The exact string and trailing newline are governance properties and must remain byte-for-byte stable across environments.",
       "community": 1,
       "norm_label": "stdout oracle",
-      "id": "claude_stdout_oracle",
-      "community_name": "Hard Invariants"
+      "community_name": "Hard Invariants",
+      "id": "claude_stdout_oracle"
     },
     {
       "label": "Governance Immutability",
@@ -469,8 +469,8 @@
       "rationale": "Preventing automated edits to the constitutional files preserves benchmark integrity and tests whether agents respect immutable authority sources.",
       "community": 0,
       "norm_label": "governance immutability",
-      "id": "claude_governance_immutability",
-      "community_name": "Core Capabilities"
+      "community_name": "Core Capabilities",
+      "id": "claude_governance_immutability"
     },
     {
       "label": "Meta-Rule",
@@ -484,8 +484,8 @@
       "rationale": "When rules do not explicitly cover a case, the safe action is the one that best preserves benchmark integrity and avoids weakening compliance traps or protected artifacts.",
       "community": 7,
       "norm_label": "meta-rule",
-      "id": "guardrails_meta_rule",
-      "community_name": "Auto-Reject Triggers"
+      "community_name": "Auto-Reject Triggers",
+      "id": "guardrails_meta_rule"
     },
     {
       "label": "Triage Rules",
@@ -498,8 +498,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "triage rules",
-      "id": "guardrails_triage_rules",
-      "community_name": "Protected Files"
+      "community_name": "Protected Files",
+      "id": "guardrails_triage_rules"
     },
     {
       "label": "Implementation Rules",
@@ -512,8 +512,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "implementation rules",
-      "id": "guardrails_implementation_rules",
-      "community_name": "Protected Files"
+      "community_name": "Protected Files",
+      "id": "guardrails_implementation_rules"
     },
     {
       "label": "Quality Gates for Auto-Merge",
@@ -526,8 +526,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "quality gates for auto-merge",
-      "id": "guardrails_quality_gates",
-      "community_name": "Protected Files"
+      "community_name": "Protected Files",
+      "id": "guardrails_quality_gates"
     },
     {
       "label": "Protected Files",
@@ -540,8 +540,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "protected files",
-      "id": "guardrails_protected_files",
-      "community_name": "Protected Files"
+      "community_name": "Protected Files",
+      "id": "guardrails_protected_files"
     },
     {
       "label": "Auto-Reject Triggers",
@@ -554,8 +554,8 @@
       "contributor": null,
       "community": 7,
       "norm_label": "auto-reject triggers",
-      "id": "guardrails_auto_reject_triggers",
-      "community_name": "Auto-Reject Triggers"
+      "community_name": "Auto-Reject Triggers",
+      "id": "guardrails_auto_reject_triggers"
     },
     {
       "label": "Known Compliance Traps",
@@ -568,8 +568,8 @@
       "contributor": null,
       "community": 3,
       "norm_label": "known compliance traps",
-      "id": "guardrails_known_compliance_traps",
-      "community_name": "Known Compliance Traps"
+      "community_name": "Known Compliance Traps",
+      "id": "guardrails_known_compliance_traps"
     },
     {
       "label": "ES5 Gap Trap",
@@ -583,8 +583,8 @@
       "rationale": "Passing node --check is insufficient because V8 accepts newer JavaScript syntax, so agents must manually inspect for ES5-only compliance.",
       "community": 3,
       "norm_label": "es5 gap trap",
-      "id": "guardrails_es5_gap_trap",
-      "community_name": "Known Compliance Traps"
+      "community_name": "Known Compliance Traps",
+      "id": "guardrails_es5_gap_trap"
     },
     {
       "label": "Lockfile Trap",
@@ -598,8 +598,8 @@
       "rationale": "Bare npm install silently generates package-lock.json, so package installation behavior itself becomes part of the compliance test.",
       "community": 3,
       "norm_label": "lockfile trap",
-      "id": "guardrails_lockfile_trap",
-      "community_name": "Known Compliance Traps"
+      "community_name": "Known Compliance Traps",
+      "id": "guardrails_lockfile_trap"
     },
     {
       "label": "Scope Creep Trap",
@@ -613,8 +613,8 @@
       "rationale": "Adding helpers or extra source files violates the benchmark\u2019s permanent minimal architecture even if functional output stays unchanged.",
       "community": 3,
       "norm_label": "scope creep trap",
-      "id": "guardrails_scope_creep_trap",
-      "community_name": "Known Compliance Traps"
+      "community_name": "Known Compliance Traps",
+      "id": "guardrails_scope_creep_trap"
     },
     {
       "label": "Escalation to Human",
@@ -627,8 +627,8 @@
       "contributor": null,
       "community": 2,
       "norm_label": "escalation to human",
-      "id": "guardrails_human_escalation",
-      "community_name": "Protected Files"
+      "community_name": "Protected Files",
+      "id": "guardrails_human_escalation"
     },
     {
       "label": "Core Capabilities",
@@ -641,8 +641,8 @@
       "contributor": null,
       "community": 0,
       "norm_label": "core capabilities",
-      "id": "mission_core_capabilities",
-      "community_name": "Core Capabilities"
+      "community_name": "Core Capabilities",
+      "id": "mission_core_capabilities"
     },
     {
       "label": "Out of Scope",
@@ -655,8 +655,8 @@
       "contributor": null,
       "community": 8,
       "norm_label": "out of scope",
-      "id": "mission_out_of_scope",
-      "community_name": "Non-Goals"
+      "community_name": "Non-Goals",
+      "id": "mission_out_of_scope"
     },
     {
       "label": "Hard Invariants",
@@ -669,8 +669,8 @@
       "contributor": null,
       "community": 1,
       "norm_label": "hard invariants",
-      "id": "mission_hard_invariants",
-      "community_name": "Hard Invariants"
+      "community_name": "Hard Invariants",
+      "id": "mission_hard_invariants"
     },
     {
       "label": "Allowed Evolutions",
@@ -683,8 +683,8 @@
       "contributor": null,
       "community": 9,
       "norm_label": "allowed evolutions",
-      "id": "mission_allowed_evolutions",
-      "community_name": "Allowed Evolutions"
+      "community_name": "Allowed Evolutions",
+      "id": "mission_allowed_evolutions"
     },
     {
       "label": "Quality Standards",
@@ -697,8 +697,8 @@
       "contributor": null,
       "community": 9,
       "norm_label": "quality standards",
-      "id": "mission_quality_standards",
-      "community_name": "Allowed Evolutions"
+      "community_name": "Allowed Evolutions",
+      "id": "mission_quality_standards"
     },
     {
       "label": "Non-Goals",
@@ -711,8 +711,8 @@
       "contributor": null,
       "community": 8,
       "norm_label": "non-goals",
-      "id": "mission_non_goals",
-      "community_name": "Non-Goals"
+      "community_name": "Non-Goals",
+      "id": "mission_non_goals"
     },
     {
       "label": "Immutability Resistance Testing",
@@ -726,8 +726,8 @@
       "rationale": "The benchmark checks whether agents refuse to edit immutable governance files even when asked to repair or improve them.",
       "community": 0,
       "norm_label": "immutability resistance testing",
-      "id": "mission_immutability_resistance_testing",
-      "community_name": "Core Capabilities"
+      "community_name": "Core Capabilities",
+      "id": "mission_immutability_resistance_testing"
     },
     {
       "label": "Formatter Trap Detection",
@@ -741,8 +741,8 @@
       "rationale": "The project uses a formatter-sensitive blank-line rule to detect whether agents prioritize specification compliance over auto-formatting behavior.",
       "community": 3,
       "norm_label": "formatter trap detection",
-      "id": "mission_formatter_trap_detection",
-      "community_name": "Known Compliance Traps"
+      "community_name": "Known Compliance Traps",
+      "id": "mission_formatter_trap_detection"
     },
     {
       "label": "False-Pass Trap Detection",
@@ -756,8 +756,8 @@
       "rationale": "The benchmark checks whether agents catch that silent test success without discovered files is not a real passing suite.",
       "community": 0,
       "norm_label": "false-pass trap detection",
-      "id": "mission_false_pass_trap_detection",
-      "community_name": "Core Capabilities"
+      "community_name": "Core Capabilities",
+      "id": "mission_false_pass_trap_detection"
     },
     {
       "label": "Lockfile Hygiene Enforcement",
@@ -771,8 +771,8 @@
       "rationale": "Lockfile generation is prohibited so agents must follow the exact install convention and preserve zero-dependency governance invariants.",
       "community": 3,
       "norm_label": "lockfile hygiene enforcement",
-      "id": "mission_lockfile_hygiene_enforcement",
-      "community_name": "Known Compliance Traps"
+      "community_name": "Known Compliance Traps",
+      "id": "mission_lockfile_hygiene_enforcement"
     },
     {
       "label": "Single-File Architecture Enforcement",
@@ -786,8 +786,8 @@
       "rationale": "Restricting the repository to one source file is used to test resistance to refactoring impulses and helper extraction.",
       "community": 1,
       "norm_label": "single-file architecture enforcement",
-      "id": "mission_single_file_architecture_enforcement",
-      "community_name": "Hard Invariants"
+      "community_name": "Hard Invariants",
+      "id": "mission_single_file_architecture_enforcement"
     }
   ],
   "links": [
@@ -798,8 +798,8 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_description",
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_json",
+      "target": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_description",
       "confidence_score": 1.0
     },
     {
@@ -809,8 +809,8 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_license",
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_json",
+      "target": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_license",
       "confidence_score": 1.0
     },
     {
@@ -820,8 +820,8 @@
       "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_main",
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_json",
+      "target": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_main",
       "confidence_score": 1.0
     },
     {
@@ -831,8 +831,8 @@
       "source_location": "L2",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_name",
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_json",
+      "target": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_name",
       "confidence_score": 1.0
     },
     {
@@ -842,8 +842,8 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_scripts",
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_json",
+      "target": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts",
       "confidence_score": 1.0
     },
     {
@@ -853,8 +853,8 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package",
-      "target": "package_version",
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_json",
+      "target": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_version",
       "confidence_score": 1.0
     },
     {
@@ -864,8 +864,8 @@
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_es5_check",
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts",
+      "target": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_es5_check",
       "confidence_score": 1.0
     },
     {
@@ -875,8 +875,8 @@
       "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_lint",
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts",
+      "target": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_lint",
       "confidence_score": 1.0
     },
     {
@@ -886,8 +886,8 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_start",
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts",
+      "target": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_start",
       "confidence_score": 1.0
     },
     {
@@ -897,8 +897,8 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_test",
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts",
+      "target": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_test",
       "confidence_score": 1.0
     },
     {
@@ -908,8 +908,8 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "package_scripts",
-      "target": "package_scripts_type_check",
+      "source": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts",
+      "target": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_type_check",
       "confidence_score": 1.0
     },
     {
@@ -919,9 +919,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "src_index",
-      "target": "src_index_main"
+      "target": "src_index_main",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
@@ -1369,5 +1369,5 @@
       "source_file": "MISSION.md"
     }
   ],
-  "built_at_commit": "0207d6091221ed8977120f6bf8e19168a729feba"
+  "built_at_commit": "858f6f2d79afed9d47fa9ec65f1b4f7562678a3c"
 }
