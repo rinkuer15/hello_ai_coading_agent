@@ -19,6 +19,7 @@ var CACHE_NAME = 'hello-ai-v1';
 /*
  * List every app shell asset served from public/.
  * Update this array (and bump CACHE_NAME) whenever public/ assets change.
+ * See version-bump protocol at top of file.
  */
 var CACHE_FILES = [
   '/',
@@ -32,6 +33,9 @@ self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
       return cache.addAll(CACHE_FILES);
+    }).catch(function (err) {
+      console.error('[SW] install failed; cache population error:', err);
+      throw err; // preserve install-fail semantics so SW goes redundant, not activated
     })
   );
 });
@@ -46,6 +50,9 @@ self.addEventListener('activate', function (event) {
           return caches.delete(name);
         })
       );
+    }).catch(function (err) {
+      console.error('[SW] activate: old cache cleanup failed:', err);
+      // Do not re-throw — activation should proceed; new cache is valid
     })
   );
 });
@@ -56,7 +63,7 @@ self.addEventListener('fetch', function (event) {
       if (cached) {
         return cached;
       }
-      return fetch(event.request);
+      return fetch(event.request); // Cache miss — fall through to network (cache-first strategy).
     })
   );
 });

@@ -12,6 +12,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/service-worker.js').catch(function (err) {
+          /* browser-only: console.error permitted in public/ browser context */
           console.error('Service worker registration failed:', err);
         });
       }
