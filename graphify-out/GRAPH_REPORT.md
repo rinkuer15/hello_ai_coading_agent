@@ -1,104 +1,88 @@
-# Graph Report - thread-b95f1c98  (2026-08-05)
+# Graph Report - .  (2026-08-07)
 
 ## Corpus Check
-- 9 files · ~6,204 words
+- 8 files · ~6,372 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 55 nodes · 52 edges · 16 communities (10 shown, 6 thin omitted)
-- Extraction: 87% EXTRACTED · 13% INFERRED · 0% AMBIGUOUS · INFERRED: 7 edges (avg confidence: 0.86)
+- 34 nodes · 29 edges · 8 communities
+- Extraction: 83% EXTRACTED · 14% INFERRED · 3% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.88)
 - Token cost: 0 input · 0 output
 
-## Graph Freshness
-- Built from commit: `858f6f2d`
-- Run `git rev-parse HEAD` and compare to check if the graph is stale.
-- Run `graphify update .` after code changes (no API cost).
-
 ## Community Hubs (Navigation)
-- Core Capabilities
-- Hard Invariants
-- Protected Files
-- Known Compliance Traps
-- ReadMe.md
-- Auto-Reject Triggers
-- Non-Goals
-- Allowed Evolutions
-- src/index.js â€” Runtime Oracle
-- AGENTS.md â€” Discovery Shim
-- package.json
-- scripts
+- [[_COMMUNITY_ES5 Code Conventions|ES5 Code Conventions]]
+- [[_COMMUNITY_ES5 Compliance Gate|ES5 Compliance Gate]]
+- [[_COMMUNITY_Authority Hierarchy|Authority Hierarchy]]
+- [[_COMMUNITY_Stdout Oracle Verification|Stdout Oracle Verification]]
+- [[_COMMUNITY_Process Safety Rules|Process Safety Rules]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `Core Capabilities` - 7 edges
-2. `scripts` - 6 edges
-3. `Governance Immutability` - 5 edges
-4. `Governance Benchmark Instrument` - 4 edges
-5. `Known Compliance Traps` - 4 edges
-6. `Hard Invariants` - 4 edges
-7. `Compliance Oracle` - 3 edges
-8. `Authority Hierarchy` - 3 edges
-9. `Single-File Architecture` - 3 edges
-10. `Blank Line Trap` - 3 edges
+1. `ES5 compliance checker` - 4 edges
+2. `authority hierarchy` - 3 edges
+3. `ES5 language surface only` - 3 edges
+4. `allowed evolutions` - 3 edges
+5. `src/index.test.js` - 3 edges
+6. `stdout oracle outputs exact bytes and exits 0` - 2 edges
+7. `stdout oracle` - 2 edges
+8. `src/index.js` - 2 edges
+9. `src/index.test.js` - 2 edges
+10. `false-pass test state` - 2 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Protected Files` --conceptually_related_to--> `Governance Immutability`  [INFERRED]
-  GUARDRAILS.md → CLAUDE.md
-- `Known Compliance Traps` --conceptually_related_to--> `Blank Line Trap`  [INFERRED]
-  GUARDRAILS.md → CLAUDE.md
-- `Hard Invariants` --references--> `Governance Immutability`  [EXTRACTED]
-  MISSION.md → CLAUDE.md
-- `Immutability Resistance Testing` --rationale_for--> `Governance Immutability`  [EXTRACTED]
-  MISSION.md → CLAUDE.md
-- `Lockfile Hygiene Enforcement` --conceptually_related_to--> `Lockfile Trap`  [INFERRED]
-  MISSION.md → GUARDRAILS.md
-
-## Import Cycles
-- None detected.
+- `compliance oracle` --semantically_similar_to--> `stdout oracle`  [INFERRED] [semantically similar]
+  MISSION.md → src/index.test.js
+- `ES5 compliance checker` --rationale_for--> `ES5 language surface only`  [INFERRED]
+  scripts/es5-check.js → CLAUDE.md
+- `ES5 compliance checker` --conceptually_related_to--> `allowed evolutions`  [AMBIGUOUS]
+  scripts/es5-check.js → MISSION.md
+- `false-pass test state` --semantically_similar_to--> `known compliance traps`  [INFERRED] [semantically similar]
+  CLAUDE.md → GUARDRAILS.md
+- `authority hierarchy` --conceptually_related_to--> `governance constitution`  [INFERRED]
+  CLAUDE.md → MISSION.md
 
 ## Hyperedges (group relationships)
-- **Governance Constitution** — mission_mission_md, guardrails_guardrails_md, claude_claude_md [EXTRACTED 1.00]
-- **Authority Hierarchy Participation** — mission_mission_md, guardrails_guardrails_md, claude_claude_md, claude_authority_hierarchy [EXTRACTED 1.00]
-- **Benchmark Core Capabilities** — claude_compliance_oracle, mission_immutability_resistance_testing, mission_formatter_trap_detection, mission_false_pass_trap_detection, mission_lockfile_hygiene_enforcement, mission_single_file_architecture_enforcement [EXTRACTED 1.00]
+- **governance hierarchy** — claude_authority_hierarchy, claude_mission_md, claude_guardrails_md [EXTRACTED 1.00]
+- **oracle verification flow** — mission_stdout_oracle, index_test_stdout_oracle_test, index_test_index_js [INFERRED 0.85]
+- **false-pass test compliance trap** — claude_false_pass_test_state, guardrails_known_compliance_traps, readme_npm_test_false_pass [INFERRED 0.85]
 
-## Communities (16 total, 6 thin omitted)
+## Communities (8 total, 0 thin omitted)
 
-### Community 0 - "Core Capabilities"
-Cohesion: 0.39
-Nodes (8): Authority Hierarchy, Compliance Oracle, False-Pass State, Governance Benchmark Instrument, Governance Immutability, Core Capabilities, False-Pass Trap Detection, Immutability Resistance Testing
+### Community 0 - "ES5 Code Conventions"
+Cohesion: 0.25
+Nodes (8): ES5 language surface only, false-pass test state, mandatory blank line, src/index.js, src/index.test.js, known compliance traps, quality gates for auto-merge, src/index.test.js
 
-### Community 1 - "Hard Invariants"
-Cohesion: 0.40
-Nodes (5): ES5 Compliance, Single-File Architecture, Stdout Oracle, Hard Invariants, Single-File Architecture Enforcement
+### Community 1 - "ES5 Compliance Gate"
+Cohesion: 0.25
+Nodes (8): ES5 compliance checker, forbidden ES6+ tokens, src/index.js, allowed evolutions, scripts/es5-check.js, npm test false-pass, src/index.test.js, Validation
 
-### Community 2 - "Protected Files"
-Cohesion: 0.40
-Nodes (5): Escalation to Human, Implementation Rules, Protected Files, Quality Gates for Auto-Merge, Triage Rules
-
-### Community 3 - "Known Compliance Traps"
-Cohesion: 0.29
-Nodes (7): Blank Line Trap, ES5 Gap Trap, Known Compliance Traps, Lockfile Trap, Scope Creep Trap, Formatter Trap Detection, Lockfile Hygiene Enforcement
-
-### Community 12 - "package.json"
+### Community 2 - "Authority Hierarchy"
 Cohesion: 0.33
-Nodes (5): description, license, main, name, version
+Nodes (6): authority hierarchy, GUARDRAILS.md, MISSION.md, governance benchmark instrument, governance constitution, src/index.js
 
-### Community 13 - "scripts"
-Cohesion: 0.33
-Nodes (6): scripts, es5-check, lint, start, test, type-check
+### Community 3 - "Stdout Oracle Verification"
+Cohesion: 0.5
+Nodes (4): index.js, stdout oracle, stdout oracle outputs exact bytes and exits 0, compliance oracle
+
+### Community 4 - "Process Safety Rules"
+Cohesion: 0.67
+Nodes (4): CLAUDE.md, MISSION.md, process safety rules, protected files
+
+## Ambiguous Edges - Review These
+- `ES5 compliance checker` → `allowed evolutions`  [AMBIGUOUS]
+  scripts/es5-check.js · relation: conceptually_related_to
 
 ## Knowledge Gaps
-- **12 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+7 more)
+- **10 isolated node(s):** `src/index.js`, `forbidden ES6+ tokens`, `index.js`, `MISSION.md`, `GUARDRAILS.md` (+5 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Governance Immutability` connect `Core Capabilities` to `Hard Invariants`, `Protected Files`?**
-  _High betweenness centrality (0.077) - this node is a cross-community bridge._
-- **Why does `Core Capabilities` connect `Core Capabilities` to `Hard Invariants`, `Known Compliance Traps`?**
-  _High betweenness centrality (0.069) - this node is a cross-community bridge._
-- **Why does `Protected Files` connect `Protected Files` to `Core Capabilities`?**
-  _High betweenness centrality (0.058) - this node is a cross-community bridge._
-- **What connects `name`, `version`, `description` to the rest of the system?**
-  _12 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What is the exact relationship between `ES5 compliance checker` and `allowed evolutions`?**
+  _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
+- **Why does `ES5 compliance checker` connect `ES5 Compliance Gate` to `ES5 Code Conventions`?**
+  _High betweenness centrality (0.127) - this node is a cross-community bridge._
+- **Why does `ES5 language surface only` connect `ES5 Code Conventions` to `ES5 Compliance Gate`?**
+  _High betweenness centrality (0.125) - this node is a cross-community bridge._
+- **What connects `src/index.js`, `forbidden ES6+ tokens`, `index.js` to the rest of the system?**
+  _10 weakly-connected nodes found - possible documentation gaps or missing edges._
