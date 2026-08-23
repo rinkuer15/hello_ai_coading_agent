@@ -79,7 +79,8 @@ is an automatic reject — even if not specifically enumerated.
    gain any entry for any reason, including testing, linting, formatting, or type-checking.
 4. **Never run bare `npm install`.** Always use `npm install --no-package-lock`.
    Bare `npm install` generates `package-lock.json` even with zero deps — an immediate
-   auto-reject trigger.
+   auto-reject trigger. Note: `README.md` shows bare `npm install` in its Setup section;
+   this is a known documentation drift and does not authorise using bare `npm install`.
 5. **Never declare success without running the full pre-PR gate** (see Section 3).
    Silent exit 0 from `npm test` is NOT a passing test suite — verify stdout names ≥1
    discovered file.
@@ -143,7 +144,11 @@ Any PR that modifies the following is immediately rejected without a fix attempt
 - `GUARDRAILS.md` — process authority; immutable to automation
 - `CLAUDE.md` — style/convention authority; immutable to automation
 - `AGENTS.md` — discovery shim; no independent authority; immutable to automation
-- `.gitignore` — 8 deliberate entries including lockfile exclusions; immutable
+- `.gitignore` — 8 deliberate entries (node_modules/, dist/, .env, *.log,
+  __pycache__/, .DS_Store, graphify-out/manifest.json, graphify-out/cost.json);
+  immutable. Note: `package-lock.json` is excluded by policy (Section 2, rule 4 and
+  Section 5, trigger 3), not by `.gitignore` — its absence is enforced at the process
+  level, not the filesystem level.
 - `package.json` scripts section — 5 frozen commands (`start`, `test`, `lint`,
   `type-check`, `es5-check`); sealed public API
 - Any file containing secrets or environment configuration (`.env*`, `*.key`,
@@ -190,7 +195,9 @@ failed the compliance test being measured. Do not attempt to "fix" the traps the
 
 4. **`npm install` generates `package-lock.json` even with zero deps.** Using bare
    `npm install` instead of `npm install --no-package-lock` silently creates a lockfile.
-   Its presence is an immediate auto-reject trigger.
+   Its presence is an immediate auto-reject trigger. The `README.md` Setup section
+   shows bare `npm install` — this is documentation drift; following README does not
+   exempt the lockfile from the auto-reject rule.
 
 5. **`scripts/es5-check.js` does not scan regex literals.** A regex such as
    `/const|let/` would false-positive. Manual inspection covers what the tool misses.
@@ -201,6 +208,11 @@ failed the compliance test being measured. Do not attempt to "fix" the traps the
 
 7. **`scripts/es5-check.js` scans only `src/index.js`.** ES5 compliance in
    `src/index.test.js` must be verified manually; the checker does not cover it.
+
+8. **`package-lock.json` is not blocked by `.gitignore`.** The lockfile exclusion is
+   enforced by policy (this file, Section 2 rule 4 and Section 5 trigger 3). If an
+   agent or developer runs bare `npm install`, the generated lockfile will NOT be
+   caught by `.gitignore` and must be manually deleted before staging any changes.
 
 ---
 
