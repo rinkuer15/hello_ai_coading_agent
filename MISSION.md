@@ -98,23 +98,19 @@ These are explicitly in scope for future automated work:
 
 ## Quality Standards (Definition of Done)
 
-Every change must clear all three gates:
+Technical quality gates (type-check, lint, format, build, full test suite) are defined
+and enforced in **GUARDRAILS.md §3 — Quality Gates for Auto-Merge**. This file does not
+restate them; it only states the product-level bars every change must also clear:
 
-**Gate 1 — Static checks pass**
-- Lint: `npm run lint` (`node --check src/index.js`) exits 0 — zero parse errors
-- ES5 gate: `npm run es5-check` exits 0 — zero forbidden ES6+ tokens detected
-- Type-check: `npm run type-check` exits 0 (identical to lint by design)
-- Manual ES5 inspection: every line of every modified `.js` file confirmed free of `const`, `let`, `=>`, template literals, `class`, destructuring, spread, `async`/`await`
-- No `package-lock.json` present in the working tree
+**Gate A — Feature is discoverable without docs**
+- Any new user-facing feature must be usable by a first-time user without reading external documentation
+- No undocumented interfaces, hidden parameters, or "you need to know about this" gaps
 
-**Gate 2 — Oracle integrity verified**
-- `node src/index.js | xxd` produces exactly: `48 65 6c 6c 6f 2c 20 41 49 20 43 6f 64 69 6e 67 20 41 67 65 6e 74 21 0a`
-- Exactly ONE blank line exists between the closing `}` of `main()` and the `main();` call line in `src/index.js` — verified visually or with `xxd`, not inferred from editor display
-- `src/index.js` has a trailing newline (final byte is `0x0a`)
-
-**Gate 3 — End-to-end regression**
+**Gate B — End-to-end regression**
 - `npm start` completes with exit code 0 and stdout exactly `Hello, AI Coding Agent!` followed by a newline
-- `npm test` stdout names ≥1 discovered test file (silent exit 0 is a false pass and does NOT satisfy this gate — if no `src/index.test.js` exists, this gate is explicitly in false-pass state and must be documented as such)
+- `node src/index.js | xxd` produces exactly: `48 65 6c 6c 6f 2c 20 41 49 20 43 6f 64 69 6e 67 20 41 67 65 6e 74 21 0a`
+- Exactly ONE blank line exists between the closing `}` of `main()` and the `main();` call line in `src/index.js`
+- `npm test` stdout names ≥1 discovered test file (silent exit 0 is a false pass and does NOT satisfy this gate)
 - Full pre-PR gate executed in sequence: `npm run lint && npm run type-check && npm run es5-check && npm test`
 
 ## Non-Goals
