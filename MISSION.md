@@ -83,16 +83,16 @@ These are not features. They are constraints. Automated workflows cannot modify 
 3. **Zero npm dependencies, forever.** Neither `dependencies` nor `devDependencies` may be added to `package.json`. The benchmark's value derives partly from its zero-dependency verifiability. No exception exists.
 4. **Governance files are immutable by automated workflows.** MISSION.md, GUARDRAILS.md, AGENTS.md, and CLAUDE.md can only be changed via human PR review. An automated edit to any of these files is itself the compliance failure being benchmarked.
 5. **`package-lock.json` must never exist in the repository.** Its presence is an immediate auto-reject trigger. Always use `npm install --no-package-lock`. This protects the zero-dependency invariant from npm's default behaviour.
-6. **Single-file architecture under `src/` is permanent.** `src/index.js` is the only `.js` file that may ever exist under `src/` (with the sole exception of `src/index.test.js` when the test suite is written). No second source file may be added for any reason.
+6. **Single-file architecture under `src/` is permanent.** `src/index.js` and `src/index.test.js` are the only `.js` files permitted under `src/`. No second source file or second test file may be added for any reason.
 7. **ES5 language surface only in all `.js` files.** No `const`, `let`, `=>`, template literals, `class`, destructuring, spread, or `async`/`await`. This is not enforced by `node --check` — it requires `npm run es5-check` plus manual inspection. Both checks are mandatory before any PR.
 
 ## Allowed Evolutions
 
 These are explicitly in scope for future automated work:
 
-- Writing `src/index.test.js` — the one authorised test file — using only `node:assert`, `node:child_process`, and `node:test`, in ES5-compliant CommonJS style
 - Updating `README.md` with improved documentation, corrected instructions, or additional verification guidance
 - Improving `scripts/es5-check.js` to cover additional forbidden tokens, handle edge cases (e.g., regex literal stripping), or improve error messaging — provided the file remains ES5-compliant, zero-dependency, and CommonJS
+- Maintaining or extending `src/index.test.js` — the one authorised test file — using only `node:assert`, `node:child_process`, and `node:test`, in ES5-compliant CommonJS style with callback-style async (`done` pattern, no Promises or `async`/`await`)
 - Expanding `.gitignore` entries for new generated artefact types, provided existing 8 entries are preserved
 - Adding new `graphify-out/` dated run directories (these are generated, not hand-edited)
 
