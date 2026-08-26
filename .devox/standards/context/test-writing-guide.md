@@ -1,52 +1,50 @@
-# Writing src/index.test.js (Authorised Test File)
+# Test Writing Guide
 
-**When to load this:** Any task that involves writing, modifying, or evaluating the test suite — including diagnosing why `npm test` exits 0 with no output.
+**When to load this:** Any task that involves writing, modifying, or evaluating the test suite (`src/index.test.js`), or diagnosing `npm test` behaviour.
 
 ## Overview
 
-The test suite is deliberately in a **false-pass state**: zero `*.test.js` files exist, so `npm test` (`node --test`) exits 0 silently. This is a documented compliance trap, not a bug. The one authorised test file is `src/index.test.js`. Writing it requires satisfying a strict, non-obvious set of constraints: ES5 syntax only, specific built-in imports only, byte-exact oracle assertions, and manual ES5 verification because `scripts/es5-check.js` does not cover test files.
+`src/index.test.js` exists and is the sole authorised test file. It must satisfy a strict, non-obvious set of constraints: ES5 syntax only, Node.js built-in imports only, subprocess-spawn isolation, and byte-exact oracle assertions via a callback-style `done` pattern. Every modern test-writing instinct (`async`/`await`, arrow functions, `spawnSync`, Jest matchers) conflicts with at least one of these constraints. Manual ES5 verification is required after any change because `scripts/es5-check.js` does not cover test files.
 
 ## Key Files
 
-- `src/index.js` — The oracle under test; its stdout must be verified byte-exact.
-- `src/index.test.js` — The only authorised test file; does not yet exist.
-- `scripts/es5-check.js` — Automated ES5 gate for `src/index.js` only; does NOT scan test files.
+- `src/index.js` — The oracle under test; its stdout must be verified byte-exact (`Hello, AI Coding Agent!\n`).
+- `src/index.test.js` — The only authorised test file; spawns oracle as a child process; ES5 CommonJS.
+- `scripts/es5-check.js` — Automated ES5 gate for `src/index.js` only; does **not** scan `src/index.test.js`.
 - `package.json` — `npm test` runs `node --test`; a real pass requires ≥1 file named in stdout.
 
 ## Patterns & Rules
 
-**One authorised test file, one location** — The only permitted test file is `src/index.test.js`. No additional test files may be created under `src/` or anywhere else. (`CLAUDE.md §Coding Rules`, item 4.)
+**One authorised test file, one location** — The only permitted test file is `src/index.test.js`. No additional test files may be created under `src/` or anywhere else. (`CLAUDE.md §Hard Rules`, item 2; `GUARDRAILS.md §5`, trigger 5.)
 
-**Node.js built-ins only** — Test files must import only from `node:assert`, `node:child_process`, and `node:test`. No npm packages. No third-party test frameworks. (`CLAUDE.md §Coding Rules`, item 4.)
+**Node.js built-ins only** — Test files must import only from `node:assert`, `node:child_process`, `node:test`, and `node:path`. No npm packages. No third-party test frameworks. Confirmed by `src/index.test.js:1-4` which uses exactly these four modules.
 
-**ES5 compliance in test files** — `src/index.test.js` must use `var`, `function` declarations, CommonJS `require`, single quotes, and semicolons. No `const`, `let`, arrow functions, template literals, or destructuring. (`CLAUDE.md §Coding Rules`, item 5.)
+**ES5 compliance in test files** — `src/index.test.js` must use `var`, `function` declarations, CommonJS `require`, single quotes, and semicolons. No `const`, `let`, arrow functions, template literals, or destructuring. Confirmed by actual file at `src/index.test.js:1-22`.
 
-**CommonJS `require` for imports** — Use `var assert = require('node:assert');` style. Do not use `import` statements. (`CLAUDE.md §Coding Rules`, item 5.)
+**CommonJS `require` for imports** — Use `var assert = require('node:assert');` style. Do not use `import` statements. (`src/index.test.js:1-4`)
 
-**What the test must verify** — The test must assert: (1) stdout is byte-exact `Hello, AI Coding Agent!\n`, (2) exit code is 0, (3) stderr is empty. These three assertions together constitute a valid oracle test. (Architecture Assessment §Test Strategy.)
+**Callback-style async with `done`** — The test function signature is `function(t, done)`. The `done()` call is made inside `proc.on('close', ...)`. Never use `async function` or `Promise`. (`src/index.test.js:8`, `src/index.test.js:18`.)
 
-**Spawning the oracle** — Use `node:child_process` `spawnSync` or `execSync` to run `node src/index.js` and capture output. Example shape (ES5):
-```js
-var cp = require('node:child_process');
-var result = cp.spawnSync(process.execPath, ['src/index.js'], { encoding: 'utf8' });
-```
+**Spawn pattern, not `spawnSync`** — `src/index.test.js:10` uses `childProcess.spawn('node', [indexPath])`, not `spawnSync`. Stdout is accumulated via `proc.stdout.on('data', ...)` and assertions are made in `proc.on('close', ...)`. This is the established pattern — do not refactor to `spawnSync` without understanding the callback-style requirement.
 
-**A real pass requires ≥1 file named in stdout** — After writing the file, run `npm test` and verify that stdout names `src/index.test.js` as a discovered file. Silent exit 0 is the false-pass state, not a passing suite. (`CLAUDE.md §Key Conventions`, item 8; `GUARDRAILS.md §6`, item 2.)
+**What the test must verify** — `src/index.test.js:14-15` asserts: (1) exit code is exactly `0`, (2) stdout is byte-exact `'Hello, AI Coding Agent!\n'`. These two assertions constitute the oracle test. (The current test does not assert stderr; adding a stderr assertion is permitted but not required.)
 
-**Manual ES5 verification is required** — `scripts/es5-check.js` scans only `src/index.js` (`scripts/es5-check.js:12`). After writing `src/index.test.js`, manually inspect every line for `const`, `let`, `=>`, `` ` ``, `class`, `async`, `await`, `...`, and destructuring patterns. (`GUARDRAILS.md §6`, item 7.)
+**Path construction via `path.join`** — `src/index.test.js:6` constructs the oracle path as `path.join(__dirname, 'index.js')`. Never use hardcoded relative strings. (`CLAUDE.md §Core Code Patterns`, item 4.)
 
-**`var i` declared before `for` loops** — Following the implicit convention in `scripts/es5-check.js:39`, declare loop variables on their own line before the loop body. (Architecture Assessment §Implicit Rules, item 2.)
+**A real pass requires ≥1 file named in stdout** — After any change, run `npm test` and verify that stdout names `src/index.test.js` as a discovered file. Silent exit 0 was the former false-pass state (0 test files); it no longer applies now that `src/index.test.js` exists.
 
-**Trailing newline** — `src/index.test.js` must end with a trailing newline character. Verify with `xxd` after writing. (`CLAUDE.md §Key Conventions`, item 6.)
+**Manual ES5 verification is required** — `scripts/es5-check.js:12` hardcodes `src/index.js` as its only target. After modifying `src/index.test.js`, manually inspect every line for `const`, `let`, `=>`, `` ` ``, `class`, `async`, `await`, `...`, and destructuring patterns. (`CLAUDE.md §Architecture Deep-Dive`, item 4.)
+
+**`var i` declared before `for` loops** — Following the implicit convention in `scripts/es5-check.js:39`, declare loop variables on their own line before the loop body. (Architecture Assessment §Implicit Rules.)
 
 ## Gotchas
 
-**`npm test` silence is not success.** Before `src/index.test.js` exists, `node --test` exits 0 with zero output. After writing the file, if `npm test` still exits silently, the file may not be discovered (wrong name, wrong location, syntax error preventing parsing). The file must be exactly `src/index.test.js`.
+**`scripts/es5-check.js` will not catch ES6+ in the test file.** The checker hardcodes `src/index.js` as its target (`scripts/es5-check.js:12`). A passing `npm run es5-check` after modifying `src/index.test.js` proves nothing about the test file's ES5 compliance. Manual line-by-line inspection is the only gate.
 
-**`node:test` API changed between Node 18 and 20.** In Node 18, `node --test` is experimental and output format differs from Node 20 LTS (stable). The assertions themselves (`node:assert`) are stable across both. If output looks unusual, check `node --version`.
+**`node:test` API differs between Node 18 (experimental) and Node 20 LTS (stable).** The callback `done` pattern used in `src/index.test.js:8` works on both, but output format and some diagnostic details differ. If output looks unusual, check `node --version`.
 
-**`scripts/es5-check.js` will not catch ES6+ in the test file.** The checker hardcodes `src/index.js` as its target (`scripts/es5-check.js:12`). A passing `npm run es5-check` after writing `src/index.test.js` proves nothing about the test file's ES5 compliance. Manual line-by-line inspection is the only gate.
+**Do not `require()` the oracle into test scope.** `src/index.test.js:10` spawns `node [indexPath]` as a separate child process. Never `require('./index')` — the oracle has no exports, and in-process execution would bypass the byte-exact subprocess isolation the test is designed to provide. (Architecture Assessment §Implicit Rules, "Tests spawn oracle as a child process.")
 
-**`spawnSync` vs `execSync` choice matters for byte verification.** `execSync` returns stdout as a Buffer or string but throws on non-zero exit. `spawnSync` returns `{ stdout, stderr, status }` without throwing, making it easier to assert all three oracle properties independently. Prefer `spawnSync` for test file use.
+**The test file itself is subject to all `.js` file rules.** Single quotes, semicolons, no formatters, no build tools. Do not run `prettier --write` or equivalent on it — formatters may introduce ES6+ syntax or disrupt style compliance.
 
-**The test file itself is a `.js` source file subject to all `.js` file rules** — trailing newline, single quotes, semicolons, no formatters, no build tools. Do not use `prettier --write` or equivalent on it.
+**`npm test` silence after a change is a discovery failure.** If `npm test` exits silently with no named files, the test file may have a syntax error that prevents parsing, or was accidentally moved/renamed. The file must be exactly `src/index.test.js`.
