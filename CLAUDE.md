@@ -129,7 +129,7 @@ Zero inputs, zero I/O, zero network, zero state.
     #   verify blank line          — exactly ONE blank line between closing } and main();
     #   confirm no package-lock.json — lockfile presence is an immediate auto-reject
 
-**Test suite:** `src/index.test.js` exists and is discovered by `node --test`. One test: byte-exact stdout oracle (`'Hello, AI Coding Agent!\n'`) and exit code 0, asserted via subprocess spawn. ES5 CommonJS, callback-style `done` async. The es5-check gate does **not** cover `src/index.test.js` — its ES5 compliance must be verified manually.
+**Test suite:** `src/index.test.js` exists and is discovered by `node --test`. One test: byte-exact stdout oracle (`'Hello, AI Coding Agent!\n'`) and exit code 0, asserted via subprocess spawn. ES5 CommonJS, callback-style `done` async. The es5-check gate does **not** cover `src/index.test.js` — its ES5 compliance must be verified manually. This is the project's only test — there is no unit-level coverage because there is no importable logic to unit test.
 
 ---
 
