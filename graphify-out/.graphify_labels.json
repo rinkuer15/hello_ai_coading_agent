@@ -1,1 +1,13 @@
-{"0": "ES5 Oracle & Test Suite", "1": "MISSION.md Invariants", "2": "Governance Authority Chain", "3": "Compliance Traps & Gates", "4": "Zero-Dep ES5 Philosophy", "5": "index.js Runtime", "6": "Oracle Architecture", "7": "Absolute Prohibitions", "8": "es5-check.js Script", "9": "index.test.js File", "10": "AGENTS.md Shim", "11": "Out-of-Scope Boundary"}
+{
+  "0": "ES5 Oracle & Test Suite",
+  "1": "Hard Invariants (7 Non-Tunable Constraints)",
+  "2": "GUARDRAILS.md",
+  "3": "Mandatory Blank Line",
+  "4": "package.json",
+  "5": "index.js",
+  "6": "Oracle Architecture",
+  "7": "es5-check.js",
+  "8": "index.test.js",
+  "10": "AGENTS.md â€” Discovery Shim",
+  "11": "Out of Scope (Must Never Build)"
+}
