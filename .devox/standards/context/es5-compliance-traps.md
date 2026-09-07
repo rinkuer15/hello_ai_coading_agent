@@ -1,50 +1,26 @@
-# ES5 Compliance Traps
+# ES5 Compliance Traps and False-Pass Gaps
 
-**When to load this:** Any task that edits, creates, or validates a `.js` file in this repository — especially when running lint commands or applying formatters.
+**When to load this:** Editing any `.js` file in this repo (`src/index.js`, `src/index.test.js`, or `scripts/es5-check.js`) — before assuming a passing `npm run lint`/`npm run type-check` means the code is ES5-safe.
 
 ## Overview
 
-This project uses ES5-compatible JavaScript, but `node --check` (used by `npm run lint` and `npm run type-check`) is a V8 syntax check — it accepts all of ES2022+ without complaint. A passing lint run is therefore **not proof of ES5 compliance**. The only automated ES5 gate is `npm run es5-check`, and even that has a known scanner gap for regex literals. Manual line-by-line inspection remains mandatory after every `.js` edit.
-
-A second trap is structural: the mandatory blank line at `src/index.js:4` (between `}` and `main();`) is silently deleted by Prettier, ESLint `--fix`, Biome, and most editor "format on save" settings. Its deletion is a governance failure, not a style nit.
+This project's core invariant is that all `.js` files are ES5-only, but the tooling that "checks" this is easy to mistake for a real gate. `node --check` only parses syntax and happily accepts ES2022+ code, and the dedicated `scripts/es5-check.js` regex gate has a documented blind spot around regex literals. There is also a structural, formatter-erasable invariant (a mandatory blank line) that automated tools do not protect. This module exists to make these traps explicit so an agent doesn't treat "the commands passed" as proof of correctness.
 
 ## Key Files
 
-- `src/index.js` — The 5-line runtime oracle; every line is a governance property; structurally frozen.
-- `scripts/es5-check.js` — Automated ES5 gate: strips comments/strings, scans for 8 forbidden tokens. Does **not** cover test files.
-- `package.json` — Exposes `lint`, `type-check`, and `es5-check` scripts; `lint` and `type-check` run the identical `node --check` command and are **not** ES5 gates.
+- `src/index.js` — the 5-line runtime oracle; the only file with a hard structural shape requirement (blank line between `main()`'s closing `}` and `main();`)
+- `scripts/es5-check.js` — the only automated ES5 gate; scans **only** `src/index.js`
 
 ## Patterns & Rules
 
-**`node --check` is not an ES5 gate** — `package.json` runs `node --check src/index.js` for both `lint` and `type-check`. V8 parses modern JS silently. Confirmed by `CLAUDE.md §Build, Test & Lint`: "node --check passing is not proof of ES5 compliance." Seeing both pass proves only that V8 can parse the file.
-
-**The forbidden ES6+ token set** — `scripts/es5-check.js:28-37` scans for exactly 8 patterns after stripping: `const`, `let`, `=>`, `` ` `` (backtick), `class`, `async`, `await`, `...`. Any of these in unstripped source triggers a failure exit.
-
-**Manual inspection is always required** — After every edit to any `.js` file, manually scan each line for: `const`, `let`, `=>`, `` ` ``, `class`, `...`, destructuring (`{a, b} =`, `[a, b] =`), and `async`/`await`. The automated checker cannot catch all of these (see Gotchas).
-
-**Function declaration style** — Always `function name() {}` (`src/index.js:1`). Never `const name = () => {}` (arrow), never `var name = function() {}` (expression). (`CLAUDE.md §Naming Conventions`, item 3.)
-
-**The mandatory blank line** — `src/index.js:4` must be exactly one blank line between the closing `}` of `main()` and the `main();` call line. This is a governance property, not style. (`CLAUDE.md §Core Code Patterns`, item 2.) Verify with `xxd` after every edit:
-```
-node src/index.js | xxd
-# must produce: 48 65 6c 6c 6f 2c 20 41 49 20 43 6f 64 69 6e 67 20 41 67 65 6e 74 21 0a
-```
-Also run `xxd src/index.js` to verify the blank line character at line 4.
-
-**`var` + explicit `for` loop** — `scripts/es5-check.js:39` declares `var i;` before the loop. Never `.forEach`, `.map`, `.filter`, or other higher-order array methods with ES6 arrow callbacks. (`CLAUDE.md §Core Code Patterns`, item 5.)
-
-**No module system in oracle source** — `src/index.js` must contain zero `require`, `import`, `export`, `module.exports`. (`CLAUDE.md §Core Code Patterns`, item 6.) CommonJS `require` is permitted only in `scripts/`.
-
-**`scripts/es5-check.js` scans only `src/index.js`** — `scripts/es5-check.js:12`: `path.join(__dirname, '..', 'src', 'index.js')`. ES5 compliance in `src/index.test.js` must be verified manually. (`CLAUDE.md §Architecture Deep-Dive`, item 4.)
+- `node --check src/index.js` is used for both `npm run lint` and `npm run type-check` (`package.json` scripts — byte-identical commands) and is parse-only — it accepts ES2022+ syntax without error. It is **not** an ES5 gate (documented at `scripts/es5-check.js` header, lines 3-5).
+- `scripts/es5-check.js` only reads and scans `src/index.js` (`scripts/es5-check.js:12`, `path.join(__dirname, '..', 'src', 'index.js')`). `src/index.test.js` is completely outside its scope and must be verified manually for ES5 compliance.
+- `scripts/es5-check.js` strips block comments, line comments, and string literals before regex-scanning for forbidden tokens (`const`, `let`, `=>`, backtick, `class`, `...`, destructuring, `async`/`await` — `scripts/es5-check.js:28-37`), but it does **not** strip regex literals first. A regex literal such as `/const|let/` would produce a false positive against the scanner (documented limitation, lines 3-5).
+- `src/index.js:3-4` requires exactly one blank line between the closing `}` of `main()` and the `main();` invocation call (`src/index.js:3-5`). This is a structural invariant, not a style preference — see `CLAUDE.md` Core Code Pattern 2 and `GUARDRAILS.md` §2 rule 12.
+- The blank line is silently removed by Prettier, `eslint --fix`, or VS Code "format on save" — none of these tools understand that the blank line is meaningful. No automated command in the pre-PR gate checks for its presence.
 
 ## Gotchas
 
-**`npm run lint` passing feels like a green light — it is not.** The identical `node --check` command is run for both `lint` and `type-check`. Seeing both pass has historically led agents to declare ES5 compliance. It proves only that V8 can parse the file.
-
-**`npm run es5-check` has a regex-literal false-positive gap.** `scripts/es5-check.js:3-6` documents that regex literals are not stripped before scanning. A source pattern like `/const|let/` would cause a false positive failure. Conversely, a forbidden token inside a regex body would not be flagged. Manual inspection cannot be skipped even after `es5-check` passes.
-
-**Formatters silently destroy the mandatory blank line.** Prettier, ESLint `--fix`, Biome, and VS Code "Format on Save" all remove the blank line at `src/index.js:4`. There is no config that preserves it — the only defence is to never run these tools on `src/index.js` and to verify with `xxd` after every edit.
-
-**`scripts/es5-check.js` scans only `src/index.js`.** When `src/index.test.js` is written (it now exists), its ES5 compliance must be verified manually — the checker does not cover it. (`CLAUDE.md §Architecture Deep-Dive`, item 4.)
-
-**Destructuring is not in the forbidden token list.** `scripts/es5-check.js:28-37` scans for 8 specific tokens. Destructuring using `var` would not be caught by the scanner and must be caught by manual inspection.
+- Passing `npm run lint && npm run type-check && npm run es5-check && npm test` does **not** prove ES5 compliance or structural correctness on its own — it proves syntax validity, absence of the 8 known forbidden tokens in `src/index.js` only, and behavioral correctness. Manual per-line inspection of every `.js` file, plus a blank-line check, is still required.
+- Verify the blank line survived any edit by running `node src/index.js | xxd`-style byte inspection or directly viewing the file — do not trust that an editor or formatter left it intact.
+- If you ever add logic to `scripts/es5-check.js` that includes a regex literal containing forbidden-token substrings (e.g., `/const/`), be aware the checker will not strip it and may flag itself or produce misleading results.
