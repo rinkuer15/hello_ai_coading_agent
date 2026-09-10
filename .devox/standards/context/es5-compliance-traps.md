@@ -1,29 +1,29 @@
 # ES5 Compliance Traps
 
-**When to load this:** Editing any `.js` file in this repository (`src/index.js`, `src/index.test.js`, or `scripts/es5-check.js`) — before making the edit and again before declaring it complete.
+**When to load this:** Before editing any `.js` file in this repo (`src/index.js`, `scripts/es5-check.js`, or `src/index.test.js`).
 
 ## Overview
 
-This repository requires strict ES5 language surface in every `.js` file, but the tooling that appears to enforce this is deceptive: `node --check` parses ES2022+ without complaint, and the dedicated ES5 gate (`scripts/es5-check.js`) has a documented gap and a limited scan scope. An agent that trusts green tooling output alone will silently ship non-compliant code. This module exists to make the gap between "tooling passed" and "actually ES5 compliant" explicit.
+This project mandates ES5-only JavaScript syntax, but the tooling that's supposed to enforce this has two significant blind spots: `node --check` doesn't catch modern syntax at all, and the mandatory blank-line formatting requirement is invisible to every automated tool. Agents must know these traps exist before touching any source file, or they will silently introduce non-compliant changes that pass CI.
 
 ## Key Files
 
-- `src/index.js` — the 5-line oracle; the only file `scripts/es5-check.js` scans automatically.
-- `src/index.test.js` — the sole test file; ES5 compliance here is **never** automated-checked.
-- `scripts/es5-check.js` — the regex-based gate itself; scans only `src/index.js` (`scripts/es5-check.js:12`, `target = path.join(__dirname, '..', 'src', 'index.js')`).
-- `package.json` — defines `lint` and `type-check` as the identical command `node --check src/index.js` (`package.json:10-11`).
+- `src/index.js` — the 5-line stdout oracle; structurally frozen, must remain ES5, and requires an exact blank line at line 4.
+- `package.json` — defines `lint` and `type-check` scripts that both alias to `node --check src/index.js` (`package.json:9-10`).
+- `scripts/es5-check.js` — the actual ES5 gate; a zero-dependency regex-based scanner (`scripts/es5-check.js:8-9,28-37`).
 
 ## Patterns & Rules
 
-1. **`npm run lint` and `npm run type-check` are byte-identical commands and are NOT ES5 gates.** Both map to `node --check src/index.js` (`package.json:10-11`). V8's parser accepts `const`, `let`, arrow functions, classes, template literals, and more — it only checks syntax validity, not the ES5 subset. A green result here proves nothing about ES5 compliance (GUARDRAILS.md §2 rule 8, §6 trap 1).
-2. **`scripts/es5-check.js` only ever reads `src/index.js`.** Confirmed at `scripts/es5-check.js:12` — the `target` path is hardcoded to `src/index.js`. It will never catch forbidden tokens in `src/index.test.js` or in itself (GUARDRAILS.md §6 trap 7).
-3. **The strip-then-scan pipeline does not strip regex literals.** `scripts/es5-check.js:14-26` strips block comments, line comments, single/double-quoted strings, and template literals — but not regex literals. A pattern like `/const|let/` embedded in source would produce a false positive on the forbidden-token scan (self-documented at `scripts/es5-check.js:4-6`; GUARDRAILS.md §6 trap 5). Conversely, a regex like `/=>/ ` used for some other purpose would also trip the scanner as if it were an arrow function — so absence of regex literals in `src/index.js` is a hard requirement, not just a convenience.
-4. **Manual, line-by-line inspection is mandatory after every `.js` edit — not optional.** GUARDRAILS.md §2 rule 8 and §3 gate 8 both require inspecting every touched line for `const`, `let`, `=>`, backticks, `class`, `...`, destructuring, and `async`/`await`, specifically because no automated tool covers the full ES5 surface across all files.
-5. **The forbidden-token list enforced by the automated gate** (`scripts/es5-check.js:28-37`): `const`, `let`, `=>`, template literals (backtick), `class`, `async`, `await`, spread/rest (`...`). Destructuring is *not* in this regex list and must be caught manually.
-6. **CommonJS `require` is permitted in tooling (`scripts/`) but forbidden in `src/index.js`.** GUARDRAILS.md §2 rule 11 draws this exact line: the oracle itself may never gain `require`/`import`/`export`/`module.exports`, but `scripts/es5-check.js` (and `src/index.test.js`) may use `require`.
+- `node --check` is parse-only (V8 syntax check) and accepts all of ES2022+ without error — it is **not** an ES5 gate despite being aliased to both `lint` and `type-check` (`package.json:9-10`).
+- Only `npm run es5-check` provides real ES5 enforcement, via regex scanning for forbidden tokens: `const`, `let`, `=>`, backticks, `class`, `...`, destructuring, `async`/`await` (`scripts/es5-check.js:28-37`).
+- `es5-check.js` scans **only** `src/index.js` (hardcoded path) — it does not cover `src/index.test.js` or itself (`scripts/es5-check.js:11`; `es5-checker-mechanics.md` for pipeline details).
+- Required style in `src/index.js`: `function` declarations only (never expressions), `var` for all variables, single-quoted strings (`src/index.js:1-2`).
+- Exactly one blank line must exist between the closing `}` of `main()` and the trailing `main();` call (`src/index.js:3-5`). This is load-bearing per governance docs but is not checked by any automated tool.
+- Prettier, ESLint `--fix`, and VS Code "format on save" will silently delete this blank line — always re-verify byte layout after any edit, including edits made by other tooling.
 
 ## Gotchas
 
-- Seeing `npm run lint` or `npm run type-check` pass and treating that as evidence of ES5 compliance is the single most common failure mode this repo is designed to catch (GUARDRAILS.md §6 trap 1). Always run `npm run es5-check` **and** manually inspect the diff.
-- `src/index.test.js` is ES5-compliant today, but because no automated tool checks it, any future edit must be manually verified — a passing `npm test` says nothing about ES5 syntax.
-- Do not "fix" the regex-literal gap in `scripts/es5-check.js` by adding a real parser dependency (e.g., acorn) — that would violate the zero-dependency invariant (MISSION.md hard invariant #3). The gap is an accepted, documented limitation, not a bug to eliminate with heavier tooling.
+- Passing `npm run lint` and `npm run type-check` gives **zero** assurance of ES5 compliance — both commands are byte-identical and only catch outright syntax errors, not ES6+ features.
+- After any edit to `src/index.js`, verify with `node src/index.js | xxd` that stdout is still exactly `48 65 6c 6c 6f 2c 20 41 49 20 43 6f 64 69 6e 67 20 41 67 65 6e 74 21 0a`, and manually inspect the file to confirm the blank line at line 4 survived.
+- `es5-check.js`'s regex-strip pipeline does not strip regex literals, so a forbidden token appearing inside a regex literal could produce a false positive or mask a true negative (see `es5-checker-mechanics.md`).
+- Because the gate only targets `src/index.js`, introducing ES6+ syntax into `scripts/es5-check.js` or `src/index.test.js` would go completely undetected by automation — manual review is the only safeguard.

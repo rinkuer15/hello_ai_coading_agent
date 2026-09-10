@@ -1,31 +1,26 @@
 # ES5 Checker Mechanics
 
-**When to load this:** Before modifying `scripts/es5-check.js` itself (as opposed to merely running it).
+**When to load this:** Before modifying `scripts/es5-check.js` itself.
 
 ## Overview
 
-`scripts/es5-check.js` is a zero-dependency, regex-based static analyzer that is itself written in ES5 and must stay that way. Its internals — a strip-then-scan pipeline with a documented gap — are implementation details too deep for CLAUDE.md but essential to understand before extending the forbidden-token list or fixing the known regex-literal gap. This module is the deep-dive reference for that file specifically.
+`scripts/es5-check.js` is the project's only real ES5 enforcement gate — a zero-dependency, regex-based scanner that strips comments/strings and then scans for forbidden ES6+ tokens. Because it's hand-rolled rather than backed by a proper parser (e.g., an ESLint ES5 parser config), it has known mechanical gaps that any change to the script must not worsen.
 
 ## Key Files
 
-- `scripts/es5-check.js` — the entire checker; ~47 lines, no dependencies beyond Node built-ins `fs` and `path`.
+- `scripts/es5-check.js` — the entire gate: reads `src/index.js` via `fs.readFileSync` (`scripts/es5-check.js:11`), strips comments/strings, then regex-scans for forbidden tokens (`scripts/es5-check.js:28-37`), and exits via `console.error` + `process.exit(1)` on failure or `process.exit(0)` on success (`scripts/es5-check.js:44-47`).
 
 ## Patterns & Rules
 
-1. **Pipeline order: strip, then scan.** The script first strips content that could produce false positives, then regex-tests what remains against the forbidden-token list (`scripts/es5-check.js:14-37`):
-   - Block comments: `/\/\*[\s\S]*?\*\//g` → removed (`scripts/es5-check.js:15`)
-   - Line comments: `/\/\/[^\n]*/g` → removed (`scripts/es5-check.js:17`)
-   - Single-quoted strings: replaced with `""` (`scripts/es5-check.js:19`)
-   - Double-quoted strings: replaced with `""` (`scripts/es5-check.js:21`)
-   - Template literals (backtick strings): replaced with `""` (`scripts/es5-check.js:23-24`) — note the comment explaining these are stripped to avoid false positives on their *contents*, even though their mere presence is itself a violation caught separately.
-   - **Regex literals are NOT stripped** — self-documented as a known limitation at `scripts/es5-check.js:4-6`.
-2. **The forbidden-token list is a fixed array of `{pattern, name}` objects** (`scripts/es5-check.js:28-37`): `const`, `let`, `=>`, backtick (template literal), `class`, `async`, `await`, `...` (spread/rest). Note this list does **not** include a destructuring pattern (e.g. `\[\w+,\s*\w+\]\s*=` or object destructuring) — that must be caught by manual inspection, since encoding a reliable destructuring regex without false positives (array literals, etc.) is nontrivial.
-3. **The target file is hardcoded, not parameterized.** `target = path.join(__dirname, '..', 'src', 'index.js')` (`scripts/es5-check.js:12`) — the script has no CLI argument support and by design scans only `src/index.js`. Extending it to also scan `src/index.test.js` would be a legitimate, in-scope improvement per MISSION.md's "Allowed Evolutions," but is not the current behavior.
-4. **Explicit `process.exit` on every path.** Success prints `'ES5 check passed.'` and exits 0; failure prints the joined list of failure names and exits 1 (`scripts/es5-check.js:39-47`). GUARDRAILS.md §2 rule 16 requires this pattern for all tooling scripts — no implicit fall-through exit.
-5. **The script itself must remain ES5, CommonJS, and zero-dependency.** It already uses `var`, `function`, single quotes, and `require('fs')`/`require('path')` only (`scripts/es5-check.js:8-9`) — any edit must preserve this, since MISSION.md's "Allowed Evolutions" permits improving this script only "provided the file remains ES5-compliant, zero-dependency, and CommonJS."
+- The script is itself ES5-style: `var` declarations, `function` declarations, single-quoted strings, `path.join(__dirname, ...)` for path construction (`scripts/es5-check.js:8-9,12`).
+- Loop style follows `var i; for (i = 0; ...)` — the loop variable is declared before the `for` statement, not inline (`scripts/es5-check.js:39`).
+- The pipeline is strip-then-scan: comments and string literals are stripped first, then the remaining code is regex-matched against the forbidden-token list: `const`, `let`, `=>`, backticks, `class`, `...`, destructuring, `async`/`await` (`scripts/es5-check.js:28-37`).
+- Error handling follows the tooling convention: `console.error` with a descriptive message, then explicit `process.exit(1)` on failure; explicit `process.exit(0)` (or equivalent) on success — never an uncaught throw (`scripts/es5-check.js:44-47`).
+- The script hardcodes its target to `src/index.js` only (`scripts/es5-check.js:11`) — it deliberately does not scan `src/index.test.js` or itself.
 
 ## Gotchas
 
-- Closing the regex-literal gap (e.g., stripping `/.../ ` patterns before scanning) is explicitly named in MISSION.md's "Allowed Evolutions" as legitimate scope — but do not reach for a real parser library (e.g., acorn/esprima) to do it, since that would violate the zero-dependency invariant. Any fix must stay regex-based.
-- A hand-rolled regex-literal stripper is itself error-prone (distinguishing `/` division from `/regex/` requires lookback context) — if attempting this, test extensively against edge cases like `a/b/c` (division) vs `/abc/.test(x)` (regex) before trusting it.
-- This script is the **only** automated ES5 gate in the repo, and it only ever checks `src/index.js` — do not assume extending its forbidden-token list also protects `src/index.test.js` or the checker script itself unless the `target` path logic is also changed.
+- The strip-then-scan pipeline does **not** strip regex literals — a forbidden token pattern appearing inside a regex literal (e.g. `/const|let/`) can produce a false positive or, worse, mask a true negative if the stripping logic misinterprets literal boundaries. Any change to the stripping logic must be manually tested against this edge case.
+- Because the target path is hardcoded to `src/index.js`, extending the check to cover additional files (e.g. `src/index.test.js`) requires a deliberate scope change — do not assume "the ES5 gate" already covers all `.js` files in the repo.
+- This script is a protected part of the public tooling surface (referenced by the frozen `es5-check` npm script in `package.json`) — changes to its CLI behavior (exit codes, output format) could break the "Full pre-PR validation gate" workflow documented in CLAUDE.md.
+- Since there's no unit test suite for `es5-check.js` itself, any modification should be manually verified against both a compliant and a non-compliant version of `src/index.js` to confirm pass/fail behavior still works correctly.

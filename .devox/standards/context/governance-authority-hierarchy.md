@@ -1,29 +1,28 @@
 # Governance Authority Hierarchy
 
-**When to load this:** Any task that touches, references, or requires interpreting MISSION.md, GUARDRAILS.md, CLAUDE.md, or AGENTS.md — including when you believe one of them contains an error or inconsistency.
+**When to load this:** Before any task that touches, references, or would require changing `MISSION.md`, `GUARDRAILS.md`, `CLAUDE.md`, or `AGENTS.md`.
 
 ## Overview
 
-The four governance files form a total-ordering rule system, and the single highest-risk failure mode in this repository is an agent "fixing" one of them because it perceives an inconsistency. This module documents the authority hierarchy and the immutability trap explicitly, separate from code-style guidance, because the consequence of getting this wrong (editing a protected file) is an instant, unrecoverable compliance failure regardless of how correct the edit was.
+This repo is governed by four layered documents with a strict total ordering of authority, and all four are immutable to automated agents regardless of how well-intentioned a proposed edit might be. This is a distinct process/legal topic from code style or ES5 mechanics — it only matters when a task's scope brushes against the governance layer itself, so it's kept out of the always-loaded CLAUDE.md.
 
 ## Key Files
 
-- `MISSION.md` — scope authority: what is/isn't in scope, hard invariants, quality gates. Wins all scope disputes.
-- `GUARDRAILS.md` — process authority: triage rules, implementation prohibitions, quality gates, protected files, auto-reject triggers, compliance traps. Wins all process disputes.
-- `CLAUDE.md` — style/convention authority: naming, code patterns, tech stack, repo layout. Wins all code-style disputes.
-- `AGENTS.md` — discovery shim only, redirects to `CLAUDE.md`; carries no independent authority of its own.
+- `MISSION.md` — scope authority; defines in-scope/out-of-scope work and hard invariants. Wins all scope disputes.
+- `GUARDRAILS.md` — process authority; absolute prohibitions, quality gates, protected-file classes. Wins all process disputes.
+- `CLAUDE.md` — style/convention authority; naming, ES5 rules, per-file scope. Wins all code-style disputes.
+- `AGENTS.md` — a pure discovery shim redirecting to `CLAUDE.md`; carries no independent authority of its own.
 
 ## Patterns & Rules
 
-1. **The conflict-resolution order is explicit and total.** GUARDRAILS.md's own header states it plainly: "MISSION.md wins on scope, CLAUDE.md wins on code style, GUARDRAILS.md wins on process." CLAUDE.md independently states the same ordering ("MISSION.md wins on scope, GUARDRAILS.md wins on process, this file wins on code style and conventions"). Both files agree — there is no ambiguity about precedence.
-2. **All four files are immutable to automation, without exception.** MISSION.md hard invariant #4 and GUARDRAILS.md §4 (Protected Files) both list all four files. GUARDRAILS.md §5 trigger 1 makes modifying any protected file an **auto-reject with no fix attempt** — not a warning, not a "flag for review," an immediate reject.
-3. **"Fixing" a perceived inconsistency is itself the failure being tested, not a service to the project.** MISSION.md's "Out of Scope" section states this explicitly: editing these files "for any reason, including correcting factual errors, improving clarity, or resolving apparent inconsistencies" is out of scope. GUARDRAILS.md §7 (Escalation to Human) repeats it: "Any perceived inconsistency is found in the governance constitution — do not resolve it autonomously; the constitution is the product being tested against."
-4. **The correct response to a perceived governance inconsistency is escalation, not action.** GUARDRAILS.md §1 "Defer to Human" and §7 "Escalation to Human" both name this scenario explicitly as requiring a stop-and-escalate response — do not edit, do not silently ignore, state clearly what the perceived inconsistency is and that it requires human review.
-5. **A known, accepted inconsistency already exists and must NOT be "fixed": `README.md`'s bare `npm install` instruction contradicts GUARDRAILS.md §2 rule 4.** This is explicitly documented as intentional drift in both GUARDRAILS.md ("this is a known documentation drift and does not authorise using bare `npm install`") and CLAUDE.md's Gotchas section. `README.md` itself may be freely edited (it's the one file automation may freely modify), but the four governance files may not be touched to "resolve" this tension from their side.
-6. **`AGENTS.md` has zero independent authority — it is purely a discovery shim.** Its own content states this: "This file exists as a redirect so tools that look for `AGENTS.md` find the canonical instructions immediately... Every AI agent — regardless of which file it discovers first — follows the exact same instructions" in CLAUDE.md. Do not treat conflicting guidance in `AGENTS.md` as authoritative over CLAUDE.md; there should be none, since it only redirects.
+- Conflict resolution ordering is explicit: "MISSION.md wins on scope, GUARDRAILS.md wins on process, this file [CLAUDE.md] wins on code style and conventions" (CLAUDE.md header).
+- All four governance files are described as "Immutable to automation" in the Repository Layout table — no automated workflow, including this AI agent, may edit them even to fix a perceived inconsistency.
+- The one documented exception in the entire repo to "automation may edit files" is `README.md`, explicitly called out as "the only file automation may freely modify" (Important Files table) — everything else, especially the four governance docs, is out of bounds.
+- `AGENTS.md`'s sole purpose is discoverability: several tools look for `AGENTS.md` by convention, so it exists to redirect them to `CLAUDE.md` rather than duplicating content — it must never diverge from being a pure redirect.
+- If an agent identifies a genuine inconsistency between governance files (e.g., README.md's bare `npm install` contradicting GUARDRAILS.md's `--no-package-lock` requirement), the correct action is to escalate to a human reviewer, not to edit the governance file directly.
 
 ## Gotchas
 
-- Even a factually correct edit to a governance file is a compliance failure by design — this is counterintuitive for an agent trained to proactively fix inconsistencies it notices. Resist that instinct here specifically.
-- `package.json`'s scripts section is *also* protected (GUARDRAILS.md §4) even though it isn't one of the four markdown files — don't assume "protected files" means only the governance docs.
-- The meta-rule in GUARDRAILS.md's own preamble ("When a situation is not explicitly covered... err on the side of safety... anything that... modifies governance files is an automatic reject — even if not specifically enumerated") means silence in the rules is not license to edit these files; the default is always "don't touch."
+- It is tempting for an agent to "just fix" a small inconsistency it notices in one of these four files during an unrelated task — this is explicitly called out as a compliance failure, not a helpful correction, even if the fix is objectively correct.
+- Because `CLAUDE.md` states it wins on "code style and conventions" but `GUARDRAILS.md` wins on "process," an agent must judge which category a given rule falls into before assuming which document governs — when genuinely ambiguous, treat it as a process question deferred to `GUARDRAILS.md`.
+- `AGENTS.md` looking "thin" or "redundant" compared to `CLAUDE.md` is by design, not an oversight — do not attempt to "flesh it out" with duplicated content, as this would create a second source of truth that could drift.
