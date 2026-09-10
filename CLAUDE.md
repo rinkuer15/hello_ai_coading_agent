@@ -145,11 +145,8 @@ when the current task touches its topic.
 ## Architecture Deep-Dive
 
 1. **Two decoupled layers with zero runtime interaction.** The runtime oracle (`src/index.js`) and the governance constitution (four `.md` files) are completely decoupled at runtime — no code reads the governance files. The governance layer constrains *how agents may change* the runtime layer but has zero runtime effect on it.
-
 2. **`src/index.js` is immutable in structure, not just content.** The 5-line shape — `function main(){}` at line 1, blank line at line 4, `main();` at line 5 — is a hard requirement. No logic may be added, no second function introduced, no module system attached, no comment inserted.
-
 3. **Single-file production architecture is permanent.** `src/index.js` is the sole production source; `src/index.test.js` is the sole test file. A second `.js` source file under `src/` beyond these two is an immediate hard reject, regardless of purpose.
-
 4. **`scripts/es5-check.js` scans only `src/index.js`.** `src/index.test.js` and `scripts/es5-check.js` itself are not covered by the automated ES5 gate. Their ES5 compliance must always be verified manually. (Deeper mechanics of the strip-then-scan pipeline and its regex-literal gap: see the `es5-checker-mechanics` context module.)
 
 ---
