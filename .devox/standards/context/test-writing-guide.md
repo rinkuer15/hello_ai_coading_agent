@@ -1,28 +1,28 @@
-# Test Writing Guide
+# Test Writing & Subprocess Isolation Pattern
 
-**When to load this:** Load this before creating, modifying, or reviewing `src/index.test.js` — the project's sole test file.
+**When to load this:** Writing or modifying `src/index.test.js`, or considering adding any new test file to this repo.
 
 ## Overview
 
-`src/index.test.js` is the only authorised test file in the repository (CLAUDE.md, "Single-file production architecture is permanent"). It carries constraints beyond ordinary ES5 style: it must exercise the oracle via subprocess isolation rather than module import, use callback-style async rather than Promises, and assert byte-exact output. These constraints only matter when this specific file is being written or reviewed.
+This repo has exactly one test file, `src/index.test.js`, which asserts the oracle's byte-exact stdout and exit code by spawning it as a child process rather than importing it. This is a deliberate isolation pattern, not incidental style — it proves the oracle's real-world (process) behavior instead of its in-module behavior, and it must be preserved in any future edits to this file.
 
 ## Key Files
 
-- `src/index.test.js` — the sole test file; one integration test, spawns `src/index.js` as a child process
-- `src/index.js` — the oracle under test (never imported directly into test scope)
+- `src/index.test.js` — the only test file permitted in this repo (per MISSION.md's single-file-architecture invariant); uses Node's built-in `node:test` + `node:assert`, no third-party runner
 
 ## Patterns & Rules
 
-- **Tests must spawn the oracle as a child process, never `require()` it into test scope.** `src/index.test.js:10` uses `childProcess.spawn('node', [indexPath])`. This preserves byte-level isolation and confirms real process semantics, not module semantics (CLAUDE.md rule 7; GUARDRAILS.md §2 rule 14).
-- **Use Node's built-in test runner only**: `require('node:test')` and `require('node:assert')` (`src/index.test.js:1-2`) — no Jest, Mocha, Vitest, or any other dependency (MISSION.md "Dependencies and Tooling Expansion" out-of-scope list).
-- **Callback (`done`) async pattern only — no Promises, no `async`/`await`, no arrow functions.** The test signature is `function (t, done)` (`src/index.test.js:8`), with `done()` invoked inside the `proc.on('close', ...)` callback (`src/index.test.js:15,18`). This preserves ES5 compliance in a file the automated `es5-check` gate does not cover (GUARDRAILS.md §2 rule 15).
-- **Assertions must be byte-exact.** `assert.strictEqual(stdout, 'Hello, AI Coding Agent!\n', ...)` (`src/index.test.js:17`) and `assert.strictEqual(code, 0, ...)` (`src/index.test.js:16`) — do not loosen these to substring/regex matches.
-- **Use `path.join(__dirname, ...)` for all path construction** — never hardcoded relative strings (`src/index.test.js:6`; CLAUDE.md rule 4).
-- **Never modify this file to make a failing test pass.** If the oracle changed and a test fails, fix `src/index.js`, not the assertion — unless there's an explicit, scrutinised reason the test itself was wrong (GUARDRAILS.md §2 rule 1).
-- **`npm test` output must name ≥1 discovered test file.** A silent `exit 0` with zero files discovered is a false pass, not a real pass (GUARDRAILS.md §6 item 2; §3 gate 4).
+- The oracle is spawned as a subprocess via `childProcess.spawn('node', [indexPath])` (`src/index.test.js:8`) — it is never `require()`'d into the test's module scope. This preserves byte-level isolation and confirms stdout under real process semantics, not module semantics.
+- `indexPath` is built with `path.join(__dirname, 'index.js')` (`src/index.test.js:6`) — never a hardcoded relative string like `'./index.js'`.
+- Async control flow uses the callback (`done`) pattern from `node:test` (`src/index.test.js:8,15,18`) — no Promises, no `async`/`await`, consistent with the ES5-only constraint extending to test code even though `es5-check.js` does not scan this file.
+- Assertions (`src/index.test.js:15-16`):
+  - `assert.strictEqual(code, 0, 'exit code must be 0')`
+  - `assert.strictEqual(stdout, 'Hello, AI Coding Agent!\n', 'stdout must be byte-exact')` — note the trailing `\n` is part of the expected value; do not trim it when writing similar assertions.
+- All requires use the `node:` protocol prefix (`node:test`, `node:assert`, `node:child_process`, `node:path` — `src/index.test.js:1-4`), not the bare module names. Follow this convention for any new built-in imports in this file.
+- There is no unit-level test coverage in this repo, and there should not be — `src/index.js` has no importable logic (`main()` is called eagerly at module scope, not exported), so unit testing it would require breaking the single-file, no-module-system architecture. Do not add `module.exports` to `src/index.js` to make it more "testable" — that is an explicit violation of the frozen 5-line structure.
 
 ## Gotchas
 
-- There is no unit-level test coverage in this project by design — there's no importable logic to unit test. Don't add unit tests around internals; the single subprocess integration test is the intended full extent of coverage (CLAUDE.md "Test suite" section).
-- `scripts/es5-check.js` does NOT scan `src/index.test.js`. Any ES6+ syntax accidentally introduced here (e.g., an arrow function or `const`) will not be caught by any automated gate — manual line-by-line inspection is mandatory (GUARDRAILS.md §6 item 7).
-- Adding a second test file under `src/` is an auto-reject trigger — `src/index.test.js` is the sole authorised exception to the single-source-file rule (MISSION.md Hard Invariant 6; GUARDRAILS.md §5 trigger 5).
+- It is tempting to simplify the test by `require('./index.js')` directly — resist this. It would change the test from a black-box, real-process verification into a module-load side-effect check, which is a weaker and different guarantee, and it would violate the repo's stated isolation pattern.
+- `es5-check.js` does not scan `src/index.test.js` (`scripts/es5-check.js:11` targets only `src/index.js`), so any ES6+ syntax accidentally introduced here (e.g. `const`, arrow functions) will not be caught by the automated gate — review this file manually for ES5 compliance on every edit.
+- Adding a second test file is not itself forbidden by MISSION.md's single-*production*-file rule, but no second test file currently exists — if one is proposed, confirm it doesn't duplicate `src/index.test.js`'s scope before adding it, since there is no importable logic in `src/index.js` to justify additional test surface.
