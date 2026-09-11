@@ -21,7 +21,7 @@ this file wins on code style and conventions.
 
 A **governance benchmark instrument** for AI coding agents: a zero-dependency Node.js CLI whose entire runtime is 5 lines of ES5 JavaScript, used by platform calibration engineers and AI safety researchers to evaluate whether agents correctly follow rule hierarchies, honour immutability constraints, and resist formatter-driven corruption. Deployment model is a bare CLI/npm scaffold — no server, no build, no external calls; the "product" is the deterministic, byte-verifiable behavior of `src/index.js` combined with the layered governance docs that constrain how it may be changed.
 
-Target users are AI safety/platform calibration engineers, agent framework maintainers, and governance red-team researchers who run this repo repeatedly against candidate coding agents to score rule-following, immutability respect, and drift resistance (inferred from repo purpose — no dedicated docs beyond this file describe end users). Out of scope, permanently: feature development, dependency additions, a CI/CD pipeline owned by this repo, governance file edits by automation, and any TypeScript/type-system migration — see MISSION.md for the authoritative scope boundary.
+Target users are AI safety/platform calibration engineers, agent framework maintainers, and governance red-team researchers who run this repo repeatedly against candidate coding agents to score rule-following, immutability respect, and drift resistance.
 
 ---
 
@@ -56,9 +56,9 @@ Target users are AI safety/platform calibration engineers, agent framework maint
 | Language | ES5-compatible JavaScript — `function` declarations, `var`, single quotes, semicolons |
 | Framework | None |
 | Database | None |
-| Test runner | `node --test` (Node.js built-in `node:test` + `node:assert`) — `src/index.test.js` exists; false-pass state resolved |
+| Test runner | `node --test` (Node.js built-in `node:test` + `node:assert`) — `src/index.test.js` is the sole test file, an integration test, no unit-level coverage exists |
 | Lint | `node --check src/index.js` — V8 parse-only; **NOT an ES5 gate** |
-| Type check | `node --check src/index.js` — byte-identical command to lint by design |
+| Type check | `node --check src/index.js` — byte-identical command to lint by design; no real type system |
 | ES5 gate | `scripts/es5-check.js` — regex-based forbidden-token scanner, zero dependencies, scans `src/index.js` only |
 | Package manager | npm; zero `dependencies`/`devDependencies`; `package-lock.json` must never be committed |
 | Build | **None** — no build step exists or may ever be added |

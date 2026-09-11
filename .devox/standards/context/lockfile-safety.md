@@ -1,26 +1,27 @@
-# Lockfile Safety
+# Lockfile Safety and npm install Discipline
 
-**When to load this:** Load this before running `npm install`, adding/editing dependencies, or touching `package.json`.
+**When to load this:** Before running `npm install` in this repo, or when touching `package.json`, `.gitignore`, or README.md's setup instructions.
 
 ## Overview
 
-This project enforces a zero-dependency invariant, but npm's default behavior actively works against that: a bare `npm install` generates `package-lock.json` even when there are zero dependencies to lock, and `.gitignore` does not block it. This is a compounding failure surface across three files (`package.json`, `.gitignore`, and the generated lockfile itself) that's easy to trigger by habit.
+This repo has zero dependencies by design, but that does not make `npm install` safe to run carelessly. Three separate, compounding failure surfaces can result in a committed `package-lock.json`, which is treated as an auto-reject condition. This module walks through each surface so an agent doesn't trip over any of them.
 
 ## Key Files
 
-- `package.json` — zero `dependencies`/`devDependencies`; 5 frozen scripts (sealed public API)
-- `.gitignore` — 8 deliberate entries; does NOT include `package-lock.json`
+- `package.json` — has no `dependencies`/`devDependencies` keys; the scripts section is a sealed public API.
+- `.gitignore` — 8 deliberate entries; does not include `package-lock.json`.
+- `README.md` — human-facing docs, the only file automation may freely modify, but currently instructs a bare `npm install`.
+- `GUARDRAILS.md` — process authority; specifies the `--no-package-lock` requirement.
 
 ## Patterns & Rules
 
-- **Always use `npm install --no-package-lock`, never bare `npm install`.** Bare `npm install` silently generates `package-lock.json` even with zero deps — an immediate auto-reject trigger (GUARDRAILS.md §2 rule 4; §5 trigger 3; §6 item 4).
-- **`.gitignore` has exactly 8 deliberate entries** (`node_modules/`, `dist/`, `.env`, `*.log`, `__pycache__/`, `.DS_Store`, `graphify-out/manifest.json`, `graphify-out/cost.json`) and is itself immutable (GUARDRAILS.md §4). None of them is `package-lock.json` — its exclusion is enforced by process policy, not the filesystem (GUARDRAILS.md §4 note; §6 item 8).
-- **Never add any npm dependency for any reason** — not for testing, linting, formatting, or type-checking (GUARDRAILS.md §2 rule 3; MISSION.md Hard Invariant 3). Zero `dependencies`/`devDependencies` is permanent.
-- **`package.json`'s scripts section is a sealed public API** — the 5 existing scripts (`start`, `test`, `lint`, `type-check`, `es5-check`) may not be modified, and it is on the protected-files list (GUARDRAILS.md §4; §2 rule "Requirements for Every PR").
-- **README.md's Setup section shows bare `npm install`** — this is known, acknowledged documentation drift (GUARDRAILS.md §2 rule 4 note). Following the README does not exempt you from the `--no-package-lock` requirement or from the lockfile auto-reject rule (GUARDRAILS.md §6 item 4).
+- Always run `npm install --no-package-lock`, never bare `npm install`, even though the project has zero dependencies (per CLAUDE.md's Build/Test/Lint section and GUARDRAILS.md §2). A bare install still generates a `package-lock.json` file on disk.
+- `.gitignore`'s 8 deliberate entries (`node_modules/`, `dist/`, `.env`, `*.log`, `__pycache__/`, `.DS_Store`, `graphify-out/manifest.json`, `graphify-out/cost.json`) do **not** include `package-lock.json`. This is a deliberate gap in `.gitignore`, not an oversight — the exclusion is enforced by process policy (GUARDRAILS.md), not by git tooling. Do not assume `.gitignore` will save you if you run a bare install.
+- `README.md`'s setup section currently instructs a bare `npm install`, which directly contradicts GUARDRAILS.md §2's prohibition on committing lockfiles. When following instructions, GUARDRAILS.md wins — always use `--no-package-lock` regardless of what README.md currently says. README.md is a file automation may freely modify, so if asked to fix documentation drift, this is the one place it's safe to correct.
+- `package.json`'s scripts section (`start`, `test`, `lint`, `type-check`, `es5-check`) is a sealed public API — modifying it (renaming, adding, removing scripts) is an auto-reject, independent of the lockfile issue.
 
 ## Gotchas
 
-- If a lockfile is accidentally generated (e.g., by an agent or contributor running bare `npm install`), it must be manually deleted before staging any changes — `.gitignore` will not catch it (GUARDRAILS.md §6 item 8).
-- Fixing the README's bare `npm install` instruction is in scope (README.md is the one freely modifiable file), but do not treat the README's current wording as authorization to skip `--no-package-lock` in your own actions.
-- `package-lock.json` presence in the repo is checked as an explicit quality gate (`GUARDRAILS.md §3 gate 7`) — verify it's absent before considering any change complete.
+- If a bare `npm install` is accidentally run and `package-lock.json` appears, do not stage or commit it — delete it before any `git add`/`git commit`, and re-run with `--no-package-lock` if dependency resolution is genuinely needed.
+- Because there are zero dependencies, `npm install --no-package-lock` is effectively a no-op — if a task appears to require adding a dependency, stop and check MISSION.md/GUARDRAILS.md first, since dependency additions are out of scope for this repo entirely, not just a lockfile concern.
+- Do not "fix" the README/GUARDRAILS contradiction by editing GUARDRAILS.md — GUARDRAILS.md is immutable to automation. The correct fix, if requested, is to update README.md to match GUARDRAILS.md, never the reverse.
