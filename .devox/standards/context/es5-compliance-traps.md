@@ -1,27 +1,27 @@
-# ES5 Compliance Traps and Verification Gaps
+# ES5 Compliance Traps
 
-**When to load this:** Before or after editing `src/index.js` (or any `.js` file), or when asked to verify/prove ES5 compliance for this repo.
+**When to load this:** Any task that edits `src/index.js` (or reviews a diff against it) — before making the edit and again immediately after, to verify the change is still ES5-compliant and structurally intact.
 
 ## Overview
 
-This repo's entire value proposition rests on `src/index.js` staying byte-stable, structurally frozen, and strictly ES5. The tooling that is supposed to guarantee this (`node --check`, `npm run lint`, `npm run type-check`) does **not** actually enforce ES5 — it only checks that V8 can parse the file, and V8 happily parses ES2022+. This module documents the gap between what looks like enforcement and what actually is, plus the specific failure modes an agent is likely to trigger.
+`src/index.js` is a 5-line ES5 program that must remain byte-stable in shape: a `function main() {}` declaration, one `console.log` statement, exactly one blank line, then `main();`. Two traps make this harder than it looks: (1) the standard `node --check` command does **not** actually enforce ES5 syntax, and (2) the mandatory blank line at the end of the file is routinely deleted by autoformatters. This module exists because CLAUDE.md's summary rule isn't enough to stop an agent from tripping either trap in practice.
 
 ## Key Files
 
-- `src/index.js` — the 5-line oracle; must remain `function` declaration + `var`-free (it has no vars) + single quotes + exact blank-line structure.
-- `scripts/es5-check.js` — the only tool that actually checks for forbidden ES6+ tokens; scans `src/index.js` only.
-- `package.json` — defines `lint` and `type-check` scripts, both aliased to `node --check src/index.js`.
+- `src/index.js` — the 5-line oracle; every line's shape is a hard constraint (lines 1–5: `function main() {`, `console.log(...)`, `}`, blank, `main();`).
+- `scripts/es5-check.js` — the only automated gate for ES5 compliance, and it only scans `src/index.js`.
+- `package.json` — defines `lint` and `type-check` scripts as the *same* command (`node --check src/index.js`), which is a false-security signal.
 
 ## Patterns & Rules
 
-- `npm run lint` and `npm run type-check` are both literally `node --check src/index.js` (`package.json:9-10`) — this is parse-only syntax validation, not an ES5 gate. Passing these two commands proves nothing about ES5 compliance.
-- The only automated ES5 gate is `npm run es5-check`, which runs `scripts/es5-check.js`. It strips comments/strings via regex and then regex-scans for 8 forbidden tokens: `const`, `let`, `=>`, backticks, `class`, `async`, `await`, `...` (`scripts/es5-check.js:28-37`).
-- `scripts/es5-check.js` scans `src/index.js` only (`scripts/es5-check.js:12`, resolving via `path.join(__dirname, '..', 'src', 'index.js')`). It never scans `src/index.test.js` or itself — ES5 compliance for those two files must be verified manually, line by line.
-- The mandatory blank line between the closing `}` of `main()` and the `main();` call (`src/index.js:3-5`) is a structural requirement, not a style preference. It is silently deleted by Prettier, `eslint --fix`, and VS Code's "format on save." After any edit to `src/index.js`, verify the blank line survived — do not trust that your editor left it alone.
-- Full pre-PR validation requires `npm run lint && npm run type-check && npm run es5-check && npm test` **plus** manual steps that no command can substitute for: byte-verify stdout, inspect every line for ES5 compliance, and confirm the blank line is still present.
+1. **`node --check` is parse-only, not an ES5 gate.** V8 happily parses `const`, `let`, arrow functions, template literals, `class`, `async`/`await`, and spread/rest — none of these fail `node --check`. `package.json:9-10` maps both `lint` and `type-check` to `node --check src/index.js`, so passing both scripts proves nothing about ES5 compliance on its own.
+2. **The mandatory blank line is at `src/index.js:4`**, between the closing `}` of `main()` (line 3) and the `main();` call (line 5). This exact single blank line is a hard structural requirement (CLAUDE.md rule 2). Prettier, ESLint `--fix`, and VS Code "format on save" will silently collapse or remove it.
+3. **Only `npm run es5-check` (`scripts/es5-check.js`) catches forbidden ES6+ tokens**, and it does so via a strip-then-regex-scan pipeline that checks for `const`, `let`, `=>`, backticks, `class`, `async`, `await`, and `...` (`scripts/es5-check.js:27-36`). It does not check for destructuring patterns, `let`-style block scoping edge cases, or the blank-line rule at all.
+4. **The blank line is invisible to every automated tool** — `es5-check.js` never inspects line count or whitespace layout, and `node --check` doesn't care about blank lines. The only way to catch a deleted blank line is manual inspection or a byte-level diff (e.g., `xxd`).
+5. **Every other `.js` file in the repo (`scripts/es5-check.js`, `src/index.test.js`) must also stay ES5-only** per CLAUDE.md rule 1, but neither is covered by the automated `es5-check` gate — see the `es5-checker-mechanics` module for why.
 
 ## Gotchas
 
-- Passing `node --check` gives false confidence — it will accept `const`, arrow functions, template literals, and all other ES6+ syntax without complaint. Never treat a clean `node --check` as proof of ES5 compliance.
-- `scripts/es5-check.js`'s regex-based strip pipeline does not strip regex literals. A pattern like `/const|let/` written as an actual regex literal inside the source can produce a false positive (flagged as violation) or, worse, mask a true negative if the stripping logic misparses it. Always manually re-inspect the file after any edit, even if `es5-check` reports success.
-- Byte-verifying stdout is not optional cosmetics — use `node src/index.js | xxd` and confirm the exact hex sequence `48 65 6c 6c 6f 2c 20 41 49 20 43 6f 64 69 6e 67 20 41 67 65 6e 74 21 0a`. A trailing space, extra newline, or different quote style can slip through `node --check` and `es5-check` entirely.
+- Running `npm run lint && npm run type-check && npm run es5-check && npm test` all passing is **not sufficient proof** of full compliance — you must still manually re-open `src/index.js` and confirm the blank line survived your edit and the tool run.
+- If you use any code-formatting tool (even indirectly through an editor extension) on `src/index.js`, always re-check the file afterward — formatters are the most common source of the blank-line deletion bug in practice.
+- A regex literal inside `src/index.js` containing a forbidden keyword substring (e.g., `/const|let/`) could produce a false positive or, worse, mask a true negative in `es5-check.js`, since regex literals aren't stripped before scanning (`scripts/es5-check.js:3-5`). This is currently moot because `src/index.js` contains no regex literals — but don't add one without re-verifying the checker's behavior.
