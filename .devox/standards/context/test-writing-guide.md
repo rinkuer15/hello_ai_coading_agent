@@ -1,27 +1,29 @@
-# Test Writing Guide for index.test.js
+# Subprocess-Isolation Test Pattern
 
-**When to load this:** Load before writing or modifying `src/index.test.js`, or when asked to add test coverage anywhere in this repo.
+**When to load this:** When writing, modifying, or reviewing `src/index.test.js`, or when asked to add test coverage for anything in this repo.
 
 ## Overview
 
-`src/index.test.js` is the project's sole test file, and it follows conventions distinct from general ES5 style rules: subprocess-spawn isolation (never `require()` the oracle), callback-based async (no Promises/async-await), and byte-exact stdout assertions. This module exists because these test-specific conventions are more detailed than CLAUDE.md's top-level rules should carry.
+This repo has exactly one test file, `src/index.test.js`, and it follows a strict, non-negotiable pattern: spawn the oracle as a real child process and assert on its external behavior (stdout bytes, exit code), never `require()` it into test scope. This module documents that pattern plus the ES5/callback-style constraints that apply specifically to test code.
 
 ## Key Files
 
-- `src/index.test.js` — the only test file in the project; a single integration/black-box test
+- `src/index.test.js` — the only test file that exists or may exist beyond it being extended; uses Node's built-in `node:test` + `node:assert` (`src/index.test.js:1-2`).
+- `src/index.js` — the oracle under test; test script spawns this via `node:child_process`, never imports it.
 
 ## Patterns & Rules
 
-- Tests spawn the oracle as a child process — never `require()` the oracle into test scope. This preserves byte-level isolation and confirms the oracle's stdout under real process semantics, not module semantics (CLAUDE.md "Core Code Patterns" #7; src/index.test.js:8-9 uses `child_process.spawn`).
-- Callback (`done`) async pattern in tests, no Promises/async-await — consistent with the ES5-only surface constraint extending to test code (CLAUDE.md "Core Code Patterns" #8; src/index.test.js:8,15,18, the `(t, done)` signature with `done()` called at the end).
-- `path.join(__dirname, ...)` must be used for constructing the path to the oracle file being spawned, never a hardcoded relative string (CLAUDE.md "Core Code Patterns" #4; src/index.test.js:6).
-- Uses Node's built-in `node:test` and `node:assert` — no external test framework (package.json:8, `"test": "node --test"`).
-- Assertions must be byte-exact: stdout must equal `'Hello, AI Coding Agent!\n'` exactly, and exit code must be 0 (src/index.test.js:15-16).
-- This is the project's only test — there is no unit-level coverage, and none should be added, because there is no importable logic in `src/index.js` to unit test (see CLAUDE.md "Build, Test & Lint" note on test suite).
-- ES5 compliance (`var`, `function` declarations, single quotes) applies to this file too, but it is NOT covered by the automated `scripts/es5-check.js` gate (which only scans `src/index.js`) — verify manually.
+1. **Tests must spawn the oracle as a subprocess, never `require()` it** — this is a hard rule, not a convention (GUARDRAILS.md §2 rule 14). Confirmed in current code: `var proc = childProcess.spawn('node', [indexPath]);` (`src/index.test.js:8`), using `node:child_process`. In-process module loading of `src/index.js` is prohibited because it would test module semantics instead of real process/stdout semantics.
+2. **Assertions are byte-exact, not approximate.** `assert.strictEqual(stdout, 'Hello, AI Coding Agent!\n', 'stdout must be byte-exact');` (`src/index.test.js:16`) alongside `assert.strictEqual(code, 0, 'exit code must be 0');` (`src/index.test.js:15`). Any new test must preserve this byte-exact standard — no `.includes()`, no trimming, no regex-based partial matches on the oracle's primary output.
+3. **Callback (`done`) async pattern only — no Promises, no async/await, no arrow functions** (GUARDRAILS.md §2 rule 15). Current signature: `function (t, done) { ... }` (`src/index.test.js:8`), with `done()` invoked inside the `proc.on('close', ...)` handler (`src/index.test.js:18`). This preserves ES5 compliance in a file the automated `es5-check` gate does **not** cover (see `es5-compliance-traps.md`).
+4. **Path construction always via `path.join(__dirname, ...)`**, never a hardcoded relative string (`src/index.test.js:6`): `var indexPath = path.join(__dirname, 'index.js');`.
+5. **Module loading is CommonJS `require`, ES5 `var` style**, matching the rest of the repo: `var test = require('node:test'); var assert = require('node:assert'); var childProcess = require('node:child_process'); var path = require('node:path');` (`src/index.test.js:1-4`). Note the `node:` protocol prefix is used consistently for built-ins.
+6. **Never modify this test file to make a failing test pass** — fix the source (`src/index.js`) instead (GUARDRAILS.md §2 rule 1). If a test genuinely seems wrong, the PR description must explicitly justify the change, and that claim will be scrutinized.
+7. **A PR that adds new behavior or fixes a bug must include a corresponding test in `src/index.test.js`** (GUARDRAILS.md "Requirements for Every PR").
+8. **This is the repo's only test file by design** — there is no unit-level coverage and none should be added, because there is no importable logic to unit test (CLAUDE.md "Test suite" note). Do not propose splitting this into multiple test files; a second `.js` file is a hard reject unless it is this sole authorized test file (MISSION.md/GUARDRAILS.md §4/§5).
 
 ## Gotchas
 
-- Don't "upgrade" this test to use `require('../src/index')` for convenience — that would defeat the subprocess-isolation design and is a deliberate architectural choice, not an oversight.
-- Don't introduce a test framework (Jest, Mocha, Vitest) — the zero-dependency policy and single-test-file architecture are permanent constraints (see MISSION.md scope).
-- Don't convert the callback `done` pattern to async/await for "modernization" — this would violate the ES5-only surface rule that extends to test code.
+- `npm test` (`node --test`) will silently exit 0 with zero test files if `src/index.test.js` were ever deleted — this is a documented false-pass trap (GUARDRAILS.md §6.2). Always verify `npm test` stdout explicitly names ≥1 discovered test file before treating a green run as meaningful.
+- ES5 compliance in this file is **manual-only** — `scripts/es5-check.js` never scans `src/index.test.js`. Don't assume a passing `es5-check` run says anything about this file.
+- Because the test spawns a real `node` process per run, test execution has real subprocess overhead (fork + stdout streaming) compared to an in-process `require()` — this is intentional and should not be "optimized away" by switching to direct require.

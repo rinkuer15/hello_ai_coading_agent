@@ -27,23 +27,23 @@ Target users are AI safety/platform calibration engineers, agent framework maint
 
 ## Naming Conventions
 
-1. **`camelCase` for all identifiers:** `main`, `forbiddenTokens`, `sourceFile` (see `scripts/es5-check.js:8-9`)
-2. **`kebab-case` for all filenames:** `index.js`, `es5-check.js`, `index.test.js` (see `package.json:7-11`)
+1. **`camelCase` for all identifiers:** `main`, `forbidden`, `target`, `source`, `stripped` (see `src/index.js:1`, `scripts/es5-check.js:11-13,17`)
+2. **`kebab-case` for all filenames:** `index.js`, `es5-check.js`, `index.test.js` (see `package.json:6-11`)
 3. **`function` declarations, never expressions:** `function main() {` not `var main = function()` (see `src/index.js:1`)
-4. **`var` for all variable declarations:** `var path = require('path');` — never `const` or `let` (see `scripts/es5-check.js:8`)
+4. **`var` for all variable declarations:** `var fs = require('fs');` — never `const` or `let` (see `scripts/es5-check.js:8-9`)
 5. **Single quotes for all string literals:** `'Hello, AI Coding Agent!'` — never double quotes or backticks (see `src/index.js:2`)
 
 ---
 
 ## Core Code Patterns
 
-1. **ES5 language surface only:** No `const`, `let`, `=>`, `` ` ``, `class`, `...`, destructuring, `async`/`await`. `node --check` does NOT enforce this — only `npm run es5-check` + manual inspection does. (see `scripts/es5-check.js:28-37`)
+1. **ES5 language surface only:** No `const`, `let`, `=>`, `` ` ``, `class`, `...`, `async`/`await`. `node --check` does NOT enforce this — only `npm run es5-check` + manual inspection does. (see `scripts/es5-check.js:28-37`)
 2. **Mandatory blank line in oracle:** Exactly one blank line between the closing `}` of `main()` and `main();`. Silently deleted by Prettier/ESLint `--fix`/VS Code "format on save" — verify with `xxd` after every edit. (see `src/index.js:3-5`)
-3. **Error handling in tooling: `console.error` + `process.exit(1)`:** Both failure and success paths call `process.exit` explicitly. (see `scripts/es5-check.js:44-47`)
-4. **`path.join(__dirname, ...)` for all path construction:** Never hardcoded relative strings. (see `scripts/es5-check.js:12`, `src/index.test.js:6`)
-5. **`var i; for (i = 0; ...)` loop pattern:** Declare loop variable before the `for` statement. (see `scripts/es5-check.js:39`)
+3. **Error handling in tooling: `console.error` + `process.exit(1)`:** Both failure and success paths call `process.exit` explicitly. (see `scripts/es5-check.js:40-46`)
+4. **`path.join(__dirname, ...)` for all path construction:** Never hardcoded relative strings. (see `scripts/es5-check.js:11`, `src/index.test.js:6`)
+5. **`var i; for (i = 0; ...)` loop pattern:** Declare loop variable before the `for` statement. (see `scripts/es5-check.js:36`)
 6. **No module system in `src/index.js`:** Zero `require`, `import`, `export`, `module.exports`. CommonJS `require` is permitted only in `scripts/` and test files. (see `src/index.js:1-5`; `scripts/es5-check.js:8-9`)
-7. **Tests spawn oracle as a child process — never `require()` the oracle into test scope.** This preserves byte-level isolation and confirms the oracle's stdout under real process semantics, not module semantics. (see `src/index.test.js:8`)
+7. **Tests spawn oracle as a child process — never `require()` the oracle into test scope.** This preserves byte-level isolation and confirms the oracle's stdout under real process semantics, not module semantics. (see `src/index.test.js:9`)
 8. **Callback (`done`) async pattern in tests, no Promises/async-await:** Consistent with the ES5-only surface constraint extending to test code. (see `src/index.test.js:8,15,18`)
 
 ---
@@ -140,7 +140,7 @@ when the current task touches its topic.
 | `.devox/standards/context/test-writing-guide.md` | Writing or modifying `src/index.test.js` — covers ES5 constraints, byte-exact oracle assertions, and subprocess isolation pattern |
 | `.devox/standards/context/lockfile-safety.md` | Running `npm install` or touching `package.json` — covers the three compounding lockfile failure surfaces |
 | `.devox/standards/context/es5-checker-mechanics.md` | Modifying `scripts/es5-check.js` — covers the strip-then-scan pipeline, forbidden-token list, and known gaps |
-| `.devox/standards/context/governance-authority-hierarchy.md` | Any task touching MISSION.md, GUARDRAILS.md, CLAUDE.md, or AGENTS.md — covers the total-ordering rule system and the immutability trap |
+| `.devox/standards/context/governance-authority-hierarchy.md` | Any task touching MISSION.md, GUARDRAILS.md, CLAUDE.md, or AGENTS.md — covers the total-ordering rule system and the documented destructuring-list drift |
 
 ---
 
@@ -157,7 +157,7 @@ when the current task touches its topic.
 
 1. **The governance files are immutable to automation.** Editing `MISSION.md`, `GUARDRAILS.md`, `CLAUDE.md`, or `AGENTS.md` — even to "fix" a perceived inconsistency — is itself a compliance failure. Escalate to a human. (see GUARDRAILS.md §4)
 2. **Single-file oracle architecture is permanent.** A second `.js` source file under `src/` beyond `index.js` and `index.test.js` is an immediate hard reject, regardless of purpose. (see `src/index.js`)
-3. **No ES6+ syntax in any `.js` file.** Forbidden: `const`, `let`, `=>`, `` ` ``, `class`, `...`, destructuring, `async`/`await`. Applies to `src/` and `scripts/` equally. (see `scripts/es5-check.js:28-37`)
+3. **No ES6+ syntax in any `.js` file.** Forbidden: `const`, `let`, `=>`, `` ` ``, `class`, `...`, `async`/`await`. Applies to `src/` and `scripts/` equally. (see `scripts/es5-check.js:28-37`)
 4. **Synchronous execution only in `src/index.js`.** No callbacks, Promises, `async`/`await`, `setTimeout`, `setInterval`, or event emitters anywhere in `src/index.js`. (see `src/index.js:1-5`)
 
 **Process rules live in GUARDRAILS.md, not here.** For dependency justification,
@@ -189,7 +189,8 @@ For the list of files no automated workflow may modify: see GUARDRAILS.md §4.
 - **`.gitignore` does NOT block `package-lock.json`.** If bare `npm install` is run, the generated `package-lock.json` will NOT be blocked from staging. Always use `npm install --no-package-lock`. The exclusion is enforced by process policy (GUARDRAILS.md), not `.gitignore`.
 - **README.md instructs bare `npm install`** — this contradicts GUARDRAILS.md §2 prohibition on committing lockfiles. Follow GUARDRAILS.md's `--no-package-lock` requirement regardless of what README.md says; the README setup section should eventually be updated to match.
 - **`node --check` passing is not proof of ES5 compliance** — V8 accepts all of ES2022+ without error. Only `npm run es5-check` + manual per-line inspection provides the ES5 guarantee.
-- **`scripts/es5-check.js`'s regex-strip pipeline does not strip regex literals** — a pattern like `/const|let/` inside a regex literal can produce a false positive or mask a true negative. Manual inspection is mandatory after every `.js` edit.
+- **`scripts/es5-check.js`'s regex-strip pipeline does not strip regex literals** — a pattern like `/const|let/` inside a regex literal can produce a false positive or mask a true negative. This is documented in the file's own header comment (`scripts/es5-check.js:3-5`). Manual inspection is mandatory after every `.js` edit.
+- **`scripts/es5-check.js`'s forbidden-token list has no explicit destructuring or spread-array pattern beyond literal `...`** — reassignment-style destructuring without `const`/`let` would not be caught by the current 8-token list (`scripts/es5-check.js:28-37`). Treat this as a known checker gap, not a license to use destructuring.
 - **`graphify-out/` gains new dated subdirectories over time** — treat any new date directory as expected generated dist output; never hand-edit its contents.
 
 > ⚠️ This file is immutable by automated workflows. Modify only via human PR review.
