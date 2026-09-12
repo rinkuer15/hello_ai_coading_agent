@@ -10,6 +10,10 @@ test('stdout oracle outputs exact bytes and exits 0', function (t, done) {
   var stdout = '';
   var stderr = '';
 
+  proc.on('error', function (err) {
+    done(new Error('failed to spawn node: ' + err.message));
+  });
+
   proc.stdout.on('data', function (chunk) {
     stdout += chunk;
   });
