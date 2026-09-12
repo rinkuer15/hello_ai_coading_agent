@@ -1,0 +1,18 @@
+{
+  "0": "Core Capabilities",
+  "1": "Hard Invariants",
+  "2": "Protected Files",
+  "3": "Known Compliance Traps",
+  "4": "ReadMe.md",
+  "5": "CLAUDE.md",
+  "6": "Runtime Source Code",
+  "7": "Auto-Reject Triggers",
+  "8": "Non-Goals",
+  "9": "Allowed Evolutions",
+  "10": "src/index.js â€” Runtime Oracle",
+  "11": "AGENTS.md â€” Discovery Shim",
+  "12": "package.json",
+  "13": "scripts",
+  "14": "es5-check.js",
+  "15": "index.test.js"
+}

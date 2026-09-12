@@ -4,20 +4,6 @@
   "graph": {
     "hyperedges": [
       {
-        "id": "es5_compliance_pipeline",
-        "label": "ES5 Compliance Checking Pipeline",
-        "nodes": [
-          "es5check_script",
-          "es5check_stripstep",
-          "es5check_forbiddentokens",
-          "es5check_regexgap"
-        ],
-        "relation": "implement",
-        "confidence": "EXTRACTED",
-        "confidence_score": 1.0,
-        "source_file": "scripts/es5-check.js"
-      },
-      {
         "id": "governance_authority_hierarchy",
         "label": "Governance Authority Hierarchy",
         "nodes": [
@@ -54,7 +40,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Package Manifest & Scripts",
+      "community_name": "package.json",
       "norm_label": "name",
       "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_name"
     },
@@ -65,7 +51,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Package Manifest & Scripts",
+      "community_name": "package.json",
       "norm_label": "version",
       "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_version"
     },
@@ -76,7 +62,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Package Manifest & Scripts",
+      "community_name": "package.json",
       "norm_label": "description",
       "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_description"
     },
@@ -87,7 +73,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Package Manifest & Scripts",
+      "community_name": "package.json",
       "norm_label": "scripts",
       "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts"
     },
@@ -98,7 +84,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Package Manifest & Scripts",
+      "community_name": "package.json",
       "norm_label": "start",
       "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_start"
     },
@@ -109,7 +95,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Package Manifest & Scripts",
+      "community_name": "package.json",
       "norm_label": "test",
       "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_test"
     },
@@ -120,7 +106,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Package Manifest & Scripts",
+      "community_name": "package.json",
       "norm_label": "type-check",
       "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_type_check"
     },
@@ -131,7 +117,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Package Manifest & Scripts",
+      "community_name": "package.json",
       "norm_label": "lint",
       "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_scripts_lint"
     },
@@ -142,7 +128,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "community": 1,
-      "community_name": "Package Manifest & Scripts",
+      "community_name": "package.json",
       "norm_label": "license",
       "id": "c_users_matri37_devox_workspaces_rinkuer15_hello_ai_coading_agent_worktrees_devox_thread_56b273d7_package_license"
     },
@@ -186,7 +172,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "community": 8,
-      "community_name": "Index Test File",
+      "community_name": "index.test.js",
       "norm_label": "index.test.js",
       "id": "src_index_test"
     },
@@ -201,7 +187,7 @@
       "contributor": null,
       "community": 3,
       "norm_label": "es5 compliance checker script",
-      "community_name": "ES5 Gate & Test Assertions",
+      "community_name": "ES5 Compliance Checker Script",
       "id": "es5check_script"
     },
     {
@@ -215,7 +201,7 @@
       "contributor": null,
       "community": 3,
       "norm_label": "forbidden es6+ token list",
-      "community_name": "ES5 Gate & Test Assertions",
+      "community_name": "ES5 Compliance Checker Script",
       "id": "es5check_forbiddentokens"
     },
     {
@@ -229,7 +215,7 @@
       "contributor": null,
       "community": 3,
       "norm_label": "comment and string stripping pipeline",
-      "community_name": "ES5 Gate & Test Assertions",
+      "community_name": "ES5 Compliance Checker Script",
       "id": "es5check_stripstep"
     },
     {
@@ -243,7 +229,7 @@
       "contributor": null,
       "community": 3,
       "norm_label": "known regex literal strip gap",
-      "community_name": "ES5 Gate & Test Assertions",
+      "community_name": "ES5 Compliance Checker Script",
       "id": "es5check_regexgap"
     },
     {
@@ -257,7 +243,7 @@
       "contributor": null,
       "community": 3,
       "norm_label": "index test file",
-      "community_name": "ES5 Gate & Test Assertions",
+      "community_name": "ES5 Compliance Checker Script",
       "id": "indextest_testfile"
     },
     {
@@ -271,7 +257,7 @@
       "contributor": null,
       "community": 3,
       "norm_label": "byte-exact stdout assertion in tests",
-      "community_name": "ES5 Gate & Test Assertions",
+      "community_name": "ES5 Compliance Checker Script",
       "id": "indextest_stdoutassertion"
     },
     {
@@ -285,7 +271,7 @@
       "contributor": null,
       "community": 3,
       "norm_label": "exit code 0 assertion in tests",
-      "community_name": "ES5 Gate & Test Assertions",
+      "community_name": "ES5 Compliance Checker Script",
       "id": "indextest_exitcodecheck"
     },
     {
@@ -299,7 +285,7 @@
       "contributor": null,
       "community": 9,
       "norm_label": "agents.md a\u20ac\u201d discovery shim",
-      "community_name": "AGENTS.md Redirect",
+      "community_name": "AGENTS.md \u00e2\u20ac\u201d Discovery Shim",
       "id": "agents_md"
     },
     {
@@ -313,7 +299,7 @@
       "contributor": null,
       "community": 7,
       "norm_label": "triage rules (accept / reject / defer)",
-      "community_name": "Mission Scope Triage",
+      "community_name": "Triage Rules (Accept / Reject / Defer)",
       "id": "guardrails_triage_rules"
     },
     {
@@ -325,9 +311,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 4,
       "norm_label": "absolute prohibitions (16 rules)",
-      "community_name": "Guardrails Authority Rules",
+      "community_name": "Authority Hierarchy (MISSION > GUARDRAILS > CLAUDE > AGENTS)",
       "id": "guardrails_absolute_prohibitions"
     },
     {
@@ -339,9 +325,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 5,
       "norm_label": "quality gates for auto-merge (11 gates)",
-      "community_name": "Compliance Gates & Traps",
+      "community_name": "Quality Gates for Auto-Merge (11 Gates)",
       "id": "guardrails_quality_gates"
     },
     {
@@ -353,9 +339,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 4,
       "norm_label": "protected files (auto-reject on modification)",
-      "community_name": "Guardrails Authority Rules",
+      "community_name": "Authority Hierarchy (MISSION > GUARDRAILS > CLAUDE > AGENTS)",
       "id": "guardrails_protected_files"
     },
     {
@@ -367,9 +353,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 4,
       "norm_label": "auto-reject triggers (13 triggers)",
-      "community_name": "Guardrails Authority Rules",
+      "community_name": "Authority Hierarchy (MISSION > GUARDRAILS > CLAUDE > AGENTS)",
       "id": "guardrails_auto_reject_triggers"
     },
     {
@@ -381,9 +367,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 5,
       "norm_label": "known compliance traps (8 traps)",
-      "community_name": "Compliance Gates & Traps",
+      "community_name": "Quality Gates for Auto-Merge (11 Gates)",
       "id": "guardrails_compliance_traps"
     },
     {
@@ -395,9 +381,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 5,
       "norm_label": "stdout oracle (hello, ai coding agent!)",
-      "community_name": "Compliance Gates & Traps",
+      "community_name": "Quality Gates for Auto-Merge (11 Gates)",
       "id": "mission_stdout_oracle"
     },
     {
@@ -409,9 +395,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 0,
+      "community": 4,
       "norm_label": "authority hierarchy (mission > guardrails > claude > agents)",
-      "community_name": "Guardrails Authority Rules",
+      "community_name": "Authority Hierarchy (MISSION > GUARDRAILS > CLAUDE > AGENTS)",
       "id": "mission_authority_hierarchy"
     },
     {
@@ -425,7 +411,7 @@
       "contributor": null,
       "community": 0,
       "norm_label": "governance benchmark instrument",
-      "community_name": "Governance Docs Overview",
+      "community_name": "src/index.js",
       "id": "mission_governance_benchmark"
     },
     {
@@ -437,9 +423,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 5,
       "norm_label": "compliance trap detection",
-      "community_name": "Compliance Gates & Traps",
+      "community_name": "Quality Gates for Auto-Merge (11 Gates)",
       "id": "mission_compliance_trap_detection"
     },
     {
@@ -451,9 +437,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 4,
+      "community": 5,
       "norm_label": "automated es5 gate (es5-check.js)",
-      "community_name": "Compliance Gates & Traps",
+      "community_name": "Quality Gates for Auto-Merge (11 Gates)",
       "id": "mission_es5_gate"
     },
     {
@@ -465,9 +451,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 4,
       "norm_label": "immutability surface (four governance files)",
-      "community_name": "Guardrails Authority Rules",
+      "community_name": "Authority Hierarchy (MISSION > GUARDRAILS > CLAUDE > AGENTS)",
       "id": "mission_immutability_surface"
     },
     {
@@ -479,9 +465,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 4,
       "norm_label": "hard invariants (7 non-tunable constraints)",
-      "community_name": "Guardrails Authority Rules",
+      "community_name": "Authority Hierarchy (MISSION > GUARDRAILS > CLAUDE > AGENTS)",
       "id": "mission_hard_invariants"
     },
     {
@@ -495,7 +481,7 @@
       "contributor": null,
       "community": 7,
       "norm_label": "out of scope (must never build)",
-      "community_name": "Mission Scope Triage",
+      "community_name": "Triage Rules (Accept / Reject / Defer)",
       "id": "mission_out_of_scope"
     },
     {
@@ -507,9 +493,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 5,
+      "community": 4,
       "norm_label": "zero-infrastructure reproducibility",
-      "community_name": "Guardrails Authority Rules",
+      "community_name": "Authority Hierarchy (MISSION > GUARDRAILS > CLAUDE > AGENTS)",
       "id": "mission_zero_infrastructure"
     },
     {
@@ -523,7 +509,7 @@
       "contributor": null,
       "community": 3,
       "norm_label": "readme human documentation",
-      "community_name": "ES5 Gate & Test Assertions",
+      "community_name": "ES5 Compliance Checker Script",
       "id": "readme_document"
     },
     {
@@ -537,7 +523,7 @@
       "contributor": null,
       "community": 3,
       "norm_label": "false-pass warning for missing test file",
-      "community_name": "ES5 Gate & Test Assertions",
+      "community_name": "ES5 Compliance Checker Script",
       "id": "readme_falsepass"
     },
     {
@@ -551,7 +537,7 @@
       "contributor": null,
       "community": 0,
       "norm_label": "claude.md",
-      "community_name": "Governance Docs Overview",
+      "community_name": "CLAUDE.md",
       "id": "claude_claude_md"
     },
     {
@@ -565,7 +551,7 @@
       "contributor": null,
       "community": 0,
       "norm_label": "agents.md",
-      "community_name": "Governance Docs Overview",
+      "community_name": "CLAUDE.md",
       "id": "claude_agents_md"
     },
     {
@@ -579,7 +565,7 @@
       "contributor": null,
       "community": 0,
       "norm_label": "mission.md",
-      "community_name": "Governance Docs Overview",
+      "community_name": "CLAUDE.md",
       "id": "claude_mission_md"
     },
     {
@@ -593,7 +579,7 @@
       "contributor": null,
       "community": 0,
       "norm_label": "guardrails.md",
-      "community_name": "Governance Docs Overview",
+      "community_name": "CLAUDE.md",
       "id": "claude_guardrails_md"
     },
     {
@@ -635,7 +621,7 @@
       "contributor": null,
       "community": 2,
       "norm_label": "src/index.js",
-      "community_name": "ES5 Oracle Architecture",
+      "community_name": "src/index.js",
       "id": "claude_src_index_js"
     },
     {
@@ -649,7 +635,7 @@
       "contributor": null,
       "community": 2,
       "norm_label": "src/index.test.js",
-      "community_name": "ES5 Oracle Architecture",
+      "community_name": "src/index.js",
       "id": "claude_src_index_test_js"
     },
     {
@@ -663,7 +649,7 @@
       "contributor": null,
       "community": 2,
       "norm_label": "scripts/es5-check.js",
-      "community_name": "ES5 Oracle Architecture",
+      "community_name": "src/index.js",
       "id": "claude_scripts_es5_check_js"
     },
     {
@@ -675,9 +661,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 2,
+      "community": 0,
       "norm_label": "zero-dependency node.js cli",
-      "community_name": "Governance Docs Overview",
+      "community_name": "src/index.js",
       "id": "claude_zero_dependency_node_js_cli"
     },
     {
@@ -691,7 +677,7 @@
       "contributor": null,
       "community": 2,
       "norm_label": "es5 language surface",
-      "community_name": "ES5 Oracle Architecture",
+      "community_name": "src/index.js",
       "id": "claude_es5_language_surface"
     },
     {
@@ -705,7 +691,7 @@
       "contributor": null,
       "community": 2,
       "norm_label": "byte-stable stdout oracle",
-      "community_name": "ES5 Oracle Architecture",
+      "community_name": "src/index.js",
       "id": "claude_byte_stable_stdout_oracle"
     },
     {
@@ -719,7 +705,7 @@
       "contributor": null,
       "community": 2,
       "norm_label": "single-file production architecture",
-      "community_name": "ES5 Oracle Architecture",
+      "community_name": "CLAUDE.md",
       "id": "claude_single_file_production_architecture"
     },
     {
@@ -733,7 +719,7 @@
       "contributor": null,
       "community": 0,
       "norm_label": "governance authority hierarchy",
-      "community_name": "Governance Docs Overview",
+      "community_name": "CLAUDE.md",
       "id": "claude_governance_authority_hierarchy"
     },
     {
@@ -747,7 +733,7 @@
       "contributor": null,
       "community": 2,
       "norm_label": "subprocess isolation pattern",
-      "community_name": "ES5 Oracle Architecture",
+      "community_name": "src/index.js",
       "id": "claude_subprocess_isolation_pattern"
     },
     {
@@ -774,9 +760,9 @@
       "author": null,
       "contributor": null,
       "rationale": "AGENTS.md exists as a discovery shim so tools that look for AGENTS.md still land on the canonical instructions in CLAUDE.md.",
-      "community": 0,
+      "community": 4,
       "norm_label": "redirect to claude.md",
-      "community_name": "Guardrails Authority Rules",
+      "community_name": "Authority Hierarchy (MISSION > GUARDRAILS > CLAUDE > AGENTS)",
       "id": "agents_claude_redirect"
     },
     {
@@ -789,9 +775,9 @@
       "author": null,
       "contributor": null,
       "rationale": "A single fixed stdout line provides a byte-exact pass/fail oracle that stays identical across compliant Node.js runtimes.",
-      "community": 4,
+      "community": 5,
       "norm_label": "compliance oracle",
-      "community_name": "Compliance Gates & Traps",
+      "community_name": "Quality Gates for Auto-Merge (11 Gates)",
       "id": "mission_compliance_oracle"
     },
     {
@@ -806,7 +792,7 @@
       "rationale": "When no rule directly applies, the process defaults to safety so determinism, scope control, and governance immutability are not weakened by ambiguity.",
       "community": 0,
       "norm_label": "meta-rule of safety",
-      "community_name": "Governance Docs Overview",
+      "community_name": "CLAUDE.md",
       "id": "guardrails_meta_rule"
     },
     {
@@ -825,6 +811,20 @@
       "id": "readme_false_pass_test_suite"
     },
     {
+      "label": "src/index.js Runtime Oracle",
+      "file_type": "code",
+      "source_file": "src/index.js",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 3,
+      "norm_label": "src/index.js runtime oracle",
+      "community_name": "ES5 Compliance Checker Script",
+      "id": "src_index_oracle"
+    },
+    {
       "label": ".gitignore",
       "file_type": "document",
       "source_file": "CLAUDE.md",
@@ -835,7 +835,7 @@
       "contributor": null,
       "community": 0,
       "norm_label": ".gitignore",
-      "community_name": "Governance Docs Overview",
+      "community_name": "CLAUDE.md",
       "id": "claude_gitignore"
     },
     {
@@ -849,7 +849,7 @@
       "contributor": null,
       "community": 0,
       "norm_label": "graphify-out/",
-      "community_name": "Governance Docs Overview",
+      "community_name": "CLAUDE.md",
       "id": "claude_graphify_out"
     },
     {
@@ -864,7 +864,7 @@
       "rationale": "The runtime is intentionally reduced to a deterministic oracle whose behavior can be byte-verified.",
       "community": 2,
       "norm_label": "runtime oracle",
-      "community_name": "ES5 Oracle Architecture",
+      "community_name": "src/index.js",
       "id": "claude_runtime_oracle"
     },
     {
@@ -879,7 +879,7 @@
       "rationale": "The four governance markdown files collectively constrain how agents may change the runtime layer while having no runtime effect themselves.",
       "community": 0,
       "norm_label": "governance constitution",
-      "community_name": "Governance Docs Overview",
+      "community_name": "CLAUDE.md",
       "id": "claude_governance_constitution"
     },
     {
@@ -894,7 +894,7 @@
       "rationale": "The document defines a total order for disagreements: MISSION.md for scope, GUARDRAILS.md for process, and CLAUDE.md for style and conventions.",
       "community": 0,
       "norm_label": "conflict resolution hierarchy",
-      "community_name": "Governance Docs Overview",
+      "community_name": "CLAUDE.md",
       "id": "claude_conflict_resolution_hierarchy"
     },
     {
@@ -992,10 +992,9 @@
       "author": null,
       "contributor": null,
       "rationale": "CLAUDE.md exists as the canonical source for code style and convention disputes within the governance stack.",
+      "id": "claude_style_convention_authority",
       "community": 0,
-      "norm_label": "style and convention authority",
-      "community_name": "Governance Docs Overview",
-      "id": "claude_style_convention_authority"
+      "norm_label": "style and convention authority"
     },
     {
       "label": "Two Decoupled Layers",
@@ -1007,10 +1006,9 @@
       "author": null,
       "contributor": null,
       "rationale": "The runtime oracle and governance constitution are deliberately separated so governance constrains agent behavior without affecting runtime execution.",
+      "id": "claude_two_decoupled_layers",
       "community": 0,
-      "norm_label": "two decoupled layers",
-      "community_name": "Governance Docs Overview",
-      "id": "claude_two_decoupled_layers"
+      "norm_label": "two decoupled layers"
     },
     {
       "label": "Mandatory Blank Line in Oracle",
@@ -1022,10 +1020,9 @@
       "author": null,
       "contributor": null,
       "rationale": "The blank line between the closing brace of main() and main(); is treated as load-bearing because formatter-driven deletion is part of the benchmark.",
+      "id": "claude_mandatory_blank_line",
       "community": 2,
-      "norm_label": "mandatory blank line in oracle",
-      "community_name": "ES5 Oracle Architecture",
-      "id": "claude_mandatory_blank_line"
+      "norm_label": "mandatory blank line in oracle"
     },
     {
       "label": "Governance Files Immutable to Automation",
@@ -1037,10 +1034,9 @@
       "author": null,
       "contributor": null,
       "rationale": "The governance documents are protected so agents cannot rewrite the rules they are being evaluated against.",
+      "id": "claude_governance_files_immutable",
       "community": 0,
-      "norm_label": "governance files immutable to automation",
-      "community_name": "Governance Docs Overview",
-      "id": "claude_governance_files_immutable"
+      "norm_label": "governance files immutable to automation"
     },
     {
       "label": "Deterministic Stdout Oracle",
@@ -1052,10 +1048,9 @@
       "author": null,
       "contributor": null,
       "rationale": "A byte-exact stdout program with no inputs or branching ensures behavior can be verified by hand and deviations can be attributed to agent behavior.",
+      "id": "mission_deterministic_stdout_oracle",
       "community": 0,
-      "norm_label": "deterministic stdout oracle",
-      "community_name": "Governance Docs Overview",
-      "id": "mission_deterministic_stdout_oracle"
+      "norm_label": "deterministic stdout oracle"
     },
     {
       "label": "Layered Governance Enforcement",
@@ -1067,10 +1062,9 @@
       "author": null,
       "contributor": null,
       "rationale": "A four-file constitution with strict conflict resolution creates a measurable rule hierarchy for agent compliance evaluation.",
+      "id": "mission_layered_governance_enforcement",
       "community": 0,
-      "norm_label": "layered governance enforcement",
-      "community_name": "Governance Docs Overview",
-      "id": "mission_layered_governance_enforcement"
+      "norm_label": "layered governance enforcement"
     },
     {
       "label": "Zero-Dependency Reproducibility",
@@ -1082,10 +1076,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Keeping the repository dependency-free prevents benchmark drift from upstream ecosystem changes and preserves reproducibility.",
+      "id": "mission_zero_dependency_reproducibility",
       "community": 0,
-      "norm_label": "zero-dependency reproducibility",
-      "community_name": "Governance Docs Overview",
-      "id": "mission_zero_dependency_reproducibility"
+      "norm_label": "zero-dependency reproducibility"
     },
     {
       "label": "Automated ES5 Compliance Gate",
@@ -1097,10 +1090,9 @@
       "author": null,
       "contributor": null,
       "rationale": "A zero-dependency regex-based checker enforces the narrow ES5 surface without adding tooling complexity that would weaken the benchmark.",
+      "id": "mission_es5_compliance_gate",
       "community": 2,
-      "norm_label": "automated es5 compliance gate",
-      "community_name": "ES5 Oracle Architecture",
-      "id": "mission_es5_compliance_gate"
+      "norm_label": "automated es5 compliance gate"
     },
     {
       "label": "Byte-Exact Integration Testing",
@@ -1112,10 +1104,9 @@
       "author": null,
       "contributor": null,
       "rationale": "Testing the oracle as a subprocess validates real process semantics and exact output bytes rather than module-level behavior.",
+      "id": "mission_byte_exact_integration_testing",
       "community": 0,
-      "norm_label": "byte-exact integration testing",
-      "community_name": "Governance Docs Overview",
-      "id": "mission_byte_exact_integration_testing"
+      "norm_label": "byte-exact integration testing"
     },
     {
       "label": "Blank Line Is Load-Bearing",
@@ -1127,23 +1118,9 @@
       "author": null,
       "contributor": null,
       "rationale": "The preserved blank line is intentionally part of the benchmark because removing it via formatting counts as governance failure.",
+      "id": "mission_blank_line_load_bearing",
       "community": 2,
-      "norm_label": "blank line is load-bearing",
-      "community_name": "ES5 Oracle Architecture",
-      "id": "mission_blank_line_load_bearing"
-    },
-    {
-      "label": "src/index.js Runtime Oracle",
-      "file_type": "code",
-      "source_file": "src/index.js",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "id": "index_oracle",
-      "community": 3,
-      "norm_label": "src/index.js runtime oracle"
+      "norm_label": "blank line is load-bearing"
     }
   ],
   "links": [
@@ -1317,7 +1294,7 @@
       "source_location": "line 11",
       "weight": 1.0,
       "source": "es5check_script",
-      "target": "index_oracle"
+      "target": "src_index_oracle"
     },
     {
       "relation": "references",
@@ -1377,7 +1354,7 @@
       "source_location": "line 6",
       "weight": 1.0,
       "source": "indextest_testfile",
-      "target": "index_oracle"
+      "target": "src_index_oracle"
     },
     {
       "relation": "references",
@@ -1667,16 +1644,6 @@
       "source_location": null,
       "weight": 1.0,
       "source": "mission_governance_benchmark",
-      "target": "mission_byte_exact_integration_testing"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "mission_governance_benchmark",
       "target": "mission_deterministic_stdout_oracle"
     },
     {
@@ -1700,6 +1667,16 @@
       "target": "mission_zero_dependency_reproducibility"
     },
     {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "mission_governance_benchmark",
+      "target": "mission_byte_exact_integration_testing"
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -1720,14 +1697,14 @@
       "target": "mission_immutability_surface"
     },
     {
-      "relation": "conceptually_related_to",
-      "confidence": "INFERRED",
-      "confidence_score": 0.85,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": "## Hard Invariants (Not Tunable by Issues)",
       "weight": 1.0,
-      "source": "claude_governance_files_immutable",
-      "target": "mission_hard_invariants"
+      "source": "mission_hard_invariants",
+      "target": "mission_zero_infrastructure"
     },
     {
       "relation": "references",
@@ -1740,14 +1717,14 @@
       "target": "mission_hard_invariants"
     },
     {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": "## Hard Invariants (Not Tunable by Issues)",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
       "weight": 1.0,
-      "source": "mission_hard_invariants",
-      "target": "mission_zero_infrastructure"
+      "source": "claude_governance_files_immutable",
+      "target": "mission_hard_invariants"
     },
     {
       "relation": "implements",
@@ -1767,7 +1744,7 @@
       "source_location": null,
       "weight": 1.0,
       "source": "readme_document",
-      "target": "index_oracle"
+      "target": "src_index_oracle"
     },
     {
       "relation": "references",
@@ -1807,16 +1784,6 @@
       "source_location": null,
       "weight": 1.0,
       "source": "claude_claude_md",
-      "target": "claude_governance_files_immutable"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_claude_md",
       "target": "claude_graphify_out"
     },
     {
@@ -1827,7 +1794,17 @@
       "source_location": null,
       "weight": 1.0,
       "source": "claude_claude_md",
-      "target": "claude_mandatory_blank_line"
+      "target": "claude_guardrails_md"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_mission_md",
+      "target": "claude_claude_md"
     },
     {
       "relation": "references",
@@ -1896,26 +1873,6 @@
       "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "claude_claude_md",
-      "target": "claude_style_convention_authority"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_claude_md",
-      "target": "claude_two_decoupled_layers"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "CLAUDE.md",
-      "source_location": null,
-      "weight": 1.0,
       "source": "claude_conflict_resolution_hierarchy",
       "target": "claude_claude_md"
     },
@@ -1943,21 +1900,41 @@
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "GUARDRAILS.md",
+      "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "claude_guardrails_md",
-      "target": "claude_claude_md"
+      "source": "claude_claude_md",
+      "target": "claude_governance_files_immutable"
     },
     {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "MISSION.md",
+      "source_file": "CLAUDE.md",
       "source_location": null,
       "weight": 1.0,
-      "source": "claude_mission_md",
-      "target": "claude_claude_md"
+      "source": "claude_claude_md",
+      "target": "claude_style_convention_authority"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_claude_md",
+      "target": "claude_two_decoupled_layers"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_claude_md",
+      "target": "claude_mandatory_blank_line"
     },
     {
       "relation": "references",
@@ -2057,26 +2034,6 @@
       "source_location": null,
       "weight": 1.0,
       "source": "claude_mission_md",
-      "target": "mission_blank_line_load_bearing"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_mission_md",
-      "target": "mission_byte_exact_integration_testing"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_mission_md",
       "target": "mission_compliance_oracle"
     },
     {
@@ -2097,16 +2054,6 @@
       "source_location": null,
       "weight": 1.0,
       "source": "claude_mission_md",
-      "target": "mission_es5_compliance_gate"
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "MISSION.md",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "claude_mission_md",
       "target": "mission_layered_governance_enforcement"
     },
     {
@@ -2118,6 +2065,36 @@
       "weight": 1.0,
       "source": "claude_mission_md",
       "target": "mission_zero_dependency_reproducibility"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_mission_md",
+      "target": "mission_es5_compliance_gate"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_mission_md",
+      "target": "mission_byte_exact_integration_testing"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "MISSION.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "claude_mission_md",
+      "target": "mission_blank_line_load_bearing"
     },
     {
       "relation": "references",
@@ -2462,20 +2439,6 @@
   ],
   "hyperedges": [
     {
-      "id": "es5_compliance_pipeline",
-      "label": "ES5 Compliance Checking Pipeline",
-      "nodes": [
-        "es5check_script",
-        "es5check_stripstep",
-        "es5check_forbiddentokens",
-        "es5check_regexgap"
-      ],
-      "relation": "implement",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/es5-check.js"
-    },
-    {
       "id": "governance_authority_hierarchy",
       "label": "Governance Authority Hierarchy",
       "nodes": [
@@ -2503,5 +2466,5 @@
       "source_file": "MISSION.md"
     }
   ],
-  "built_at_commit": "2f0465d709a14325ebfa1340ff4949714a18dc67"
+  "built_at_commit": "bda53e2365d9b7958102faf4dc03b84bdacda0f8"
 }
