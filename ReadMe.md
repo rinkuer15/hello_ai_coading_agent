@@ -5,8 +5,10 @@ A minimal scaffold for experimenting with AI-assisted coding agents.
 ## Setup
 
 ```bash
-npm install
+npm install --no-package-lock
 ```
+
+> Never commit `package-lock.json` - see GUARDRAILS.md.
 
 ## Usage
 
